@@ -1,0 +1,86 @@
+body {
+    margin: 0px;
+}
+
+.out {
+    position: absolute;
+    background-image: url("../images/011.jpg");
+    background-repeat: no-repeat;
+    background-position: 0% 30%;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.in {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30%;
+    background-color: rgba(255, 0, 0, 0.6);
+    height: 100%;
+}
+
+.navigation {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    right: 0px;
+
+    z-index: 3;
+
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+.header {
+    color: white;
+}
+
+.description {
+    color: white;
+}
+
+
+p.view {
+    float: left;
+    height: 100%;
+    width: 69.5%;
+    text-align: left;
+
+    border-right: 1px solid black;
+}
+p.view:hover {
+    color: white;
+}
+
+p.left {
+    float: left;
+    height: 100%;
+    text-align: center;
+    width:15%;
+
+    border-right: 1px solid black;
+}
+p.left:hover {
+    color: white;
+}
+
+p.right {
+    float: right;
+    height: 100%;
+    text-align: center;
+    width:15%;
+}
+p.right:hover {
+    color: white;
+}
+
+
+@font-face{
+    font-family: 'WebSymbolsLigaRegular';
+    src: url('WebSymbolsLiga-Regular.eot');
+    src: url('WebSymbolsLiga-Regular.eot?#iefix') format('embedded-opentype'),
+    url('WebSymbolsLiga-Regular.woff') format('woff'),
+    url('WebSymbolsLiga-Regular.ttf') format('truetype'),
+    url('WebSymbolsLiga-Regular.svg#WebSymbolsRegular') format('svg');
+}
