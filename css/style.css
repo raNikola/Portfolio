@@ -2,17 +2,32 @@ body {
     margin: 0px;
 }
 
-.out {
-    position: absolute;
+p {
+    margin: 0px;
+}
+
+ul {
+    list-style: none;
+    color: white;
+    padding-left: 15px;
+    margin-bottom: 0px;
+}
+.osnovna {
+    width: 1200px;
+    height: 800px;
+}
+
+.wraper {
+    position: relative;
     background-image: url("../images/011.jpg");
     background-repeat: no-repeat;
-    background-position: 0% 30%;
-    background-size: 100%;
+    background-position: 0% 0%;
+    background-size: cover;
     height: 100%;
     width: 100%;
 }
 
-.in {
+.article {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -21,66 +36,73 @@ body {
     height: 100%;
 }
 
+.header {
+    color: white;
+    padding-left: 15px;
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+
+.description {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
 .navigation {
     position: absolute;
     display: inline-block;
     bottom: 0px;
     right: 0px;
 
+    height: 5%;
+    width: 30%;
     z-index: 3;
 
     background-color: rgba(255, 0, 0, 0.6);
-}
-
-.header {
-    color: white;
-}
-
-.description {
-    color: white;
+    line-height: 250%;
+    font-family: Monospace;
+    font-size: 120%;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 
 p.view {
     float: left;
     height: 100%;
-    width: 69.5%;
+    width: 65%;
     text-align: left;
-
+    color: white;
+    padding-left: 15px;
     border-right: 1px solid black;
+
 }
 p.view:hover {
-    color: white;
+    color: black;
 }
 
-p.left {
+.prev {
     float: left;
     height: 100%;
     text-align: center;
     width:15%;
+    color: white;
 
     border-right: 1px solid black;
 }
-p.left:hover {
-    color: white;
+.prev:hover {
+    color: black;
 }
 
-p.right {
+.next {
     float: right;
     height: 100%;
     text-align: center;
     width:15%;
+    color:white;
 }
-p.right:hover {
-    color: white;
-}
-
-
-@font-face{
-    font-family: 'WebSymbolsLigaRegular';
-    src: url('WebSymbolsLiga-Regular.eot');
-    src: url('WebSymbolsLiga-Regular.eot?#iefix') format('embedded-opentype'),
-    url('WebSymbolsLiga-Regular.woff') format('woff'),
-    url('WebSymbolsLiga-Regular.ttf') format('truetype'),
-    url('WebSymbolsLiga-Regular.svg#WebSymbolsRegular') format('svg');
+.next:hover {
+    color: black;
 }
