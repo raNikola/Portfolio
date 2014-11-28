@@ -3,36 +3,81 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Portfolio plugin - HTML</title>
+
+    <!-- Include JS scripts -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/idangerous.swiper.min.js"></script>
+
+    <!-- Include CSS styles -->
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="css/idangerous.swiper.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
     <div class="osnovna" >
         <div class="wraper" >
 
-            <div class="article" >
-                <!-- Set category -->
-                <ul>
-                    <li>Graphic Design</li>
-                </ul>
-                <!-- Set header text for portfolio -->
-                <h2 class="header">Selvage Kickstarter cornhole</h2>
-                <!-- Set description -->
-                <p class="description">Selvage Kickstarter cornhole, Odd Future Banksy tilde drinking vinegar keffiyeh lomo Echo Park. Cred crucifix viral, you probably haven't heard of them kale chips flannel skateboard migas. Lomo flannel forage, quinoa Carles plaid freegan 90's artisan mustache listicle PBR&B yr mumblecore church-key. Health goth listicle try-hard, vinyl keytar before they sold out gastropub craft beer butcher tote bag distillery. Tumblr biodiesel hella, Godard cronut Intelligentsia synth vegan. Kogi craft beer chillwave XOXO, wayfarers raw denim biodiesel sriracha drinking vinegar roof party meditation. Narwhal flannel synth meggings retro.<br /><br />
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
 
-                    Keytar Carles Truffaut, artisan seitan cray aesthetic Schlitz trust fund keffiyeh occupy disrupt plaid Bushwick meditation. You probably haven't heard of them before they sold out four dollar toast photo booth stumptown, mustache Kickstarter. Ethical kitsch small batch leggings, migas hashtag Carles. Pork belly tattooed tousled McSweeney's mustache kogi Pitchfork, keffiyeh four loko trust fund Pinterest. Mixtape distillery Austin cardigan fingerstache, locavore keytar Pitchfork. Etsy health goth asymmetrical before they sold out, direct trade 3 wolf moon messenger bag lomo quinoa Carles. Shoreditch chillwave synth fixie.
-                    </p>
+                <div class="swiper-slide" style="background-image: url('images/004.jpg')">
+
+                    <!-- Add a article about portfolio -->
+                    <div class="article">
+                        <!-- Set category -->
+                        <ul>
+                            <li>Graphic Design</li>
+                        </ul>
+                        <!-- Set header text for portfolio -->
+                        <h2 class="header">Selvage Kickstarter cornhole</h2>
+                        <!-- Set description -->
+                        <p class="description">Selvage Kickstarter cornhole, Odd Future Banksy tilde drinking vinegar keffiyeh lomo Echo Park. Cred crucifix viral, you probably haven't heard of them kale chips flannel skateboard migas. Lomo flannel forage, quinoa Carles plaid freegan 90's artisan mustache listicle PBR&B yr mumblecore church-key. Health goth listicle try-hard, vinyl keytar before they sold out gastropub craft beer butcher tote bag distillery. Tumblr biodiesel hella, Godard cronut Intelligentsia synth vegan. Kogi craft beer chillwave XOXO, wayfarers raw denim biodiesel sriracha drinking vinegar roof party meditation. Narwhal flannel synth meggings retro.<br /><br />
+
+                            Keytar Carles Truffaut, artisan seitan cray aesthetic Schlitz trust fund keffiyeh occupy disrupt plaid Bushwick meditation. You probably haven't heard of them before they sold out four dollar toast photo booth stumptown, mustache Kickstarter. Ethical kitsch small batch leggings, migas hashtag Carles. Pork belly tattooed tousled McSweeney's mustache kogi Pitchfork, keffiyeh four loko trust fund Pinterest. Mixtape distillery Austin cardigan fingerstache, locavore keytar Pitchfork. Etsy health goth asymmetrical before they sold out, direct trade 3 wolf moon messenger bag lomo quinoa Carles. Shoreditch chillwave synth fixie.
+                        </p>
+                    </div>
+
+                    <img src="images/006.jpg" >
+
+                </div>
+                <div class="swiper-slide" style="background-image: url('images/007.jpg')">
+                    <!-- <img src="images/001.jpg" > -->
+                </div>
+<div class="pagination"></div>
             </div>
 
             <!-- Here come the navigation -->
             <div class="navigation">
-                <p id="view" class="view">View project  <i class="fa fa-angle-right"></i></p>
-                <p id="next" class="next"><i class="fa fa-angle-right"></i></p>
-                <p id="prev" class="prev"><i class="fa fa-angle-left"></i></p>
+                <a class="view">View project  <i class="fa fa-angle-right"></i></a>
+                <a class="next"><i class="fa fa-angle-right"></i></a>
+                <a class="prev"><i class="fa fa-angle-left"></i></a>
             </div>
+        </div>
+
 
         </div>
     </div>
+
+    <script>
+        var mySwiper = $('.swiper-container').swiper({
+            loop:true,
+            grabCursor: true,
+            paginationClickable: true
+        });
+/*
+        $('.prev').on('click', function(e){
+            e.preventDefault()
+            var probaj = $(this).siblings('.swiper-container').data('swiper');
+            probaj.swipePrev();
+        });
+
+        $('.next').on('click', function(e){
+            e.preventDefault()
+            var probaj = $(this).siblings('.swiper-container').data('swiper');
+            probaj.swipeNext();
+        });*/
+    </script>
 </body>
 </html>

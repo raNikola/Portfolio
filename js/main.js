@@ -4,16 +4,16 @@
 (function($){
     $(document).ready(function(){
 
-        $("p.view").on("click", function(event) {
-            alert ('Hello!');
+        $(".prev").on("click", function(event) {
+            alert ('Hello prev!');
         });
 
-        $('p.left').on('click', function(event) {
-            alert ('Hello left!');
+        $('.next').on('click', function(event) {
+            alert ('Hello next!');
         });
 
-        $('p.right').on('click', function(event) {
-            alert ('Hello right!');
+        $('.view').on('click', function(event) {
+            alert ('Hello view!');
         });
     });
 }(jQuery));

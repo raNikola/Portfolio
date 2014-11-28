@@ -12,14 +12,15 @@ ul {
     padding-left: 15px;
     margin-bottom: 0px;
 }
-.osnovna {
+
+.swiper-container {
     width: 1200px;
     height: 800px;
 }
 
-.wraper {
+.swiper-wrapper {
     position: relative;
-    background-image: url("../images/011.jpg");
+    /*background-image: url("../images/011.jpg");*/
     background-repeat: no-repeat;
     background-position: 0% 0%;
     background-size: cover;
@@ -27,13 +28,14 @@ ul {
     width: 100%;
 }
 
+img {
+
+}
 .article {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    display: inline-block;
     width: 30%;
-    background-color: rgba(255, 0, 0, 0.6);
     height: 100%;
+    background-color: rgba(255, 0, 0, 0.6);
 }
 
 .header {
@@ -68,8 +70,7 @@ ul {
     text-transform: uppercase;
 }
 
-
-p.view {
+.view {
     float: left;
     height: 100%;
     width: 65%;
@@ -78,9 +79,6 @@ p.view {
     padding-left: 15px;
     border-right: 1px solid black;
 
-}
-p.view:hover {
-    color: black;
 }
 
 .prev {
@@ -92,9 +90,6 @@ p.view:hover {
 
     border-right: 1px solid black;
 }
-.prev:hover {
-    color: black;
-}
 
 .next {
     float: right;
@@ -103,6 +98,11 @@ p.view:hover {
     width:15%;
     color:white;
 }
-.next:hover {
+
+a:hover {
     color: black;
+}
+
+.swiper-slide {
+    text-align: right;
 }
