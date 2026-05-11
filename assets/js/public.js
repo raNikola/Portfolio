@@ -129,6 +129,62 @@ document.addEventListener('DOMContentLoaded', function () {
                 ));
         });
     }
+
+    function closeExperienceCard(card) {
+        const toggle = card.querySelector('.experience__toggle');
+        const details = card.querySelector('.experience__details');
+        const timelineItem = card.closest('.experience__timeline-item');
+
+        card.classList.remove('is-open');
+
+        if (timelineItem) {
+            timelineItem.classList.remove('is-open');
+        }
+
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        if (details) {
+            details.setAttribute('aria-hidden', 'true');
+        }
+    }
+
+    function openExperienceCard(card) {
+        const toggle = card.querySelector('.experience__toggle');
+        const details = card.querySelector('.experience__details');
+        const timelineItem = card.closest('.experience__timeline-item');
+
+        card.classList.add('is-open');
+
+        if (timelineItem) {
+            timelineItem.classList.add('is-open');
+        }
+
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'true');
+        }
+
+        if (details) {
+            details.setAttribute('aria-hidden', 'false');
+        }
+    }
+
+    const experienceSection = document.getElementById('experience');
+    if (experienceSection) {
+        experienceSection.querySelectorAll('.experience__toggle').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const currentCard = this.closest('[data-experience-card]');
+                const isOpen = currentCard.classList.contains('is-open');
+
+                experienceSection.querySelectorAll('[data-experience-card]').forEach(closeExperienceCard);
+
+                if (!isOpen) {
+                    openExperienceCard(currentCard);
+                }
+            });
+        });
+    }
 });
 
 document.addEventListener('scroll', function () {
