@@ -980,7 +980,7 @@ main .experience__action--foundation {
 }
 main .experience__action--foundation .experience__toggle {
   width: 100%;
-  justify-content: center;
+  justify-content: right;
 }
 main .experience__details {
   max-height: 0;
