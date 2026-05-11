@@ -692,17 +692,9 @@ main .experience__timeline::before {
   width: 3px;
   background: rgba(0, 0, 0, 0.14);
 }
-main .experience__timeline::after {
-  content: "";
-  display: table;
-  clear: both;
-}
 main .experience__timeline-item {
   position: relative;
   padding-left: 34px !important;
-}
-main .experience__timeline-item--foundation .experience__card {
-  border-top-color: #558b2f;
 }
 main .experience__timeline-item:hover .experience__timeline-dot, main .experience__timeline-item:focus-within .experience__timeline-dot {
   border-color: #00A800;
@@ -732,9 +724,6 @@ main .experience__timeline-dot {
   background: #fff;
   box-shadow: 0 0 0 6px #efefef;
   transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-main .experience__timeline-content {
-  position: relative;
 }
 main .experience__card {
   border-top: 5px solid #00A800;
