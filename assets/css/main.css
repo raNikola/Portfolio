@@ -976,11 +976,11 @@ main .experience__action .experience__toggle {
   text-transform: uppercase;
 }
 main .experience__action--foundation {
-  text-align: right;
+  text-align: center;
 }
 main .experience__action--foundation .experience__toggle {
-  width: auto;
-  justify-content: flex-end;
+  width: 100%;
+  justify-content: center;
 }
 main .experience__details {
   max-height: 0;

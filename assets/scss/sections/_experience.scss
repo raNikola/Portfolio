@@ -396,11 +396,11 @@ main {
       }
 
       &--foundation {
-        text-align: right;
+        text-align: center;
 
         .experience__toggle {
-          width: auto;
-          justify-content: flex-end;
+          width: 100%;
+          justify-content: center;
         }
       }
     }
