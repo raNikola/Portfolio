@@ -700,11 +700,15 @@ main .experience__timeline-item::before {
   content: "";
   position: absolute;
   top: 34px;
-  left: -21px;
-  width: 42px;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.14);
+  left: -25px;
+  width: 2px;
+  height: calc(100% + 24px);
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
   transition: background-color 0.2s ease;
+}
+main .experience__timeline-item:last-child::before {
+  display: none;
 }
 main .experience__timeline-item:hover::before, main .experience__timeline-item:focus-within::before {
   background: rgba(0, 168, 0, 0.34);
@@ -733,9 +737,9 @@ main .experience__timeline-dot {
   top: 25px;
   left: -39px;
   z-index: 1;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #cfcfcf;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #ddd;
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 0 5px #efefef;
@@ -744,10 +748,10 @@ main .experience__timeline-dot {
 main .experience__timeline-dot::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 51%;
   left: 50%;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #9e9e9e;
   transform: translate(-50%, -50%);
@@ -1640,6 +1644,23 @@ main .contact__quote strong {
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
+  main .experience__timeline {
+    padding-left: 164px;
+  }
+  main .experience__timeline::before {
+    left: 136px;
+  }
+  main .experience__timeline-date {
+    left: -164px;
+    width: 112px;
+    font-size: 0.82rem;
+  }
+  main .experience__metrics .col {
+    width: 50%;
+  }
+  main .experience__foundation-layout {
+    gap: 16px;
+  }
   .references__carousel-container {
     height: 360px;
   }
@@ -1749,10 +1770,15 @@ main .contact__quote strong {
   main .experience__timeline-item::before {
     display: none;
   }
+  main .experience__timeline-date, main .experience__timeline-dot {
+    display: none;
+  }
   main .experience__eyebrow {
     font-size: 1.1rem;
   }
   main .experience__card-header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 14px;
   }
   main .experience__foundation-layout {
@@ -1770,7 +1796,15 @@ main .contact__quote strong {
   main .experience__title {
     font-size: 1.55rem !important;
   }
+  main .experience__metrics .col {
+    width: 100%;
+  }
+  main .experience__metric {
+    min-height: auto;
+  }
   main .experience__action .experience__toggle {
+    min-height: 48px;
+    align-items: center;
     padding-right: 22px;
     padding-left: 22px;
   }

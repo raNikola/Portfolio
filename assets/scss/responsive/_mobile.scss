@@ -70,11 +70,18 @@
         }
       }
 
+      &__timeline-date,
+      &__timeline-dot {
+        display: none;
+      }
+
       &__eyebrow {
         font-size: 1.1rem;
       }
 
       &__card-header {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 14px;
       }
 
@@ -98,8 +105,20 @@
         font-size: 1.55rem !important;
       }
 
+      &__metrics {
+        .col {
+          width: 100%;
+        }
+      }
+
+      &__metric {
+        min-height: auto;
+      }
+
       &__action {
         .experience__toggle {
+          min-height: 48px;
+          align-items: center;
           padding-right: 22px;
           padding-left: 22px;
         }

@@ -1,4 +1,32 @@
 @media only screen and (min-width: 601px) and (max-width: 992px) {
+  main {
+    .experience {
+      &__timeline {
+        padding-left: 164px;
+
+        &::before {
+          left: 136px;
+        }
+      }
+
+      &__timeline-date {
+        left: -164px;
+        width: 112px;
+        font-size: .82rem;
+      }
+
+      &__metrics {
+        .col {
+          width: 50%;
+        }
+      }
+
+      &__foundation-layout {
+        gap: 16px;
+      }
+    }
+  }
+
   .references {
     &__carousel-container {
       height: 360px;
