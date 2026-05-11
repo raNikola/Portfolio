@@ -1,0 +1,317 @@
+{
+  "section": {
+    "eyebrow": "Work Experience",
+    "title": "Product & Delivery Experience",
+    "intro": "From engineering to product leadership across complex B2B platforms."
+  },
+  "groups": [
+    {
+      "id": "technical-foundation",
+      "title": "Technical Foundation",
+      "period": "2014 - 2021",
+      "summary": "Progressed from hands-on web development into senior engineering roles, building the technical foundation behind product leadership.",
+      "cta": "View technical background"
+    }
+  ],
+  "items": [
+    {
+      "id": "rute-product-manager",
+      "type": "featured",
+      "period": "Apr 2024 - Present",
+      "status": "Current",
+      "role": "Product Manager",
+      "company": {
+        "name": "RUTE INC",
+        "url": "https://rute.co"
+      },
+      "location": "Remote / Serbia",
+      "summary": "Leading product strategy and execution for a live B2B Transportation Management platform across product, engineering, QA, and stakeholder groups.",
+      "tags": [
+        "Product Strategy",
+        "B2B SaaS",
+        "Roadmap",
+        "Release Readiness",
+        "API-Driven Systems"
+      ],
+      "metrics": [
+        {
+          "value": "~40",
+          "label": "Cross-functional org"
+        },
+        {
+          "value": "30+",
+          "label": "Developers"
+        },
+        {
+          "value": "Live",
+          "label": "Production platform"
+        },
+        {
+          "value": "4",
+          "label": "Major workstreams"
+        }
+      ],
+      "cta": "View product impact",
+      "details": [
+        {
+          "title": "Product Scope",
+          "items": [
+            "Translated fragmented operational and technical requirements into clearer product scope for a transportation management platform.",
+            "Aligned MVP priorities, release expectations, and platform workflows across product, engineering, QA, and leadership stakeholders."
+          ]
+        },
+        {
+          "title": "Delivery Focus",
+          "items": [
+            "Structured backlog priorities and acceptance logic for complex API-driven workflows.",
+            "Supported launch readiness through beta feedback, release planning, and cross-team coordination."
+          ]
+        },
+        {
+          "title": "Business Impact",
+          "content": "Helped connect business intent, system constraints, and delivery execution into a more reliable product operating model."
+        }
+      ]
+    },
+    {
+      "id": "bc-technical-project-manager",
+      "type": "featured",
+      "period": "Jul 2023 - Oct 2024",
+      "role": "Technical Project Manager",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "location": "Niš, Serbia / Remote collaboration",
+      "summary": "Coordinated technical delivery across web platforms and partner-facing business operations in a distributed, revenue-sensitive environment.",
+      "tags": [
+        "Technical Delivery",
+        "Stakeholder Management",
+        "Partner Operations",
+        "Prioritization",
+        "Process Improvement"
+      ],
+      "metrics": [
+        {
+          "value": "Multi-team",
+          "label": "Delivery coordination"
+        },
+        {
+          "value": "B2B",
+          "label": "Partner operations"
+        },
+        {
+          "value": "Web",
+          "label": "Platform delivery"
+        },
+        {
+          "value": "Agile",
+          "label": "Execution model"
+        }
+      ],
+      "cta": "View delivery work",
+      "details": [
+        {
+          "title": "Coordination",
+          "items": [
+            "Kept product, business, and engineering stakeholders aligned around priorities, dependencies, and realistic delivery expectations.",
+            "Turned operational requests and technical constraints into actionable delivery work."
+          ]
+        },
+        {
+          "title": "Execution",
+          "items": [
+            "Supported planning, refinement, and follow-up across distributed teams.",
+            "Helped improve delivery visibility and coordination across business-critical web platforms."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc-scrum-master",
+      "type": "featured",
+      "period": "Jun 2021 - Jul 2023",
+      "role": "Scrum Master",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "location": "Niš, Serbia",
+      "summary": "Supported agile delivery, team alignment, and workflow improvement across web development teams.",
+      "tags": [
+        "Agile Delivery",
+        "Scrum",
+        "Team Facilitation",
+        "Backlog Flow",
+        "Continuous Improvement"
+      ],
+      "metrics": [
+        {
+          "value": "2+ yrs",
+          "label": "Agile facilitation"
+        },
+        {
+          "value": "Team",
+          "label": "Delivery enablement"
+        },
+        {
+          "value": "Flow",
+          "label": "Backlog structure"
+        },
+        {
+          "value": "Quality",
+          "label": "Release support"
+        }
+      ],
+      "cta": "View agile delivery",
+      "details": [
+        {
+          "title": "Team Enablement",
+          "items": [
+            "Facilitated agile ceremonies, team coordination, and delivery follow-up.",
+            "Helped improve backlog clarity, planning discipline, and shared understanding across changing priorities."
+          ]
+        },
+        {
+          "title": "Delivery Practice",
+          "items": [
+            "Supported smoother handoffs between product intent, UX expectations, and development execution.",
+            "Worked with teams to keep delivery practical, transparent, and outcome-focused."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc-senior-web-programmer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "May 2019 - May 2021",
+      "role": "Senior Web Programmer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Worked on web platforms and development workflows, connecting implementation quality with business and product needs.",
+      "stack": [
+        "PHP",
+        "WordPress",
+        "JavaScript",
+        "React",
+        "Sass"
+      ]
+    },
+    {
+      "id": "bc-senior-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Nov 2018 - Apr 2019",
+      "role": "Senior Web Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Delivered frontend and WordPress-based web work while supporting technical decisions and implementation consistency.",
+      "stack": [
+        "WordPress",
+        "JavaScript",
+        "PHP",
+        "CSS",
+        "Git"
+      ]
+    },
+    {
+      "id": "bc-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Jul 2018 - Oct 2018",
+      "role": "Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Built and maintained web properties in a performance and content-driven product environment.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "id": "bc-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Mar 2017 - Jun 2018",
+      "role": "Web Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Developed and maintained web experiences, gaining practical grounding in production web delivery.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "WordPress"
+      ]
+    },
+    {
+      "id": "synetic-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Nov 2016 - Feb 2017",
+      "role": "Web Developer",
+      "company": {
+        "name": "Synetic",
+        "url": "https://synetic.rs"
+      },
+      "summary": "Worked on web development implementation and delivery foundations across client-oriented projects.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "id": "shindiri-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Sep 2014 - Oct 2016",
+      "role": "Web Developer",
+      "company": {
+        "name": "Shindiri Studio",
+        "url": "https://www.shindiristudio.com/"
+      },
+      "summary": "Started professional web development work across WordPress and frontend implementation.",
+      "stack": [
+        "WordPress",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "shindiri-support-team-lead",
+      "type": "archived",
+      "period": "Sep 2014 - Jan 2015",
+      "role": "Support Team Lead",
+      "company": {
+        "name": "Shindiri Studio",
+        "url": "https://www.shindiristudio.com/"
+      },
+      "summary": "Archived early support leadership role retained in JSON for future use."
+    },
+    {
+      "id": "ministry-team-leader",
+      "type": "archived",
+      "period": "May 2012 - Oct 2012",
+      "role": "Team Leader",
+      "company": {
+        "name": "Ministry of Youth and Sport Republic of Serbia",
+        "url": "https://www.mos.gov.rs/"
+      },
+      "summary": "Archived early leadership role retained in JSON for future use."
+    }
+  ]
+}
