@@ -735,6 +735,7 @@ main .experience__card--featured .experience__title {
 }
 main .experience__card--foundation {
   border-top-color: #558b2f;
+  background: #fbfcfa;
 }
 main .experience__card.is-open .experience__details {
   max-height: 1200px;
@@ -819,9 +820,13 @@ main .experience__metrics {
   margin-bottom: 0;
 }
 main .experience__metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   min-height: 88px;
   margin-top: 12px;
-  padding: 18px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-left: 3px solid #00A800;
   background: #f7f8f7;
 }
@@ -840,6 +845,68 @@ main .experience__metric span {
   font-size: 0.9rem;
   line-height: 1.35;
 }
+main .experience__metric-icon, main .experience__foundation-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #00A800;
+  background: rgba(0, 168, 0, 0.08);
+}
+main .experience__metric-icon .site-icon, main .experience__foundation-icon .site-icon {
+  background-color: currentColor;
+}
+main .experience__metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+main .experience__metric-icon .site-icon {
+  width: 21px;
+  height: 21px;
+}
+main .experience__metric-copy {
+  min-width: 0;
+}
+main .experience__foundation-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+main .experience__foundation-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+}
+main .experience__foundation-icon .site-icon {
+  width: 28px;
+  height: 28px;
+}
+main .experience__foundation-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+main .experience__foundation-content .experience__card-header {
+  margin-bottom: 8px;
+}
+main .experience__foundation-content .experience__summary {
+  margin-bottom: 0;
+}
+main .experience__foundation-subtitle, main .experience__foundation-companies {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.55;
+}
+main .experience__foundation-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+}
+main .experience__foundation-companies {
+  font-size: 0.95rem;
+}
+main .experience__foundation-tags {
+  margin: 12px 0 14px;
+}
 main .experience__action {
   padding: 0 !important;
 }
@@ -855,6 +922,13 @@ main .experience__action .experience__toggle {
   font-weight: 600;
   text-align: left;
   text-transform: uppercase;
+}
+main .experience__action--foundation {
+  text-align: right;
+}
+main .experience__action--foundation .experience__toggle {
+  width: auto;
+  justify-content: flex-end;
 }
 main .experience__details {
   max-height: 0;
@@ -1641,6 +1715,14 @@ main .contact__quote strong {
   main .experience__card-header {
     gap: 14px;
   }
+  main .experience__foundation-layout {
+    flex-direction: column;
+    gap: 14px;
+  }
+  main .experience__foundation-icon {
+    width: 50px;
+    height: 50px;
+  }
   main .experience__card-content, main .experience__details-inner {
     padding-right: 22px;
     padding-left: 22px;
@@ -1651,6 +1733,13 @@ main .contact__quote strong {
   main .experience__action .experience__toggle {
     padding-right: 22px;
     padding-left: 22px;
+  }
+  main .experience__action--foundation {
+    text-align: left;
+  }
+  main .experience__action--foundation .experience__toggle {
+    width: 100%;
+    justify-content: flex-start;
   }
   main .experience__mini-cards {
     grid-template-columns: 1fr;

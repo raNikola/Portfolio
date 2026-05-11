@@ -43,6 +43,21 @@ function renderChips(items, className) {
     `;
 }
 
+function renderIcon(icon, className) {
+    if (!icon) {
+        return '';
+    }
+
+    return `
+        <span class="${className}" aria-hidden="true">
+            <span
+                class="site-icon"
+                style="--site-icon: url('../icons/lucide/${escapeHtml(icon)}.svg')">
+            </span>
+        </span>
+    `;
+}
+
 function renderMetrics(metrics) {
     if (!metrics || !metrics.length) {
         return '';
@@ -53,8 +68,12 @@ function renderMetrics(metrics) {
             ${metrics.map(metric => `
                 <div class="col s6 m3">
                     <div class="experience__metric">
-                        <strong>${escapeHtml(metric.value)}</strong>
-                        <span>${escapeHtml(metric.label)}</span>
+                        ${renderIcon(metric.icon, 'experience__metric-icon')}
+
+                        <div class="experience__metric-copy">
+                            <strong>${escapeHtml(metric.value)}</strong>
+                            <span>${escapeHtml(metric.label)}</span>
+                        </div>
                     </div>
                 </div>
             `).join('')}
@@ -156,6 +175,12 @@ function renderMiniCard(item) {
 
 function renderGroupCard(group, groupedItems) {
     const detailsId = `${group.id}-details`;
+    const companies = group.companies && group.companies.length
+        ? `<p class="experience__foundation-companies">${group.companies.map(escapeHtml).join(' &middot; ')}</p>`
+        : '';
+    const subtitle = group.subtitle
+        ? `<p class="experience__foundation-subtitle">${escapeHtml(group.subtitle)}</p>`
+        : '';
 
     return `
         <div class="col s12 experience__timeline-item experience__timeline-item--foundation">
@@ -165,17 +190,26 @@ function renderGroupCard(group, groupedItems) {
             <div class="experience__timeline-content">
                 <div class="card experience__card experience__card--foundation" data-experience-card>
                     <div class="card-content experience__card-content">
-                        <div class="experience__card-header">
-                            <div>
-                                <span class="experience__period hide-on-med-and-up">${escapeHtml(group.period)}</span>
-                                <span class="card-title experience__title">${escapeHtml(group.title)}</span>
+                        <div class="experience__foundation-layout">
+                            ${renderIcon(group.icon, 'experience__foundation-icon')}
+
+                            <div class="experience__foundation-content">
+                                <div class="experience__card-header">
+                                    <div>
+                                        <span class="experience__period hide-on-med-and-up">${escapeHtml(group.period)}</span>
+                                        <span class="card-title experience__title">${escapeHtml(group.title)}</span>
+                                        ${subtitle}
+                                        ${companies}
+                                    </div>
+                                </div>
+
+                                ${renderChips(group.tags, 'experience__chips experience__foundation-tags')}
+                                <p class="experience__summary">${escapeHtml(group.summary)}</p>
                             </div>
                         </div>
-
-                        <p class="experience__summary">${escapeHtml(group.summary)}</p>
                     </div>
 
-                    <div class="card-action experience__action">
+                    <div class="card-action experience__action experience__action--foundation">
                         <button
                             type="button"
                             class="waves-effect experience__toggle"

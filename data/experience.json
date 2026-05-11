@@ -9,8 +9,25 @@
       "id": "technical-foundation",
       "title": "Technical Foundation",
       "period": "2014 - 2021",
-      "summary": "Progressed from hands-on web development into senior engineering roles, building the technical foundation behind product leadership.",
-      "cta": "View technical background"
+      "subtitle": "Senior Web Programmer / Web Developer / WordPress Developer",
+      "companies": [
+        "Better Collective",
+        "Shindiri Studio",
+        "Synetic",
+        "iCite service"
+      ],
+      "tags": [
+        "PHP",
+        "WordPress",
+        "JavaScript",
+        "HTML / CSS",
+        "jQuery",
+        "Git",
+        "Web Development"
+      ],
+      "summary": "Built and maintained WordPress-based platforms, custom plugins, frontend implementations and internal tools.",
+      "cta": "View technical background",
+      "icon": "code-xml"
     }
   ],
   "items": [
@@ -36,19 +53,23 @@
       "metrics": [
         {
           "value": "~40",
-          "label": "Cross-functional org"
+          "label": "Cross-functional org",
+          "icon": "users"
         },
         {
           "value": "30+",
-          "label": "Developers"
+          "label": "Developers",
+          "icon": "code-xml"
         },
         {
           "value": "Live",
-          "label": "Production platform"
+          "label": "Production platform",
+          "icon": "rocket"
         },
         {
           "value": "4",
-          "label": "Major workstreams"
+          "label": "Major workstreams",
+          "icon": "workflow"
         }
       ],
       "cta": "View product impact",
@@ -94,19 +115,23 @@
       "metrics": [
         {
           "value": "Multi-team",
-          "label": "Delivery coordination"
+          "label": "Delivery coordination",
+          "icon": "users"
         },
         {
           "value": "B2B",
-          "label": "Partner operations"
+          "label": "Partner operations",
+          "icon": "briefcase-business"
         },
         {
           "value": "Web",
-          "label": "Platform delivery"
+          "label": "Platform delivery",
+          "icon": "globe"
         },
         {
           "value": "Agile",
-          "label": "Execution model"
+          "label": "Execution model",
+          "icon": "kanban"
         }
       ],
       "cta": "View delivery work",
@@ -148,19 +173,23 @@
       "metrics": [
         {
           "value": "2+ yrs",
-          "label": "Agile facilitation"
+          "label": "Agile facilitation",
+          "icon": "calendar-check"
         },
         {
           "value": "Team",
-          "label": "Delivery enablement"
+          "label": "Delivery enablement",
+          "icon": "users"
         },
         {
           "value": "Flow",
-          "label": "Backlog structure"
+          "label": "Backlog structure",
+          "icon": "list-checks"
         },
         {
           "value": "Quality",
-          "label": "Release support"
+          "label": "Release support",
+          "icon": "check-circle"
         }
       ],
       "cta": "View agile delivery",
