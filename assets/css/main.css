@@ -831,7 +831,7 @@ main .experience__metric {
   background: #f7f8f7;
 }
 main .experience__metric strong,
-main .experience__metric span {
+main .experience__metric .experience__metric-label {
   display: block;
 }
 main .experience__metric strong {
@@ -840,7 +840,7 @@ main .experience__metric strong {
   font-size: 1.35rem;
   line-height: 1;
 }
-main .experience__metric span {
+main .experience__metric .experience__metric-label {
   color: rgba(0, 0, 0, 0.62);
   font-size: 0.9rem;
   line-height: 1.35;

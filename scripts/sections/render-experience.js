@@ -72,7 +72,7 @@ function renderMetrics(metrics) {
 
                         <div class="experience__metric-copy">
                             <strong>${escapeHtml(metric.value)}</strong>
-                            <span>${escapeHtml(metric.label)}</span>
+                            <span class="experience__metric-label">${escapeHtml(metric.label)}</span>
                         </div>
                     </div>
                 </div>

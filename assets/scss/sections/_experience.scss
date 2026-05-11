@@ -220,7 +220,7 @@ main {
       background: #f7f8f7;
 
       strong,
-      span {
+      .experience__metric-label {
         display: block;
       }
 
@@ -231,7 +231,7 @@ main {
         line-height: 1;
       }
 
-      span {
+      .experience__metric-label {
         color: rgba(0, 0, 0, .62);
         font-size: .9rem;
         line-height: 1.35;
