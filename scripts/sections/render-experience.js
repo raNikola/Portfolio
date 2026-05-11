@@ -144,13 +144,14 @@ function renderFeaturedCard(item) {
                                 ${renderCompany(item.company, 'experience__company')}
                             </div>
 
-                            ${item.status ? `<span class="experience__badge">${escapeHtml(item.status)}</span>` : ''}
+                            <div class="experience__card-meta">
+                                ${item.location ? `<span class="experience__location">${escapeHtml(item.location)}</span>` : ''}
+                                ${item.status ? `<span class="experience__badge">${escapeHtml(item.status)}</span>` : ''}
+                            </div>
                         </div>
 
-                        ${item.location ? `<span class="experience__location">${escapeHtml(item.location)}</span>` : ''}
-
-                        <p class="experience__summary">${escapeHtml(item.summary)}</p>
                         ${renderChips(item.tags, 'experience__chips')}
+                        <p class="experience__summary">${escapeHtml(item.summary)}</p>
                         ${renderMetrics(item.metrics)}
                     </div>
 
