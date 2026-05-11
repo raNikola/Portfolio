@@ -38,6 +38,68 @@
       }
     }
 
+    .experience {
+      &__header {
+        margin-bottom: 36px;
+
+        h2 {
+          font-size: 2.7rem;
+          letter-spacing: .06em;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.65;
+        }
+      }
+
+      &__timeline {
+        margin-top: 10px;
+
+        &::before {
+          left: 17px;
+        }
+      }
+
+      &__timeline-item {
+        padding-left: 48px !important;
+
+        &::before {
+          left: 29px;
+          width: 19px;
+        }
+      }
+
+      &__timeline-marker {
+        left: 6px;
+      }
+
+      &__eyebrow {
+        font-size: 1.1rem;
+      }
+
+      &__card-content,
+      &__details-inner {
+        padding-right: 22px;
+        padding-left: 22px;
+      }
+
+      &__title {
+        font-size: 1.55rem !important;
+      }
+
+      &__action {
+        .experience__toggle {
+          padding-right: 22px;
+          padding-left: 22px;
+        }
+      }
+
+      &__mini-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .references {
       &__carousel-container {
         height: 520px;

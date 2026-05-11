@@ -653,51 +653,275 @@ main .skills .chip.active:hover {
 main .experience {
   padding: 3rem 0;
 }
-main .experience .timeline__second {
-  margin-top: 60px;
+main .experience__header {
+  margin: 3rem 0;
 }
-main .experience .timeline__date {
+main .experience__header h2 {
+  margin: 0 0 14px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f2937;
+}
+main .experience__header p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.62);
+}
+main .experience__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+main .experience__timeline {
+  position: relative;
+  margin-top: 24px;
+}
+main .experience__timeline::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 30px;
+  width: 3px;
+  background: rgba(0, 168, 0, 0.22);
+}
+main .experience__timeline::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+main .experience__timeline-item {
+  position: relative;
+  padding-left: 74px !important;
+}
+main .experience__timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 43px;
+  width: 31px;
+  height: 2px;
+  background: rgba(0, 168, 0, 0.22);
+}
+main .experience__timeline-item--foundation .experience__timeline-marker {
+  border-color: #558b2f;
+  background: #558b2f;
+}
+main .experience__timeline-marker {
+  position: absolute;
+  top: 26px;
+  left: 18px;
+  z-index: 1;
+  width: 27px;
+  height: 27px;
+  border: 4px solid #00A800;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 6px #efefef;
+}
+main .experience__timeline-content {
+  position: relative;
+}
+main .experience__card {
+  border-top: 5px solid #00A800;
+  overflow: hidden;
+}
+main .experience__card--featured .experience__title {
+  margin-bottom: 6px;
+}
+main .experience__card--foundation {
+  border-top-color: #558b2f;
+}
+main .experience__card.is-open .experience__details {
+  max-height: 1200px;
+  opacity: 1;
+  visibility: visible;
+}
+main .experience__card-content {
+  padding: 28px 28px 22px;
+}
+main .experience__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+main .experience__period, main .experience__badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+main .experience__period {
+  color: #fff;
+  background-color: #00A800;
+}
+main .experience__badge {
+  color: #00A800;
+  border: 1px solid currentColor;
+  background: rgba(0, 168, 0, 0.06);
+}
+main .experience__title {
+  font-size: 1.9rem !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  color: #1f2937;
+}
+main .experience__company {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: #00A800;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+main .experience__location {
+  display: block;
+  margin-bottom: 18px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.95rem;
+}
+main .experience__summary {
+  max-width: 880px;
+  margin: 0 0 20px;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+main .experience__chips, main .experience__mini-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+main .experience__chips .chip, main .experience__mini-stack .chip {
+  margin: 0;
+}
+main .experience__metrics {
+  margin-bottom: 0;
+}
+main .experience__metric {
+  min-height: 88px;
+  margin-top: 12px;
+  padding: 18px;
+  border-left: 3px solid #00A800;
+  background: #f7f8f7;
+}
+main .experience__metric strong,
+main .experience__metric span {
+  display: block;
+}
+main .experience__metric strong {
+  margin-bottom: 6px;
+  color: #1f2937;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+main .experience__metric span {
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+main .experience__action {
+  padding: 0 !important;
+}
+main .experience__action .experience__toggle {
+  display: inline-flex;
+  width: 100%;
+  padding: 18px 28px;
+  border: 0;
+  background: transparent;
+  color: #00A800 !important;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+}
+main .experience__details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.25s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+main .experience__details-inner {
+  padding: 26px 28px 30px;
+}
+main .experience__detail-block {
+  margin-bottom: 24px;
+}
+main .experience__detail-block:last-child {
+  margin-bottom: 0;
+}
+main .experience__detail-block h5 {
+  margin: 0 0 10px;
+  color: #1f2937;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+main .experience__detail-block p,
+main .experience__detail-block li {
+  color: rgba(0, 0, 0, 0.68);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+main .experience__detail-block ul {
+  margin: 0;
+  padding-left: 20px;
+}
+main .experience__detail-block li {
+  padding: 4px 0;
+}
+main .experience__mini-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+main .experience__mini-card {
+  margin: 0;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+main .experience__mini-card .card-content {
+  padding: 22px;
+}
+main .experience__mini-card .card-title {
+  margin-bottom: 6px;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+main .experience__mini-card p {
+  margin: 0 0 16px;
+  color: rgba(0, 0, 0, 0.68);
+  line-height: 1.65;
+}
+main .experience__mini-period {
+  margin: 4px 0 12px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-main .experience .timeline__company {
-  display: inline-block;
-  font-size: 1.75rem;
-  text-transform: uppercase;
-  margin: 0.5rem 0 0;
-}
-main .experience .timeline__company img {
-  max-width: 100%;
-  max-height: 60px;
-  filter: grayscale(1);
-  -webkit-filter: grayscale(1);
-  -webkit-transition: all 0.15s linear 0s;
-  -moz-transition: all 0.15s linear 0s;
-  transition: all 0.15s linear 0s;
-}
-main .experience .timeline__company img:hover {
-  filter: none;
-  -webkit-filter: grayscale(0);
-}
-main .experience .timeline__position {
-  font-size: 1rem;
-  text-transform: uppercase;
-  margin: 0.5rem 0 0.9rem 0;
-}
-main .experience .timeline__reveal-title {
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: 400;
-}
-main .experience .timeline__description {
-  font-size: 1rem;
-}
-main .experience .timeline__description li {
-  padding: 0.5rem 0;
-}
-main .experience .timeline__btn-more i {
-  font-size: 1.3rem;
-  padding-top: 2px;
+main .experience__mini-stack {
+  margin-bottom: 0;
 }
 
 main .education {
@@ -1384,6 +1608,50 @@ main .contact__quote strong {
   main .experience .timeline__box-right .timeline__card,
   main .education .timeline__box-right .timeline__card {
     margin-left: 0;
+  }
+  main .experience__header {
+    margin-bottom: 36px;
+  }
+  main .experience__header h2 {
+    font-size: 2.7rem;
+    letter-spacing: 0.06em;
+  }
+  main .experience__header p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  main .experience__timeline {
+    margin-top: 10px;
+  }
+  main .experience__timeline::before {
+    left: 17px;
+  }
+  main .experience__timeline-item {
+    padding-left: 48px !important;
+  }
+  main .experience__timeline-item::before {
+    left: 29px;
+    width: 19px;
+  }
+  main .experience__timeline-marker {
+    left: 6px;
+  }
+  main .experience__eyebrow {
+    font-size: 1.1rem;
+  }
+  main .experience__card-content, main .experience__details-inner {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+  main .experience__title {
+    font-size: 1.55rem !important;
+  }
+  main .experience__action .experience__toggle {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+  main .experience__mini-cards {
+    grid-template-columns: 1fr;
   }
   main .references__carousel-container {
     height: 520px;
