@@ -681,15 +681,16 @@ main .experience__eyebrow {
 main .experience__timeline {
   position: relative;
   margin-top: 24px;
+  padding-left: 192px;
 }
 main .experience__timeline::before {
   content: "";
   position: absolute;
   top: 18px;
   bottom: 18px;
-  left: 30px;
+  left: 162px;
   width: 3px;
-  background: rgba(0, 168, 0, 0.22);
+  background: rgba(0, 0, 0, 0.14);
 }
 main .experience__timeline::after {
   content: "";
@@ -698,32 +699,39 @@ main .experience__timeline::after {
 }
 main .experience__timeline-item {
   position: relative;
-  padding-left: 74px !important;
+  padding-left: 34px !important;
 }
-main .experience__timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 36px;
-  left: 43px;
-  width: 31px;
-  height: 2px;
-  background: rgba(0, 168, 0, 0.22);
+main .experience__timeline-item--foundation .experience__card {
+  border-top-color: #558b2f;
 }
-main .experience__timeline-item--foundation .experience__timeline-marker {
-  border-color: #558b2f;
-  background: #558b2f;
+main .experience__timeline-item:hover .experience__timeline-dot, main .experience__timeline-item:focus-within .experience__timeline-dot {
+  border-color: #00A800;
+  background: #00A800;
 }
-main .experience__timeline-marker {
+main .experience__timeline-date {
   position: absolute;
   top: 26px;
-  left: 18px;
+  left: -192px;
+  width: 130px;
+  color: rgba(0, 0, 0, 0.58);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: right;
+  text-transform: uppercase;
+}
+main .experience__timeline-dot {
+  position: absolute;
+  top: 26px;
+  left: -43px;
   z-index: 1;
   width: 27px;
   height: 27px;
-  border: 4px solid #00A800;
+  border: 4px solid #9e9e9e;
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 0 6px #efefef;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 main .experience__timeline-content {
   position: relative;
@@ -731,6 +739,7 @@ main .experience__timeline-content {
 main .experience__card {
   border-top: 5px solid #00A800;
   overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 main .experience__card--featured .experience__title {
   margin-bottom: 6px;
@@ -743,15 +752,22 @@ main .experience__card.is-open .experience__details {
   opacity: 1;
   visibility: visible;
 }
+main .experience__card:hover, main .experience__card:focus-within {
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.16), 0 3px 7px -2px rgba(0, 0, 0, 0.22);
+}
+main .experience__timeline-item.is-open .experience__timeline-dot {
+  border-color: #00A800;
+  background: #00A800;
+}
 main .experience__card-content {
   padding: 28px 28px 22px;
 }
-main .experience__meta {
+main .experience__card-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 main .experience__period, main .experience__badge {
   display: inline-flex;
@@ -1622,22 +1638,19 @@ main .contact__quote strong {
   }
   main .experience__timeline {
     margin-top: 10px;
+    padding-left: 0;
   }
   main .experience__timeline::before {
-    left: 17px;
+    display: none;
   }
   main .experience__timeline-item {
-    padding-left: 48px !important;
-  }
-  main .experience__timeline-item::before {
-    left: 29px;
-    width: 19px;
-  }
-  main .experience__timeline-marker {
-    left: 6px;
+    padding-left: 0 !important;
   }
   main .experience__eyebrow {
     font-size: 1.1rem;
+  }
+  main .experience__card-header {
+    gap: 14px;
   }
   main .experience__card-content, main .experience__details-inner {
     padding-right: 22px;

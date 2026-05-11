@@ -99,18 +99,22 @@
 
         return `
             <div class="col s12 experience__timeline-item">
-                <span class="experience__timeline-marker" aria-hidden="true"></span>
+                <div class="experience__timeline-date hide-on-small-only">${escapeHtml(item.period)}</div>
+                <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
 
                 <div class="experience__timeline-content">
                     <div class="card experience__card experience__card--featured" data-experience-card>
                         <div class="card-content experience__card-content">
-                            <div class="experience__meta">
-                                <span class="experience__period">${escapeHtml(item.period)}</span>
+                            <div class="experience__card-header">
+                                <div>
+                                    <span class="experience__period hide-on-med-and-up">${escapeHtml(item.period)}</span>
+                                    <span class="card-title experience__title">${escapeHtml(item.role)}</span>
+                                    ${renderCompany(item.company, 'experience__company')}
+                                </div>
+
                                 ${item.status ? `<span class="experience__badge">${escapeHtml(item.status)}</span>` : ''}
                             </div>
 
-                            <span class="card-title experience__title">${escapeHtml(item.role)}</span>
-                            ${renderCompany(item.company, 'experience__company')}
                             ${item.location ? `<span class="experience__location">${escapeHtml(item.location)}</span>` : ''}
 
                             <p class="experience__summary">${escapeHtml(item.summary)}</p>
@@ -155,16 +159,19 @@
 
         return `
             <div class="col s12 experience__timeline-item experience__timeline-item--foundation">
-                <span class="experience__timeline-marker" aria-hidden="true"></span>
+                <div class="experience__timeline-date hide-on-small-only">${escapeHtml(group.period)}</div>
+                <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
 
                 <div class="experience__timeline-content">
                     <div class="card experience__card experience__card--foundation" data-experience-card>
                         <div class="card-content experience__card-content">
-                            <div class="experience__meta">
-                                <span class="experience__period">${escapeHtml(group.period)}</span>
+                            <div class="experience__card-header">
+                                <div>
+                                    <span class="experience__period hide-on-med-and-up">${escapeHtml(group.period)}</span>
+                                    <span class="card-title experience__title">${escapeHtml(group.title)}</span>
+                                </div>
                             </div>
 
-                            <span class="card-title experience__title">${escapeHtml(group.title)}</span>
                             <p class="experience__summary">${escapeHtml(group.summary)}</p>
                         </div>
 
@@ -195,8 +202,13 @@
     function closeCard(card) {
         const toggle = card.querySelector('.experience__toggle');
         const details = card.querySelector('.experience__details');
+        const timelineItem = card.closest('.experience__timeline-item');
 
         card.classList.remove('is-open');
+
+        if (timelineItem) {
+            timelineItem.classList.remove('is-open');
+        }
 
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'false');
@@ -210,8 +222,13 @@
     function openCard(card) {
         const toggle = card.querySelector('.experience__toggle');
         const details = card.querySelector('.experience__details');
+        const timelineItem = card.closest('.experience__timeline-item');
 
         card.classList.add('is-open');
+
+        if (timelineItem) {
+            timelineItem.classList.add('is-open');
+        }
 
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');

@@ -55,27 +55,23 @@
 
       &__timeline {
         margin-top: 10px;
+        padding-left: 0;
 
         &::before {
-          left: 17px;
+          display: none;
         }
       }
 
       &__timeline-item {
-        padding-left: 48px !important;
-
-        &::before {
-          left: 29px;
-          width: 19px;
-        }
-      }
-
-      &__timeline-marker {
-        left: 6px;
+        padding-left: 0 !important;
       }
 
       &__eyebrow {
         font-size: 1.1rem;
+      }
+
+      &__card-header {
+        gap: 14px;
       }
 
       &__card-content,
