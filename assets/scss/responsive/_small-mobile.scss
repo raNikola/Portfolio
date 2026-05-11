@@ -1,0 +1,14 @@
+@media only screen and (max-width: 480px) {
+  .skills {
+    h2 {
+      font-size: clamp(42px, 12vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 6px;
+      word-break: normal;
+    }
+  }
+  .references__carousel-container .indicators {
+    display: none !important;
+  }
+}
+

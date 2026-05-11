@@ -1,0 +1,182 @@
+@media only screen and (max-width: 600px) {
+  body .header {
+    height: 100%;
+
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
+  main {
+    .skills__card.is-muted {
+      display: none !important;
+      transform: scale(0.985);
+    }
+
+    .experience .timeline,
+    .education .timeline {
+      &__second,
+      &__fix,
+      &__last {
+        margin-top: 0;
+      }
+
+      &__box-left {
+        padding: 0;
+
+        .timeline__card {
+          margin-right: 0;
+        }
+      }
+
+      &__box-right {
+        padding: 0;
+
+        .timeline__card {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .references {
+      &__carousel-container {
+        height: 520px;
+        overflow: hidden;
+      }
+
+      &__track {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      &__carousel-item {
+        min-height: 100% !important;
+        padding: 0 24px;
+      }
+
+      &__card {
+        max-width: 100%;
+        padding: 72px 0 96px;
+      }
+
+      &__controls {
+        top: 20px;
+        left: 50%;
+        right: auto;
+        flex-direction: row;
+        gap: 12px;
+        width: auto;
+        transform: translateX(-50%);
+      }
+
+      &__control {
+        width: 48px;
+        height: 48px;
+
+        &--next {
+          margin: 0;
+        }
+      }
+
+      &__carousel {
+        height: auto !important;
+
+        .indicators {
+          bottom: 28px;
+        }
+      }
+    }
+
+    .interests {
+      padding: 56px 0 72px;
+
+      &__header {
+        margin-bottom: 36px;
+
+        span {
+          font-size: 1.1rem;
+        }
+
+        h2 {
+          font-size: 2.7rem;
+          letter-spacing: .06em;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.65;
+        }
+      }
+
+      &__card {
+        min-height: auto;
+        border-top-width: 4px;
+      }
+
+      &__card__content {
+        padding: 24px 22px 18px;
+
+        .card-title {
+          font-size: 1.75rem;
+        }
+
+        p {
+          font-size: .95rem;
+          line-height: 1.75;
+        }
+      }
+
+      &__meta {
+        padding: 14px 22px 20px;
+
+        .chip {
+          height: auto;
+          line-height: 1.4;
+          padding: 7px 12px;
+          white-space: normal;
+        }
+      }
+
+      &__icon {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+    }
+
+    .contact {
+      padding: 3rem 0;
+
+      &__intro {
+        margin: 2rem 0 2.5rem;
+        padding-right: 0;
+        text-align: center;
+      }
+
+      &__eyebrow {
+        margin-bottom: 1rem;
+        font-size: .9rem;
+      }
+
+      &__title {
+        font-size: 2.2rem;
+        line-height: 1.15;
+        letter-spacing: 0;
+
+        span {
+          display: inline;
+        }
+      }
+
+      &__description {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      &__quote {
+        padding: 20px;
+      }
+    }
+  }
+}
+

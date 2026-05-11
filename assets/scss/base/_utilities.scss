@@ -1,0 +1,57 @@
+.border-top {
+  &__green {
+    border-top: 5px solid #00A800;
+  }
+
+  &__lighten-green {
+    border-top: 5px solid #c5e1a5;
+  }
+
+  &__darken-green {
+    border-top: 5px solid #558b2f;
+  }
+}
+
+.site-icon {
+  --site-icon: none;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: var(--site-icon);
+  mask-image: var(--site-icon);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.row.equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.equal-height > .col {
+  display: flex;
+}
+
+.row.equal-height .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.row.equal-height .content-fill {
+  flex: 1;
+}
+
+.waves-effect.waves-brown .waves-ripple {
+  /* The alpha value allows the text and background color
+  of the button to still show through. */
+  background-color: rgba(121, 85, 72, 0.65);
+}
+

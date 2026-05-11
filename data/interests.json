@@ -1,0 +1,49 @@
+{
+  "eyebrow": "What I enjoy",
+  "title": "Interests",
+  "description": "A mix of adventure, creativity and technology - the things that keep me exploring, building, and learning.",
+  "items": [
+    {
+      "modifier": "photo",
+      "icon": "../icons/lucide/camera.svg",
+      "title": "Photography",
+      "description": "Photography is my creative outlet and a way to explore atmosphere, detail, and composition. I enjoy outdoor, travel, and cinematic-style photography, always looking for interesting angles rather than simply documenting places.",
+      "meta": "Canon R6 · Creative Outlet"
+    },
+    {
+      "modifier": "hiking",
+      "icon": "../icons/lucide/mountain.svg",
+      "title": "Hiking",
+      "description": "I enjoy mountain hiking, winter conditions, and challenging trails that combine endurance, adrenaline, and exploration. For me, hiking is about pushing limits, discovering new routes, and spending time far from everyday routines.",
+      "meta": "Winter Hiking · Endurance · Adventure"
+    },
+    {
+      "modifier": "cycling",
+      "icon": "../icons/lucide/bike.svg",
+      "title": "Cycling",
+      "description": "Road cycling is one of my favorite ways to disconnect, stay active, and explore new routes. I enjoy longer rides, open roads, and the rhythm of covering distance on two wheels.",
+      "meta": "Road Bike · Endurance Rides"
+    },
+    {
+      "modifier": "travel",
+      "icon": "../icons/lucide/globe-2.svg",
+      "title": "Traveling",
+      "description": "I prefer road trips, city breaks, and active travel where I can keep moving, exploring, and discovering new places. I enjoy cultures, architecture, everyday life, and photography across Europe and beyond.",
+      "meta": "Europe · Asia · America"
+    },
+    {
+      "modifier": "linux",
+      "icon": "../icons/lucide/terminal.svg",
+      "title": "Linux & Self-Hosted Tech",
+      "description": "Long-time Linux user with a strong interest in servers, self-hosted infrastructure, AI/LLM experimentation, automation, and homelab projects. Arch Linux has been my primary operating system for more than a decade.",
+      "meta": "Arch Linux · Homelab · AI"
+    },
+    {
+      "modifier": "smart-home",
+      "icon": "../icons/lucide/house-wifi.svg",
+      "title": "Smart Home & Tech Tinkering",
+      "description": "I enjoy building, fixing, and integrating smart home systems, sensors, automations, dashboards, and self-hosted tools. This includes Raspberry Pi projects, connected devices, and practical technical experiments around the home.",
+      "meta": "Raspberry Pi · Flipper Zero · Automation"
+    }
+  ]
+}

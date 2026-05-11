@@ -1,0 +1,130 @@
+main {
+  .education {
+    padding: 3rem 0;
+
+    .timeline {
+
+      &__card {
+        min-height: 200px;
+      }
+
+      &__second {
+        margin-top: 100px;
+      }
+
+      &__fix {
+        margin-top: -100px;
+      }
+
+      &__last {
+        margin-top: 100px;
+      }
+
+      &__info {
+        display: block;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        span {
+          display: inline-block;
+          margin-bottom: 5px;
+          color: #fff;
+          font-weight: 700;
+          line-height: 1;
+          position: relative;
+          padding: 5px 8px;
+          border-radius: 3px;
+        }
+      }
+
+      &__date:before {
+        content: "";
+        width: 0;
+        height: 0;
+        top: 100%;
+        left: 5px;
+        display: block;
+        position: absolute;
+        border-style: solid;
+        border-width: 0 0 8px 8px;
+        border-color: transparent;
+        border-left-color: #00A800;
+      }
+
+      &__title {
+        font-size: 1.75rem;
+        font-weight: 400;
+        line-height: 1.1;
+        margin: 1rem 0;
+      }
+
+      &__location {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.1;
+        text-transform: uppercase;
+        margin: 1rem 0;
+
+        span {
+          text-transform: capitalize;
+        }
+      }
+
+      &__show {
+        &-input {
+          display: none;
+        }
+
+        &-hidden {
+          .timeline__box {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            margin-bottom: 0;
+          }
+        }
+
+        &-section {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          height: 60px;
+          z-index: 99;
+        }
+
+        &-btn {
+          position: absolute;
+          top: calc(50% - 27px);
+          left: calc(50% - 27px);
+          line-height: 1.5;
+          z-index: 999;
+          border-radius: 50%;
+
+          i {
+            font-size: 24px;
+          }
+        }
+      }
+
+      &__show-input:checked ~ .timeline__show-hidden {
+        .timeline__box {
+          opacity: 1;
+          visibility: visible;
+          height: auto;
+          margin-bottom: 1rem;
+          transition: transform 400ms ease-out 100ms, opacity 400ms ease-out 100ms;
+
+        }
+      }
+
+      &__show-input:checked ~ .timeline__show-section {
+        display: none;
+      }
+
+      &__show-input:checked ~ .timeline__last {
+        margin-top: 0;
+      }
+    }
+  }
+}
+

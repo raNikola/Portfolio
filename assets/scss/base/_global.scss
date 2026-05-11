@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  &.light {
+    background-color: #efefef;
+  }
+
+  &.dark {
+    background-color: #27292e;
+  }
+}
+

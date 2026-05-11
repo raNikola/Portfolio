@@ -1,0 +1,176 @@
+{
+  "title": "Professional Skills",
+  "filters": [
+    {
+      "key": "all",
+      "label": "All",
+      "active": true
+    },
+    {
+      "key": "product",
+      "label": "Product"
+    },
+    {
+      "key": "research",
+      "label": "Research"
+    },
+    {
+      "key": "delivery",
+      "label": "Delivery"
+    },
+    {
+      "key": "tools",
+      "label": "Tools"
+    }
+  ],
+  "cards": [
+    {
+      "category": "product",
+      "title": "Product & Strategy",
+      "description": "Defining product direction, MVP scope, and priorities across complex B2B systems.",
+      "items": [
+        {
+          "id": "mvp-definition",
+          "label": "MVP Definition",
+          "content": "Defined MVP scope by turning fragmented ideas and disconnected modules into coherent end-to-end product flows."
+        },
+        {
+          "id": "roadmap-planning",
+          "label": "Roadmap Planning",
+          "content": "Built and maintained roadmaps that aligned business goals, product priorities, and delivery sequencing."
+        },
+        {
+          "id": "backlog-prioritization",
+          "label": "Backlog Prioritization",
+          "content": "Turned requests, feedback, and technical constraints into clear execution priorities for delivery teams."
+        },
+        {
+          "id": "stakeholder-management",
+          "label": "Stakeholder Management",
+          "content": "Aligned leadership, product, and delivery stakeholders around priorities, trade-offs, and realistic expectations."
+        },
+        {
+          "id": "release-strategy",
+          "label": "Release Strategy",
+          "content": "Helped shape structured release thinking from beta readiness through launch preparation and version planning."
+        },
+        {
+          "id": "product-scope-alignment",
+          "label": "Product Scope Alignment",
+          "content": "Connected business intent, user needs, and technical realities into product scope that teams could execute with clarity."
+        }
+      ]
+    },
+    {
+      "category": "research",
+      "title": "Research & Analysis",
+      "description": "Using market insight, user feedback, and beta learning to support stronger product decisions.",
+      "items": [
+        {
+          "id": "market-analysis",
+          "label": "Market Analysis",
+          "content": "Used market signals and commercial context to support product positioning and decision-making."
+        },
+        {
+          "id": "competitive-analysis",
+          "label": "Competitive Analysis",
+          "content": "Reviewed competing solutions and market patterns to strengthen prioritization and product direction."
+        },
+        {
+          "id": "user-feedback",
+          "label": "User Feedback",
+          "content": "Translated customer, demo, and tester feedback into clearer product and UX decisions."
+        },
+        {
+          "id": "beta-testing",
+          "label": "Beta Testing",
+          "content": "Worked directly with beta users to identify friction points, validate flows, and improve launch readiness."
+        },
+        {
+          "id": "pricing-strategy",
+          "label": "Pricing Strategy",
+          "content": "Contributed to pricing and packaging thinking through market analysis and target-customer evaluation."
+        },
+        {
+          "id": "customer-discovery",
+          "label": "Customer Discovery",
+          "content": "Helped identify potential customer segments and enterprise-fit opportunities relevant to the product."
+        }
+      ]
+    },
+    {
+      "category": "delivery",
+      "title": "Delivery & Collaboration",
+      "description": "Turning product intent into aligned execution across teams, functions, and delivery constraints.",
+      "items": [
+        {
+          "id": "requirements-gathering",
+          "label": "Requirements Gathering",
+          "content": "Structured business, user, and product needs into inputs that teams could estimate, discuss, and build against."
+        },
+        {
+          "id": "acceptance-criteria",
+          "label": "Acceptance Criteria",
+          "content": "Defined clear acceptance logic to align product goals, UX behavior, and implementation details."
+        },
+        {
+          "id": "ux-collaboration",
+          "label": "UX Collaboration",
+          "content": "Worked with design in Figma to review flows, clarify intent, and reduce ambiguity before development."
+        },
+        {
+          "id": "product-documentation",
+          "label": "Product Documentation",
+          "content": "Created documentation that improved handoff quality, shared understanding, and execution consistency."
+        },
+        {
+          "id": "cross-team-coordination",
+          "label": "Cross-Team Coordination",
+          "content": "Coordinated work across distributed teams and functions to keep delivery moving through dependencies and change."
+        },
+        {
+          "id": "agile-delivery",
+          "label": "Agile Delivery",
+          "content": "Supported structured agile delivery through backlog flow, team alignment, and realistic planning across evolving priorities."
+        }
+      ]
+    },
+    {
+      "category": "tools",
+      "title": "Tools & Technical Context",
+      "description": "Working comfortably across product, design, and technical tooling in platform and API-driven environments.",
+      "items": [
+        {
+          "id": "figma",
+          "label": "Figma",
+          "content": "Used Figma to review flows, discuss UX decisions, and align implementation expectations with design intent."
+        },
+        {
+          "id": "jira-monday",
+          "label": "Jira / Monday.com",
+          "content": "Managed backlog structure, issue tracking, prioritization, and day-to-day delivery follow-up."
+        },
+        {
+          "id": "github",
+          "label": "GitHub",
+          "content": "Worked closely with repositories, pull requests, release visibility, and engineering collaboration."
+        },
+        {
+          "id": "postman-swagger-gitbook",
+          "label": "Postman / Swagger / GitBook",
+          "content": "Used API and documentation tools to understand system behavior and support functional clarification."
+        },
+        {
+          "id": "api-driven-systems",
+          "label": "API-Driven Systems",
+          "content": "Operated effectively in products where APIs, integrations, and backend logic were central to delivery."
+        },
+        {
+          "id": "wordpress-react-context",
+          "label": "WordPress / React Context",
+          "content": "Brought practical context from WordPress-based platforms, frontend rebuilds, and modern web product environments."
+        }
+      ]
+    }
+  ]
+}

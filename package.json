@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:css && npm run build:html",
+    "build:css": "sass assets/scss/main.scss assets/css/main.css",
+    "build:html": "node scripts/build.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "short_name": "ranikola",
+  "name": "raNikola: Tech PM portfolio",
+  "description": "Tech PM portfolio site",
+  "icons": [
+    {
+      "src": "assets/images/icon_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "assets/images/icon_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "assets/images/icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "display": "standalone",
+  "scope": "/"
+}
