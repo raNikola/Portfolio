@@ -64,6 +64,10 @@
 
       &__timeline-item {
         padding-left: 0 !important;
+
+        &::before {
+          display: none;
+        }
       }
 
       &__eyebrow {

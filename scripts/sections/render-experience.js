@@ -58,6 +58,19 @@ function renderIcon(icon, className) {
     `;
 }
 
+function renderTimelineDate(period) {
+    const parts = String(period ?? '').split(/\s+[–-]\s+/);
+
+    if (parts.length < 2) {
+        return `<span>${escapeHtml(period)}</span>`;
+    }
+
+    return `
+        <span>${escapeHtml(parts[0])}</span>
+        <span>– ${escapeHtml(parts.slice(1).join(' - '))}</span>
+    `;
+}
+
 function renderMetrics(metrics) {
     if (!metrics || !metrics.length) {
         return '';
@@ -118,7 +131,7 @@ function renderFeaturedCard(item) {
 
     return `
         <div class="col s12 experience__timeline-item">
-            <div class="experience__timeline-date hide-on-small-only">${escapeHtml(item.period)}</div>
+            <div class="experience__timeline-date hide-on-small-only">${renderTimelineDate(item.period)}</div>
             <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
 
             <div class="experience__timeline-content">
@@ -184,7 +197,7 @@ function renderGroupCard(group, groupedItems) {
 
     return `
         <div class="col s12 experience__timeline-item experience__timeline-item--foundation">
-            <div class="experience__timeline-date hide-on-small-only">${escapeHtml(group.period)}</div>
+            <div class="experience__timeline-date hide-on-small-only">${renderTimelineDate(group.period)}</div>
             <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
 
             <div class="experience__timeline-content">
