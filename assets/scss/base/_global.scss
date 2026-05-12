@@ -1,8 +1,11 @@
 html {
   scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
   &.light {
     background-color: #efefef;
   }
@@ -12,3 +15,41 @@ body {
   }
 }
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+label,
+nav,
+footer,
+.btn,
+.btn-large,
+.btn-small,
+.card,
+.card-title,
+.chip,
+.modal,
+.dropdown-content,
+.sidenav,
+.tap-target,
+.timeline,
+.experience {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.chip {
+  background: transparent !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+}

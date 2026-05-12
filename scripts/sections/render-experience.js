@@ -78,6 +78,7 @@ function renderMetrics(metrics) {
 
     return `
         <div class="row experience__metrics">
+        <div class="card-action">
             ${metrics.map(metric => `
                 <div class="col s6 m3">
                     <div class="experience__metric">
@@ -90,6 +91,7 @@ function renderMetrics(metrics) {
                     </div>
                 </div>
             `).join('')}
+            </div>
         </div>
     `;
 }
@@ -164,6 +166,9 @@ function renderFeaturedCard(item) {
                             aria-controls="${escapeHtml(detailsId)}">
                             ${escapeHtml(item.cta || CTA_FALLBACK)}
                         </button>
+                        <span class="experience__toggle-icon" aria-hidden="true">
+                            <span class="site-icon" style="--site-icon: url('../icons/lucide/circle-arrow-right.svg')"></span>
+                        </span>
                     </div>
 
                     ${renderDetails(item)}

@@ -17,6 +17,17 @@ renderExperience($);
 renderInterests($)
 renderReferences($)
 
+const structuredData = $('script[type="application/ld+json"]').html();
+if (structuredData) {
+    const { createHash } = await import('crypto');
+    const structuredDataHash = createHash('sha256').update(structuredData, 'utf8').digest('base64');
+
+    $('meta[http-equiv="Content-Security-Policy"]').attr(
+        'content',
+        `default-src 'self'; script-src 'self' 'sha256-${structuredDataHash}'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`
+    );
+}
+
 fs.mkdirSync('./dist', { recursive: true });
 fs.writeFileSync(outputPath, $.html(), 'utf8');
 fs.cpSync('./assets', './dist/assets', { recursive: true });
