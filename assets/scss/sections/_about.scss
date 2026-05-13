@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 .header {
   .about {
     padding: 0;
@@ -5,8 +7,8 @@
     &__box {
       padding: 0;
       overflow: hidden;
-      background-color: rgba(255, 255, 255, .72);
-      box-shadow: 0 1px 6px rgba(0, 0, 0, .12), 0 1px 4px rgba(0, 0, 0, .24);
+      background-color: $color-surface-glass;
+      box-shadow: 0 1px 6px $color-border-default, 0 1px 4px $color-shadow-strong;
     }
 
     &__profile {
@@ -73,14 +75,14 @@
           border-style: solid;
           border-width: 0 0 8px 8px;
           border-color: transparent;
-          border-left-color: #00A800;
+          border-left-color: $color-brand-green;
         }
       }
     }
 
     &__profile-title {
       margin: 12px 0;
-      color: #3d4451;
+      color: $color-text-primary;
       font-size: 68px;
       font-weight: 800;
       letter-spacing: .02em;
@@ -91,7 +93,7 @@
       position: relative;
       display: inline-block;
       margin: 0;
-      color: #00A800;
+      color: $color-brand-green;
       font-size: 1.75rem;
       font-weight: 800;
       line-height: 1.2;
@@ -105,13 +107,13 @@
         bottom: 0;
         width: 72px;
         height: 3px;
-        background-color: #00A800;
+        background-color: $color-brand-green;
       }
     }
 
     &__profile-summary {
       margin: 18px 0 0;
-      color: #3f4650;
+      color: $color-text-body-strong;
       font-size: 1.38rem;
       font-weight: 600;
       line-height: 1.45;
@@ -133,7 +135,7 @@
         left: 50%;
         width: 2px;
         height: 72%;
-        background: rgba(160, 160, 160, 0.22);
+        background: $color-border-neutral;
         transform: translate(-50%, -50%);
       }
     }
@@ -143,7 +145,7 @@
       align-items: center;
       min-width: 0;
       gap: 13px;
-      color: #3d4451;
+      color: $color-text-primary;
       font-size: 1.08rem;
       font-weight: 500;
       line-height: 1.4;
@@ -158,12 +160,12 @@
         width: 28px;
         height: 28px;
         flex: 0 0 auto;
-        color: #00A800;
+        color: $color-brand-green;
       }
     }
 
     &__value-bar {
-      color: #fff;
+      color: $color-text-inverse;
 
       .row {
         margin-bottom: 0;
@@ -180,7 +182,7 @@
         right: 0;
         width: 1px;
         height: 42px;
-        background: rgba(255, 255, 255, .28);
+        background: $color-border-inverse-soft;
         transform: translateY(-50%);
       }
     }
@@ -220,12 +222,12 @@
       height: 64px;
       flex: 0 0 64px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .18);
+      background: rgba($color-neutral-0, .18);
 
       .site-icon {
         width: 32px;
         height: 32px;
-        color: #fff;
+        color: $color-text-inverse;
       }
     }
 
@@ -264,7 +266,7 @@
 
     &__article {
       margin: 0 auto;
-      color: #4f5661;
+      color: $color-text-secondary;
       line-height: 1.7;
 
       p {
@@ -304,7 +306,7 @@
         right: 0;
         width: 1px;
         height: 52px;
-        background: rgba(0, 168, 0, 0.18);
+        background: $color-border-accent-soft;
         transform: translateY(-50%);
       }
     }
@@ -317,7 +319,7 @@
       strong {
         display: block;
         margin: 0;
-        color: #1f2937;
+        color: $color-text-strong;
         font-size: 1.18rem;
         font-weight: 800;
         line-height: 1.2;
@@ -325,7 +327,7 @@
 
       span {
         display: block;
-        color: #3d4451;
+        color: $color-text-primary;
         font-size: 1rem;
         font-weight: 500;
         line-height: 1.4;
@@ -341,8 +343,8 @@
       min-width: 56px;
       flex: 0 0 56px;
       border-radius: 50%;
-      border: 2px solid #00A800;
-      color: #00A800;
+      border: 2px solid $color-brand-green;
+      color: $color-brand-green;
     }
 
     &__proof-icon {
@@ -365,8 +367,8 @@
       align-items: center;
       justify-content: center;
       gap: 11px;
-      color: #efefef;
-      background-color: rgba(0, 0, 0, 0.8);
+      color: $color-neutral-100;
+      background-color: $color-surface-dark;
 
       &:hover {
         scale: 110%;

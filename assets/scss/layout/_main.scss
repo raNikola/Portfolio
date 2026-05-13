@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .container {
     max-width: 1200px;
@@ -5,7 +7,7 @@ main {
     section {
       h2 {
         margin-top: 5rem;
-        color: #3d4451;
+        color: $color-text-primary;
         text-transform: uppercase;
         letter-spacing: 3px;
       }

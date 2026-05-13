@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .experience {
     padding: 3rem 0;
@@ -9,7 +11,7 @@ main {
         margin: 0 0 14px !important;
         letter-spacing: .08em;
         text-transform: uppercase;
-        color: #1f2937;
+        color: $color-text-strong;
       }
 
       p {
@@ -17,7 +19,7 @@ main {
         margin: 22px auto 0;
         font-size: 1.25rem;
         line-height: 1.5;
-        color: rgba(0, 0, 0, .62);
+        color: $color-text-neutral-62;
       }
     }
 
@@ -43,7 +45,7 @@ main {
         bottom: 18px;
         left: 162px;
         width: 1px;
-        background: rgba(0, 0, 0, .16);
+        background: $color-border-strong;
       }
     }
 
@@ -58,7 +60,7 @@ main {
         left: -25px;
         width: 2px;
         height: calc(100% + 24px);
-        background: rgba(0, 0, 0, .12);
+        background: $color-border-default;
         transform: translateX(-50%);
         transition: background-color .2s ease;
       }
@@ -70,11 +72,11 @@ main {
       &:hover,
       &:focus-within {
         &::before {
-          background: rgba(0, 168, 0, .34);
+          background: rgba($color-brand-green, .34);
         }
 
         .experience__timeline-dot {
-          border-color: #00A800;
+          border-color: $color-brand-green;
         }
       }
     }
@@ -84,7 +86,7 @@ main {
       top: 22px;
       left: -192px;
       width: 130px;
-      color: rgba(0, 0, 0, .58);
+      color: $color-text-neutral-58;
       font-size: .9rem;
       font-weight: 700;
       line-height: 1.3;
@@ -106,8 +108,8 @@ main {
       height: 28px;
       border: 2px solid #ddd;
       border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 0 0 5px #efefef;
+      background: $color-surface-primary;
+      box-shadow: 0 0 0 5px $color-surface-muted;
       transition: border-color .2s ease;
 
       &::before {
@@ -125,7 +127,7 @@ main {
     }
 
     &__card {
-      border-top: 5px solid #00A800;
+      border-top: 5px solid $color-brand-green;
       overflow: hidden;
       transition: box-shadow .2s ease, border-color .2s ease;
 
@@ -144,8 +146,8 @@ main {
       }
 
       &--foundation {
-        border-top-color: #00A800;
-        background: #fbfcfa;
+        border-top-color: $color-brand-green;
+        background: $color-neutral-50;
 
         .experience__card-content {
           padding-bottom: 24px;
@@ -175,24 +177,24 @@ main {
 
       &:hover,
       &:focus-within {
-        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, .16), 0 3px 7px -2px rgba(0, 0, 0, .22);
+        box-shadow: 0 4px 14px 0 $color-shadow-hover-start, 0 3px 7px -2px $color-shadow-hover-end;
       }
     }
 
     &__timeline-item.is-open {
       &::before {
-        background: #00A800;
+        background: $color-brand-green;
       }
 
       .experience__timeline-date {
-        color: #00A800;
+        color: $color-brand-green;
       }
 
       .experience__timeline-dot {
-        border-color: #00A800;
+        border-color: $color-brand-green;
 
         &::before {
-          background: #00A800;
+          background: $color-brand-green;
         }
       }
     }
@@ -234,27 +236,27 @@ main {
     }
 
     &__period {
-      color: #fff;
-      background-color: #00A800;
+      color: $color-text-inverse;
+      background-color: $color-brand-green;
     }
 
     &__badge {
-      color: #00A800;
+      color: $color-brand-green;
       border: 1px solid currentColor;
-      background: rgba(0, 168, 0, .06);
+      background: rgba($color-brand-green, .06);
     }
 
     &__title {
       font-size: 1.9rem !important;
       font-weight: 500 !important;
       line-height: 1.15 !important;
-      color: #1f2937;
+      color: $color-text-strong;
     }
 
     &__company {
       display: inline-block;
       margin-bottom: 0;
-      color: #00A800;
+      color: $color-brand-green;
       font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -266,7 +268,7 @@ main {
       gap: 4px;
       position: relative;
       margin-bottom: 0;
-      color: #00A800;
+      color: $color-brand-green;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
@@ -303,7 +305,7 @@ main {
       }
 
       &:hover {
-        color: #008d00;
+        color: $color-brand-green-dark;
 
         span::after {
           transform: scaleX(1);
@@ -320,7 +322,7 @@ main {
       display: inline-flex;
       align-items: center;
       min-height: 28px;
-      color: rgba(0, 0, 0, .55);
+      color: $color-text-neutral-55;
       font-size: .95rem;
       line-height: 1.3;
     }
@@ -328,7 +330,7 @@ main {
     &__summary {
       max-width: 880px;
       margin: 0 0 20px;
-      color: rgba(0, 0, 0, .72);
+      color: $color-text-neutral-72;
       font-size: 1.05rem;
       line-height: 1.7;
     }
@@ -373,13 +375,13 @@ main {
 
       strong {
         margin-bottom: 4px;
-        color: #1f2937;
+        color: $color-text-strong;
         font-size: 1.25rem;
         line-height: 1;
       }
 
       .experience__metric-label {
-        color: rgba(0, 0, 0, .62);
+        color: $color-text-neutral-62;
         font-size: .9rem;
         line-height: 1.35;
       }
@@ -391,8 +393,8 @@ main {
       align-items: center;
       justify-content: center;
       flex: 0 0 auto;
-      color: #00A800;
-      background: rgba(0, 168, 0, .08);
+      color: $color-brand-green;
+      background: $color-brand-green-soft;
 
       .site-icon {
         background-color: currentColor;
@@ -447,7 +449,7 @@ main {
     &__foundation-subtitle,
     &__foundation-companies {
       margin: 0;
-      color: rgba(0, 0, 0, .62);
+      color: $color-text-neutral-62;
       line-height: 1.55;
     }
 
@@ -478,7 +480,7 @@ main {
         padding: 0;
         border: 0;
         background: transparent;
-        color: #00A800 !important;
+        color: $color-brand-green !important;
         cursor: pointer;
         font: inherit;
         font-weight: 600;
@@ -489,7 +491,7 @@ main {
 
         &:hover,
         &:focus-visible {
-          color: #008f00 !important;
+          color: $color-brand-green-darker !important;
           outline: none;
 
           .experience__toggle-line {
@@ -548,7 +550,7 @@ main {
       overflow: hidden;
       visibility: hidden;
       transition: max-height .35s ease, opacity .25s ease, visibility .25s ease;
-      background: #fff;
+      background: $color-surface-primary;
     }
 
     &__details-inner {
@@ -564,14 +566,14 @@ main {
 
       h5 {
         margin: 0 0 10px;
-        color: #1f2937;
+        color: $color-text-strong;
         font-size: 1.2rem;
         font-weight: 600;
       }
 
       p,
       li {
-        color: rgba(0, 0, 0, .68);
+        color: $color-text-neutral-68;
         font-size: 1rem;
         line-height: 1.65;
       }
@@ -595,7 +597,7 @@ main {
     &__mini-card {
       margin: 0;
       box-shadow: none;
-      border: 1px solid rgba(0, 0, 0, .08);
+      border: 1px solid $color-border-light;
 
       .card-content {
         padding: 22px;
@@ -603,7 +605,7 @@ main {
 
       .card-title {
         margin-bottom: 6px;
-        color: #1f2937;
+        color: $color-text-strong;
         font-size: 1.25rem;
         font-weight: 500;
         line-height: 1.25;
@@ -611,14 +613,14 @@ main {
 
       p {
         margin: 0 0 16px;
-        color: rgba(0, 0, 0, .68);
+        color: $color-text-neutral-68;
         line-height: 1.65;
       }
     }
 
     &__mini-period {
       margin: 4px 0 12px;
-      color: rgba(0, 0, 0, .55);
+      color: $color-text-neutral-55;
       font-size: .9rem;
       font-weight: 600;
       text-transform: uppercase;

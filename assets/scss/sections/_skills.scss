@@ -1,9 +1,11 @@
+@use '../base/colors' as *;
+
 main {
   .skills {
     padding: 3rem 0;
 
     &__card {
-      border-top: 5px solid #00A800;
+      border-top: 5px solid $color-brand-green;
 
       &.is-muted {
         opacity: 0.34;
@@ -18,18 +20,18 @@ main {
         flex: 10;
 
         .service-chip {
-          border: 1px solid rgba(0, 0, 0, 0.3);
+          border: 1px solid $color-border-medium;
           cursor: pointer;
 
           &:hover {
-            border: 1px solid #00A800;
-            color: #00A800;
+            border: 1px solid $color-brand-green;
+            color: $color-brand-green;
           }
         }
       }
 
       &__content {
-        border-top: 1px solid rgba(0, 0, 0, .08);
+        border-top: 1px solid $color-border-light;
       }
     }
 
@@ -52,7 +54,7 @@ main {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
-        color: #3d4451;
+        color: $color-text-primary;
         gap: 6px;
         cursor: pointer;
         text-decoration: none;
@@ -75,13 +77,13 @@ main {
 
         &:hover &__bar {
           transform: scaleX(1);
-          background-color: rgba(0, 168, 0, 0.7);
+          background-color: rgba($color-brand-green, .7);
         }
 
         &.is-active {
           .skills__filters__item__bar {
             transform: scaleX(1);
-            background-color: #00A800;
+            background-color: $color-brand-green;
           }
         }
       }
@@ -107,16 +109,16 @@ main {
 
     .chip {
       &:focus {
-        background-color: #e4e4e4;
-        color: rgba(0, 0, 0, 0.6);
+        background-color: $color-neutral-200;
+        color: $color-text-neutral-60;
       }
 
       &.active {
-        background-color: #00A800 !important;
-        color: #fff;
+        background-color: $color-brand-green !important;
+        color: $color-text-inverse;
 
         &:hover {
-          background-color: rgba(0, 168, 0, 0.85);
+          background-color: $color-brand-green-hover;
         }
       }
     }

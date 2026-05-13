@@ -1,8 +1,71 @@
+$color-brand-green: #00A800 !default;
+$color-brand-green-dark: #008d00 !default;
+$color-brand-green-darker: #008f00 !default;
+$color-brand-green-hover: rgba(0, 168, 0, .85) !default;
+$color-brand-green-soft: rgba(0, 168, 0, .08) !default;
+$color-brand-green-tint: rgba($color-brand-green, .09) !default;
+$color-brand-green-muted: rgba($color-brand-green, .1) !default;
+
+$color-neutral-0: #fff !default;
+$color-neutral-50: #fbfcfa !default;
+$color-neutral-100: #efefef !default;
+$color-neutral-200: #e4e4e4 !default;
+$color-neutral-300: #d7dbde !default;
+$color-neutral-400: #9e9e9e !default;
+$color-neutral-500: #717171 !default;
+$color-neutral-900: #27292e !default;
+$color-neutral-black: #000 !default;
+
+$color-text-strong: #1f2937 !default;
+$color-text-primary: #3d4451 !default;
+$color-text-body-strong: #3f4650 !default;
+$color-text-secondary: #4f5661 !default;
+$color-text-muted: #5f6673 !default;
+$color-text-soft: #555 !default;
+$color-text-inverse: $color-neutral-0 !default;
+$color-text-neutral-55: rgba($color-neutral-black, .55) !default;
+$color-text-neutral-58: rgba($color-neutral-black, .58) !default;
+$color-text-neutral-60: rgba($color-neutral-black, .6) !default;
+$color-text-neutral-62: rgba($color-neutral-black, .62) !default;
+$color-text-neutral-65: rgba($color-neutral-black, .65) !default;
+$color-text-neutral-68: rgba($color-neutral-black, .68) !default;
+$color-text-neutral-72: rgba($color-neutral-black, .72) !default;
+$color-text-neutral-75: rgba($color-neutral-black, .75) !default;
+
+$color-surface-primary: $color-neutral-0 !default;
+$color-surface-muted: $color-neutral-100 !default;
+$color-surface-dark: rgba($color-neutral-black, .8) !default;
+$color-surface-glass: rgba($color-neutral-0, .72) !default;
+$color-surface-glass-muted: rgba($color-neutral-0, .78) !default;
+$color-surface-glass-strong: rgba($color-neutral-0, .9) !default;
+$color-surface-inverse-soft: rgba($color-neutral-0, .18) !default;
+
+$color-border-light: rgba($color-neutral-black, .08) !default;
+$color-border-hairline: rgba($color-neutral-black, .05) !default;
+$color-border-faint: rgba($color-neutral-black, .07) !default;
+$color-border-default: rgba($color-neutral-black, .12) !default;
+$color-border-strong: rgba($color-neutral-black, .16) !default;
+$color-border-medium: rgba($color-neutral-black, .3) !default;
+$color-border-accent: rgba($color-brand-green, .22) !default;
+$color-border-accent-soft: rgba($color-brand-green, .18) !default;
+$color-border-accent-strong: rgba($color-brand-green, .3) !default;
+$color-border-inverse-soft: rgba($color-neutral-0, .28) !default;
+$color-border-neutral: rgba(160, 160, 160, .22) !default;
+
+$color-shadow-soft: rgba($color-neutral-black, .08) !default;
+$color-shadow-material-soft: rgba($color-neutral-black, .14) !default;
+$color-shadow-hover-start: rgba($color-neutral-black, .16) !default;
+$color-shadow-medium: rgba($color-neutral-black, .18) !default;
+$color-shadow-material-strong: rgba($color-neutral-black, .2) !default;
+$color-shadow-hover-end: rgba($color-neutral-black, .22) !default;
+$color-shadow-strong: rgba($color-neutral-black, .24) !default;
+$color-shadow-nav-border: rgba($color-neutral-black, .19) !default;
+$color-shadow-nav-strong: rgba($color-neutral-black, .23) !default;
+
 .light-green {
-  background-color: #00A800 !important;
+  background-color: $color-brand-green !important;
 }
 
 .light-green-text {
-  color: #00A800 !important;
+  color: $color-brand-green !important;
 }
-

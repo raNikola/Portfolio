@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .contact {
     padding: 3rem 0;
@@ -15,7 +17,7 @@ main {
       font-weight: 500;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #00A800;
+      color: $color-brand-green;
     }
 
     &__title {
@@ -30,7 +32,7 @@ main {
       span {
         display: block;
         font-weight: 600;
-        color: #00A800;
+        color: $color-brand-green;
       }
     }
 
@@ -39,12 +41,12 @@ main {
 
       font-size: 1.2rem;
       line-height: 1.7;
-      color: rgba(0, 0, 0, .65);
+      color: $color-text-neutral-65;
     }
 
     &__card {
       margin: 0 0 24px;
-      border-top: 5px solid #00A800;
+      border-top: 5px solid $color-brand-green;
 
       &:hover {
         .contact__card-action::before {
@@ -62,7 +64,7 @@ main {
 
         font-size: 1.5rem;
         font-weight: 600;
-        color: #111;
+        color: $color-text-strong;
       }
 
       p {
@@ -70,7 +72,7 @@ main {
 
         font-size: 1rem;
         line-height: 1.7;
-        color: rgba(0, 0, 0, .75);
+        color: $color-text-neutral-75;
       }
     }
 
@@ -85,13 +87,13 @@ main {
       border-radius: 50%;
       font-size: 20px;
 
-      background: rgba(255, 255, 255, .2);
+      background: rgba($color-neutral-0, .2);
       backdrop-filter: blur(4px);
       border: 1px solid currentColor;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+      box-shadow: 0 4px 12px $color-shadow-soft;
 
       margin-bottom: 1.5rem;
-      color: #00A800;
+      color: $color-brand-green;
 
       .site-icon {
         width: 24px;
@@ -112,7 +114,7 @@ main {
         width: 45%;
         height: 2px;
 
-        background-color: #00A800;
+        background-color: $color-brand-green;
         transform: scaleX(0);
         transform-origin: left;
         transition: transform .25s ease;
@@ -129,7 +131,7 @@ main {
         margin: 0 !important;
         font-weight: 500;
         text-transform: none !important;
-        color: #00A800 !important;
+        color: $color-brand-green !important;
       }
 
       &--icon {
@@ -157,24 +159,24 @@ main {
       gap: .75rem;
 
       font-size: 1.05rem;
-      color: rgba(0, 0, 0, .75);
+      color: $color-text-neutral-75;
 
       .site-icon {
         width: 22px;
         height: 22px;
-        color: #00A800;
+        color: $color-brand-green;
       }
     }
 
     &__meta-separator {
       width: 1px;
       height: 20px;
-      background: rgba(0, 0, 0, .12);
+      background: $color-border-default;
     }
 
     &__quote {
       padding: 1.5rem 0 1.5rem 2rem;
-      border-left: 5px solid #00A800;
+      border-left: 5px solid $color-brand-green;
       box-shadow: none;
 
       p {
@@ -185,7 +187,7 @@ main {
         font-size: 1.5rem;
         line-height: 1.3;
         font-weight: 300;
-        color: #555;
+        color: $color-text-soft;
 
         &:before {
           content: "";
@@ -194,7 +196,7 @@ main {
           left: 0;
           width: 24px;
           height: 24px;
-          background-color: #00A800;
+          background-color: $color-brand-green;
           mask: var(--site-icon) no-repeat center;
           -webkit-mask: var(--site-icon) no-repeat center;
           mask-size: contain;
@@ -209,7 +211,7 @@ main {
         font-size: 1.8rem;
         font-weight: 600;
 
-        color: rgba(0, 0, 0, .75);
+        color: $color-text-neutral-75;
       }
     }
   }

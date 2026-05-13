@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .experience,
   .education {
@@ -64,11 +66,11 @@ main {
         height: 30px;
         display: block;
         position: absolute;
-        background-color: white;
+        background-color: $color-surface-primary;
         top: 4rem;
         z-index: 2;
 
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 2px 0 $color-shadow-material-soft, 0 3px 1px -2px $color-border-default, 0 1px 5px 0 $color-shadow-material-strong;
 
         &::after {
           content: "";
@@ -77,7 +79,7 @@ main {
           width: 43.5px;
           height: 21.5px;
           bottom: 12px;
-          background-color: white;
+          background-color: $color-surface-primary;
           z-index: 100;
 
         }
@@ -107,7 +109,7 @@ main {
         position: absolute;
         width: 10px;
         height: 10px;
-        background-color: #00A800;
+        background-color: $color-brand-green;
         border-radius: 50%;
         top: 4.7rem;
 

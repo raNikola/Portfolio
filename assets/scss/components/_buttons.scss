@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 html {
   .top-btn {
     transition: all 0.3s ease-out;
@@ -26,20 +28,20 @@ html {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #00A800;
-  color: #efefef;
+  background: $color-brand-green;
+  color: $color-neutral-100;
   z-index: 1000;
   padding: 0;
   margin: 0;
   line-height: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  box-shadow: 0 8px 24px $color-shadow-medium;
 
   &:hover {
-    background-color: #00A800;
+    background-color: $color-brand-green;
   }
 
   &:focus {
-    background-color: #00A800;
+    background-color: $color-brand-green;
   }
 
   svg {

@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 footer {
   .container {
     max-width: 1200px;
@@ -15,7 +17,7 @@ footer {
         transition: transition, background-color .25s linear 0s;
 
         &:hover {
-          background-color: rgba(0, 0, 0, .1);
+          background-color: $color-border-default;
           text-decoration: none;
         }
 

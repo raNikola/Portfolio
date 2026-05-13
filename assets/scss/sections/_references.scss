@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .references {
     padding: 3rem 0;
@@ -28,13 +30,13 @@ main {
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          background-color: #3d4451;
+          background-color: $color-text-primary;
           opacity: .45;
 
           transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
 
           &.active {
-            background-color: #00A800;
+            background-color: $color-brand-green;
             opacity: 1;
             transform: scale(1.35);
           }
@@ -45,7 +47,7 @@ main {
     &__carousel-container {
       position: relative;
       height: 320px;
-      border-top: 5px solid #00A800;
+      border-top: 5px solid $color-brand-green;
       overflow: hidden;
 
       -webkit-user-select: none;
@@ -86,7 +88,7 @@ main {
         left: 0;
         width: 24px;
         height: 24px;
-        background-color: #00A800;
+        background-color: $color-brand-green;
         mask: var(--site-icon) no-repeat center;
         -webkit-mask: var(--site-icon) no-repeat center;
         mask-size: contain;
@@ -130,7 +132,7 @@ main {
     }
 
     &__title {
-      color: #717171;
+      color: $color-neutral-500;
       font-size: .95rem;
     }
 
@@ -149,12 +151,12 @@ main {
       height: 58px;
       margin: 0;
       padding: 0;
-      border: 1px solid #d7dbde;
+      border: 1px solid $color-neutral-300;
       cursor: pointer;
-      color: #00A800;
+      color: $color-brand-green;
       align-items: center;
       justify-content: center;
-      background: #fff;
+      background: $color-surface-primary;
 
       .site-icon {
         width: 24px;

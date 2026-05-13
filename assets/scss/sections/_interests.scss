@@ -1,3 +1,5 @@
+@use '../base/colors' as *;
+
 main {
   .interests {
     padding: 3rem 0;
@@ -19,7 +21,7 @@ main {
         margin: 0 0 14px !important;
         letter-spacing: .08em;
         text-transform: uppercase;
-        color: #1f2937;
+        color: $color-text-strong;
       }
 
       span {
@@ -39,7 +41,7 @@ main {
         margin: 22px auto 0;
         font-size: 1.25rem;
         line-height: 1.5;
-        color: rgba(0, 0, 0, .62);
+        color: $color-text-neutral-62;
       }
     }
 
@@ -47,7 +49,7 @@ main {
     &__card {
       position: relative;
       overflow: hidden;
-      border-top: 5px solid #00A800;
+      border-top: 5px solid $color-brand-green;
 
       display: flex;
       flex-direction: column;
@@ -219,7 +221,7 @@ main {
       background: rgba(255, 255, 255, .2);
       backdrop-filter: blur(4px);
       border: 1px solid currentColor;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+      box-shadow: 0 4px 12px $color-shadow-soft;
 
       .site-icon {
         width: 24px;
@@ -234,8 +236,8 @@ main {
 
 
       padding: 18px 28px 22px;
-      background: #fff;
-      border-top: 1px solid rgba(0, 0, 0, .05);
+      background: $color-surface-primary;
+      border-top: 1px solid $color-border-hairline;
 
       .chip {
         background: rgba(255, 255, 255, .55);

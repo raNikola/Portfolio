@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 html {
   scroll-behavior: smooth;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -7,11 +9,11 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 
   &.light {
-    background-color: #efefef;
+    background-color: $color-surface-muted;
   }
 
   &.dark {
-    background-color: #27292e;
+    background-color: $color-neutral-900;
   }
 }
 
@@ -51,6 +53,6 @@ footer,
 .chip {
   background: transparent !important;
   border-radius: 10px !important;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid $color-border-default;
   box-shadow: none;
 }

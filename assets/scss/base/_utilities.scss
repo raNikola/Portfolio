@@ -1,6 +1,8 @@
+@use 'colors' as *;
+
 .border-top {
   &__green {
-    border-top: 5px solid #00A800;
+    border-top: 5px solid $color-brand-green;
   }
 
   &__lighten-green {

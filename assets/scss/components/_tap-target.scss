@@ -1,9 +1,11 @@
+@use '../base/colors' as *;
+
 .tap-target {
-  background-color: #00A800;
-  color: #efefef;
+  background-color: $color-brand-green;
+  color: $color-neutral-100;
 
   .tap-target-origin {
-    background-color: #00A800;
+    background-color: $color-brand-green;
   }
 }
 
