@@ -20,6 +20,11 @@ main {
         .service-chip {
           border: 1px solid rgba(0, 0, 0, 0.3);
           cursor: pointer;
+
+          &:hover {
+            border: 1px solid #00A800;
+            color: #00A800;
+          }
         }
       }
 

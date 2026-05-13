@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://cv.ranikola.dev/#nikola-randjelovic",
+  "name": "Nikola Randjelovic",
+  "givenName": "Nikola",
+  "familyName": "Randjelovic",
+  "alternateName": "raNikola",
+  "jobTitle": "Product Manager",
+  "email": "mailto:hello@ranikola.dev",
+  "telephone": "+38162369258",
+  "url": "https://cv.ranikola.dev/",
+  "image": "https://cv.ranikola.dev/assets/images/me_400x400.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/ranikola",
+    "https://github.com/ranikola",
+    "https://ranikola.dev"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Niš",
+    "addressCountry": "RS"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Faculty of Electronic Engineering, University of Niš"
+  },
+  "knowsAbout": [
+    "Product Management",
+    "Systems and Platform Delivery",
+    "B2B Product Delivery",
+    "MVP Definition",
+    "Roadmap Planning",
+    "Agile Delivery",
+    "Scrum",
+    "Cross-Team Coordination",
+    "API-Driven Systems",
+    "Jira",
+    "Monday.com",
+    "Figma",
+    "AI-Assisted Product Workflows"
+  ],
+  "description": "Product Manager with a strong software engineering foundation focused on systems and platform delivery in B2B environments. Experienced in MVP definition, roadmap execution, Agile delivery, cross-functional team coordination, API-driven systems, and AI-assisted product workflows."
+}

@@ -2,6 +2,14 @@ import fs from 'fs';
 
 const CTA_FALLBACK = 'View details';
 
+function getExpandedCtaLabel(label) {
+    if (!label) {
+        return 'Hide details';
+    }
+
+    return label.replace(/^View\b/i, 'Hide');
+}
+
 function escapeHtml(value) {
     return String(value ?? '')
         .replace(/&/g, '&amp;')
@@ -25,8 +33,9 @@ function renderCompany(company, className) {
             href="${escapeHtml(company.url)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="${className}">
-            ${escapeHtml(company.name)}
+            class="experience__company-link">
+            <span>${escapeHtml(company.name)}</span>
+            <i data-lucide="arrow-up-right"></i>
         </a>
     `;
 }
@@ -130,6 +139,8 @@ function renderDetails(item) {
 
 function renderFeaturedCard(item) {
     const detailsId = `${item.id}-details`;
+    const cta = item.cta || CTA_FALLBACK;
+    const expandedCta = getExpandedCtaLabel(cta);
 
     return `
         <div class="col s12 experience__timeline-item">
@@ -157,18 +168,22 @@ function renderFeaturedCard(item) {
                         ${renderMetrics(item.metrics)}
                     </div>
 
-                    <div class="card-action experience__action">
+                    <div class="experience__action">
                         <button
                             type="button"
-                            class="waves-effect experience__toggle"
+                            class="experience__toggle"
                             data-target="${escapeHtml(detailsId)}"
+                            data-label-collapsed="${escapeHtml(cta)}"
+                            data-label-expanded="${escapeHtml(expandedCta)}"
                             aria-expanded="false"
                             aria-controls="${escapeHtml(detailsId)}">
-                            ${escapeHtml(item.cta || CTA_FALLBACK)}
+                            <span class="experience__toggle-line" aria-hidden="true"></span>
+                            <span class="experience__toggle-label">${escapeHtml(cta)}</span>
+                            <span class="experience__toggle-icon" aria-hidden="true">
+                                <span class="site-icon" style="--site-icon: url('../icons/lucide/chevron-down.svg')"></span>
+                            </span>
+                            <span class="experience__toggle-line" aria-hidden="true"></span>
                         </button>
-                        <span class="experience__toggle-icon" aria-hidden="true">
-                            <span class="site-icon" style="--site-icon: url('../icons/lucide/circle-arrow-right.svg')"></span>
-                        </span>
                     </div>
 
                     ${renderDetails(item)}
@@ -194,6 +209,8 @@ function renderMiniCard(item) {
 
 function renderGroupCard(group, groupedItems) {
     const detailsId = `${group.id}-details`;
+    const cta = group.cta || CTA_FALLBACK;
+    const expandedCta = getExpandedCtaLabel(cta);
     const companies = group.companies && group.companies.length
         ? `<p class="experience__foundation-companies">${group.companies.map(escapeHtml).join(' &middot; ')}</p>`
         : '';
@@ -228,14 +245,21 @@ function renderGroupCard(group, groupedItems) {
                         </div>
                     </div>
 
-                    <div class="card-action experience__action experience__action--foundation">
+                    <div class="experience__action experience__action--foundation">
                         <button
                             type="button"
-                            class="waves-effect experience__toggle"
+                            class="experience__toggle"
                             data-target="${escapeHtml(detailsId)}"
+                            data-label-collapsed="${escapeHtml(cta)}"
+                            data-label-expanded="${escapeHtml(expandedCta)}"
                             aria-expanded="false"
                             aria-controls="${escapeHtml(detailsId)}">
-                            ${escapeHtml(group.cta || CTA_FALLBACK)}
+                            <span class="experience__toggle-line" aria-hidden="true"></span>
+                            <span class="experience__toggle-label">${escapeHtml(cta)}</span>
+                            <span class="experience__toggle-icon" aria-hidden="true">
+                                <span class="site-icon" style="--site-icon: url('../icons/lucide/chevron-down.svg')"></span>
+                            </span>
+                            <span class="experience__toggle-line" aria-hidden="true"></span>
                         </button>
                     </div>
 

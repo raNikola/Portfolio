@@ -57,6 +57,7 @@
         {
           "id": "product-scope-alignment",
           "label": "Product Scope Alignment",
+          "active": true,
           "content": "Connected business intent, user needs, and technical realities into product scope that teams could execute with clarity."
         }
       ]
@@ -74,6 +75,7 @@
         {
           "id": "competitive-analysis",
           "label": "Competitive Analysis",
+          "active": true,
           "content": "Reviewed competing solutions and market patterns to strengthen prioritization and product direction."
         },
         {
@@ -126,6 +128,7 @@
         {
           "id": "cross-team-coordination",
           "label": "Cross-Team Coordination",
+          "active": true,
           "content": "Coordinated work across distributed teams and functions to keep delivery moving through dependencies and change."
         },
         {
@@ -148,6 +151,7 @@
         {
           "id": "jira-monday",
           "label": "Jira / Monday.com",
+          "active": true,
           "content": "Managed backlog structure, issue tracking, prioritization, and day-to-day delivery follow-up."
         },
         {

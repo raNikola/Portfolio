@@ -123,20 +123,30 @@
         min-height: auto;
       }
 
+      &__card--featured {
+        .experience__action {
+          padding: 0 18px 16px;
+        }
+      }
+
       &__action {
+        padding: 18px 18px 10px;
+
         .experience__toggle {
-          min-height: 48px;
+          min-height: 38px;
           align-items: center;
-          padding-right: 22px;
-          padding-left: 22px;
+          gap: 8px;
+          font-size: .88rem;
+        }
+
+        .experience__toggle-line {
+          flex-basis: 24px;
+          max-width: 56px;
         }
 
         &--foundation {
-          text-align: left;
-
           .experience__toggle {
             width: 100%;
-            justify-content: flex-start;
           }
         }
       }

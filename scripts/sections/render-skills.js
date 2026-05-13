@@ -26,8 +26,8 @@ export function renderSkills($) {
             return `
                 <button
                     type="button"
-                    class="chip service-chip"
-                    aria-expanded="false"
+                    class="chip service-chip${item.active ? ' active' : ''}"
+                    aria-expanded="${item.active ? 'true' : 'false'}"
                     aria-controls="${panelId}"
                     data-target="${panelId}">
                     ${item.label}
@@ -42,7 +42,7 @@ export function renderSkills($) {
                 <div
                     id="${panelId}"
                     class="skills__card__content card-content grey lighten-4 service-expand"
-                    hidden>
+                    ${item.active ? '' : 'hidden'}>
                     <p>${item.content}</p>
                 </div>
             `;
@@ -50,7 +50,7 @@ export function renderSkills($) {
 
         return `
             <div class="col s12 m6 l6">
-                <div class="skills__card card service-card" data-category="${card.category}">
+                <div class="skills__card card service-card${card.items.some((item) => item.active) ? ' open' : ''}" data-category="${card.category}">
                     <div class="skills__card__title card-content content-fill">
                         <span class="card-title">${card.title}</span>
                         <p>${card.description}</p>

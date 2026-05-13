@@ -3,7 +3,56 @@ if (window.particlesJS && document.getElementById('particles-js')) {
     particlesJS.load('particles-js', 'assets/particles.json');
 }
 
+function renderLucideIcons(root = document) {
+    const icons = root.matches && root.matches('i[data-lucide="arrow-up-right"]')
+        ? [root]
+        : Array.from(root.querySelectorAll('i[data-lucide="arrow-up-right"]'));
+
+    icons.forEach(icon => {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'lucide lucide-arrow-up-right');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.setAttribute('aria-hidden', 'true');
+
+        const cornerPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        cornerPath.setAttribute('d', 'M7 7h10v10');
+
+        const arrowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        arrowPath.setAttribute('d', 'M7 17 17 7');
+
+        svg.append(cornerPath, arrowPath);
+        icon.replaceWith(svg);
+    });
+}
+
+window.renderLucideIcons = renderLucideIcons;
+
 document.addEventListener('DOMContentLoaded', function () {
+    renderLucideIcons();
+
+    if ('MutationObserver' in window) {
+        new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType !== Node.ELEMENT_NODE) {
+                        return;
+                    }
+
+                    renderLucideIcons(node);
+                });
+            });
+        }).observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
     const footerYear = document.getElementById('footer-year');
     if (footerYear) {
         footerYear.textContent = new Date().getFullYear();
@@ -71,13 +120,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.M && tapTarget) {
         const instance = M.TapTarget.init(tapTarget);
 
-        /*setTimeout(function () {
+        setTimeout(function () {
           instance.open();
         }, 7000);
 
         setTimeout(function () {
           instance.close();
-        }, 15000);*/
+        }, 15000);
     }
 
     document.querySelectorAll('.service-card').forEach(card => {
@@ -143,6 +192,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'false');
+
+            const label = toggle.querySelector('.experience__toggle-label');
+            if (label && toggle.dataset.labelCollapsed) {
+                label.textContent = toggle.dataset.labelCollapsed;
+            }
         }
 
         if (details) {
@@ -163,6 +217,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');
+
+            const label = toggle.querySelector('.experience__toggle-label');
+            if (label && toggle.dataset.labelExpanded) {
+                label.textContent = toggle.dataset.labelExpanded;
+            }
         }
 
         if (details) {
@@ -184,6 +243,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+    }
+
+    const parallaxLayers = Array.from(document.querySelectorAll('.error-404 [data-parallax-depth]'));
+    const supportsFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+    if (supportsFinePointer && parallaxLayers.length) {
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let frameId = null;
+        const ease = 0.08;
+
+        function renderParallax() {
+            currentX += (targetX - currentX) * ease;
+            currentY += (targetY - currentY) * ease;
+
+            parallaxLayers.forEach(layer => {
+                const depth = Number(layer.dataset.parallaxDepth) || 0;
+                layer.style.setProperty('--parallax-x', `${(currentX * depth).toFixed(2)}px`);
+                layer.style.setProperty('--parallax-y', `${(currentY * depth).toFixed(2)}px`);
+            });
+
+            if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
+                frameId = requestAnimationFrame(renderParallax);
+            } else {
+                frameId = null;
+            }
+        }
+
+        window.addEventListener('mousemove', event => {
+            targetX = (event.clientX / window.innerWidth - 0.5) * 2;
+            targetY = (event.clientY / window.innerHeight - 0.5) * 2;
+
+            if (frameId === null) {
+                frameId = requestAnimationFrame(renderParallax);
+            }
+        }, { passive: true });
     }
 });
 

@@ -24,8 +24,8 @@
         "Git",
         "Web Development"
       ],
-      "summary": "Built and maintained WordPress-based platforms, custom plugins, frontend implementations and internal tools.",
-      "cta": "View technical background",
+      "summary": "Built the technical foundation behind my product leadership journey through large-scale web platforms, engineering delivery, and hands-on system implementation.",
+      "cta": "View engineering progression",
       "icon": "code-xml"
     }
   ],
@@ -41,13 +41,13 @@
         "url": "https://rute.co"
       },
       "location": "Remote / Serbia",
-      "summary": "Leading product strategy and execution for a live B2B Transportation Management platform across product, engineering, QA, and stakeholder groups.",
+      "summary": "Driving MVP definition, roadmap execution, and cross-functional product delivery for a complex B2B Transportation Management platform across web, mobile, and API-driven systems.",
       "tags": [
-        "Product Strategy",
-        "B2B SaaS",
-        "Roadmap",
-        "Release Readiness",
-        "API-Driven Systems"
+        "MVP Ownership",
+        "B2B TMS",
+        "Roadmap Execution",
+        "Beta Launch",
+        "API-First Product"
       ],
       "metrics": [
         {
@@ -57,39 +57,39 @@
         },
         {
           "value": "30+",
-          "label": "Developers",
+          "label": "Engineering team",
           "icon": "code-xml"
         },
         {
-          "value": "Live",
-          "label": "Production platform",
-          "icon": "rocket"
+          "value": "2",
+          "label": "Beta cycles",
+          "icon": "repeat"
         },
         {
-          "value": "4",
-          "label": "Major workstreams",
+          "value": "B2B",
+          "label": "TMS platform",
           "icon": "workflow"
         }
       ],
-      "cta": "View product impact",
+      "cta": "View product leadership",
       "details": [
         {
           "title": "Product Scope",
           "items": [
-            "Translated fragmented operational and technical requirements into clearer product scope for a transportation management platform.",
-            "Aligned MVP priorities, release expectations, and platform workflows across product, engineering, QA, and leadership stakeholders."
+            "Owned MVP definition and Version 1 scope, transforming disconnected platform modules into cohesive end-to-end product workflows.",
+            "Defined roadmap priorities alongside leadership and product ownership, aligning delivery scope with business goals."
           ]
         },
         {
-          "title": "Delivery Focus",
+          "title": "Execution",
           "items": [
-            "Structured backlog priorities and acceptance logic for complex API-driven workflows.",
-            "Supported launch readiness through beta feedback, release planning, and cross-team coordination."
+            "Led product execution across frontend, backend, mobile, QA, and design teams within a distributed engineering organization.",
+            "Worked directly with beta customers, stakeholders, and product design to translate feedback into implementation-ready product decisions."
           ]
         },
         {
           "title": "Business Impact",
-          "content": "Helped connect business intent, system constraints, and delivery execution into a more reliable product operating model."
+          "content": "Delivered the first MVP release, completed the initial beta rollout, and prepared the platform for the next launch phase."
         }
       ]
     },
@@ -103,50 +103,50 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia / Remote collaboration",
-      "summary": "Coordinated technical delivery across web platforms and partner-facing business operations in a distributed, revenue-sensitive environment.",
+      "summary": "Led technical delivery across revenue-critical web platforms, coordinating distributed engineering teams and international stakeholders in a high-performance business environment.",
       "tags": [
-        "Technical Delivery",
-        "Stakeholder Management",
-        "Partner Operations",
-        "Prioritization",
-        "Process Improvement"
+        "Delivery Leadership",
+        "Revenue-Critical Systems",
+        "Distributed Teams",
+        "Stakeholder Alignment",
+        "Platform Execution"
       ],
       "metrics": [
         {
-          "value": "Multi-team",
-          "label": "Delivery coordination",
-          "icon": "users"
-        },
-        {
-          "value": "B2B",
-          "label": "Partner operations",
-          "icon": "briefcase-business"
-        },
-        {
-          "value": "Web",
-          "label": "Platform delivery",
+          "value": "250+",
+          "label": "Affiliate websites",
           "icon": "globe"
         },
         {
-          "value": "Agile",
-          "label": "Execution model",
-          "icon": "kanban"
+          "value": "60%",
+          "label": "Revenue exposure",
+          "icon": "trending-up"
+        },
+        {
+          "value": "3",
+          "label": "Countries",
+          "icon": "map-pin"
+        },
+        {
+          "value": "React",
+          "label": "Platform rebuild",
+          "icon": "refresh-cw"
         }
       ],
-      "cta": "View delivery work",
+      "cta": "View delivery leadership",
       "details": [
         {
-          "title": "Coordination",
+          "title": "Delivery Scope",
           "items": [
-            "Kept product, business, and engineering stakeholders aligned around priorities, dependencies, and realistic delivery expectations.",
-            "Turned operational requests and technical constraints into actionable delivery work."
+            "Coordinated engineering execution across distributed teams supporting revenue-critical affiliate platforms and campaign infrastructure.",
+            "Aligned business expectations, technical dependencies, and delivery timelines across international stakeholders."
           ]
         },
         {
           "title": "Execution",
           "items": [
-            "Supported planning, refinement, and follow-up across distributed teams.",
-            "Helped improve delivery visibility and coordination across business-critical web platforms."
+            "Oversaw technical delivery in a performance-sensitive web ecosystem built around high-traffic partner operations.",
+            "Supported platform modernization initiatives, including the rebuild of internal React-based tooling."
           ]
         }
       ]
@@ -161,50 +161,50 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia",
-      "summary": "Supported agile delivery, team alignment, and workflow improvement across web development teams.",
+      "summary": "Enabled structured delivery execution across engineering teams, improving planning discipline, backlog clarity, and coordination during organizational agile transformation.",
       "tags": [
         "Agile Delivery",
-        "Scrum",
-        "Team Facilitation",
-        "Backlog Flow",
+        "Delivery Operations",
+        "Cross-Team Alignment",
+        "Execution Flow",
         "Continuous Improvement"
       ],
       "metrics": [
         {
           "value": "2+ yrs",
-          "label": "Agile facilitation",
+          "label": "Delivery enablement",
           "icon": "calendar-check"
         },
         {
-          "value": "Team",
-          "label": "Delivery enablement",
+          "value": "2",
+          "label": "Engineering teams",
           "icon": "users"
         },
         {
-          "value": "Flow",
-          "label": "Backlog structure",
-          "icon": "list-checks"
+          "value": "3,500+",
+          "label": "Sites supported",
+          "icon": "globe"
         },
         {
-          "value": "Quality",
-          "label": "Release support",
-          "icon": "check-circle"
+          "value": "Global",
+          "label": "Platform usage",
+          "icon": "network"
         }
       ],
-      "cta": "View agile delivery",
+      "cta": "View delivery transformation",
       "details": [
         {
-          "title": "Team Enablement",
+          "title": "Transformation",
           "items": [
-            "Facilitated agile ceremonies, team coordination, and delivery follow-up.",
-            "Helped improve backlog clarity, planning discipline, and shared understanding across changing priorities."
+            "Supported agile transformation during organizational delivery restructuring, helping teams adopt clearer execution practices.",
+            "Worked between product ownership and engineering teams to align roadmap expectations with delivery capacity."
           ]
         },
         {
-          "title": "Delivery Practice",
+          "title": "Operational Delivery",
           "items": [
-            "Supported smoother handoffs between product intent, UX expectations, and development execution.",
-            "Worked with teams to keep delivery practical, transparent, and outcome-focused."
+            "Improved backlog clarity, dependency visibility, and cross-team coordination across shared infrastructure platforms.",
+            "Supported delivery predictability for systems used across global content and platform operations."
           ]
         }
       ]
