@@ -206,8 +206,8 @@
       margin: 0;
       padding: 8px 13px;
       color: $color-text-primary;
-      background: $color-surface-glass-muted !important;
-      border-color: $color-border-accent-strong;
+      background: $color-surface-glass !important;
+      border-color: $color-border-accent;
       line-height: 1.35;
 
       strong {
@@ -342,7 +342,7 @@
 
       .error-404__action-icon {
         color: $color-text-inverse;
-        background: $color-surface-inverse-soft;
+        background: $color-border-inverse-soft;
       }
 
       &:hover,
@@ -378,7 +378,7 @@
       gap: 12px;
       padding: 16px 20px;
       color: $color-text-muted;
-      border-right: 1px solid $color-border-faint;
+      border-right: 1px solid $color-border-light;
       line-height: 1.45;
 
       &:last-child {
@@ -434,7 +434,7 @@
   &__list-icon--success,
   &__note-icon--success {
     color: $color-brand-green;
-    background: $color-brand-green-muted;
+    background: $color-brand-green-soft;
   }
 
   &__card-icon--danger,
@@ -449,7 +449,7 @@
   &__action-icon,
   &__status-icon {
     color: $color-brand-green;
-    background: $color-brand-green-tint;
+    background: $color-brand-green-soft;
   }
 
   &__list-icon {
@@ -850,7 +850,7 @@
       span {
         flex-basis: 100%;
         border-right: 0;
-        border-bottom: 1px solid $color-border-faint;
+        border-bottom: 1px solid $color-border-light;
 
         &:last-child {
           border-bottom: 0;

@@ -70,7 +70,7 @@ main {
         top: 4rem;
         z-index: 2;
 
-        box-shadow: 0 2px 2px 0 $color-shadow-material-soft, 0 3px 1px -2px $color-border-default, 0 1px 5px 0 $color-shadow-material-strong;
+        box-shadow: 0 2px 2px 0 $color-shadow-medium, 0 3px 1px -2px $color-border-default, 0 1px 5px 0 $color-shadow-strong;
 
         &::after {
           content: "";

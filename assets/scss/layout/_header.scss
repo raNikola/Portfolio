@@ -32,7 +32,7 @@
             font-size: 18px;
 
             &:before {
-              border: 1px solid $color-shadow-nav-border;
+              border: 1px solid $color-shadow-medium;
               padding: 10px;
             }
           }
@@ -45,7 +45,7 @@
 
       .nav-wrapper {
         background-color: $color-surface-glass-strong;
-        box-shadow: 0 10px 30px $color-shadow-medium, 0 6px 10px $color-shadow-nav-strong;
+        box-shadow: 0 10px 30px $color-shadow-medium, 0 6px 10px $color-shadow-strong;
         animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 
       }

@@ -109,8 +109,8 @@ main {
 
     .chip {
       &:focus {
-        background-color: $color-neutral-200;
-        color: $color-text-neutral-60;
+        background-color: $color-surface-muted;
+        color: $color-text-muted;
       }
 
       &.active {

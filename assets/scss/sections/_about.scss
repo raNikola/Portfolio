@@ -113,7 +113,7 @@
 
     &__profile-summary {
       margin: 18px 0 0;
-      color: $color-text-body-strong;
+      color: $color-text-secondary;
       font-size: 1.38rem;
       font-weight: 600;
       line-height: 1.45;
@@ -135,7 +135,7 @@
         left: 50%;
         width: 2px;
         height: 72%;
-        background: $color-border-neutral;
+        background: $color-border-medium;
         transform: translate(-50%, -50%);
       }
     }
@@ -319,7 +319,7 @@
       strong {
         display: block;
         margin: 0;
-        color: $color-text-strong;
+        color: $color-text-primary;
         font-size: 1.18rem;
         font-weight: 800;
         line-height: 1.2;
@@ -367,7 +367,7 @@
       align-items: center;
       justify-content: center;
       gap: 11px;
-      color: $color-neutral-100;
+      color: $color-surface-muted;
       background-color: $color-surface-dark;
 
       &:hover {
