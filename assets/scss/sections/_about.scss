@@ -81,28 +81,41 @@
     &__profile-title {
       margin: 12px 0;
       color: #3d4451;
-      font-size: clamp(3.6rem, 5vw, 3.95rem);
+      font-size: 68px;
       font-weight: 800;
-      letter-spacing: .035em;
-      line-height: 1;
+      letter-spacing: .02em;
+      line-height: .98;
     }
 
     &__profile-position {
+      position: relative;
+      display: inline-block;
       margin: 0;
       color: #00A800;
-      font-size: clamp(1.36rem, 1.7vw, 1.58rem);
+      font-size: 1.75rem;
       font-weight: 800;
-      line-height: 1.35;
+      line-height: 1.2;
       white-space: nowrap;
+      padding-bottom: 14px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 72px;
+        height: 3px;
+        background-color: #00A800;
+      }
     }
 
     &__profile-summary {
       margin: 18px 0 0;
       color: #3f4650;
-      font-size: 1.25rem;
+      font-size: 1.38rem;
       font-weight: 600;
       line-height: 1.45;
-      max-width: 620px;
+      max-width: 680px;
     }
 
     &__contact {
@@ -167,7 +180,7 @@
         right: 0;
         width: 1px;
         height: 42px;
-        background: rgba(255, 255, 255, .3);
+        background: rgba(255, 255, 255, .28);
         transform: translateY(-50%);
       }
     }
@@ -177,7 +190,7 @@
       align-items: center;
       gap: 18px;
       min-width: 0;
-      padding: 28px 36px;
+      padding: 30px 34px;
 
       strong,
       span {
@@ -186,13 +199,13 @@
 
       strong {
         margin-bottom: 4px;
-        font-size: 1.08rem;
+        font-size: 1.12rem;
         font-weight: 800;
         line-height: 1.2;
       }
 
       span {
-        font-size: .94rem;
+        font-size: .96rem;
         font-weight: 500;
         line-height: 1.35;
         opacity: .9;
@@ -203,15 +216,15 @@
       display: inline-flex !important;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
-      flex: 0 0 56px;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
       border-radius: 50%;
       background: rgba(255, 255, 255, .18);
 
       .site-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         color: #fff;
       }
     }
@@ -264,24 +277,25 @@
     }
 
     &__proof-list {
-      display: flex;
-      max-width: 1080px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0;
       list-style: none;
+
+      &.row {
+        margin-bottom: 0;
+      }
     }
 
     &__proof-item {
       position: relative;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 0 28px;
+      justify-content: center;
+      gap: 18px;
+      min-height: 96px;
+      padding: 0 30px;
       text-align: left;
-      color: #3d4451;
-      font-size: 1.02rem;
-      font-weight: 600;
-      line-height: 1.4;
 
       &:not(:last-child)::after {
         content: '';
@@ -289,9 +303,32 @@
         top: 50%;
         right: 0;
         width: 1px;
-        height: 38px;
-        background: rgba(0, 168, 0, .22);
+        height: 52px;
+        background: rgba(0, 168, 0, 0.18);
         transform: translateY(-50%);
+      }
+    }
+
+    &__proof-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      strong {
+        display: block;
+        margin: 0;
+        color: #1f2937;
+        font-size: 1.18rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      span {
+        display: block;
+        color: #3d4451;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.4;
       }
     }
 
@@ -299,21 +336,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      flex: 0 0 42px;
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      flex: 0 0 56px;
       border-radius: 50%;
       border: 2px solid #00A800;
       color: #00A800;
-      background: transparent;
-      line-height: 1;
     }
 
     &__proof-icon {
       --site-icon: url('../icons/lucide/check.svg');
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       color: currentColor;
     }
 
@@ -383,6 +418,9 @@
       }
 
       .intro__proof-item {
+        padding-right: 18px;
+        padding-left: 18px;
+
         &:not(:last-child)::after {
           display: none;
         }
@@ -447,8 +485,15 @@
       }
 
       &__proof-item {
+        flex-direction: column;
         max-width: none;
-        padding: 0;
+        min-height: auto;
+        padding: 0 18px;
+        text-align: center;
+      }
+
+      &__proof-copy {
+        align-items: center;
       }
 
       &__download_cv {
