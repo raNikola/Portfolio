@@ -115,12 +115,24 @@
 
       &__metrics {
         .col {
-          width: 100%;
+          width: 50%;
         }
       }
 
       &__metric {
+        flex-direction: column;
+        align-items: center;
         min-height: auto;
+        text-align: center;
+      }
+
+      &__metric-icon {
+        margin-bottom: 10px;
+      }
+
+      &__metric-copy {
+        align-items: center;
+        text-align: center;
       }
 
       &__card--featured {
@@ -157,30 +169,86 @@
     }
 
     .references {
+      &__header {
+        margin-bottom: 32px;
+
+        h2 {
+          font-size: 2.7rem;
+          line-height: 1.08;
+          letter-spacing: .06em;
+        }
+      }
+
       &__carousel-container {
-        height: 520px;
+        height: auto;
+        min-height: 540px;
         overflow: hidden;
       }
 
       &__track {
         width: 100% !important;
+        min-height: 540px !important;
         height: 100% !important;
       }
 
       &__carousel-item {
-        min-height: 100% !important;
-        padding: 0 24px;
+        min-height: 540px !important;
+        padding: 0 14px;
       }
 
       &__card {
         max-width: 100%;
-        padding: 72px 0 96px;
+        padding: 24px 0 124px;
+      }
+
+      .card-content {
+        padding: 0 4px 14px;
+      }
+
+      &__quote {
+        padding-left: 32px;
+        font-size: 1rem !important;
+        line-height: 1.62;
+
+        &:before {
+          top: .25em;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &__author {
+        align-items: center;
+        gap: 12px;
+        padding: 14px 4px 0;
+
+        > div {
+          min-width: 0;
+        }
+      }
+
+      &__avatar {
+        width: 42px;
+        height: 42px;
+      }
+
+      &__name {
+        font-size: .92rem;
+        line-height: 1.25;
+      }
+
+      &__title {
+        max-width: 100%;
+        font-size: .86rem;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
       }
 
       &__controls {
-        top: 20px;
+        top: auto;
         left: 50%;
         right: auto;
+        bottom: 46px;
         flex-direction: row;
         gap: 12px;
         width: auto;
@@ -198,9 +266,10 @@
 
       &__carousel {
         height: auto !important;
+        min-height: 540px !important;
 
         .indicators {
-          bottom: 28px;
+          bottom: 18px !important;
         }
       }
     }

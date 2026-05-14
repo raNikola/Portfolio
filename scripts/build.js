@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 
+import { renderAbout } from './sections/render-about.js';
 import { renderSkills } from './sections/render-skills.js';
 import {renderInterests} from './sections/render-interests.js';
 import {renderReferences} from './sections/render-references.js';
@@ -17,6 +18,7 @@ let cleanMode = 'cleaned dist contents';
 const html = fs.readFileSync(templatePath, 'utf8');
 const $ = cheerio.load(html, { decodeEntities: false });
 
+renderAbout($);
 renderSkills($);
 renderExperience($);
 renderInterests($)

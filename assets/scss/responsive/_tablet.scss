@@ -21,50 +21,23 @@
         }
       }
 
+      &__metric {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__metric-icon {
+        margin-bottom: 10px;
+      }
+
+      &__metric-copy {
+        align-items: center;
+        text-align: center;
+      }
+
       &__foundation-layout {
         gap: 16px;
-      }
-    }
-  }
-
-  .references {
-    &__carousel-container {
-      height: 360px;
-    }
-
-    &__track {
-      width: 100% !important;
-    }
-
-    &__carousel-item {
-      padding: 0 32px;
-    }
-
-    &__card {
-      max-width: 100%;
-      padding: 32px 24px 72px;
-    }
-
-    &__controls {
-      top: auto;
-      right: 32px;
-      bottom: 32px;
-      flex-direction: row;
-      width: auto;
-    }
-
-    &__control {
-      &--next {
-        margin-right: 12px;
-        margin-bottom: 0;
-      }
-    }
-
-    &__carousel {
-      height: auto !important;
-
-      .indicators {
-        bottom: 36px;
       }
     }
   }
@@ -97,6 +70,96 @@
 
     &__description {
       font-size: 1.1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .references {
+    &__carousel {
+      height: auto !important;
+      min-height: 440px !important;
+
+      .indicators {
+        left: 40px !important;
+        bottom: 52px !important;
+        transform: none;
+      }
+    }
+
+    &__carousel-container {
+      height: auto;
+      min-height: 440px;
+      overflow: hidden;
+    }
+
+    &__track {
+      width: 100% !important;
+      min-height: 440px !important;
+      height: 100% !important;
+    }
+
+    &__carousel-item {
+      min-height: 440px !important;
+      padding: 0 36px;
+    }
+
+    &__card {
+      max-width: 100%;
+      padding: 32px 20px 126px;
+    }
+
+    .card-content {
+      padding-bottom: 16px;
+    }
+
+    &__quote {
+      padding-left: 40px;
+      font-size: 1.08rem !important;
+      line-height: 1.72;
+
+      &:before {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    &__author {
+      align-items: center;
+      gap: 12px;
+
+      > div {
+        min-width: 0;
+      }
+    }
+
+    &__name,
+    &__title {
+      overflow-wrap: anywhere;
+    }
+
+    &__title {
+      line-height: 1.45;
+    }
+
+    &__controls {
+      top: auto;
+      right: 40px;
+      bottom: 36px;
+      flex-direction: row;
+      gap: 12px;
+      width: auto;
+      z-index: 2;
+    }
+
+    &__control {
+      width: 52px;
+      height: 52px;
+
+      &--next {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
     }
   }
 }

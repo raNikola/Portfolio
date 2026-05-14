@@ -1,14 +1,131 @@
 @media only screen and (max-width: 480px) {
+  .header {
+    .about {
+      &__value-item {
+        justify-content: left;
+      }
+    }
+  }
+
   .skills {
-    h2 {
-      font-size: clamp(42px, 12vw, 64px);
-      line-height: 1.05;
-      letter-spacing: 6px;
+    #skills-title,
+    &__header h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 2rem;
+      font-size: clamp(2.25rem, 10vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: .08em;
       word-break: normal;
     }
   }
-  .references__carousel-container .indicators {
-    display: none !important;
+
+  main {
+    .experience {
+      &__metric {
+        gap: 8px;
+        padding: 8px 6px;
+
+        strong {
+          font-size: 1.08rem;
+        }
+
+        .experience__metric-label {
+          font-size: .82rem;
+          line-height: 1.3;
+        }
+      }
+
+      &__metric-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 8px;
+
+        .site-icon {
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
+  }
+
+  .references {
+    &__header {
+      margin-bottom: 22px;
+
+      h2 {
+        font-size: clamp(1.9rem, 10vw, 2.25rem);
+        line-height: 1.08;
+        letter-spacing: .03em;
+      }
+    }
+
+    &__carousel {
+      min-height: 250px !important;
+
+      ul.indicators {
+        display: none !important;
+      }
+    }
+
+    &__carousel-container {
+      min-height: 250px;
+    }
+
+    &__track,
+    &__carousel-item {
+      min-height: 250px !important;
+    }
+
+    &__carousel-item {
+      padding: 0 12px;
+    }
+
+    &__card {
+      padding: 28px 0 86px;
+    }
+
+    .card-content {
+      padding-right: 2px;
+      padding-left: 2px;
+    }
+
+    &__quote {
+      padding: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &__author {
+      align-items: center;
+      gap: 10px;
+      padding-right: 2px;
+      padding-left: 2px;
+    }
+
+    &__avatar {
+      width: 38px;
+      height: 38px;
+    }
+
+    &__name {
+      font-size: .86rem;
+    }
+
+    &__title {
+      font-size: .82rem;
+      line-height: 1.35;
+    }
+
+    &__controls {
+      bottom: 28px;
+      gap: 10px;
+    }
+
+    &__control {
+      width: 44px;
+      height: 44px;
+    }
   }
 }
-

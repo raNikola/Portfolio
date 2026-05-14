@@ -1,0 +1,72 @@
+{
+  "name": "Nikola Randjelovic",
+  "role": "Product Delivery Leader | Systems & Platform Delivery",
+  "summary": "I drive complex product delivery with technical depth, structured execution, and ownership.",
+  "image": {
+    "src": "assets/images/me_400x400.png",
+    "alt": "Nikola Randjelovic",
+    "width": 400,
+    "height": 400
+  },
+  "contact": [
+    {
+      "type": "location",
+      "label": "Serbia / Remote",
+      "icon": "map-pinned"
+    },
+    {
+      "type": "email",
+      "label": "hello.ranikola@gmail.com",
+      "icon": "mail",
+      "url": "mailto:hello.ranikola@gmail.com"
+    },
+    {
+      "type": "social",
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/ranikola"
+    },
+    {
+      "type": "social",
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/ranikola"
+    }
+  ],
+  "valueBar": [
+    {
+      "title": "Product Leadership",
+      "description": "Product scope to execution.",
+      "icon": "target"
+    },
+    {
+      "title": "Systems Delivery",
+      "description": "Complex systems, aligned delivery.",
+      "icon": "workflow"
+    },
+    {
+      "title": "Technical Foundation",
+      "description": "Engineering-informed product thinking.",
+      "icon": "cpu"
+    }
+  ],
+  "intro": "I’m motivated by complex challenges — the kind that push me to think deeper, learn faster, and turn undefined problems into structured execution.",
+  "proofPoints": [
+    {
+      "title": "Product ownership",
+      "description": "From scope definition through delivery",
+      "icon": "user-round"
+    },
+    {
+      "title": "Cross-functional delivery",
+      "description": "Across engineering, QA, mobile, and design",
+      "icon": "users-round"
+    },
+    {
+      "title": "Engineering foundations",
+      "description": "That strengthen product decisions",
+      "icon": "shield-check"
+    }
+  ],
+  "resumeUrl": "assets/files/CV_Nikola_Randjelovic.pdf"
+}

@@ -93,93 +93,48 @@
     <div class="container header__container">
         <section class="section about" itemscope itemtype="https://schema.org/Person" itemid="https://cv.ranikola.dev/#nikola-randjelovic">
             <meta itemprop="url" content="https://cv.ranikola.dev/">
-            <meta itemprop="email" content="hello.ranikola@gmail.com">
+            <meta id="about-email-meta" itemprop="email" content="">
             <div class="col s12">
                 <div class="about__box">
                     <div class="about__profile">
                         <div class="row about__hero">
                             <div class="col s12 m5 about__media">
-                                <img src="assets/images/me_400x400.png"
+                                <img id="about-image"
+                                     src=""
                                      itemprop="image"
-                                     alt="Nikola Randjelovic" width="400" height="400">
+                                     alt=""
+                                     width=""
+                                     height="">
                             </div>
                             <div class="col s12 m7 about__content">
                                 <div class="about__profile-info">
                                     <div class="about__profile-preword"><span class="light-green white-text">Hello</span></div>
-                                    <h1 class="about__profile-title" itemprop="name">Nikola Randjelovic</h1>
-                                    <h2 class="about__profile-position" itemprop="jobTitle">Product Delivery Leader | Systems &amp; Platform Delivery</h2>
-                                    <p class="about__profile-summary">I drive complex product delivery with technical depth, structured execution, and ownership.</p>
+                                    <h1 id="about-name" class="about__profile-title" itemprop="name"></h1>
+                                    <h2 id="about-role" class="about__profile-position" itemprop="jobTitle"></h2>
+                                    <p id="about-summary" class="about__profile-summary"></p>
                                 </div>
 
-                                <div class="about__contact" aria-label="Contact and social links">
-                                    <span class="about__contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                        <span class="site-icon about__icon-location" aria-hidden="true"></span>
-                                        <span><span itemprop="addressCountry">Serbia</span> / Remote</span>
-                                    </span>
-                                    <a class="about__contact-item" href="mailto:hello.ranikola@gmail.com" itemprop="email">
-                                        <span class="site-icon about__icon-mail" aria-hidden="true"></span>
-                                        <span>hello.ranikola@gmail.com</span>
-                                    </a>
-                                    <a class="about__contact-item" href="https://github.com/ranikola" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
-                                        <span class="site-icon about__icon-github" aria-hidden="true"></span>
-                                        <span>GitHub</span>
-                                    </a>
-                                    <a class="about__contact-item" href="https://www.linkedin.com/in/ranikola" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
-                                        <span class="site-icon about__icon-linkedin" aria-hidden="true"></span>
-                                        <span>LinkedIn</span>
-                                    </a>
-                                </div>
+                                <div id="about-contact" class="about__contact" aria-label="Contact and social links"></div>
                             </div>
                         </div>
                     </div>
                     <div class="about__value-bar light-green">
-                        <div class="row">
-                            <div class="col s12 l4 about__value-col">
-                                <div class="about__value-item">
-                                    <span class="about__value-icon"><span class="site-icon about__icon-target" aria-hidden="true"></span></span>
-                                    <div>
-                                        <strong>Product Leadership</strong>
-                                        <span>Product scope to execution.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 l4 about__value-col">
-                                <div class="about__value-item">
-                                    <span class="about__value-icon"><span class="site-icon about__icon-workflow" aria-hidden="true"></span></span>
-                                    <div>
-                                        <strong>Systems Delivery</strong>
-                                        <span>Complex systems, aligned delivery.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 l4 about__value-col">
-                                <div class="about__value-item">
-                                    <span class="about__value-icon"><span class="site-icon about__icon-cpu" aria-hidden="true"></span></span>
-                                    <div>
-                                        <strong>Technical Foundation</strong>
-                                        <span>Engineering-informed product thinking.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="about-value-items" class="row"></div>
                     </div>
                 </div>
             </div>
             <div class="col s12 intro">
                 <div class="row">
                     <div class="col s12 m12 justify-align intro__article">
-                        <p>I&rsquo;m motivated by complex challenges &mdash; the kind that push me to think deeper, learn faster, and turn undefined problems into structured execution.</p>
-                        <ul class="intro__proof-list row" aria-label="Product delivery proof points">
-                            <li class="intro__proof-item col s12 l4"><span class="intro__proof-check"><span class="site-icon intro__proof-icon" aria-hidden="true"></span></span><div class="intro__proof-copy"><strong>Product ownership</strong><span>Scope definition through delivery</span></div></li>
-                            <li class="intro__proof-item col s12 l4"><span class="intro__proof-check"><span class="site-icon intro__proof-icon" aria-hidden="true"></span></span><div class="intro__proof-copy"><strong>Cross-functional leadership</strong><span>Engineering, QA, mobile, and design</span></div></li>
-                            <li class="intro__proof-item col s12 l4"><span class="intro__proof-check"><span class="site-icon intro__proof-icon" aria-hidden="true"></span></span><div class="intro__proof-copy"><strong>Technical foundation</strong><span>Engineering-informed product decisions</span></div></li>
-                        </ul>
+                        <p id="about-intro"></p>
+                        <ul id="about-proof-list" class="intro__proof-list row" aria-label="Product delivery proof points"></ul>
                     </div>
                     <div class="col s12 m12 light center-align intro__download_cv">
-                        <a class="btn waves-light btn-large waves-effect intro__download_btn"
+                        <a id="about-resume-link"
+                           class="btn waves-light btn-large waves-effect intro__download_btn"
                            target="_blank"
                            rel="noopener noreferrer"
-                           href="assets/files/CV_Nikola_Randjelovic.pdf">
+                           href="">
                             <span class="site-icon intro__download_icon" aria-hidden="true"></span>
                             <span>Download Resume</span>
                         </a>
@@ -545,4 +500,3 @@
 <script src="./assets/js/public.js" defer></script>
 </body>
 </html>
-

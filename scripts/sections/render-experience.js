@@ -89,7 +89,7 @@ function renderMetrics(metrics) {
         <div class="row experience__metrics">
         <div class="card-action">
             ${metrics.map(metric => `
-                <div class="col s6 m3">
+                <div class="col s6 m6 l3">
                     <div class="experience__metric">
                         ${renderIcon(metric.icon, 'experience__metric-icon')}
 
