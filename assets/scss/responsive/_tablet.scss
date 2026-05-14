@@ -1,5 +1,81 @@
 @media only screen and (min-width: 601px) and (max-width: 992px) {
+  .header {
+    height: 100%;
+
+    .about {
+      &__profile {
+        padding: 34px 28px 28px;
+      }
+
+      &__hero {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__media,
+      &__content {
+        width: 100% !important;
+        padding-right: .75rem !important;
+        padding-left: .75rem !important;
+      }
+
+      &__media img {
+        max-width: 300px;
+      }
+
+      &__profile-title {
+        font-size: clamp(2.4rem, 8vw, 4rem);
+      }
+
+      &__profile-position {
+        font-size: 1.35rem;
+        white-space: normal;
+      }
+
+      &__profile-summary {
+        max-width: none;
+        font-size: 1.05rem;
+      }
+
+      &__contact {
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__value-col {
+        &:not(:last-child)::after {
+          display: none;
+        }
+      }
+
+      &__value-item {
+        justify-content: center;
+      }
+
+    }
+
+    .intro {
+      &__proof-list {
+        width: 100%;
+      }
+
+      &__proof-item {
+        padding-right: 18px;
+        padding-left: 18px;
+
+        &:not(:last-child)::after {
+          display: none;
+        }
+      }
+    }
+  }
+
   main {
+
     .experience {
       &__timeline {
         padding-left: 164px;
@@ -40,127 +116,65 @@
         gap: 16px;
       }
     }
-  }
 
-  .interests {
-    &__card {
-      min-height: 460px;
-    }
+    .references {
+      &__carousel {
+        min-height: 300px !important;
+      }
 
-    &__card__content {
-      padding: 26px 24px 20px;
-    }
+      &__carousel-container {
+        height: 300px;
+      }
 
-    &__meta {
-      padding: 16px 24px 20px;
-    }
-  }
+      &__track {
+        height: 100% !important;
+      }
 
-  .contact {
-    &__intro {
-      margin: 2rem 0 3rem;
-      padding-right: 0;
-      text-align: center;
-    }
+      &__carousel-item {
+        min-height: 230px !important;
+        padding-right: 0;
+      }
 
-    &__title {
-      font-size: 3rem;
-      letter-spacing: .03em;
-    }
+      &__controls {
+        z-index: 2;
+      }
 
-    &__description {
-      font-size: 1.1rem;
-    }
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .references {
-    &__carousel {
-      height: auto !important;
-      min-height: 440px !important;
-
-      .indicators {
-        left: 40px !important;
-        bottom: 52px !important;
-        transform: none;
+      &__carousel {
+        .indicators {
+          transform: translateX(-50%);
+        }
       }
     }
 
-    &__carousel-container {
-      height: auto;
-      min-height: 440px;
-      overflow: hidden;
-    }
+    .interests {
+      &__card {
+        min-height: 460px;
+      }
 
-    &__track {
-      width: 100% !important;
-      min-height: 440px !important;
-      height: 100% !important;
-    }
+      &__card__content {
+        padding: 26px 24px 20px;
+      }
 
-    &__carousel-item {
-      min-height: 440px !important;
-      padding: 0 36px;
-    }
-
-    &__card {
-      max-width: 100%;
-      padding: 32px 20px 126px;
-    }
-
-    .card-content {
-      padding-bottom: 16px;
-    }
-
-    &__quote {
-      padding-left: 40px;
-      font-size: 1.08rem !important;
-      line-height: 1.72;
-
-      &:before {
-        width: 22px;
-        height: 22px;
+      &__meta {
+        padding: 16px 24px 20px;
       }
     }
 
-    &__author {
-      align-items: center;
-      gap: 12px;
-
-      > div {
-        min-width: 0;
+    .contact {
+      &__intro {
+        margin: 2rem 0 3rem;
+        padding-right: 0;
+        text-align: center;
       }
-    }
 
-    &__name,
-    &__title {
-      overflow-wrap: anywhere;
-    }
+      &__title {
+        font-size: 3rem;
+        letter-spacing: .03em;
+      }
 
-    &__title {
-      line-height: 1.45;
-    }
-
-    &__controls {
-      top: auto;
-      right: 40px;
-      bottom: 36px;
-      flex-direction: row;
-      gap: 12px;
-      width: auto;
-      z-index: 2;
-    }
-
-    &__control {
-      width: 52px;
-      height: 52px;
-
-      &--next {
-        margin-right: 0;
-        margin-bottom: 0;
+      &__description {
+        font-size: 1.1rem;
       }
     }
   }
 }
-

@@ -84,6 +84,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const prevButton = document.querySelector('.references__control--prev');
         const nextButton = document.querySelector('.references__control--next');
+        const carouselContainer = document.querySelector('.references__carousel-container');
+        const carouselTrack = document.querySelector('.references__track');
+        const carouselItems = [...referencesCarousel.querySelectorAll('.references__carousel-item')];
+        const referenceCard = carouselItems[2]?.querySelector('.references__card');
+
+        function updateCarouselHeight() {
+            if (!carouselContainer || !carouselTrack || !referenceCard) return;
+
+            const extraSpace = window.matchMedia('(max-width: 480px)').matches
+                ? 100
+                : window.matchMedia('(max-width: 600px)').matches
+                    ? 90
+                    : 70;
+
+            const height = referenceCard.offsetHeight + extraSpace;
+
+            [referencesCarousel, carouselContainer, carouselTrack].forEach(el => {
+                el.style.height = `${height}px`;
+                el.style.minHeight = `${height}px`;
+            });
+
+            carouselItems.forEach(item => {
+                item.style.minHeight = `${height}px`;
+            });
+        }
 
         const autoplayDelay = 12000;
         let autoplayTimer;
@@ -91,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function startAutoplay() {
             autoplayTimer = setInterval(() => {
                 instance.next();
+                updateCarouselHeight();
             }, autoplayDelay);
         }
 
@@ -102,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (prevButton) {
             prevButton.addEventListener('click', () => {
                 instance.prev();
+                updateCarouselHeight();
                 resetAutoplay();
             });
         }
@@ -109,9 +136,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (nextButton) {
             nextButton.addEventListener('click', () => {
                 instance.next();
+                updateCarouselHeight();
                 resetAutoplay();
             });
         }
+
+        referencesCarousel.addEventListener('click', event => {
+            if (event.target.closest('.indicator-item')) {
+                setTimeout(updateCarouselHeight, 300);
+                resetAutoplay();
+            }
+        });
+
+        updateCarouselHeight();
+        window.addEventListener('resize', updateCarouselHeight);
 
         startAutoplay();
     }

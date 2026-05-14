@@ -7,6 +7,96 @@
     }
   }
 
+  .header {
+    .about {
+      &__profile {
+        padding: 28px 20px 24px;
+      }
+
+      &__hero {
+        display: block;
+        text-align: center;
+      }
+
+      &__media,
+      &__content {
+        padding-right: .75rem !important;
+        padding-left: .75rem !important;
+      }
+
+      &__media img {
+        max-width: 260px;
+      }
+
+      &__contact {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      &__contact-item {
+        justify-content: center;
+        max-width: 100%;
+        text-align: center;
+      }
+
+      &__profile-title {
+        font-size: 2.4rem;
+        line-height: 1.05;
+        letter-spacing: .01em;
+      }
+
+      &__profile-position {
+        font-size: 1.15rem;
+        white-space: normal;
+      }
+
+      &__profile-summary {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      &__value-item {
+        padding: 20px 22px;
+      }
+    }
+
+    .intro {
+      margin-top: 2.5rem;
+
+      &__article p {
+        font-size: 1.08rem;
+        line-height: 1.55;
+        max-width: 100%;
+      }
+
+      &__proof-list {
+        display: block;
+        width: 100%;
+      }
+
+      &__proof-item {
+        flex-direction: column;
+        max-width: none;
+        min-height: auto;
+        margin-bottom: 28px;
+        padding: 0 20px;
+        text-align: center;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &__proof-copy {
+        align-items: center;
+      }
+
+      &__download_cv {
+        margin-top: 3.5rem;
+      }
+    }
+  }
+
   main {
     .skills__card.is-muted {
       display: none !important;
@@ -179,30 +269,47 @@
         }
       }
 
+      &__carousel {
+        display: block;
+        min-height: 430px !important;
+
+        .indicators {
+          display: none !important;
+        }
+      }
+
       &__carousel-container {
-        height: auto;
-        min-height: 540px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        height: 430px;
+        min-height: 430px;
         overflow: hidden;
       }
 
       &__track {
+        order: 2;
         width: 100% !important;
-        min-height: 540px !important;
-        height: 100% !important;
+        height: 350px !important;
+        min-height: 350px !important;
       }
 
       &__carousel-item {
-        min-height: 540px !important;
-        padding: 0 14px;
+        min-height: 350px !important;
+        padding: 0;
+
+        &.active {
+          position: relative;
+        }
       }
 
       &__card {
         max-width: 100%;
-        padding: 24px 0 124px;
+        padding: 20px;
       }
 
       .card-content {
-        padding: 0 4px 14px;
+        padding: 0 10px 12px;
       }
 
       &__quote {
@@ -245,14 +352,18 @@
       }
 
       &__controls {
+        position: relative;
         top: auto;
-        left: 50%;
+        left: auto;
         right: auto;
-        bottom: 46px;
+        bottom: auto;
+        order: 1;
         flex-direction: row;
+        justify-content: center;
         gap: 12px;
         width: auto;
-        transform: translateX(-50%);
+        margin: 20px auto;
+        transform: none;
       }
 
       &__control {
@@ -261,15 +372,6 @@
 
         &--next {
           margin: 0;
-        }
-      }
-
-      &__carousel {
-        height: auto !important;
-        min-height: 540px !important;
-
-        .indicators {
-          bottom: 18px !important;
         }
       }
     }

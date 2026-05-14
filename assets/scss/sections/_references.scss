@@ -38,7 +38,7 @@ main {
           &.active {
             background-color: $color-brand-green;
             opacity: 1;
-            transform: scale(1.35);
+            transform: scale(1.4);
           }
         }
       }
@@ -46,7 +46,7 @@ main {
 
     &__carousel-container {
       position: relative;
-      height: 320px;
+      height: 340px;
       border-top: 5px solid $color-brand-green;
       overflow: hidden;
 
