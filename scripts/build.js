@@ -13,10 +13,16 @@ const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
 const distPath = './dist';
 const shouldDeleteDist = process.argv.includes('--delete-dist');
+const cspMetaSelector = 'meta[http-equiv="Content-Security-Policy"]';
+const cspPolicies = {
+    development: `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`,
+    production: `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests`
+};
 let cleanMode = 'cleaned dist contents';
 
 const html = fs.readFileSync(templatePath, 'utf8');
 const $ = cheerio.load(html, { decodeEntities: false });
+const buildEnvironment = getBuildEnvironment();
 
 renderAbout($);
 renderSkills($);
@@ -24,12 +30,39 @@ renderExperience($);
 renderInterests($)
 renderReferences($)
 
-$('meta[http-equiv="Content-Security-Policy"]').attr(
-    'content',
-    `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`
-);
+injectContentSecurityPolicy($, buildEnvironment);
 
 const renderedHtml = $.html();
+
+function getBuildEnvironment() {
+    const envArg = process.argv.find(arg => arg.startsWith('--env='));
+    const explicitEnv = envArg ? envArg.split('=')[1] : process.env.NODE_ENV;
+
+    if (explicitEnv === 'development' || explicitEnv === 'dev') {
+        return 'development';
+    }
+
+    if (explicitEnv === 'production' || explicitEnv === 'prod') {
+        return 'production';
+    }
+
+    return process.env.npm_lifecycle_event === 'dev' ? 'development' : 'production';
+}
+
+function injectContentSecurityPolicy($, environment) {
+    const policy = cspPolicies[environment] || cspPolicies.production;
+    const existingCspTags = $(cspMetaSelector);
+    const cspTag = existingCspTags.first();
+
+    existingCspTags.slice(1).remove();
+
+    if (cspTag.length) {
+        cspTag.attr('content', policy);
+        return;
+    }
+
+    $('head').prepend(`<meta http-equiv="Content-Security-Policy" content="${policy}">`);
+}
 
 function toPosixPath(value) {
     return value.split(path.sep).join('/');

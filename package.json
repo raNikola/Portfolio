@@ -1,9 +1,10 @@
 {
   "type": "module",
   "scripts": {
+    "dev": "npm run build:css && node scripts/build.js --env=development",
     "build": "npm run build:css && npm run build:html",
     "build:css": "sass --style=compressed --no-source-map assets/scss/main.scss assets/css/main.css",
-    "build:html": "node scripts/build.js",
+    "build:html": "node scripts/build.js --env=production",
     "build:clean": "npm run build:css && node scripts/build.js --delete-dist"
   },
   "dependencies": {
