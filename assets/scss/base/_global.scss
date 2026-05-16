@@ -17,6 +17,22 @@ body {
   }
 }
 
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 10px 14px;
+  color: $color-text-inverse;
+  background: $color-surface-dark;
+  transform: translateY(-140%);
+  transition: transform .2s ease;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
 body,
 h1,
 h2,

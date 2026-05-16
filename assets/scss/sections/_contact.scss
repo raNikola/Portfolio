@@ -6,7 +6,7 @@ main {
 
     &__intro {
       margin: 2rem 0;
-      padding-right: 3rem;
+      padding-right: 1rem;
     }
 
     &__eyebrow {
@@ -22,17 +22,20 @@ main {
 
     &__title {
       margin: 0 0 2rem !important;
+      max-width: 9.8em;
 
-      font-size: 3.5rem;
+      font-size: 3.3rem;
       font-weight: 300;
       line-height: 1.05;
       letter-spacing: .01em !important;
       text-transform: none !important;
+      text-wrap: pretty;
 
       span {
-        display: block;
+        display: inline-block;
         font-weight: 600;
         color: $color-brand-green;
+        white-space: nowrap;
       }
     }
 
@@ -42,6 +45,7 @@ main {
       font-size: 1.2rem;
       line-height: 1.7;
       color: $color-text-secondary;
+      font-weight: 400;
     }
 
     &__card {

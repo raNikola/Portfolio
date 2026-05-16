@@ -1,8 +1,8 @@
 {
   "section": {
     "eyebrow": "Work Experience",
-    "title": "Product & Delivery Experience",
-    "intro": "From engineering to product leadership across complex B2B platforms."
+    "title": "Technical Product Leadership",
+    "intro": "From engineering foundations to leading complex B2B SaaS products, platform strategy, and cross-functional execution."
   },
   "groups": [
     {
@@ -17,14 +17,13 @@
       ],
       "tags": [
         "PHP",
-        "WordPress",
         "JavaScript",
+        "React",
         "HTML / CSS",
-        "jQuery",
         "Git",
-        "Web Development"
+        "Web Platforms"
       ],
-      "summary": "Built the technical foundation behind my product leadership journey through large-scale web platforms, engineering delivery, and hands-on system implementation.",
+      "summary": "Seven years of production engineering shaped how I evaluate feasibility, integration complexity, and implementation trade-offs long before they become delivery problems.",
       "cta": "View engineering progression",
       "icon": "code-xml"
     }
@@ -41,55 +40,68 @@
         "url": "https://rute.co"
       },
       "location": "Remote / Serbia",
-      "summary": "Driving MVP definition, roadmap execution, and cross-functional product delivery for a complex B2B Transportation Management platform across web, mobile, and API-driven systems.",
+      "summary": "Taking a transportation management platform from vague client requests to a live, revenue-generating product used by 10 beta companies. Built product scope, shaped roadmap direction, and led execution across 40+ cross-functional contributors.",
       "tags": [
+        "Technical Product Leadership",
+        "B2B SaaS",
         "MVP Ownership",
-        "B2B TMS",
-        "Roadmap Execution",
-        "Beta Launch",
-        "API-First Product"
+        "Platform Strategy",
+        "API Integrations"
       ],
       "metrics": [
         {
-          "value": "~40",
-          "label": "Cross-functional org",
+          "value": "10",
+          "label": "Beta companies",
+          "icon": "building-2"
+        },
+        {
+          "value": "40+",
+          "label": "Cross-Functional Contributors",
           "icon": "users"
         },
         {
-          "value": "30+",
-          "label": "Engineering team",
-          "icon": "code-xml"
+          "value": "60+",
+          "label": "Jira epics",
+          "icon": "layers-3"
         },
         {
-          "value": "2",
-          "label": "Beta cycles",
-          "icon": "repeat"
-        },
-        {
-          "value": "B2B",
-          "label": "TMS platform",
-          "icon": "workflow"
+          "value": "1300+",
+          "label": "Reported tasks",
+          "icon": "check-square"
         }
       ],
       "cta": "View product leadership",
       "details": [
         {
-          "title": "Product Scope",
+          "title": "Product Leadership",
           "items": [
-            "Owned MVP definition and Version 1 scope, transforming disconnected platform modules into cohesive end-to-end product workflows.",
-            "Defined roadmap priorities alongside leadership and product ownership, aligning delivery scope with business goals."
+            "Inherited a fragmented multi-year product effort and redefined it into a cohesive MVP-ready B2B SaaS platform with clear product direction.",
+            "Owned MVP definition, Version 1 scope, roadmap planning, prioritization, epic structure, feature breakdown, acceptance logic, and release scope decisions.",
+            "Built quarterly, half-year, annual, initiative-based, and release-driven roadmaps in alignment with business goals and technical delivery realities."
           ]
         },
         {
-          "title": "Execution",
+          "title": "Technical Product Ownership",
           "items": [
-            "Led product execution across frontend, backend, mobile, QA, and design teams within a distributed engineering organization.",
-            "Worked directly with beta customers, stakeholders, and product design to translate feedback into implementation-ready product decisions."
+            "Led technical product decisions across web, mobile, backend, API workflows, integrations, and operational platform behavior.",
+            "Participated in architecture discussions, backend/frontend refinements, system behavior definition, API validation, and implementation planning with engineering leadership.",
+            "Performed technical evaluation for mobile implementation decisions, including geofence library selection, validation, and implementation direction."
           ]
         },
         {
-          "title": "Business Impact",
-          "content": "Delivered the first MVP release, completed the initial beta rollout, and prepared the platform for the next launch phase."
+          "title": "Execution & Business Impact",
+          "items": [
+            "Led cross-functional execution across 40+ contributors spanning frontend, backend, mobile, QA, design, infrastructure, and business stakeholders.",
+            "Worked directly with beta customers through demos, interviews, feature validation, feedback loops, competitor analysis, and market research.",
+            "Contributed to pricing, billing architecture, subscription logic, monetization decisions, beta go-live planning, and operational product launch readiness."
+          ]
+        },
+        {
+          "title": "Platform & Integration Leadership",
+          "items": [
+            "Led product ownership across dispatch, loads, payroll, billing, authentication, mobile workflows, OCR initiatives, operational workflows, and platform modules.",
+            "Directed external technical integrations, including AI ELD device integrations, API capability analysis, rate limit evaluation, engineering coordination, and product implementation planning."
+          ]
         }
       ]
     },
@@ -103,13 +115,13 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia / Remote collaboration",
-      "summary": "Led technical delivery across revenue-critical web platforms, coordinating distributed engineering teams and international stakeholders in a high-performance business environment.",
+      "summary": "Owned modernization across 250+ affiliate websites responsible for 60% of company revenue. Every decision carried direct commercial consequences, because downtime meant lost revenue.",
       "tags": [
-        "Delivery Leadership",
-        "Revenue-Critical Systems",
-        "Distributed Teams",
-        "Stakeholder Alignment",
-        "Platform Execution"
+        "Revenue-Critical Platforms",
+        "Technical Leadership",
+        "Platform Modernization",
+        "Stakeholder Management",
+        "Cross-Team Delivery"
       ],
       "metrics": [
         {
@@ -124,29 +136,37 @@
         },
         {
           "value": "3",
-          "label": "Countries",
-          "icon": "map-pin"
+          "label": "Engineering teams",
+          "icon": "users"
         },
         {
-          "value": "React",
-          "label": "Platform rebuild",
+          "value": "30%",
+          "label": "Modernization program",
           "icon": "refresh-cw"
         }
       ],
-      "cta": "View delivery leadership",
+      "cta": "View platform leadership",
       "details": [
         {
-          "title": "Delivery Scope",
+          "title": "Business & Product Execution",
           "items": [
-            "Coordinated engineering execution across distributed teams supporting revenue-critical affiliate platforms and campaign infrastructure.",
-            "Aligned business expectations, technical dependencies, and delivery timelines across international stakeholders."
+            "Owned prioritization and execution decisions across multiple engineering teams supporting revenue-generating affiliate platform operations.",
+            "Worked directly with business stakeholders and marketing teams to translate commercial priorities into delivery roadmaps and implementation plans.",
+            "Balanced business urgency, delivery constraints, stakeholder expectations, and platform dependencies in fast-moving commercial environments."
           ]
         },
         {
-          "title": "Execution",
+          "title": "Platform Modernization",
           "items": [
-            "Oversaw technical delivery in a performance-sensitive web ecosystem built around high-traffic partner operations.",
-            "Supported platform modernization initiatives, including the rebuild of internal React-based tooling."
+            "Led modernization of a business-critical internal platform used to manage campaign operations, tracking workflows, and affiliate activity execution.",
+            "Coordinated design, engineering, and implementation planning for React-based modernization initiatives supporting revenue-generating business operations."
+          ]
+        },
+        {
+          "title": "Operational Leadership",
+          "items": [
+            "Managed incident escalation and delivery coordination for revenue-critical production systems during high-traffic commercial events.",
+            "Led dependency management across engineering teams and supported business continuity for large-scale digital platform operations."
           ]
         }
       ]
@@ -161,19 +181,19 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia",
-      "summary": "Enabled structured delivery execution across engineering teams, improving planning discipline, backlog clarity, and coordination during organizational agile transformation.",
+      "summary": "Implemented Spotify model and scaled agile delivery across 2 global engineering teams supporting 3500+ sites. Built execution discipline and cross-team handoff practices that shaped long-term team execution.",
       "tags": [
-        "Agile Delivery",
-        "Delivery Operations",
+        "Engineering Performance",
+        "Delivery Scaling",
         "Cross-Team Alignment",
-        "Execution Flow",
-        "Continuous Improvement"
+        "Operational Discipline",
+        "Execution Frameworks"
       ],
       "metrics": [
         {
-          "value": "2+ yrs",
-          "label": "Delivery enablement",
-          "icon": "calendar-check"
+          "value": "3500+",
+          "label": "Sites supported",
+          "icon": "globe"
         },
         {
           "value": "2",
@@ -181,30 +201,36 @@
           "icon": "users"
         },
         {
-          "value": "3,500+",
-          "label": "Sites supported",
-          "icon": "globe"
+          "value": "Spotify",
+          "label": "Agile model",
+          "icon": "network"
         },
         {
           "value": "Global",
-          "label": "Platform usage",
-          "icon": "network"
+          "label": "Platform operations",
+          "icon": "workflow"
         }
       ],
-      "cta": "View delivery transformation",
+      "cta": "View transformation leadership",
       "details": [
         {
-          "title": "Transformation",
+          "title": "Transformation Leadership",
           "items": [
-            "Supported agile transformation during organizational delivery restructuring, helping teams adopt clearer execution practices.",
-            "Worked between product ownership and engineering teams to align roadmap expectations with delivery capacity."
+            "Helped implement a Spotify-inspired operating model as part of Better Collective’s agile transformation across global engineering teams.",
+            "Defined Jira structures, workflow standards, execution processes, and delivery frameworks across teams with different operating models."
           ]
         },
         {
-          "title": "Operational Delivery",
+          "title": "Execution Alignment",
           "items": [
-            "Improved backlog clarity, dependency visibility, and cross-team coordination across shared infrastructure platforms.",
-            "Supported delivery predictability for systems used across global content and platform operations."
+            "Worked across product and engineering teams to improve prioritization clarity, execution discipline, planning quality, and stakeholder alignment.",
+            "Built predictable execution practices around estimation, delivery coordination, dependency management, and team operating rhythm."
+          ]
+        },
+        {
+          "title": "Leadership Evolution",
+          "items": [
+            "Evolved from delivery-focused agile leadership into broader technical product ownership, execution leadership, and business-aligned decision-making."
           ]
         }
       ]

@@ -1,7 +1,7 @@
 {
-  "eyebrow": "What I enjoy",
-  "title": "Interests",
-  "description": "A mix of adventure, creativity and technology - the things that keep me exploring, building, and learning.",
+  "eyebrow": "Outside Work",
+  "title": "What Keeps Me Curious",
+  "description": "I’m drawn to things that combine exploration, endurance, creativity, and understanding how systems work.",
   "items": [
     {
       "modifier": "photo",
@@ -21,28 +21,28 @@
       "modifier": "cycling",
       "icon": "../icons/lucide/bike.svg",
       "title": "Cycling",
-      "description": "Road cycling is one of my favorite ways to disconnect, stay active, and explore new routes. I enjoy longer rides, open roads, and the rhythm of covering distance on two wheels.",
+      "description": "Road cycling is one of my favorite ways to disconnect, stay active, and explore new routes. The rhythm of cycling is where I think through complex problems.",
       "meta": "Road Bike · Endurance Rides"
     },
     {
       "modifier": "travel",
       "icon": "../icons/lucide/globe-2.svg",
-      "title": "Traveling",
-      "description": "I prefer road trips, city breaks, and active travel where I can keep moving, exploring, and discovering new places. I enjoy cultures, architecture, everyday life, and photography across Europe and beyond.",
+      "title": "Travel",
+      "description": "I prefer road trips, city breaks, and active travel where I can keep moving and discovering. I travel to understand cultures, architecture, and everyday life — not just tourist spots.",
       "meta": "Europe · Asia · America"
     },
     {
       "modifier": "linux",
       "icon": "../icons/lucide/terminal.svg",
       "title": "Linux & Self-Hosted Tech",
-      "description": "Long-time Linux user with a strong interest in servers, self-hosted infrastructure, AI/LLM experimentation, automation, and homelab projects. Arch Linux has been my primary operating system for more than a decade.",
+      "description": "Arch Linux has been my primary operating system for over a decade. Running self-hosted servers, experimenting with AI infrastructure, and building homelabs keeps my systems thinking sharp between product cycles.",
       "meta": "Arch Linux · Homelab · AI"
     },
     {
       "modifier": "smart-home",
       "icon": "../icons/lucide/house-wifi.svg",
-      "title": "Smart Home & Tech Tinkering",
-      "description": "I enjoy building, fixing, and integrating smart home systems, sensors, automations, dashboards, and self-hosted tools. This includes Raspberry Pi projects, connected devices, and practical technical experiments around the home.",
+      "title": "Home Labs & Automation",
+      "description": "I build practical things at home — sensors, automations, dashboards, and side projects that keep my engineering instincts sharp outside product work.",
       "meta": "Raspberry Pi · Flipper Zero · Automation"
     }
   ]

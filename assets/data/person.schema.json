@@ -5,8 +5,8 @@
   "name": "Nikola Randjelovic",
   "givenName": "Nikola",
   "familyName": "Randjelovic",
-  "alternateName": "raNikola",
-  "jobTitle": "Product Manager",
+  "alternateName": "Technical Product Leader",
+  "jobTitle": "Technical Product Leader",
   "email": "mailto:hello@ranikola.dev",
   "telephone": "+38162369258",
   "url": "https://cv.ranikola.dev/",
@@ -26,19 +26,17 @@
     "name": "Faculty of Electronic Engineering, University of Niš"
   },
   "knowsAbout": [
-    "Product Management",
-    "Systems and Platform Delivery",
-    "B2B Product Delivery",
+    "Product Leadership",
+    "Technical Product Management",
+    "B2B SaaS Platforms",
+    "Product Ownership",
     "MVP Definition",
-    "Roadmap Planning",
-    "Agile Delivery",
-    "Scrum",
-    "Cross-Team Coordination",
+    "Roadmap Prioritization",
     "API-Driven Systems",
-    "Jira",
-    "Monday.com",
-    "Figma",
-    "AI-Assisted Product Workflows"
+    "Technical Product Judgment",
+    "Execution Leadership",
+    "Business Judgment",
+    "Cross-Functional Leadership"
   ],
-  "description": "Product Manager with a strong software engineering foundation focused on systems and platform delivery in B2B environments. Experienced in MVP definition, roadmap execution, Agile delivery, cross-functional team coordination, API-driven systems, and AI-assisted product workflows."
+  "description": "Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions."
 }

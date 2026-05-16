@@ -1,7 +1,7 @@
 {
   "name": "Nikola Randjelovic",
-  "role": "Product Delivery Leader | Systems & Platform Delivery",
-  "summary": "I drive complex product delivery with technical depth, structured execution, and ownership.",
+  "role": "Technical Product Leader | B2B SaaS Platforms",
+  "summary": "I turn product ambiguity into structure, technical clarity, and decisions that move mission-critical B2B platforms forward.",
   "image": {
     "src": "assets/images/me_400x400.png",
     "alt": "Nikola Randjelovic",
@@ -35,36 +35,36 @@
   ],
   "valueBar": [
     {
-      "title": "Product Leadership",
-      "description": "Product scope to execution.",
+      "title": "Product Direction",
+      "description": "Turning ambiguity into clear product scope.",
       "icon": "target"
     },
     {
-      "title": "Systems Delivery",
-      "description": "Complex systems, aligned delivery.",
+      "title": "Delivery Ownership",
+      "description": "Aligning teams, priorities, and outcomes.",
       "icon": "workflow"
     },
     {
-      "title": "Technical Foundation",
-      "description": "Engineering-informed product thinking.",
+      "title": "Technical Judgment",
+      "description": "Product decisions grounded in systems reality.",
       "icon": "cpu"
     }
   ],
-  "intro": "I’m motivated by complex challenges — the kind that push me to think deeper, learn faster, and turn undefined problems into structured execution.",
+  "intro": "I’m at my best in products that are hard to define, hard to align, and costly to get wrong.",
   "proofPoints": [
     {
-      "title": "Product ownership",
-      "description": "From scope definition through delivery",
+      "title": "MVP Ownership",
+      "description": "10 beta companies — from scattered feature requests to a live, mission-critical TMS platform.",
       "icon": "user-round"
     },
     {
-      "title": "Cross-functional delivery",
-      "description": "Across engineering, QA, mobile, and design",
+      "title": "Cross-functional leadership",
+      "description": "Led delivery across 30+ cross-functional contributors in parallel execution environments.",
       "icon": "users-round"
     },
     {
-      "title": "Engineering foundations",
-      "description": "That strengthen product decisions",
+      "title": "Systems Thinking",
+      "description": "Built and shipped across API-driven platforms and mission-critical workflows with high operational stakes.",
       "icon": "shield-check"
     }
   ],

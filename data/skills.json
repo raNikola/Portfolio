@@ -1,5 +1,7 @@
 {
-  "title": "Professional Skills",
+  "eyebrow": "Operating Principles",
+  "title": "How I Operate",
+  "description": "How I bring structure, technical clarity, and momentum to products that are hard to define, align, and scale.",
   "filters": [
     {
       "key": "all",
@@ -7,172 +9,112 @@
       "active": true
     },
     {
-      "key": "product",
-      "label": "Product"
+      "key": "ownership",
+      "label": "Ownership"
     },
     {
-      "key": "research",
-      "label": "Research"
+      "key": "technical",
+      "label": "Technical"
     },
     {
-      "key": "delivery",
-      "label": "Delivery"
+      "key": "execution",
+      "label": "Execution"
     },
     {
-      "key": "tools",
-      "label": "Tools"
+      "key": "business",
+      "label": "Business"
     }
   ],
   "cards": [
     {
-      "category": "product",
-      "title": "Product & Strategy",
-      "description": "Defining product direction, MVP scope, and priorities across complex B2B systems.",
+      "category": "ownership",
+      "title": "Product Ownership",
+      "description": "Turning ambiguity into product scope, roadmap direction, and validated product decisions.",
       "items": [
         {
-          "id": "mvp-definition",
-          "label": "MVP Definition",
-          "content": "Defined MVP scope by turning fragmented ideas and disconnected modules into coherent end-to-end product flows."
+          "id": "product-definition",
+          "label": "MVP & Product Definition",
+          "content": "Defined MVP and Version 1 scope, turning fragmented feature sets into cohesive product workflows grounded in business goals and technical reality."
         },
         {
-          "id": "roadmap-planning",
-          "label": "Roadmap Planning",
-          "content": "Built and maintained roadmaps that aligned business goals, product priorities, and delivery sequencing."
-        },
-        {
-          "id": "backlog-prioritization",
-          "label": "Backlog Prioritization",
-          "content": "Turned requests, feedback, and technical constraints into clear execution priorities for delivery teams."
-        },
-        {
-          "id": "stakeholder-management",
-          "label": "Stakeholder Management",
-          "content": "Aligned leadership, product, and delivery stakeholders around priorities, trade-offs, and realistic expectations."
-        },
-        {
-          "id": "release-strategy",
-          "label": "Release Strategy",
-          "content": "Helped shape structured release thinking from beta readiness through launch preparation and version planning."
-        },
-        {
-          "id": "product-scope-alignment",
-          "label": "Product Scope Alignment",
+          "id": "roadmap-prioritization",
+          "label": "Roadmap & Prioritization",
           "active": true,
-          "content": "Connected business intent, user needs, and technical realities into product scope that teams could execute with clarity."
+          "content": "Built roadmaps across quarterly planning, release cycles, and long-term direction while making trade-offs across business priorities, technical realities, and delivery pressure."
+        },
+        {
+          "id": "customer-validation",
+          "label": "Customer Validation",
+          "content": "Worked directly with customers through demos, beta programs, interviews, and feature validation to sharpen product decisions and strengthen launch readiness."
         }
       ]
     },
     {
-      "category": "research",
-      "title": "Research & Analysis",
-      "description": "Using market insight, user feedback, and beta learning to support stronger product decisions.",
+      "category": "technical",
+      "title": "Technical Product",
+      "description": "Making technically credible product decisions across integrations, architecture, and implementation trade-offs.",
+      "items": [
+        {
+          "id": "systems-thinking",
+          "label": "API & Systems Thinking",
+          "content": "Worked across APIs, backend logic, and system behavior to make product decisions grounded in how platforms actually work."
+        },
+        {
+          "id": "integrations-evaluation",
+          "label": "Integrations & Technical Evaluation",
+          "active": true,
+          "content": "Led vendor API analysis, feasibility assessment, and integration direction with engineering teams to shape implementation decisions."
+        },
+        {
+          "id": "architecture-collaboration",
+          "label": "Architecture Collaboration",
+          "content": "Worked alongside engineering leadership on architecture planning, technical trade-offs, and implementation decisions that shaped product outcomes."
+        }
+      ]
+    },
+    {
+      "category": "execution",
+      "title": "Execution Leadership",
+      "description": "Driving aligned execution across teams, dependencies, releases, and high-stakes operational delivery.",
+      "items": [
+        {
+          "id": "cross-functional-leadership",
+          "label": "Cross-Functional Leadership",
+          "active": true,
+          "content": "Led execution across frontend, backend, mobile, QA, and design teams to keep complex products moving through dependencies and competing priorities."
+        },
+        {
+          "id": "delivery-orchestration",
+          "label": "Delivery Orchestration",
+          "content": "Coordinated execution across multiple teams by managing dependencies, resolving blockers, and keeping delivery aligned through change and shifting priorities."
+        },
+        {
+          "id": "release-readiness",
+          "label": "Release & Launch Readiness",
+          "content": "Owned release scope, QA readiness, and go-live decisions from beta through production, including incident response and post-launch planning."
+        }
+      ]
+    },
+    {
+      "category": "business",
+      "title": "Business Judgment",
+      "description": "Connecting product decisions with business priorities, monetization logic, and commercial outcomes.",
       "items": [
         {
           "id": "market-analysis",
-          "label": "Market Analysis",
-          "content": "Used market signals and commercial context to support product positioning and decision-making."
+          "label": "Market & Competitive Analysis",
+          "content": "Analyzed competitive landscapes, customer needs, and market signals to inform product priorities and commercial positioning."
         },
         {
-          "id": "competitive-analysis",
-          "label": "Competitive Analysis",
+          "id": "pricing-monetization",
+          "label": "Pricing & Monetization",
           "active": true,
-          "content": "Reviewed competing solutions and market patterns to strengthen prioritization and product direction."
+          "content": "Shaped pricing strategies, subscription models, and monetization decisions for operational SaaS platforms."
         },
         {
-          "id": "user-feedback",
-          "label": "User Feedback",
-          "content": "Translated customer, demo, and tester feedback into clearer product and UX decisions."
-        },
-        {
-          "id": "beta-testing",
-          "label": "Beta Testing",
-          "content": "Worked directly with beta users to identify friction points, validate flows, and improve launch readiness."
-        },
-        {
-          "id": "pricing-strategy",
-          "label": "Pricing Strategy",
-          "content": "Contributed to pricing and packaging thinking through market analysis and target-customer evaluation."
-        },
-        {
-          "id": "customer-discovery",
-          "label": "Customer Discovery",
-          "content": "Helped identify potential customer segments and enterprise-fit opportunities relevant to the product."
-        }
-      ]
-    },
-    {
-      "category": "delivery",
-      "title": "Delivery & Collaboration",
-      "description": "Turning product intent into aligned execution across teams, functions, and delivery constraints.",
-      "items": [
-        {
-          "id": "requirements-gathering",
-          "label": "Requirements Gathering",
-          "content": "Structured business, user, and product needs into inputs that teams could estimate, discuss, and build against."
-        },
-        {
-          "id": "acceptance-criteria",
-          "label": "Acceptance Criteria",
-          "content": "Defined clear acceptance logic to align product goals, UX behavior, and implementation details."
-        },
-        {
-          "id": "ux-collaboration",
-          "label": "UX Collaboration",
-          "content": "Worked with design in Figma to review flows, clarify intent, and reduce ambiguity before development."
-        },
-        {
-          "id": "product-documentation",
-          "label": "Product Documentation",
-          "content": "Created documentation that improved handoff quality, shared understanding, and execution consistency."
-        },
-        {
-          "id": "cross-team-coordination",
-          "label": "Cross-Team Coordination",
-          "active": true,
-          "content": "Coordinated work across distributed teams and functions to keep delivery moving through dependencies and change."
-        },
-        {
-          "id": "agile-delivery",
-          "label": "Agile Delivery",
-          "content": "Supported structured agile delivery through backlog flow, team alignment, and realistic planning across evolving priorities."
-        }
-      ]
-    },
-    {
-      "category": "tools",
-      "title": "Tools & Technical Context",
-      "description": "Working comfortably across product, design, and technical tooling in platform and API-driven environments.",
-      "items": [
-        {
-          "id": "figma",
-          "label": "Figma",
-          "content": "Used Figma to review flows, discuss UX decisions, and align implementation expectations with design intent."
-        },
-        {
-          "id": "jira-monday",
-          "label": "Jira / Monday.com",
-          "active": true,
-          "content": "Managed backlog structure, issue tracking, prioritization, and day-to-day delivery follow-up."
-        },
-        {
-          "id": "github",
-          "label": "GitHub",
-          "content": "Worked closely with repositories, pull requests, release visibility, and engineering collaboration."
-        },
-        {
-          "id": "postman-swagger-gitbook",
-          "label": "Postman / Swagger / GitBook",
-          "content": "Used API and documentation tools to understand system behavior and support functional clarification."
-        },
-        {
-          "id": "api-driven-systems",
-          "label": "API-Driven Systems",
-          "content": "Operated effectively in products where APIs, integrations, and backend logic were central to delivery."
-        },
-        {
-          "id": "wordpress-react-context",
-          "label": "WordPress / React Context",
-          "content": "Brought practical context from WordPress-based platforms, frontend rebuilds, and modern web product environments."
+          "id": "stakeholder-leadership",
+          "label": "Stakeholder Leadership",
+          "content": "Bridged the gap between business, commercial, and engineering leadership to drive aligned product decisions."
         }
       ]
     }

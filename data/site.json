@@ -1,0 +1,68 @@
+{
+  "siteUrl": "https://cv.ranikola.dev/",
+  "title": "Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms",
+  "description": "Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions.",
+  "siteName": "Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms",
+  "author": "Nikola Randjelovic",
+  "themeColor": "#00A800",
+  "locale": "en_US",
+  "ogImage": "https://cv.ranikola.dev/assets/images/me_400x400.png",
+  "ogImageAlt": "Nikola Randjelovic",
+  "analytics": {
+    "enabled": true,
+    "domain": "cv.ranikola.dev",
+    "scriptSrc": "https://plausible.io/js/script.js"
+  },
+  "navigation": [
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "References",
+      "href": "#references"
+    },
+    {
+      "label": "Interests",
+      "href": "#interests"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact_me"
+    }
+  ],
+  "person": {
+    "name": "Nikola Randjelovic",
+    "alternateName": "Technical Product Leader",
+    "jobTitle": "Technical Product Leader",
+    "email": "hello.ranikola@gmail.com",
+    "url": "https://cv.ranikola.dev/",
+    "addressLocality": "Niš",
+    "addressCountry": "Serbia",
+    "sameAs": [
+      "https://github.com/ranikola",
+      "https://www.linkedin.com/in/ranikola",
+      "https://www.instagram.com/ranikola"
+    ],
+    "knowsAbout": [
+      "Technical Product Leadership",
+      "B2B SaaS Platforms",
+      "Product Ownership",
+      "MVP Definition",
+      "Roadmap Prioritization",
+      "Technical Product Judgment",
+      "API-Driven Systems",
+      "Execution Leadership",
+      "Business Judgment",
+      "Cross-Functional Leadership"
+    ]
+  }
+}

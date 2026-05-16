@@ -58,6 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
         footerYear.textContent = new Date().getFullYear();
     }
 
+    document.addEventListener('click', event => {
+        const trackedElement = event.target.closest('[data-analytics]');
+        const eventName = trackedElement?.dataset.analytics;
+
+        if (!eventName || typeof window.plausible !== 'function') {
+            return;
+        }
+
+        window.plausible(eventName);
+    });
+
     const toolTipped = document.querySelectorAll('.tooltipped');
     if (window.M && toolTipped.length) {
         M.Tooltip.init(toolTipped);
@@ -65,12 +76,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const nav = document.querySelectorAll('.sidenav');
     if (window.M && nav.length) {
-        M.Sidenav.init(nav, {
-            edge: 'right',
-            draggable: true,
-            inDuration: 250,
-            outDuration: 200,
-            preventScrolling: true
+        nav.forEach(sidenav => {
+            const triggers = Array.from(document.querySelectorAll(`[data-target="${sidenav.id}"]`));
+            const isMobileNavigation = sidenav.id === 'mobile-nav';
+
+            triggers.forEach(trigger => {
+                trigger.setAttribute('aria-controls', sidenav.id);
+                trigger.setAttribute('aria-expanded', 'false');
+            });
+
+            if (isMobileNavigation) {
+                sidenav.hidden = true;
+                sidenav.setAttribute('aria-hidden', 'true');
+            }
+
+            M.Sidenav.init(sidenav, {
+                edge: 'right',
+                draggable: true,
+                inDuration: 250,
+                outDuration: 200,
+                preventScrolling: true,
+                onOpenStart: () => {
+                    if (isMobileNavigation) {
+                        sidenav.hidden = false;
+                        sidenav.setAttribute('aria-hidden', 'false');
+                    }
+
+                    triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'true'));
+                },
+                onCloseEnd: () => {
+                    triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
+
+                    if (isMobileNavigation) {
+                        sidenav.hidden = true;
+                        sidenav.setAttribute('aria-hidden', 'true');
+                    }
+                }
+            });
         });
     }
 
@@ -110,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        const autoplayDelay = 12000;
+        const autoplayDelay = 15000;
         let autoplayTimer;
 
         function startAutoplay() {

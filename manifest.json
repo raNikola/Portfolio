@@ -1,7 +1,7 @@
 {
-  "short_name": "ranikola",
-  "name": "raNikola: Tech PM portfolio",
-  "description": "Tech PM portfolio site",
+  "short_name": "raNikola",
+  "name": "Nikola Randjelovic | Technical Product Leader",
+  "description": "Technical Product Leader portfolio focused on B2B SaaS platforms, technical product judgment, and execution leadership.",
   "icons": [
     {
       "src": "assets/images/icon_128.png",
@@ -21,7 +21,7 @@
   ],
   "start_url": "/",
   "background_color": "#ffffff",
-  "theme_color": "#317EFB",
+  "theme_color": "#00A800",
   "display": "standalone",
   "scope": "/"
 }

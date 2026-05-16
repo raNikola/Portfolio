@@ -16,7 +16,7 @@ export function renderReferences($) {
 
                 <div class="card-action references__author">
                     <div class="references__avatar light-green white-text">
-                        <img src="${item.image}" alt="${item.alt}"/>
+                        <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async"/>
                     </div>
 
                     <div>

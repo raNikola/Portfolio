@@ -3,7 +3,7 @@
   "items": [
     {
       "id": "reference-one",
-      "quote": "Practical ideas, ownership, and a strong understanding of both business and product needs helped the company move faster and improve delivery. There was always a clear focus on improving processes and connecting business goals with technical execution.",
+      "quote": "I’ve built businesses where mistakes cost real money, so I don’t trust people with important work easily. Nikola became someone I rely on because he brings ownership, clarity, and the ability to move difficult product problems forward without constant oversight. That kind of trust is earned.",
       "name": "Ivan Stoiljkovic",
       "role": "RUTE Inc | Chief Executive Officer",
       "image": "assets/images/recomendations/ivan_stoiljkovic.jpg",
@@ -11,7 +11,7 @@
     },
     {
       "id": "reference-two",
-      "quote": "Working across product and engineering teams was always structured, collaborative, and focused on delivery. Communication was clear, priorities were well organized, and there was constant support in helping turn complex requirements into actionable tasks and coordinated execution.",
+      "quote": "Balancing business priorities, stakeholder expectations, and technical realities in fast-moving commercial environments requires both structure and judgment. That combination consistently helped teams stay focused on what created the strongest business impact.",
       "name": "Camille Boujassy",
       "role": "Better Collective | Head of Group Partner & Business Operations",
       "image": "assets/images/recomendations/camille_boujassy.jpg",
@@ -19,31 +19,15 @@
     },
     {
       "id": "reference-three",
-      "quote": "Technical execution and business priorities were always closely connected through practical planning and strong collaboration with engineering. A consistent focus on workflow improvements, delivery efficiency, and scalable processes helped the team deliver reliably across revenue-critical platforms.",
-      "name": "Chris Cullen",
-      "role": "Better Collective | Lead Web Developer",
-      "image": "assets/images/recomendations/chris_cullen.jpg",
-      "alt": "Chris Cullen"
-    },
-    {
-      "id": "reference-four",
-      "quote": "Strong organization, clear direction, and a practical leadership approach made collaboration easy even during demanding periods. The focus was always on outcomes, team alignment, and creating an environment where people could perform at a high level.",
+      "quote": "Strong organization, practical leadership, and clear prioritization made collaboration highly effective. The focus was always on outcomes, long-term product decisions, and creating an environment where teams could perform at a high level.",
       "name": "Tarik Alikadic",
       "role": "RUTE Inc | Frontend Team Lead",
       "image": "assets/images/recomendations/tarik_alikadic.jpg",
       "alt": "Tarik Alikadic"
     },
     {
-      "id": "reference-five",
-      "quote": "Quality and release readiness were treated as a shared responsibility across the team. Clear communication, structured coordination, and trust in QA decisions helped keep both web and mobile delivery stable and focused on release quality.",
-      "name": "Jeremija Varagic",
-      "role": "RUTE Inc | QA Engineer",
-      "image": "assets/images/recomendations/jeremija_varagic.jpg",
-      "alt": "Jeremija Varagic"
-    },
-    {
-      "id": "reference-six",
-      "quote": "A strong balance between technical understanding and product thinking helped the team stay focused on long-term goals and business priorities. Decisions were always thoughtful, reliable, and aligned with the bigger picture.",
+      "id": "reference-four",
+      "quote": "Strong product thinking, technical understanding, and a clear view of the bigger picture made collaboration highly effective. Product decisions were thoughtful, grounded in business context, and aligned with long-term platform goals.",
       "name": "Alen Veljan",
       "role": "RUTE Inc | Senior .NET Developer",
       "image": "assets/images/recomendations/alen_veljan.jpg",

@@ -52,9 +52,18 @@ function renderContactItem(item) {
 
     const itemprop = item.type === 'email' ? ' itemprop="email"' : ' itemprop="sameAs"';
     const externalAttributes = item.type === 'social' ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const analyticsEvent = {
+        email: 'email_click',
+        github: 'github_click',
+        linkedin: 'linkedin_click'
+    }[String(item.icon).toLowerCase()];
+    const analyticsAttribute = analyticsEvent ? ` data-analytics="${analyticsEvent}"` : '';
+    const ariaLabel = item.type === 'email'
+        ? 'Email Nikola Randjelovic'
+        : `Visit Nikola Randjelovic on ${escapeHtml(item.label)}`;
 
     return `
-        <a class="about__contact-item" href="${escapeHtml(item.url)}"${itemprop}${externalAttributes}>
+        <a class="about__contact-item" href="${escapeHtml(item.url)}"${itemprop}${externalAttributes} aria-label="${ariaLabel}"${analyticsAttribute}>
             ${icon}
             ${label}
         </a>
@@ -115,5 +124,8 @@ export function renderAbout($) {
     $('#about-value-items').html(about.valueBar.map(renderValueItem).join(''));
     $('#about-intro').text(about.intro);
     $('#about-proof-list').html(about.proofPoints.map(renderProofItem).join(''));
-    $('#about-resume-link').attr('href', about.resumeUrl);
+    $('#about-resume-link')
+        .attr('href', about.resumeUrl)
+        .attr('data-analytics', 'resume_download')
+        .attr('aria-label', 'Download Nikola Randjelovic resume');
 }

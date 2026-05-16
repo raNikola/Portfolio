@@ -98,6 +98,26 @@
   }
 
   main {
+    .skills {
+      &__header {
+        margin-bottom: 36px;
+
+        h2 {
+          font-size: 2.7rem;
+          letter-spacing: .06em;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.65;
+        }
+      }
+
+      &__eyebrow {
+        font-size: 1.1rem;
+      }
+    }
+
     .skills__card.is-muted {
       display: none !important;
       transform: scale(0.985);
@@ -468,4 +488,3 @@
     }
   }
 }
-

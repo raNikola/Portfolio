@@ -3,7 +3,10 @@ import fs from 'fs';
 export function renderSkills($) {
     const skills = JSON.parse(fs.readFileSync('./data/skills.json', 'utf8'));
 
+    $('#skills-eyebrow').text(skills.eyebrow);
     $('#skills-title').text(skills.title);
+    $('#skills-description').text(skills.description);
+
 
     const filtersHtml = skills.filters.map((filter) => `
         <li>
