@@ -29,7 +29,7 @@
     {
       "category": "ownership",
       "title": "Product Ownership",
-      "description": "Turning ambiguity into product direction, execution clarity, and validated product decisions.",
+      "description": "Turning ambiguity into product direction, execution clarity, and validated product decisions with modern workflows.",
       "items": [
         {
           "id": "product-definition",
@@ -52,7 +52,7 @@
     {
       "category": "technical",
       "title": "Technical Product",
-      "description": "Making technically credible product decisions across integrations, architecture, and implementation trade-offs.",
+      "description": "Making technically credible product decisions across integrations, architecture, implementation trade-offs, and AI-assisted technical evaluation.",
       "items": [
         {
           "id": "systems-thinking",
@@ -63,7 +63,7 @@
           "id": "integrations-evaluation",
           "label": "Integrations & Technical Evaluation",
           "active": true,
-          "content": "Led vendor API analysis, feasibility assessment, and integration direction with engineering teams to shape implementation decisions."
+          "content": "Led vendor API analysis, feasibility assessment, integration direction, and accelerated technical research with engineering teams to shape implementation decisions."
         },
         {
           "id": "architecture-collaboration",
@@ -75,7 +75,7 @@
     {
       "category": "execution",
       "title": "Execution Leadership",
-      "description": "Leading organizational execution across teams, dependencies, releases, and high-stakes operational delivery.",
+      "description": "Leading organizational execution across teams, dependencies, releases, and high-stakes operational delivery with modern execution workflows.",
       "items": [
         {
           "id": "cross-functional-leadership",

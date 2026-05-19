@@ -17,13 +17,13 @@
       ],
       "tags": [
         "PHP",
+        "Laravel",
         "JavaScript",
-        "React",
-        "HTML / CSS",
-        "Git",
-        "Web Platforms"
+        "WordPress",
+        "API Integrations",
+        "Platform Engineering"
       ],
-      "summary": "Seven years of production engineering shaped how I evaluate feasibility, integration complexity, and implementation trade-offs long before they become delivery problems.",
+      "summary": "Built the engineering foundation that now informs product leadership and technical decision-making, progressing from implementation-focused development into senior technical ownership across backend systems, frontend engineering, APIs, and platform infrastructure.",
       "cta": "View engineering progression",
       "icon": "code-xml"
     }
@@ -40,7 +40,7 @@
         "url": "https://rute.co"
       },
       "location": "Remote / Serbia",
-      "summary": "Built product structure and execution discipline, defined product direction, and drove the TMS platform from fragmented efforts to production launch, validated by 10 beta carrier companies.",
+      "summary": "Built product structure and execution discipline, defined product direction, and transformed a fragmented Transportation Management System into a production-live B2B platform validated by 10 beta carrier companies.",
       "tags": [
         "Technical Product Leadership",
         "Organizational Leadership",
@@ -56,7 +56,7 @@
         },
         {
           "value": "40",
-          "label": "Person-Organization",
+          "label": "Team Members",
           "icon": "users"
         },
         {
@@ -76,24 +76,24 @@
           "title": "Organizational Leadership",
           "items": [
             "Led a 40-person cross-functional execution organization across frontend, backend, mobile, QA, and design.",
-            "Acted as the primary leadership bridge between the CEO and technical teams.",
-            "Held formal authority over hiring, firing, performance reviews, compensation decisions, and disciplinary actions.",
-            "Conducted regular 1:1s, performance assessments, delivery monitoring, and team feedback loops."
+            "Partnered directly with the CEO on product direction, execution priorities, and organizational decision-making.",
+            "Held full people management responsibility, including hiring, performance management, disciplinary actions, compensation decisions, and execution quality.",
+            "Built execution discipline through regular leadership alignment, delivery oversight, and team performance management."
           ]
         },
         {
           "title": "Product Strategy",
           "items": [
             "Inherited a fragmented multi-year product effort and redefined it into a cohesive MVP-ready B2B SaaS platform.",
-            "Owned MVP definition, Version 1 scope, roadmap planning, prioritization, epic structure, acceptance logic, and release decisions.",
+            "Owned MVP definition, Version 1 scope, roadmap direction, prioritization, release readiness, and launch decision-making.",
             "Contributed to pricing, billing architecture, subscription logic, and monetization decisions."
           ]
         },
         {
-          "title": "Technical Product",
+          "title": "Technical Product Leadership",
           "items": [
             "Led technical product decisions across backend, web, mobile, APIs, integrations, and operational workflows.",
-            "Worked with engineering leadership on architecture discussions, technical trade-offs, and implementation planning.",
+            "Collaborated with engineering leadership on architecture discussions, technical feasibility, implementation trade-offs, and execution planning.",
             "Evaluated implementation direction for mobile technical decisions, including geofence-related solutions."
           ]
         },
@@ -101,7 +101,7 @@
           "title": "Execution & Delivery",
           "items": [
             "Led execution across engineering, QA, design, infrastructure, and business stakeholders.",
-            "Worked directly with beta customers through demos, interviews, validation, and structured feedback loops.",
+            "Worked directly with beta customers through demos, validation sessions, interviews, and structured feedback loops.",
             "Built prioritization frameworks, requirement standards, release processes, and delivery discipline."
           ]
         },
@@ -139,19 +139,19 @@
           "icon": "globe"
         },
         {
-          "value": "60%",
+          "value": "40%",
           "label": "Revenue exposure",
           "icon": "trending-up"
         },
         {
-          "value": "3",
-          "label": "Engineering teams",
+          "value": "2",
+          "label": "Agile teams",
           "icon": "users"
         },
         {
-          "value": "Core",
-          "label": "Platform modernization",
-          "icon": "refresh-cw"
+          "value": "11",
+          "label": "Cross-functional team members",
+          "icon": "users-round"
         }
       ],
       "cta": "View platform leadership",
@@ -159,23 +159,31 @@
         {
           "title": "Technical Product Delivery",
           "items": [
-            "Led roadmap execution and technical product delivery across distributed engineering teams in revenue-critical commercial environments.",
-            "Balanced business priorities, engineering capacity, and delivery constraints to support commercially important platform decisions.",
+            "Led technical product delivery across distributed engineering teams (11 cross-functional team members) responsible for revenue-critical affiliate marketing and ad-tech platforms.",
+            "Shared product decision-making and prioritization ownership with business stakeholders in commercially sensitive delivery environments.",
             "Translated complex stakeholder requirements into structured execution plans that improved delivery clarity and decision-making."
           ]
         },
         {
-          "title": "Platform Modernization",
+          "title": "Product Platforms",
           "items": [
-            "Led modernization initiatives across internal monetization platforms and affiliate infrastructure supporting large-scale commercial operations.",
-            "Worked with engineering teams on modernization planning, implementation strategy, and execution coordination."
+            "Managed delivery of a custom affiliate management platform used to create, configure, and track affiliate links, banners, and monetization assets across large-scale publishing operations.",
+            "Led development of a React-based internal ad-tech platform enabling business teams to configure campaigns, display logic, targeting rules, modal behavior, and click analytics."
           ]
         },
         {
-          "title": "Commercial Delivery Leadership",
+          "title": "Stakeholder & Commercial Leadership",
           "items": [
-            "Led commercial delivery execution for production-critical systems during high-traffic business events.",
-            "Managed delivery risk, dependency alignment, and execution coordination across engineering teams in commercially sensitive environments."
+            "Partnered with 5+ stakeholder leads across 3 commercial teams, translating business objectives into structured engineering execution plans and delivery priorities.",
+            "Worked across deadline-sensitive commercial environments where execution decisions directly impacted revenue-critical operations."
+          ]
+        },
+        {
+          "title": "Execution Leadership",
+          "items": [
+            "Coordinated cross-functional delivery across WordPress, React, QA, design, and engineering teams.",
+            "Led sprint planning, scope definition, feasibility assessment, release readiness, and roadmap execution across concurrent platform initiatives.",
+            "Translated complex business requirements into structured technical execution plans that improved clarity and accelerated decision-making."
           ]
         }
       ]
@@ -190,7 +198,7 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia",
-      "summary": "Implemented Spotify model and scaled agile delivery across 2 global engineering teams supporting 3500+ sites. Built execution discipline and cross-team handoff practices that shaped long-term team execution.",
+      "summary": "Started in a traditional Scrum Master role during a large-scale organizational Agile transformation, evolving into broader product and delivery leadership responsibilities across revenue-critical affiliate monetization and ad-tech platforms.",
       "tags": [
         "Engineering Performance",
         "Delivery Scaling",
@@ -200,46 +208,54 @@
       ],
       "metrics": [
         {
-          "value": "3500+",
+          "value": "3000+",
           "label": "Sites supported",
           "icon": "globe"
         },
         {
           "value": "2",
-          "label": "Engineering teams",
+          "label": "Scrum teams",
           "icon": "users"
         },
         {
-          "value": "Spotify",
-          "label": "Agile model",
+          "value": "50+",
+          "label": "Commercial organization",
           "icon": "network"
         },
         {
-          "value": "Global",
-          "label": "Platform operations",
-          "icon": "workflow"
+          "value": "25-30%",
+          "label": "Revenue exposure",
+          "icon": "trending-up"
         }
       ],
       "cta": "View transformation leadership",
       "details": [
         {
-          "title": "Transformation Leadership",
+          "title": "Delivery Leadership",
           "items": [
-            "Helped implement a Spotify-inspired operating model as part of Better Collective’s agile transformation across global engineering teams.",
-            "Defined Jira structures, workflow standards, execution processes, and delivery frameworks across teams with different operating models."
+            "Led Agile delivery across 2 Scrum teams (9 developers + 2 Product Owners) supporting revenue-critical affiliate monetization and ad-tech platforms.",
+            "Improved execution discipline, prioritization clarity, backlog quality, release readiness, and delivery effectiveness across multiple cross-functional teams."
           ]
         },
         {
-          "title": "Execution Alignment",
+          "title": "Platform Scale",
           "items": [
-            "Worked across product and engineering teams to improve prioritization clarity, execution discipline, planning quality, and stakeholder alignment.",
-            "Built predictable execution practices around estimation, delivery coordination, dependency management, and team operating rhythm."
+            "Supported development of a content operations platform used by a 50+ member internal commercial organization to manage partner offers, campaign data, and monetization workflows.",
+            "Enabled delivery of API-driven infrastructure serving monetization data to approximately 3000 WordPress websites across enterprise-scale publishing operations."
           ]
         },
         {
-          "title": "Leadership Evolution",
+          "title": "Transformation & Modernization",
           "items": [
-            "Evolved from delivery-focused agile leadership into broader technical product ownership, execution leadership, and business-aligned decision-making."
+            "Led Agile execution during a large-scale organizational transformation while helping establish more predictable delivery practices across teams.",
+            "Led execution for an ad-tech modernization initiative supporting a 15-member AdTech organization, replacing a legacy JavaScript banner workflow with a scalable internal management platform."
+          ]
+        },
+        {
+          "title": "Commercial Impact",
+          "items": [
+            "Contributed to delivery of systems supporting business functions responsible for approximately 25–30% of company revenue.",
+            "Worked closely with product, engineering, and business stakeholders in commercially sensitive delivery environments."
           ]
         }
       ]
@@ -254,7 +270,7 @@
         "name": "Better Collective",
         "url": "https://bettercollective.com"
       },
-      "summary": "Worked on web platforms and development workflows, connecting implementation quality with business and product needs.",
+      "summary": "Developed and maintained affiliate monetization infrastructure supporting approximately 3000 WordPress publishing properties across large-scale digital media operations.",
       "stack": [
         "PHP",
         "WordPress",
@@ -273,7 +289,7 @@
         "name": "Better Collective",
         "url": "https://bettercollective.com"
       },
-      "summary": "Delivered frontend and WordPress-based web work while supporting technical decisions and implementation consistency.",
+      "summary": "Delivered frontend and WordPress platform development across revenue-driven publishing operations, contributing to architecture consistency, implementation quality, and scalable feature delivery.",
       "stack": [
         "WordPress",
         "JavaScript",
@@ -292,7 +308,7 @@
         "name": "Better Collective",
         "url": "https://bettercollective.com"
       },
-      "summary": "Built and maintained web properties in a performance and content-driven product environment.",
+      "summary": "Built and maintained production web properties in a high-scale affiliate publishing environment, supporting frontend delivery, content systems, and performance-focused implementations.",
       "stack": [
         "HTML",
         "CSS",
@@ -310,7 +326,7 @@
         "name": "Better Collective",
         "url": "https://bettercollective.com"
       },
-      "summary": "Developed and maintained web experiences, gaining practical grounding in production web delivery.",
+      "summary": "Developed and maintained production web experiences across WordPress-based publishing platforms, building practical expertise in scalable frontend delivery and content-driven product environments.",
       "stack": [
         "HTML",
         "CSS",
@@ -328,7 +344,7 @@
         "name": "Synetic",
         "url": "https://synetic.rs"
       },
-      "summary": "Worked on web development implementation and delivery foundations across client-oriented projects.",
+      "summary": "Delivered web development implementations across client-oriented projects, building early foundations in frontend engineering, backend integrations, and production delivery practices.",
       "stack": [
         "HTML",
         "CSS",
@@ -346,7 +362,7 @@
         "name": "Shindiri Studio",
         "url": "https://www.shindiristudio.com/"
       },
-      "summary": "Started professional web development work across WordPress and frontend implementation.",
+      "summary": "Started professional engineering work across WordPress development and frontend implementation, building the technical foundation that later evolved into platform engineering and product leadership.",
       "stack": [
         "WordPress",
         "HTML",
