@@ -13,15 +13,24 @@ import {renderDesktopNavigation, renderMobileNavigation} from './partials/render
 const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
 const distPath = './dist';
+const clarityScriptOutputPath = './dist/assets/js/clarity.js';
 const shouldDeleteDist = process.argv.includes('--delete-dist');
 const cspMetaSelector = 'meta[http-equiv="Content-Security-Policy"]';
+const clarityProjectIdEnvKey = 'MICROSOFT_CLARITY_PROJECT_ID';
+const umamiWebsiteIdEnvKey = 'UMAMI_WEBSITE_ID';
+const umamiScriptOrigin = 'https://cloud.umami.is';
+const umamiScriptSrc = `${umamiScriptOrigin}/script.js`;
 let cleanMode = 'cleaned dist contents';
+
+loadLocalEnvironment();
 
 const html = fs.readFileSync(templatePath, 'utf8');
 const $ = cheerio.load(html, { decodeEntities: false });
 const siteConfig = JSON.parse(fs.readFileSync('./data/site.json', 'utf8'));
 const buildEnvironment = getBuildEnvironment();
 const structuredDataJson = getStructuredDataJson(siteConfig);
+const clarityConfig = getClarityConfig(buildEnvironment);
+const umamiConfig = getUmamiConfig(buildEnvironment);
 
 renderAbout($);
 renderSkills($);
@@ -32,24 +41,69 @@ renderReferences($)
 renderNavigation($, siteConfig.navigation || []);
 injectHeadMetadata($, siteConfig);
 injectStructuredData($, structuredDataJson);
-injectAnalyticsScript($, siteConfig);
-injectContentSecurityPolicy($, buildEnvironment, siteConfig, structuredDataJson);
+injectUmamiScript($, umamiConfig);
+injectClarityScript($, clarityConfig);
+injectContentSecurityPolicy($, buildEnvironment, siteConfig, structuredDataJson, clarityConfig, umamiConfig);
 
 const renderedHtml = $.html();
+
+function loadLocalEnvironment() {
+    const envPath = './.env.local';
+
+    if (!fs.existsSync(envPath)) {
+        return;
+    }
+
+    const lines = fs.readFileSync(envPath, 'utf8').split(/\r?\n/);
+
+    for (const line of lines) {
+        const trimmedLine = line.trim();
+
+        if (!trimmedLine || trimmedLine.startsWith('#')) {
+            continue;
+        }
+
+        const separatorIndex = trimmedLine.indexOf('=');
+
+        if (separatorIndex === -1) {
+            continue;
+        }
+
+        const key = trimmedLine.slice(0, separatorIndex).trim();
+        const rawValue = trimmedLine.slice(separatorIndex + 1).trim();
+        const value = rawValue.replace(/^(['"])(.*)\1$/, '$2');
+
+        if (key && process.env[key] === undefined) {
+            process.env[key] = value;
+        }
+    }
+}
 
 function getBuildEnvironment() {
     const envArg = process.argv.find(arg => arg.startsWith('--env='));
     const explicitEnv = envArg ? envArg.split('=')[1] : process.env.NODE_ENV;
 
-    if (explicitEnv === 'development' || explicitEnv === 'dev') {
-        return 'development';
-    }
-
     if (explicitEnv === 'production' || explicitEnv === 'prod') {
         return 'production';
     }
 
-    return process.env.npm_lifecycle_event === 'dev' ? 'development' : 'production';
+    if (explicitEnv === 'development'
+        || explicitEnv === 'dev'
+        || explicitEnv === 'local'
+        || explicitEnv === 'staging'
+        || explicitEnv === 'stage'
+        || explicitEnv === 'preview'
+        || explicitEnv === 'test') {
+        return 'development';
+    }
+
+    if (process.env.npm_lifecycle_event === 'build'
+        || process.env.npm_lifecycle_event === 'build:html'
+        || process.env.npm_lifecycle_event === 'build:clean') {
+        return 'production';
+    }
+
+    return 'development';
 }
 
 function normalizeSiteUrl(siteUrl) {
@@ -195,20 +249,39 @@ function injectStructuredData($, structuredDataJson) {
         .appendTo('head');
 }
 
-function injectAnalyticsScript($, config) {
-    const analytics = config.analytics || {};
-    const existingScript = removeExtraMatches($, 'script#plausible-analytics');
+function getClarityConfig(environment) {
+    const projectId = (process.env[clarityProjectIdEnvKey] || '').trim();
 
-    if (!analytics.enabled || !analytics.domain || !analytics.scriptSrc) {
+    return {
+        enabled: environment === 'production' && Boolean(projectId),
+        projectId,
+        scriptPath: './assets/js/clarity.js'
+    };
+}
+
+function getUmamiConfig(environment) {
+    const websiteId = (process.env[umamiWebsiteIdEnvKey] || '').trim();
+
+    return {
+        enabled: environment === 'production' && Boolean(websiteId),
+        websiteId,
+        scriptSrc: umamiScriptSrc
+    };
+}
+
+function injectUmamiScript($, umami) {
+    const existingScript = removeExtraMatches($, 'script#umami-analytics');
+
+    if (!umami.enabled) {
         existingScript.remove();
         return;
     }
 
     const attributes = {
-        id: 'plausible-analytics',
+        id: 'umami-analytics',
         defer: '',
-        'data-domain': analytics.domain,
-        src: analytics.scriptSrc
+        src: umami.scriptSrc,
+        'data-website-id': umami.websiteId
     };
 
     if (existingScript.length) {
@@ -219,26 +292,64 @@ function injectAnalyticsScript($, config) {
     $('<script>').attr(attributes).appendTo('head');
 }
 
+function injectClarityScript($, clarity) {
+    const existingScript = removeExtraMatches($, 'script#ms-clarity');
+
+    if (!clarity.enabled) {
+        existingScript.remove();
+        return;
+    }
+
+    const attributes = {
+        id: 'ms-clarity',
+        defer: '',
+        src: clarity.scriptPath
+    };
+
+    if (existingScript.length) {
+        Object.entries(attributes).forEach(([key, value]) => existingScript.attr(key, value));
+        return;
+    }
+
+    $('<script>').attr(attributes).appendTo('head');
+}
+
+function getClarityLoader(projectId) {
+    return [
+        '(function(c,l,a,r,i,t,y){',
+        'c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};',
+        't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;',
+        'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);',
+        `})(window,document,"clarity","script",${JSON.stringify(projectId)});`,
+        ''
+    ].join('\n');
+}
+
 function getStructuredDataCspHash(structuredDataJson) {
     return `'sha256-${crypto.createHash('sha256').update(structuredDataJson).digest('base64')}'`;
 }
 
-function getContentSecurityPolicy(environment, config, structuredDataJson) {
-    const analytics = config.analytics || {};
+function getContentSecurityPolicy(environment, config, structuredDataJson, clarity, umami) {
     const scriptSources = [`'self'`, getStructuredDataCspHash(structuredDataJson)];
     const connectSources = [`'self'`];
+    const imageSources = [`'self'`, 'data:'];
 
-    if (analytics.enabled && analytics.scriptSrc) {
-        const analyticsOrigin = new URL(analytics.scriptSrc).origin;
-        scriptSources.push(analyticsOrigin);
-        connectSources.push(analyticsOrigin);
+    if (environment === 'production' && clarity.enabled) {
+        scriptSources.push('https://www.clarity.ms', 'https://scripts.clarity.ms');
+        connectSources.push('https://www.clarity.ms', 'https://c.clarity.ms', 'https://b.clarity.ms');
+        imageSources.push('https://www.clarity.ms', 'https://c.clarity.ms', 'https://c.bing.com');
+    }
+
+    if (environment === 'production' && umami.enabled) {
+        scriptSources.push(umamiScriptOrigin);
+        connectSources.push(umamiScriptOrigin, 'https://api-gateway.umami.dev');
     }
 
     const directives = [
         `default-src 'self'`,
         `script-src ${scriptSources.join(' ')}`,
         `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
-        `img-src 'self' data:`,
+        `img-src ${imageSources.join(' ')}`,
         `font-src 'self' https://fonts.gstatic.com`,
         `connect-src ${connectSources.join(' ')}`,
         `object-src 'none'`,
@@ -254,8 +365,8 @@ function getContentSecurityPolicy(environment, config, structuredDataJson) {
     return directives.join('; ');
 }
 
-function injectContentSecurityPolicy($, environment, config, structuredDataJson) {
-    const policy = getContentSecurityPolicy(environment, config, structuredDataJson);
+function injectContentSecurityPolicy($, environment, config, structuredDataJson, clarity, umami) {
+    const policy = getContentSecurityPolicy(environment, config, structuredDataJson, clarity, umami);
     const existingCspTags = $(cspMetaSelector);
     const cspTag = existingCspTags.first();
 
@@ -309,6 +420,18 @@ function collectUrlsFromText(text) {
     }
 
     return urls;
+}
+
+function collectSrcsetAssetPaths(value) {
+    if (!value) {
+        return [];
+    }
+
+    return value
+        .split(',')
+        .map(candidate => candidate.trim().split(/\s+/)[0])
+        .map(candidate => normalizeAssetPath(candidate))
+        .filter(Boolean);
 }
 
 function copyFile(sourcePath, destinationPath) {
@@ -462,9 +585,11 @@ function copyProductionAssets() {
     }
 
     const htmlForAssets = cheerio.load(renderedHtml, { decodeEntities: false });
-    htmlForAssets('[href], [src]').each((_, element) => {
+    htmlForAssets('[href], [src], [srcset], [imagesrcset]').each((_, element) => {
         const href = htmlForAssets(element).attr('href');
         const src = htmlForAssets(element).attr('src');
+        const srcset = htmlForAssets(element).attr('srcset');
+        const imageSrcset = htmlForAssets(element).attr('imagesrcset');
         const hrefPath = normalizeAssetPath(href);
         const srcPath = normalizeAssetPath(src);
 
@@ -474,6 +599,14 @@ function copyProductionAssets() {
 
         if (srcPath) {
             assetPaths.add(srcPath);
+        }
+
+        for (const srcsetPath of collectSrcsetAssetPaths(srcset)) {
+            assetPaths.add(srcsetPath);
+        }
+
+        for (const srcsetPath of collectSrcsetAssetPaths(imageSrcset)) {
+            assetPaths.add(srcsetPath);
         }
     });
 
@@ -507,6 +640,15 @@ function copyProductionAssets() {
     }
 }
 
+function writeProductionClarityScript(clarity) {
+    if (!clarity.enabled) {
+        return;
+    }
+
+    fs.mkdirSync(path.dirname(clarityScriptOutputPath), { recursive: true });
+    fs.writeFileSync(clarityScriptOutputPath, getClarityLoader(clarity.projectId), 'utf8');
+}
+
 if (shouldDeleteDist) {
     recreateDist();
 } else {
@@ -515,6 +657,7 @@ if (shouldDeleteDist) {
 
 fs.writeFileSync(outputPath, renderedHtml, 'utf8');
 copyProductionAssets();
+writeProductionClarityScript(clarityConfig);
 copyFile('./404.html', './dist/404.html');
 copyFile('./assets/images/404/spacecraft.png', './dist/assets/images/404/spacecraft.png');
 copyFile('./assets/images/404/deadstar_planet.png', './dist/assets/images/404/deadstar_planet.png');

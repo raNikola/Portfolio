@@ -6,13 +6,8 @@
   "author": "Nikola Randjelovic",
   "themeColor": "#00A800",
   "locale": "en_US",
-  "ogImage": "https://cv.ranikola.dev/assets/images/me_400x400.png",
+  "ogImage": "https://cv.ranikola.dev/assets/images/me_400x400.webp",
   "ogImageAlt": "Nikola Randjelovic",
-  "analytics": {
-    "enabled": true,
-    "domain": "cv.ranikola.dev",
-    "scriptSrc": "https://plausible.io/js/script.js"
-  },
   "navigation": [
     {
       "label": "About",
@@ -62,7 +57,7 @@
       "API-Driven Systems",
       "Execution Leadership",
       "Business Judgment",
-      "Cross-Functional Leadership"
+      "Organizational Leadership"
     ]
   }
 }

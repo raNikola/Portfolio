@@ -2,7 +2,7 @@
   "section": {
     "eyebrow": "Work Experience",
     "title": "Technical Product Leadership",
-    "intro": "From engineering foundations to leading complex B2B SaaS products, platform strategy, and cross-functional execution."
+    "intro": "From software engineering foundations to leading product direction, organizational execution, and complex B2B SaaS platform delivery."
   },
   "groups": [
     {
@@ -34,19 +34,19 @@
       "type": "featured",
       "period": "Apr 2024 - Present",
       "status": "Current",
-      "role": "Product Manager",
+      "role": "Technical Product Lead",
       "company": {
         "name": "RUTE INC",
         "url": "https://rute.co"
       },
       "location": "Remote / Serbia",
-      "summary": "Taking a transportation management platform from vague client requests to a live, revenue-generating product used by 10 beta companies. Built product scope, shaped roadmap direction, and led execution across 40+ cross-functional contributors.",
+      "summary": "Built product structure and execution discipline, defined product direction, and drove the TMS platform from fragmented efforts to production launch, validated by 10 beta carrier companies.",
       "tags": [
         "Technical Product Leadership",
-        "B2B SaaS",
+        "Organizational Leadership",
         "MVP Ownership",
         "Platform Strategy",
-        "API Integrations"
+        "B2B SaaS"
       ],
       "metrics": [
         {
@@ -55,8 +55,8 @@
           "icon": "building-2"
         },
         {
-          "value": "40+",
-          "label": "Cross-Functional Contributors",
+          "value": "40",
+          "label": "Person-Organization",
           "icon": "users"
         },
         {
@@ -66,41 +66,50 @@
         },
         {
           "value": "1300+",
-          "label": "Reported tasks",
+          "label": "Product Tasks",
           "icon": "check-square"
         }
       ],
       "cta": "View product leadership",
       "details": [
         {
-          "title": "Product Leadership",
+          "title": "Organizational Leadership",
           "items": [
-            "Inherited a fragmented multi-year product effort and redefined it into a cohesive MVP-ready B2B SaaS platform with clear product direction.",
-            "Owned MVP definition, Version 1 scope, roadmap planning, prioritization, epic structure, feature breakdown, acceptance logic, and release scope decisions.",
-            "Built quarterly, half-year, annual, initiative-based, and release-driven roadmaps in alignment with business goals and technical delivery realities."
+            "Led a 40-person cross-functional execution organization across frontend, backend, mobile, QA, and design.",
+            "Acted as the primary leadership bridge between the CEO and technical teams.",
+            "Held formal authority over hiring, firing, performance reviews, compensation decisions, and disciplinary actions.",
+            "Conducted regular 1:1s, performance assessments, delivery monitoring, and team feedback loops."
           ]
         },
         {
-          "title": "Technical Product Ownership",
+          "title": "Product Strategy",
           "items": [
-            "Led technical product decisions across web, mobile, backend, API workflows, integrations, and operational platform behavior.",
-            "Participated in architecture discussions, backend/frontend refinements, system behavior definition, API validation, and implementation planning with engineering leadership.",
-            "Performed technical evaluation for mobile implementation decisions, including geofence library selection, validation, and implementation direction."
+            "Inherited a fragmented multi-year product effort and redefined it into a cohesive MVP-ready B2B SaaS platform.",
+            "Owned MVP definition, Version 1 scope, roadmap planning, prioritization, epic structure, acceptance logic, and release decisions.",
+            "Contributed to pricing, billing architecture, subscription logic, and monetization decisions."
           ]
         },
         {
-          "title": "Execution & Business Impact",
+          "title": "Technical Product",
           "items": [
-            "Led cross-functional execution across 40+ contributors spanning frontend, backend, mobile, QA, design, infrastructure, and business stakeholders.",
-            "Worked directly with beta customers through demos, interviews, feature validation, feedback loops, competitor analysis, and market research.",
-            "Contributed to pricing, billing architecture, subscription logic, monetization decisions, beta go-live planning, and operational product launch readiness."
+            "Led technical product decisions across backend, web, mobile, APIs, integrations, and operational workflows.",
+            "Worked with engineering leadership on architecture discussions, technical trade-offs, and implementation planning.",
+            "Evaluated implementation direction for mobile technical decisions, including geofence-related solutions."
           ]
         },
         {
-          "title": "Platform & Integration Leadership",
+          "title": "Execution & Delivery",
           "items": [
-            "Led product ownership across dispatch, loads, payroll, billing, authentication, mobile workflows, OCR initiatives, operational workflows, and platform modules.",
-            "Directed external technical integrations, including AI ELD device integrations, API capability analysis, rate limit evaluation, engineering coordination, and product implementation planning."
+            "Led execution across engineering, QA, design, infrastructure, and business stakeholders.",
+            "Worked directly with beta customers through demos, interviews, validation, and structured feedback loops.",
+            "Built prioritization frameworks, requirement standards, release processes, and delivery discipline."
+          ]
+        },
+        {
+          "title": "Platform & Integrations",
+          "items": [
+            "Owned product direction across dispatch, loads, payroll, billing, authentication, OCR workflows, and operational platform modules.",
+            "Directed external technical integrations including ELD/API/vendor evaluations and engineering coordination."
           ]
         }
       ]
@@ -115,13 +124,13 @@
         "url": "https://bettercollective.com"
       },
       "location": "Niš, Serbia / Remote collaboration",
-      "summary": "Owned modernization across 250+ affiliate websites responsible for 60% of company revenue. Every decision carried direct commercial consequences, because downtime meant lost revenue.",
+      "summary": "Led technical product delivery and roadmap execution across revenue-critical engineering teams supporting affiliate marketing infrastructure and internal monetization platforms.",
       "tags": [
         "Revenue-Critical Platforms",
-        "Technical Leadership",
-        "Platform Modernization",
-        "Stakeholder Management",
-        "Cross-Team Delivery"
+        "Technical Product Delivery",
+        "Roadmap Execution",
+        "Commercial Systems",
+        "Platform Leadership"
       ],
       "metrics": [
         {
@@ -140,33 +149,33 @@
           "icon": "users"
         },
         {
-          "value": "30%",
-          "label": "Modernization program",
+          "value": "Core",
+          "label": "Platform modernization",
           "icon": "refresh-cw"
         }
       ],
       "cta": "View platform leadership",
       "details": [
         {
-          "title": "Business & Product Execution",
+          "title": "Technical Product Delivery",
           "items": [
-            "Owned prioritization and execution decisions across multiple engineering teams supporting revenue-generating affiliate platform operations.",
-            "Worked directly with business stakeholders and marketing teams to translate commercial priorities into delivery roadmaps and implementation plans.",
-            "Balanced business urgency, delivery constraints, stakeholder expectations, and platform dependencies in fast-moving commercial environments."
+            "Led roadmap execution and technical product delivery across distributed engineering teams in revenue-critical commercial environments.",
+            "Balanced business priorities, engineering capacity, and delivery constraints to support commercially important platform decisions.",
+            "Translated complex stakeholder requirements into structured execution plans that improved delivery clarity and decision-making."
           ]
         },
         {
           "title": "Platform Modernization",
           "items": [
-            "Led modernization of a business-critical internal platform used to manage campaign operations, tracking workflows, and affiliate activity execution.",
-            "Coordinated design, engineering, and implementation planning for React-based modernization initiatives supporting revenue-generating business operations."
+            "Led modernization initiatives across internal monetization platforms and affiliate infrastructure supporting large-scale commercial operations.",
+            "Worked with engineering teams on modernization planning, implementation strategy, and execution coordination."
           ]
         },
         {
-          "title": "Operational Leadership",
+          "title": "Commercial Delivery Leadership",
           "items": [
-            "Managed incident escalation and delivery coordination for revenue-critical production systems during high-traffic commercial events.",
-            "Led dependency management across engineering teams and supported business continuity for large-scale digital platform operations."
+            "Led commercial delivery execution for production-critical systems during high-traffic business events.",
+            "Managed delivery risk, dependency alignment, and execution coordination across engineering teams in commercially sensitive environments."
           ]
         }
       ]

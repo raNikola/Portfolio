@@ -110,6 +110,14 @@ export function renderAbout($) {
 
     $('#about-email-meta').attr('content', email?.label || '');
 
+    $('#about-image-mobile-source')
+        .attr('srcset', about.image.mobileSrcset)
+        .attr('sizes', about.image.mobileSizes);
+
+    $('#about-image-desktop-source')
+        .attr('srcset', about.image.desktopSrcset)
+        .attr('sizes', about.image.desktopSizes);
+
     $('#about-image')
         .attr('src', about.image.src)
         .attr('alt', about.image.alt)
@@ -124,8 +132,13 @@ export function renderAbout($) {
     $('#about-value-items').html(about.valueBar.map(renderValueItem).join(''));
     $('#about-intro').text(about.intro);
     $('#about-proof-list').html(about.proofPoints.map(renderProofItem).join(''));
-    $('#about-resume-link')
-        .attr('href', about.resumeUrl)
-        .attr('data-analytics', 'resume_download')
-        .attr('aria-label', 'Download Nikola Randjelovic resume');
+    $('#about-primary-cta')
+        .attr('href', about.primaryCta.href)
+        .removeAttr('target')
+        .removeAttr('rel')
+        .removeAttr('download')
+        .removeAttr('data-analytics')
+        .attr('aria-label', about.primaryCta.ariaLabel);
+
+    $('#about-primary-cta-label').text(about.primaryCta.label);
 }

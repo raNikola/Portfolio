@@ -23,6 +23,12 @@
         }
       }
 
+      &__card.is-open {
+        .experience__details {
+          max-height: 100%;
+        }
+      }
+
       &__metric-icon {
         width: 36px;
         height: 36px;
@@ -70,6 +76,17 @@
           line-height: 1.08;
           letter-spacing: .03em;
         }
+
+        p {
+          font-size: .98rem;
+          line-height: 1.6;
+        }
+      }
+
+      &__eyebrow {
+        margin-bottom: 8px;
+        font-size: .95rem;
+        letter-spacing: .14em;
       }
 
       &__carousel {

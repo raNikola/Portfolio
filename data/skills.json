@@ -29,7 +29,7 @@
     {
       "category": "ownership",
       "title": "Product Ownership",
-      "description": "Turning ambiguity into product scope, roadmap direction, and validated product decisions.",
+      "description": "Turning ambiguity into product direction, execution clarity, and validated product decisions.",
       "items": [
         {
           "id": "product-definition",
@@ -75,13 +75,13 @@
     {
       "category": "execution",
       "title": "Execution Leadership",
-      "description": "Driving aligned execution across teams, dependencies, releases, and high-stakes operational delivery.",
+      "description": "Leading organizational execution across teams, dependencies, releases, and high-stakes operational delivery.",
       "items": [
         {
           "id": "cross-functional-leadership",
-          "label": "Cross-Functional Leadership",
+          "label": "Organizational Execution Leadership",
           "active": true,
-          "content": "Led execution across frontend, backend, mobile, QA, and design teams to keep complex products moving through dependencies and competing priorities."
+          "content": "Led execution across a 40-person technical organization spanning frontend, backend, mobile, QA, and design while driving delivery discipline, organizational leadership, and cross-functional execution."
         },
         {
           "id": "delivery-orchestration",
@@ -109,12 +109,12 @@
           "id": "pricing-monetization",
           "label": "Pricing & Monetization",
           "active": true,
-          "content": "Shaped pricing strategies, subscription models, and monetization decisions for operational SaaS platforms."
+          "content": "Contributed to pricing, subscription logic, and monetization decisions for operational SaaS platforms."
         },
         {
           "id": "stakeholder-leadership",
           "label": "Stakeholder Leadership",
-          "content": "Bridged the gap between business, commercial, and engineering leadership to drive aligned product decisions."
+          "content": "Aligned executive stakeholders, business leadership, and engineering teams to drive product direction, prioritization, and execution decisions."
         }
       ]
     }

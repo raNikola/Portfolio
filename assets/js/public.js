@@ -1,8 +1,3 @@
-/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-if (window.particlesJS && document.getElementById('particles-js')) {
-    particlesJS.load('particles-js', 'assets/particles.json');
-}
-
 function renderLucideIcons(root = document) {
     const icons = root.matches && root.matches('i[data-lucide="arrow-up-right"]')
         ? [root]
@@ -33,8 +28,76 @@ function renderLucideIcons(root = document) {
 
 window.renderLucideIcons = renderLucideIcons;
 
+let lastScrollY = window.scrollY || 0;
+let isMobileNavigationOpen = false;
+let particlesInitialized = false;
+let particlesScriptLoading = false;
+
+function isBelowTabletWidth() {
+    return window.matchMedia('(max-width: 767px)').matches;
+}
+
+function runWhenPageIsIdle(callback, timeout = 1200) {
+    const runWhenIdle = () => {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(callback, { timeout });
+            return;
+        }
+
+        window.setTimeout(callback, 250);
+    };
+
+    if (document.readyState === 'complete') {
+        runWhenIdle();
+        return;
+    }
+
+    window.addEventListener('load', runWhenIdle, { once: true });
+}
+
+function runNonCriticalEnhancement(callback) {
+    if (isBelowTabletWidth()) {
+        runWhenPageIsIdle(callback, 1800);
+        return;
+    }
+
+    callback();
+}
+
+function initializeParticles() {
+    if (particlesInitialized || particlesScriptLoading || isBelowTabletWidth() || !document.getElementById('particles-js')) {
+        return;
+    }
+
+    if (window.particlesJS) {
+        particlesInitialized = true;
+        particlesJS.load('particles-js', 'assets/particles.json');
+        return;
+    }
+
+    particlesScriptLoading = true;
+
+    const script = document.createElement('script');
+    script.src = './assets/js/particles.min.js';
+    script.defer = true;
+    script.onload = () => {
+        particlesScriptLoading = false;
+        initializeParticles();
+    };
+    script.onerror = () => {
+        particlesScriptLoading = false;
+    };
+
+    document.body.appendChild(script);
+}
+
+function scheduleParticlesInitialization() {
+    runWhenPageIsIdle(initializeParticles);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     renderLucideIcons();
+    scheduleParticlesInitialization();
 
     if ('MutationObserver' in window) {
         new MutationObserver(mutations => {
@@ -57,17 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (footerYear) {
         footerYear.textContent = new Date().getFullYear();
     }
-
-    document.addEventListener('click', event => {
-        const trackedElement = event.target.closest('[data-analytics]');
-        const eventName = trackedElement?.dataset.analytics;
-
-        if (!eventName || typeof window.plausible !== 'function') {
-            return;
-        }
-
-        window.plausible(eventName);
-    });
 
     const toolTipped = document.querySelectorAll('.tooltipped');
     if (window.M && toolTipped.length) {
@@ -98,8 +150,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 preventScrolling: true,
                 onOpenStart: () => {
                     if (isMobileNavigation) {
+                        isMobileNavigationOpen = true;
                         sidenav.hidden = false;
                         sidenav.setAttribute('aria-hidden', 'false');
+                        triggers.forEach(trigger => trigger.classList.remove('is-hidden'));
                     }
 
                     triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'true'));
@@ -108,106 +162,111 @@ document.addEventListener('DOMContentLoaded', function () {
                     triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
 
                     if (isMobileNavigation) {
+                        isMobileNavigationOpen = false;
                         sidenav.hidden = true;
                         sidenav.setAttribute('aria-hidden', 'true');
+                        triggers.forEach(trigger => trigger.classList.remove('is-hidden'));
+                        lastScrollY = window.scrollY || 0;
                     }
                 }
             });
         });
     }
 
-    const referencesCarousel = document.querySelector('.references__carousel');
-    if (window.M && referencesCarousel) {
-        const instance = M.Carousel.init(referencesCarousel, {
-            fullWidth: true,
-            indicators: true,
-            duration: 250
-        });
-
-        const prevButton = document.querySelector('.references__control--prev');
-        const nextButton = document.querySelector('.references__control--next');
-        const carouselContainer = document.querySelector('.references__carousel-container');
-        const carouselTrack = document.querySelector('.references__track');
-        const carouselItems = [...referencesCarousel.querySelectorAll('.references__carousel-item')];
-        const referenceCard = carouselItems[2]?.querySelector('.references__card');
-
-        function updateCarouselHeight() {
-            if (!carouselContainer || !carouselTrack || !referenceCard) return;
-
-            const extraSpace = window.matchMedia('(max-width: 480px)').matches
-                ? 100
-                : window.matchMedia('(max-width: 600px)').matches
-                    ? 90
-                    : 70;
-
-            const height = referenceCard.offsetHeight + extraSpace;
-
-            [referencesCarousel, carouselContainer, carouselTrack].forEach(el => {
-                el.style.height = `${height}px`;
-                el.style.minHeight = `${height}px`;
+    runNonCriticalEnhancement(() => {
+        const referencesCarousel = document.querySelector('.references__carousel');
+        if (window.M && referencesCarousel) {
+            const instance = M.Carousel.init(referencesCarousel, {
+                fullWidth: true,
+                indicators: true,
+                duration: 250
             });
 
-            carouselItems.forEach(item => {
-                item.style.minHeight = `${height}px`;
+            const prevButton = document.querySelector('.references__control--prev');
+            const nextButton = document.querySelector('.references__control--next');
+            const carouselContainer = document.querySelector('.references__carousel-container');
+            const carouselTrack = document.querySelector('.references__track');
+            const carouselItems = [...referencesCarousel.querySelectorAll('.references__carousel-item')];
+            const referenceCard = carouselItems[2]?.querySelector('.references__card');
+
+            function updateCarouselHeight() {
+                if (!carouselContainer || !carouselTrack || !referenceCard) return;
+
+                const extraSpace = window.matchMedia('(max-width: 480px)').matches
+                    ? 100
+                    : window.matchMedia('(max-width: 600px)').matches
+                        ? 90
+                        : 70;
+
+                const height = referenceCard.offsetHeight + extraSpace;
+
+                [referencesCarousel, carouselContainer, carouselTrack].forEach(el => {
+                    el.style.height = `${height}px`;
+                    el.style.minHeight = `${height}px`;
+                });
+
+                carouselItems.forEach(item => {
+                    item.style.minHeight = `${height}px`;
+                });
+            }
+
+            const autoplayDelay = 15000;
+            let autoplayTimer;
+
+            function startAutoplay() {
+                autoplayTimer = setInterval(() => {
+                    instance.next();
+                    updateCarouselHeight();
+                }, autoplayDelay);
+            }
+
+            function resetAutoplay() {
+                clearInterval(autoplayTimer);
+                startAutoplay();
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    instance.prev();
+                    updateCarouselHeight();
+                    resetAutoplay();
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    instance.next();
+                    updateCarouselHeight();
+                    resetAutoplay();
+                });
+            }
+
+            referencesCarousel.addEventListener('click', event => {
+                if (event.target.closest('.indicator-item')) {
+                    setTimeout(updateCarouselHeight, 300);
+                    resetAutoplay();
+                }
             });
-        }
 
-        const autoplayDelay = 15000;
-        let autoplayTimer;
+            updateCarouselHeight();
+            window.addEventListener('resize', updateCarouselHeight);
 
-        function startAutoplay() {
-            autoplayTimer = setInterval(() => {
-                instance.next();
-                updateCarouselHeight();
-            }, autoplayDelay);
-        }
-
-        function resetAutoplay() {
-            clearInterval(autoplayTimer);
             startAutoplay();
         }
 
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                instance.prev();
-                updateCarouselHeight();
-                resetAutoplay();
-            });
+        const tapTarget = document.querySelector('.tap-target');
+        if (window.M && tapTarget) {
+            const instance = M.TapTarget.init(tapTarget);
+
+            setTimeout(function () {
+              instance.open();
+            }, 7000);
+
+            setTimeout(function () {
+              instance.close();
+            }, 15000);
         }
-
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                instance.next();
-                updateCarouselHeight();
-                resetAutoplay();
-            });
-        }
-
-        referencesCarousel.addEventListener('click', event => {
-            if (event.target.closest('.indicator-item')) {
-                setTimeout(updateCarouselHeight, 300);
-                resetAutoplay();
-            }
-        });
-
-        updateCarouselHeight();
-        window.addEventListener('resize', updateCarouselHeight);
-
-        startAutoplay();
-    }
-
-    const tapTarget = document.querySelector('.tap-target');
-    if (window.M && tapTarget) {
-        const instance = M.TapTarget.init(tapTarget);
-
-        setTimeout(function () {
-          instance.open();
-        }, 7000);
-
-        setTimeout(function () {
-          instance.close();
-        }, 15000);
-    }
+    });
 
     document.querySelectorAll('.service-card').forEach(card => {
         const chips = card.querySelectorAll('.service-chip');
@@ -362,31 +421,57 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, { passive: true });
     }
+    updateScrollAwareControls();
 });
 
-document.addEventListener('scroll', function () {
+function updateScrollAwareControls() {
     const topBtn = document.querySelector('.top-btn');
     const mainMenu = document.querySelector('.header__navbar');
     const stickyMenu = document.querySelector('.navbar-sticky');
+    const mobileNavTrigger = document.querySelector('.mobile-nav-trigger');
+    const currentScrollY = Math.max(window.scrollY || 0, 0);
+    const isMobileWidth = window.matchMedia('(max-width: 600px)').matches;
+    const isNearTop = currentScrollY <= 24;
+    const isScrollingDown = currentScrollY > lastScrollY;
 
-    if (!topBtn || !mainMenu || !stickyMenu) {
-        return;
+    if (topBtn) {
+        if ((currentScrollY - 150) > 0) {
+            topBtn.style.opacity = '1';
+            topBtn.style.visibility = 'visible';
+        } else {
+            topBtn.style.opacity = '0';
+            topBtn.style.visibility = 'hidden';
+        }
     }
 
-    if ((window.scrollY - 150) > 0) {
-        topBtn.style.opacity = '1';
-        topBtn.style.visibility = 'visible';
-
-    } else {
-        topBtn.style.opacity = '0';
-        topBtn.style.visibility = 'hidden';
+    if (mainMenu && stickyMenu) {
+        if ((currentScrollY - 150) > 0 && window.innerWidth > 600) {
+            mainMenu.classList.add('navbar-fixed');
+            stickyMenu.style.position = 'fixed';
+        } else {
+            mainMenu.classList.remove('navbar-fixed');
+            stickyMenu.style.position = 'sticky';
+        }
     }
 
-    if ((window.scrollY - 150) > 0 && window.innerWidth > 600) {
-        mainMenu.classList.add('navbar-fixed');
-        stickyMenu.style.position = 'fixed';
-    } else {
-        mainMenu.classList.remove('navbar-fixed');
-        stickyMenu.style.position = 'sticky';
+    if (mobileNavTrigger) {
+        const shouldHideMobileTrigger = isMobileWidth
+            && !isNearTop
+            && isScrollingDown
+            && !isMobileNavigationOpen;
+
+        if (!isMobileWidth || isNearTop || !isScrollingDown || isMobileNavigationOpen) {
+            mobileNavTrigger.classList.remove('is-hidden');
+        } else if (shouldHideMobileTrigger) {
+            mobileNavTrigger.classList.add('is-hidden');
+        }
     }
+
+    lastScrollY = currentScrollY;
+}
+
+document.addEventListener('scroll', updateScrollAwareControls, { passive: true });
+window.addEventListener('resize', () => {
+    lastScrollY = window.scrollY || 0;
+    updateScrollAwareControls();
 });

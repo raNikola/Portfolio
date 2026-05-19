@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Nikola Randjelovic | Product Manager for B2B Platforms &amp; Systems Delivery</title>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <title>Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms</title>
     <link rel="canonical" href="https://cv.ranikola.dev/">
     <meta name="description"
-          content="Product Manager based in Serbia with experience in B2B platforms, MVP delivery, API-driven systems, cross-functional execution, and technical product leadership.">
+          content="Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Nikola Randjelovic">
@@ -25,33 +27,50 @@
     <link rel="manifest" href="./manifest.json">
     <meta property="og:url" content="https://cv.ranikola.dev/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Nikola Randjelovic | Product Manager for B2B Platforms &amp; Systems Delivery">
+    <meta property="og:title" content="Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms">
     <meta property="og:description"
-          content="Product Manager based in Serbia with experience in B2B platforms, MVP delivery, API-driven systems, cross-functional execution, and technical product leadership.">
-    <meta property="og:image" content="https://cv.ranikola.dev/assets/images/me_400x400.png">
+          content="Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions.">
+    <meta property="og:image" content="https://cv.ranikola.dev/assets/images/me_400x400.webp">
     <meta property="og:image:alt" content="Nikola Randjelovic">
-    <meta property="og:site_name" content="Nikola Randjelovic Portfolio">
+    <meta property="og:site_name" content="Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nikola Randjelovic | Product Manager for B2B Platforms &amp; Systems Delivery">
+    <meta name="twitter:title" content="Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms">
     <meta name="twitter:description"
-          content="Product Manager based in Serbia with experience in B2B platforms, MVP delivery, API-driven systems, cross-functional execution, and technical product leadership.">
-    <meta name="twitter:image" content="https://cv.ranikola.dev/assets/images/me_400x400.png">
-    <meta name="theme-color" content="#8dc63a"/>
+          content="Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions.">
+    <meta name="twitter:image" content="https://cv.ranikola.dev/assets/images/me_400x400.webp">
+    <meta name="theme-color" content="#00A800"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="apple-touch-icon" href="/favicon.ico">
     <link rel="me" href="https://www.linkedin.com/in/ranikola">
     <link rel="me" href="https://github.com/ranikola">
     <link rel="me" href="https://www.instagram.com/ranikola">
     <link rel="alternate" type="application/ld+json" href="./person.jsonld">
+    <link rel="preload"
+          as="image"
+          href="assets/images/me_320x320.webp"
+          imagesrcset="assets/images/me_280x280.webp 280w, assets/images/me_320x320.webp 320w"
+          imagesizes="280px"
+          media="(max-width: 767px)"
+          type="image/webp"
+          fetchpriority="high">
+    <link rel="preload"
+          as="image"
+          href="assets/images/me_400x400.webp"
+          imagesrcset="assets/images/me_400x400.webp 400w"
+          imagesizes="400px"
+          media="(min-width: 768px)"
+          type="image/webp"
+          fetchpriority="high">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen"/>
     <link type="text/css" rel="stylesheet" href="assets/css/main.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link rel="preload"
+          as="font"
+          href="assets/fonts/plus-jakarta-sans/plus-jakarta-sans-latin.woff2"
+          type="font/woff2"
+          crossorigin>
 </head>
 
 <body class="light">
@@ -65,7 +84,7 @@
             <div class="nav-wrapper">
                 <a href="#mobile-nav"
                    data-target="mobile-nav"
-                   class="sidenav-trigger hide-on-med-and-up show-on-small"
+                   class="sidenav-trigger hide-on-med-and-up show-on-small mobile-nav-trigger"
                    aria-label="Open mobile navigation"
                    aria-controls="mobile-nav"
                    aria-expanded="false">
@@ -93,12 +112,19 @@
                     <div class="about__profile">
                         <div class="row about__hero">
                             <div class="col s12 m5 about__media">
-                                <img id="about-image"
-                                     src=""
-                                     itemprop="image"
-                                     alt=""
-                                     width=""
-                                     height="">
+                                <picture id="about-picture">
+                                    <source id="about-image-mobile-source" type="image/webp" media="(max-width: 767px)">
+                                    <source id="about-image-desktop-source" type="image/webp" media="(min-width: 768px)">
+                                    <img id="about-image"
+                                         src=""
+                                         itemprop="image"
+                                         alt=""
+                                         width=""
+                                         height=""
+                                         loading="eager"
+                                         decoding="async"
+                                         fetchpriority="high">
+                                </picture>
                             </div>
                             <div class="col s12 m7 about__content">
                                 <div class="about__profile-info">
@@ -124,13 +150,11 @@
                         <ul id="about-proof-list" class="intro__proof-list row" aria-label="Product delivery proof points"></ul>
                     </div>
                     <div class="col s12 m12 light center-align intro__download_cv">
-                        <a id="about-resume-link"
+                        <a id="about-primary-cta"
                            class="btn waves-light btn-large waves-effect intro__download_btn"
-                           target="_blank"
-                           rel="noopener noreferrer"
                            href="">
                             <span class="site-icon intro__download_icon" aria-hidden="true"></span>
-                            <span>Download Resume</span>
+                            <span id="about-primary-cta-label">EXPLORE EXPERIENCE</span>
                         </a>
                     </div>
                 </div>
@@ -194,7 +218,9 @@
 
         <section id="references" class="section references" aria-labelledby="references-title">
             <div class="col s12 flow-text center-align references__header">
+                <span id="references-eyebrow" class="references__eyebrow light-green-text"></span>
                 <h2 id="references-title"></h2>
+                <p id="references-intro"></p>
             </div>
 
             <div class="row">
@@ -402,7 +428,7 @@
     <!--<ul id="about-sidenav" class="sidenav sidenav-widget">
         <li class="sidenav-profile">
             <div class="sidenav-profile-inner">
-                <img src="assets/images/me_400x400.png" alt="Nikola Randjelovic" class="sidenav-avatar">
+                <img src="assets/images/me_400x400.webp" alt="Nikola Randjelovic" class="sidenav-avatar" width="400" height="400" loading="lazy" decoding="async">
                 <h5>Nikola Randjelovic</h5>
                 <p class="role">Technical Product Leader | B2B SaaS Platforms</p>
             </div>
@@ -486,7 +512,6 @@
 
 <!--JavaScript at end of body for optimized loading-->
 <script src="./assets/js/materialize.min.js" defer></script>
-<script src="./assets/js/particles.min.js" defer></script>
 <script src="./assets/js/public.js" defer></script>
 </body>
 </html>

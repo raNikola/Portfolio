@@ -3,7 +3,11 @@
   "role": "Technical Product Leader | B2B SaaS Platforms",
   "summary": "I turn product ambiguity into structure, technical clarity, and decisions that move mission-critical B2B platforms forward.",
   "image": {
-    "src": "assets/images/me_400x400.png",
+    "src": "assets/images/me_400x400.webp",
+    "mobileSrcset": "assets/images/me_280x280.webp 280w, assets/images/me_320x320.webp 320w",
+    "desktopSrcset": "assets/images/me_400x400.webp 400w",
+    "mobileSizes": "280px",
+    "desktopSizes": "400px",
     "alt": "Nikola Randjelovic",
     "width": 400,
     "height": 400
@@ -11,7 +15,7 @@
   "contact": [
     {
       "type": "location",
-      "label": "Serbia / Remote",
+      "label": "Based in Serbia · Remote Worldwide",
       "icon": "map-pinned"
     },
     {
@@ -50,7 +54,7 @@
       "icon": "cpu"
     }
   ],
-  "intro": "I’m at my best in products that are hard to define, hard to align, and costly to get wrong.",
+  "intro": "I’m at my best leading products and technical organizations where ambiguity is high, alignment is difficult, and execution mistakes are expensive.",
   "proofPoints": [
     {
       "title": "MVP Ownership",
@@ -58,8 +62,8 @@
       "icon": "user-round"
     },
     {
-      "title": "Cross-functional leadership",
-      "description": "Led delivery across 30+ cross-functional contributors in parallel execution environments.",
+      "title": "Organizational Leadership",
+      "description": "Led a 40-person cross-functional execution organization across frontend, backend, mobile, QA, and design.",
       "icon": "users-round"
     },
     {
@@ -68,5 +72,10 @@
       "icon": "shield-check"
     }
   ],
-  "resumeUrl": "assets/files/CV_Nikola_Randjelovic.pdf"
+  "resumeUrl": "assets/files/CV_Nikola_Randjelovic.pdf",
+  "primaryCta": {
+    "label": "EXPLORE EXPERIENCE",
+    "href": "#experience",
+    "ariaLabel": "Explore Nikola Randjelovic experience"
+  }
 }
