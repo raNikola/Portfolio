@@ -1,0 +1,125 @@
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .header {
+    .about {
+      &__profile {
+        padding-right: 44px;
+        padding-left: 44px;
+      }
+
+      &__media {
+        padding-right: 24px !important;
+      }
+
+      &__content {
+        padding-left: 24px !important;
+      }
+
+      &__profile-title {
+        max-width: 100%;
+        overflow: visible;
+        font-size: 56px;
+        line-height: 1.06;
+        word-break: normal;
+        overflow-wrap: normal;
+      }
+
+      &__value-item {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        min-height: 174px;
+        padding: 24px 18px;
+        text-align: center;
+
+        > div {
+          width: 100%;
+          min-width: 0;
+        }
+
+        strong,
+        span {
+          max-width: 100%;
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+      }
+
+      &__value-icon {
+        flex-basis: 64px;
+      }
+
+      &__value-col:not(:last-child)::after {
+        height: 74%;
+      }
+    }
+  }
+
+  main {
+    .experience {
+      &__metric {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        min-height: 118px;
+        padding: 12px 6px;
+        text-align: center;
+      }
+
+      &__metric-icon {
+        margin-bottom: 2px;
+      }
+
+      &__metric-copy {
+        width: 100%;
+        min-width: 0;
+        text-align: center;
+      }
+
+      &__metric strong,
+      &__metric-label {
+        max-width: 100%;
+        overflow: visible;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-overflow: clip;
+      }
+
+      &__action {
+        clear: both;
+      }
+    }
+
+    .contact {
+      .col.s12.l7 > .row:first-child {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .col.s12.m6 {
+        display: flex;
+      }
+
+      &__card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 352px;
+
+        .card-content {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          min-height: 0;
+        }
+      }
+
+      &__card-action {
+        margin-top: auto;
+      }
+    }
+  }
+}

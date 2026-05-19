@@ -156,7 +156,8 @@ main {
 
       &.is-open {
         .experience__details {
-          max-height: 1200px;
+          max-height: 1860px;
+          height: 100%;
           opacity: 1;
           visibility: visible;
         }

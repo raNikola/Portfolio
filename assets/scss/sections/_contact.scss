@@ -51,6 +51,11 @@ main {
     &__card {
       margin: 0 0 24px;
       border-top: 5px solid $color-brand-green;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 352px;
 
       &:hover {
         .contact__card-action::before {
