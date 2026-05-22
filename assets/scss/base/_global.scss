@@ -30,6 +30,7 @@ body {
 
 .card .card-action {
   border-top-color: $color-border-light;
+  background-color: $color-surface-original;
 }
 
 .white {
@@ -41,7 +42,7 @@ body {
 }
 
 .section-surface {
-  background-color: $color-surface-original !important;
+  background-color: $color-surface-original;
 }
 
 .section-surface-muted {

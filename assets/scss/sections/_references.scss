@@ -134,6 +134,7 @@ main {
       display: flex;
       align-items: center;
       gap: 14px;
+      background-color: inherit !important;
     }
 
     &__avatar {
