@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import crypto from 'crypto';
 import * as cheerio from 'cheerio';
 
 import { renderAbout } from './sections/render-about.js';
@@ -14,6 +13,7 @@ const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
 const distPath = './dist';
 const clarityScriptOutputPath = './dist/assets/js/clarity.js';
+const themeBootstrapPath = 'assets/js/theme-bootstrap.js';
 const shouldDeleteDist = process.argv.includes('--delete-dist');
 const cspMetaSelector = 'meta[http-equiv="Content-Security-Policy"]';
 const clarityProjectIdEnvKey = 'MICROSOFT_CLARITY_PROJECT_ID';
@@ -325,25 +325,13 @@ function getClarityLoader(projectId) {
     ].join('\n');
 }
 
-function getStructuredDataCspHash(structuredDataJson) {
-    return `'sha256-${crypto.createHash('sha256').update(structuredDataJson).digest('base64')}'`;
-}
-
 function getContentSecurityPolicy(environment, config, structuredDataJson, clarity, umami) {
-    const scriptSources = [`'self'`, getStructuredDataCspHash(structuredDataJson)];
-    const connectSources = [`'self'`];
+    const isDevelopment = environment === 'development';
+    const scriptSources = isDevelopment ? [`'self'`, `'unsafe-inline'`] : [`'self'`];
+    const connectSources = isDevelopment
+        ? [`'self'`, 'ws:', 'http://localhost:*', 'http://127.0.0.1:*']
+        : [`'self'`];
     const imageSources = [`'self'`, 'data:'];
-
-    if (environment === 'production' && clarity.enabled) {
-        scriptSources.push('https://www.clarity.ms', 'https://scripts.clarity.ms');
-        connectSources.push('https://www.clarity.ms', 'https://c.clarity.ms', 'https://b.clarity.ms');
-        imageSources.push('https://www.clarity.ms', 'https://c.clarity.ms', 'https://c.bing.com');
-    }
-
-    if (environment === 'production' && umami.enabled) {
-        scriptSources.push(umamiScriptOrigin);
-        connectSources.push(umamiScriptOrigin, 'https://api-gateway.umami.dev');
-    }
 
     const directives = [
         `default-src 'self'`,
@@ -451,6 +439,14 @@ function copyTextFile(sourcePath, destinationPath, transform = (content) => cont
     fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
     const content = fs.readFileSync(sourcePath, 'utf8');
     fs.writeFileSync(destinationPath, transform(content), 'utf8');
+}
+
+function minifyThemeBootstrap(content) {
+    return content
+        .replace(/^\s+|\s+$/g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/\s*([{}();=?:,])\s*/g, '$1')
+        .replace(/;}/g, '}');
 }
 
 function writeCrawlerFiles() {
@@ -576,6 +572,10 @@ function copyProductionAssets() {
         'assets/files/CV_Nikola_Randjelovic.pdf'
     ]);
 
+    if (buildEnvironment === 'development' && fs.existsSync('assets/css/main.css.map')) {
+        assetPaths.add('assets/css/main.css.map');
+    }
+
     const manifest = JSON.parse(fs.readFileSync('./manifest.json', 'utf8'));
     for (const icon of manifest.icons || []) {
         const iconPath = normalizeAssetPath(icon.src);
@@ -631,8 +631,13 @@ function copyProductionAssets() {
     for (const assetPath of assetPaths) {
         const destination = path.join(distPath, assetPath);
 
-        if (assetPath === 'assets/css/main.css') {
+        if (assetPath === 'assets/css/main.css' && buildEnvironment === 'production') {
             copyTextFile(assetPath, destination, content => content.replace(/\/\*# sourceMappingURL=.*?\*\/\s*$/s, ''));
+            continue;
+        }
+
+        if (assetPath === themeBootstrapPath && buildEnvironment === 'production') {
+            copyTextFile(assetPath, destination, minifyThemeBootstrap);
             continue;
         }
 

@@ -162,13 +162,7 @@ main {
       &__overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, .72) 0%,
-                rgba(255, 255, 255, .82) 35%,
-                rgba(255, 255, 255, .94) 70%,
-                rgba(255, 255, 255, 1) 100%
-        );
+        background: var(--color-interest-overlay);
         z-index: 2;
       }
 
@@ -218,7 +212,7 @@ main {
       border-radius: 50%;
       font-size: 20px;
 
-      background: rgba(255, 255, 255, .2);
+      background: var(--color-icon-glass);
       backdrop-filter: blur(4px);
       border: 1px solid currentColor;
       box-shadow: 0 4px 12px $color-shadow-soft;
@@ -240,7 +234,7 @@ main {
       border-top: 1px solid $color-border-light;
 
       .chip {
-        background: rgba(255, 255, 255, .55);
+        background: var(--color-chip-glass);
         border: 1px solid currentColor;
         backdrop-filter: blur(4px);
       }

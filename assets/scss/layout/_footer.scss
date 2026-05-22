@@ -1,6 +1,11 @@
 @use '../base/colors' as *;
 
 footer {
+  &.page-footer,
+  &.site-footer {
+    color: $color-text-primary;
+  }
+
   .container {
     max-width: 1200px;
 
@@ -36,6 +41,25 @@ footer {
 
   .footer-copyright {
     height: 100px;
+    color: $color-text-secondary;
+    background-color: transparent;
+  }
+
+  .site-footer {
+    &__copyright {
+      color: $color-text-secondary !important;
+      background-color: var(--color-surface-primary) !important;
+    }
+
+    &__link {
+      color: $color-text-primary !important;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: $color-brand-green;
+      }
+    }
   }
 }
 

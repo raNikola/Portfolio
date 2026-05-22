@@ -44,7 +44,7 @@ export function renderSkills($) {
             return `
                 <div
                     id="${panelId}"
-                    class="skills__card__content card-content grey lighten-4 service-expand"
+                    class="skills__card__content card-content section-surface service-expand"
                     ${item.active ? '' : 'hidden'}>
                     <p>${item.content}</p>
                 </div>

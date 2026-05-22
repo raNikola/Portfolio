@@ -48,6 +48,15 @@ main {
       font-weight: 400;
     }
 
+    &__cards-row {
+      display: flex;
+      flex-wrap: wrap;
+
+      > .col {
+        display: flex;
+      }
+    }
+
     &__card {
       margin: 0 0 24px;
       border-top: 5px solid $color-brand-green;
@@ -55,7 +64,6 @@ main {
       display: flex;
       flex-direction: column;
       width: 100%;
-      min-height: 352px;
 
       &:hover {
         .contact__card-action::before {
@@ -64,7 +72,6 @@ main {
       }
 
       .card-content {
-        min-height: 245px;
         padding: 25px;
       }
 
@@ -96,7 +103,7 @@ main {
       border-radius: 50%;
       font-size: 20px;
 
-      background: rgba($color-neutral-0, .2);
+      background: var(--color-icon-glass);
       backdrop-filter: blur(4px);
       border: 1px solid currentColor;
       box-shadow: 0 4px 12px $color-shadow-soft;
@@ -113,6 +120,7 @@ main {
     &__card-action {
       position: relative;
       padding: 0 !important;
+      margin-top: auto;
 
       &::before {
         content: "";

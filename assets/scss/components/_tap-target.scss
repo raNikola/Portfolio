@@ -9,3 +9,16 @@
   }
 }
 
+html[data-theme='dark'] {
+  .tap-target {
+    color: $color-text-inverse;
+  }
+
+  .tap-target-wave {
+    &::before,
+    &::after {
+      background-color: $color-surface-muted !important;
+    }
+  }
+}
+

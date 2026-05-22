@@ -93,33 +93,5 @@
       }
     }
 
-    .contact {
-      .col.s12.l7 > .row:first-child {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .col.s12.m6 {
-        display: flex;
-      }
-
-      &__card {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        min-height: 352px;
-
-        .card-content {
-          display: flex;
-          flex: 1 1 auto;
-          flex-direction: column;
-          min-height: 0;
-        }
-      }
-
-      &__card-action {
-        margin-top: auto;
-      }
-    }
   }
 }

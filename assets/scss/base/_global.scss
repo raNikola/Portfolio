@@ -7,6 +7,8 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: $color-text-primary;
+  background-color: $color-surface-muted;
 
   &.light {
     background-color: $color-surface-muted;
@@ -15,6 +17,39 @@ body {
   &.dark {
     background-color: $color-neutral-900;
   }
+}
+
+.card,
+.card-panel,
+.sidenav,
+.modal,
+.dropdown-content {
+  color: $color-text-primary;
+  background-color: $color-surface-primary;
+}
+
+.card .card-action {
+  border-top-color: $color-border-light;
+}
+
+.white {
+  background-color: $color-surface-primary !important;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.section-surface {
+  background-color: $color-surface-original !important;
+}
+
+.section-surface-muted {
+  background-color: $color-surface-muted !important;
+}
+
+.text-inverse {
+  color: $color-text-inverse !important;
 }
 
 .skip-link {
@@ -70,5 +105,6 @@ footer,
   background: transparent !important;
   border-radius: 10px !important;
   border: 1px solid $color-border-default;
+  color: $color-text-secondary;
   box-shadow: none;
 }

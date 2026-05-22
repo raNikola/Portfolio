@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-theme="light">
 <head>
     <meta charset="utf-8"/>
     <meta name="robots" content="noindex">
@@ -15,14 +15,15 @@
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self';
            script-src 'self';
-            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-             img-src 'self' data:;
-              font-src 'self' https://fonts.gstatic.com;
-               connect-src 'self';
-                object-src 'none';
-                 base-uri 'self';
-                  form-action 'self';
-                   upgrade-insecure-requests">
+           style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+           img-src 'self' data:;
+           font-src 'self' https://fonts.gstatic.com;
+           connect-src 'self';
+           object-src 'none';
+           base-uri 'self';
+           form-action 'self';
+           upgrade-insecure-requests">
+    <script src="./assets/js/theme-bootstrap.js"></script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="manifest" href="./manifest.json">
     <meta property="og:url" content="https://cv.ranikola.dev/">
@@ -93,7 +94,8 @@
                           aria-hidden="true"></span>
                 </a>
                 <ul id="site-navigation-links" class="right hide-on-small-only">
-                    <li><a href="#" data-target="about-sidenav" class="sidenav-trigger sidenav-about" aria-label="Open profile menu" aria-controls="about-sidenav" aria-expanded="false">
+                    <li><a href="#" data-target="about-sidenav" class="sidenav-trigger sidenav-about"
+                           aria-label="Open profile menu" aria-controls="about-sidenav" aria-expanded="false">
                         <span class="site-icon"
                               style="--site-icon: url('../icons/lucide/menu.svg')"
                               aria-hidden="true"></span>
@@ -104,7 +106,8 @@
     </div>
     <ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden></ul>
     <div class="container header__container">
-        <section class="section about" itemscope itemtype="https://schema.org/Person" itemid="https://cv.ranikola.dev/#nikola-randjelovic">
+        <section class="section about" itemscope itemtype="https://schema.org/Person"
+                 itemid="https://cv.ranikola.dev/#nikola-randjelovic">
             <meta itemprop="url" content="https://cv.ranikola.dev/">
             <meta id="about-email-meta" itemprop="email" content="">
             <div class="col s12">
@@ -114,7 +117,8 @@
                             <div class="col s12 m5 about__media">
                                 <picture id="about-picture">
                                     <source id="about-image-mobile-source" type="image/webp" media="(max-width: 767px)">
-                                    <source id="about-image-desktop-source" type="image/webp" media="(min-width: 768px)">
+                                    <source id="about-image-desktop-source" type="image/webp"
+                                            media="(min-width: 768px)">
                                     <img id="about-image"
                                          src=""
                                          itemprop="image"
@@ -128,13 +132,15 @@
                             </div>
                             <div class="col s12 m7 about__content">
                                 <div class="about__profile-info">
-                                    <div class="about__profile-preword"><span class="light-green white-text">Hello</span></div>
+                                    <div class="about__profile-preword"><span
+                                            class="light-green text-inverse">Hello</span></div>
                                     <h1 id="about-name" class="about__profile-title" itemprop="name"></h1>
                                     <h2 id="about-role" class="about__profile-position" itemprop="jobTitle"></h2>
                                     <p id="about-summary" class="about__profile-summary"></p>
                                 </div>
 
-                                <div id="about-contact" class="about__contact" aria-label="Contact and social links"></div>
+                                <div id="about-contact" class="about__contact"
+                                     aria-label="Contact and social links"></div>
                             </div>
                         </div>
                     </div>
@@ -147,7 +153,8 @@
                 <div class="row">
                     <div class="col s12 m12 justify-align intro__article">
                         <p id="about-intro"></p>
-                        <ul id="about-proof-list" class="intro__proof-list row" aria-label="Product delivery proof points"></ul>
+                        <ul id="about-proof-list" class="intro__proof-list row"
+                            aria-label="Product delivery proof points"></ul>
                     </div>
                     <div class="col s12 m12 light center-align intro__download_cv">
                         <a id="about-primary-cta"
@@ -279,12 +286,13 @@
                         </h2>
 
                         <p class="contact__description">
-                            I work best where product decisions carry technical weight, business impact, and very little room for error. That’s where I create the most value.
+                            I work best where product decisions carry technical weight, business impact, and very little
+                            room for error. That’s where I create the most value.
                         </p>
                     </div>
 
                     <div class="col s12 l7">
-                        <div class="row">
+                        <div class="row contact__cards-row">
                             <div class="col s12 m6">
                                 <div class="card border-top__green contact__card">
                                     <div class="card-content">
@@ -295,12 +303,14 @@
                                             </span>
                                         <span class="card-title">Email</span>
                                         <p>
-                                            Best for direct conversations, product opportunities, and professional collaboration.
+                                            Best for direct conversations, product opportunities, and professional
+                                            collaboration.
                                         </p>
                                     </div>
 
                                     <div class="card-action contact__card-action">
-                                        <a href="mailto:hello.ranikola@gmail.com" aria-label="Email Nikola Randjelovic" data-analytics="email_click">
+                                        <a href="mailto:hello.ranikola@gmail.com" aria-label="Email Nikola Randjelovic"
+                                           data-analytics="email_click">
                                             <span>hello.ranikola@gmail.com</span>
                                             <span class="contact__card-action--icon">
                                                 <span class="site-icon"
@@ -325,7 +335,9 @@
                                     </div>
 
                                     <div class="card-action contact__card-action">
-                                        <a href="https://www.linkedin.com/in/ranikola" target="_blank" rel="noopener" aria-label="Visit Nikola Randjelovic on LinkedIn" data-analytics="linkedin_click">
+                                        <a href="https://www.linkedin.com/in/ranikola" target="_blank" rel="noopener"
+                                           aria-label="Visit Nikola Randjelovic on LinkedIn"
+                                           data-analytics="linkedin_click">
                                             <span>/in/ranikola</span>
                                             <span class="contact__card-action--icon">
                                                 <span class="site-icon"
@@ -347,12 +359,15 @@
                                         </span>
                                         <span class="card-title">GitHub</span>
                                         <p>
-                                            Technical projects, experiments, and hands-on work that reflect my engineering foundation.
+                                            Technical projects, experiments, and hands-on work that reflect my
+                                            engineering foundation.
                                         </p>
                                     </div>
 
                                     <div class="card-action contact__card-action">
-                                        <a href="https://github.com/ranikola" target="_blank" rel="noopener" aria-label="Visit Nikola Randjelovic on GitHub" data-analytics="github_click">
+                                        <a href="https://github.com/ranikola" target="_blank" rel="noopener"
+                                           aria-label="Visit Nikola Randjelovic on GitHub"
+                                           data-analytics="github_click">
                                             <span>/ranikola</span>
                                             <span class="contact__card-action--icon">
                                                 <span class="site-icon"
@@ -377,7 +392,9 @@
                                     </div>
 
                                     <div class="card-action contact__card-action">
-                                        <a href="https://www.instagram.com/ranikola" target="_blank" rel="noopener" aria-label="Visit Nikola Randjelovic on Instagram" data-analytics="instagram_click">
+                                        <a href="https://www.instagram.com/ranikola" target="_blank" rel="noopener"
+                                           aria-label="Visit Nikola Randjelovic on Instagram"
+                                           data-analytics="instagram_click">
                                             <span>/ranikola</span>
                                             <span class="contact__card-action--icon">
                                                 <span class="site-icon"
@@ -466,10 +483,11 @@
     </ul>-->
 
 </main>
-<footer class="page-footer grey lighten-3">
-    <div class="footer-copyright grey-text center-align text-darken-2">
+<footer class="page-footer site-footer section-surface-muted">
+    <div class="footer-copyright site-footer__copyright center-align">
         <div class="container">
-            Technical Product Leader · <a href="mailto:hello.ranikola@gmail.com" class="grey-text text-darken-2" aria-label="Email Nikola Randjelovic" data-analytics="email_click">hello.ranikola@gmail.com</a>
+            Technical Product Leader · <a href="mailto:hello.ranikola@gmail.com" class="site-footer__link"
+                                          aria-label="Email Nikola Randjelovic" data-analytics="email_click">hello.ranikola@gmail.com</a>
             &nbsp;|&nbsp; © 2021 – <span id="footer-year"></span> Nikola Randjelovic. All rights reserved.
         </div>
     </div>

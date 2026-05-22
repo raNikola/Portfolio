@@ -4,14 +4,6 @@
   &__green {
     border-top: 5px solid $color-brand-green;
   }
-
-  &__lighten-green {
-    border-top: 5px solid #c5e1a5;
-  }
-
-  &__darken-green {
-    border-top: 5px solid #558b2f;
-  }
 }
 
 .site-icon {
@@ -30,6 +22,18 @@
   mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   mask-size: contain;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .row.equal-height {
