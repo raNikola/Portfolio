@@ -130,12 +130,6 @@ main {
       }
     }
 
-    .jira img,
-    .confluence img,
-    .trello img {
-      max-height: 35px;
-    }
-
     .chip {
       &:focus {
         background-color: $color-surface-muted;
