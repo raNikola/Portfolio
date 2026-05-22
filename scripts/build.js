@@ -43,7 +43,7 @@ injectHeadMetadata($, siteConfig);
 injectStructuredData($, structuredDataJson);
 injectUmamiScript($, umamiConfig);
 injectClarityScript($, clarityConfig);
-injectContentSecurityPolicy($, buildEnvironment, siteConfig, structuredDataJson, clarityConfig, umamiConfig);
+injectContentSecurityPolicy($, buildEnvironment);
 
 const renderedHtml = $.html();
 
@@ -325,7 +325,7 @@ function getClarityLoader(projectId) {
     ].join('\n');
 }
 
-function getContentSecurityPolicy(environment, config, structuredDataJson, clarity, umami) {
+function getContentSecurityPolicy(environment) {
     const isDevelopment = environment === 'development';
     const scriptSources = isDevelopment ? [`'self'`, `'unsafe-inline'`] : [`'self'`];
     const connectSources = isDevelopment
@@ -353,8 +353,8 @@ function getContentSecurityPolicy(environment, config, structuredDataJson, clari
     return directives.join('; ');
 }
 
-function injectContentSecurityPolicy($, environment, config, structuredDataJson, clarity, umami) {
-    const policy = getContentSecurityPolicy(environment, config, structuredDataJson, clarity, umami);
+function injectContentSecurityPolicy($, environment) {
+    const policy = getContentSecurityPolicy(environment);
     const existingCspTags = $(cspMetaSelector);
     const cspTag = existingCspTags.first();
 
