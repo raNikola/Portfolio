@@ -1,11 +1,4 @@
-function escapeHtml(value) {
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
+import { escapeHtml } from '../lib/html.js';
 
 function renderNavLink(item, options = {}) {
     const closeClass = options.closeOnClick ? ' class="sidenav-close"' : '';

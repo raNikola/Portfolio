@@ -1,13 +1,6 @@
 import fs from 'fs';
 
-function escapeHtml(value) {
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
+import { escapeHtml } from '../lib/html.js';
 
 function getContactIconClass(icon) {
     const aliases = {
