@@ -12,11 +12,9 @@ import {renderDesktopNavigation, renderMobileNavigation} from './partials/render
 const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
 const distPath = './dist';
-const clarityScriptOutputPath = './dist/assets/js/clarity.js';
 const themeBootstrapPath = 'assets/js/theme-bootstrap.js';
 const shouldDeleteDist = process.argv.includes('--delete-dist');
 const cspMetaSelector = 'meta[http-equiv="Content-Security-Policy"]';
-const clarityProjectIdEnvKey = 'MICROSOFT_CLARITY_PROJECT_ID';
 const umamiWebsiteIdEnvKey = 'UMAMI_WEBSITE_ID';
 const umamiScriptOrigin = 'https://cloud.umami.is';
 const umamiScriptSrc = `${umamiScriptOrigin}/script.js`;
@@ -29,7 +27,6 @@ const $ = cheerio.load(html, { decodeEntities: false });
 const siteConfig = JSON.parse(fs.readFileSync('./data/site.json', 'utf8'));
 const buildEnvironment = getBuildEnvironment();
 const structuredDataJson = getStructuredDataJson(siteConfig);
-const clarityConfig = getClarityConfig(buildEnvironment);
 const umamiConfig = getUmamiConfig(buildEnvironment);
 
 renderAbout($);
@@ -42,8 +39,7 @@ renderNavigation($, siteConfig.navigation || []);
 injectHeadMetadata($, siteConfig);
 injectStructuredData($, structuredDataJson);
 injectUmamiScript($, umamiConfig);
-injectClarityScript($, clarityConfig);
-injectContentSecurityPolicy($, buildEnvironment);
+injectContentSecurityPolicy($, buildEnvironment, umamiConfig);
 
 const renderedHtml = $.html();
 
@@ -249,16 +245,6 @@ function injectStructuredData($, structuredDataJson) {
         .appendTo('head');
 }
 
-function getClarityConfig(environment) {
-    const projectId = (process.env[clarityProjectIdEnvKey] || '').trim();
-
-    return {
-        enabled: environment === 'production' && Boolean(projectId),
-        projectId,
-        scriptPath: './assets/js/clarity.js'
-    };
-}
-
 function getUmamiConfig(environment) {
     const websiteId = (process.env[umamiWebsiteIdEnvKey] || '').trim();
 
@@ -292,45 +278,17 @@ function injectUmamiScript($, umami) {
     $('<script>').attr(attributes).appendTo('head');
 }
 
-function injectClarityScript($, clarity) {
-    const existingScript = removeExtraMatches($, 'script#ms-clarity');
-
-    if (!clarity.enabled) {
-        existingScript.remove();
-        return;
-    }
-
-    const attributes = {
-        id: 'ms-clarity',
-        defer: '',
-        src: clarity.scriptPath
-    };
-
-    if (existingScript.length) {
-        Object.entries(attributes).forEach(([key, value]) => existingScript.attr(key, value));
-        return;
-    }
-
-    $('<script>').attr(attributes).appendTo('head');
-}
-
-function getClarityLoader(projectId) {
-    return [
-        '(function(c,l,a,r,i,t,y){',
-        'c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};',
-        't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;',
-        'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);',
-        `})(window,document,"clarity","script",${JSON.stringify(projectId)});`,
-        ''
-    ].join('\n');
-}
-
-function getContentSecurityPolicy(environment) {
+function getContentSecurityPolicy(environment, umami) {
     const isDevelopment = environment === 'development';
     const scriptSources = isDevelopment ? [`'self'`, `'unsafe-inline'`] : [`'self'`];
     const connectSources = isDevelopment
         ? [`'self'`, 'ws:', 'http://localhost:*', 'http://127.0.0.1:*']
         : [`'self'`];
+
+    if (!isDevelopment && umami.enabled) {
+        scriptSources.push(umamiScriptOrigin);
+        connectSources.push(umamiScriptOrigin);
+    }
     const imageSources = [`'self'`, 'data:'];
 
     const directives = [
@@ -353,8 +311,8 @@ function getContentSecurityPolicy(environment) {
     return directives.join('; ');
 }
 
-function injectContentSecurityPolicy($, environment) {
-    const policy = getContentSecurityPolicy(environment);
+function injectContentSecurityPolicy($, environment, umami) {
+    const policy = getContentSecurityPolicy(environment, umami);
     const existingCspTags = $(cspMetaSelector);
     const cspTag = existingCspTags.first();
 
@@ -645,15 +603,6 @@ function copyProductionAssets() {
     }
 }
 
-function writeProductionClarityScript(clarity) {
-    if (!clarity.enabled) {
-        return;
-    }
-
-    fs.mkdirSync(path.dirname(clarityScriptOutputPath), { recursive: true });
-    fs.writeFileSync(clarityScriptOutputPath, getClarityLoader(clarity.projectId), 'utf8');
-}
-
 if (shouldDeleteDist) {
     recreateDist();
 } else {
@@ -662,7 +611,6 @@ if (shouldDeleteDist) {
 
 fs.writeFileSync(outputPath, renderedHtml, 'utf8');
 copyProductionAssets();
-writeProductionClarityScript(clarityConfig);
 copyFile('./404.html', './dist/404.html');
 copyFile('./assets/images/404/spacecraft.png', './dist/assets/images/404/spacecraft.png');
 copyFile('./assets/images/404/deadstar_planet.png', './dist/assets/images/404/deadstar_planet.png');
