@@ -287,7 +287,7 @@ function getContentSecurityPolicy(environment, umami) {
 
     if (!isDevelopment && umami.enabled) {
         scriptSources.push(umamiScriptOrigin);
-        connectSources.push(umamiScriptOrigin);
+        connectSources.push(umamiScriptOrigin,'https://api-gateway.umami.dev');
     }
     const imageSources = [`'self'`, 'data:'];
 
@@ -304,7 +304,7 @@ function getContentSecurityPolicy(environment, umami) {
     ];
 
     if (environment === 'production') {
-        directives.push(`frame-ancestors 'none'`);
+        // directives.push(`frame-ancestors 'none'`);
     }
 
     directives.push('upgrade-insecure-requests');
