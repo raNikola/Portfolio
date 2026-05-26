@@ -2,15 +2,19 @@
   "type": "module",
   "scripts": {
     "dev": "npm run build:css:dev && node scripts/build.js --env=development",
-    "build": "npm run build:css:prod && npm run build:html",
+    "build": "npm run build:css:prod && npm run build:html && npm run build:js:prod",
     "build:css": "npm run build:css:prod",
     "build:css:dev": "sass --style=compressed --embed-sources assets/scss/main.scss assets/css/main.css",
     "build:css:prod": "sass --style=compressed --no-source-map assets/scss/main.scss assets/css/main.css",
+    "build:js:prod": "terser dist/assets/js/public.js --compress --mangle --output dist/assets/js/public.js",
     "watch:css": "sass --watch --style=compressed --embed-sources assets/scss/main.scss assets/css/main.css",
     "build:html": "node scripts/build.js --env=production",
-    "build:clean": "npm run build:css:prod && node scripts/build.js --env=production --delete-dist"
+    "build:clean": "npm run build:css:prod && node scripts/build.js --env=production --delete-dist && npm run build:js:prod"
   },
   "dependencies": {
     "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "terser": "^5.44.1"
   }
 }

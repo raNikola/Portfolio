@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { escapeHtml } from '../lib/html.js';
+import { escapeHtml, renderObfuscatedEmailLink } from '../lib/html.js';
 
 function getContactIconClass(icon) {
     const aliases = {
@@ -43,7 +43,7 @@ function renderContactItem(item) {
         `;
     }
 
-    const itemprop = item.type === 'email' ? ' itemprop="email"' : ' itemprop="sameAs"';
+    const itemprop = item.type === 'email' ? 'email' : 'sameAs';
     const externalAttributes = item.type === 'social' ? ' target="_blank" rel="noopener noreferrer"' : '';
     const analyticsEvent = {
         email: 'email_click',
@@ -55,8 +55,28 @@ function renderContactItem(item) {
         ? 'Email Nikola Randjelovic'
         : `Visit Nikola Randjelovic on ${escapeHtml(item.label)}`;
 
+    if (item.type === 'email') {
+        const [user = '', domain = ''] = String(item.label).split('@');
+        const emailLink = renderObfuscatedEmailLink({
+            user,
+            domain,
+            className: 'about__contact-email',
+            ariaLabel,
+            analytics: analyticsEvent || '',
+            itemprop,
+            text: '[Show email]'
+        });
+
+        return `
+            <span class="about__contact-item" itemprop="${itemprop}">
+                ${icon}
+                ${emailLink}
+            </span>
+        `;
+    }
+
     return `
-        <a class="about__contact-item" href="${escapeHtml(item.url)}"${itemprop}${externalAttributes} aria-label="${ariaLabel}"${analyticsAttribute}>
+        <a class="about__contact-item" href="${escapeHtml(item.url)}" itemprop="${itemprop}"${externalAttributes} aria-label="${ariaLabel}"${analyticsAttribute}>
             ${icon}
             ${label}
         </a>

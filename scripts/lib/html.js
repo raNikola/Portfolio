@@ -43,3 +43,27 @@ export function renderChips(items, className) {
         </div>
     `;
 }
+
+export function renderObfuscatedEmailLink({
+    user,
+    domain,
+    className = '',
+    id = '',
+    ariaLabel = '',
+    analytics = '',
+    itemprop = '',
+    text = '[Prikaži imejl]'
+}) {
+    const attrs = {
+        href: '#',
+        class: className || undefined,
+        id: id || undefined,
+        'data-user': user,
+        'data-domain': domain,
+        'aria-label': ariaLabel || undefined,
+        'data-analytics': analytics || undefined,
+        itemprop: itemprop || undefined
+    };
+
+    return `<a${renderAttrs(attrs)}>${escapeHtml(text)}</a>`;
+}

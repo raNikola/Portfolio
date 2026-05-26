@@ -597,12 +597,17 @@ document.addEventListener('DOMContentLoaded', function () {
     renderLucideIcons();
     scheduleParticlesInitialization();
 
-    const mailLink = document.getElementById('contact-mail');
-    if (mailLink) {
-        const email = `${mailLink.getAttribute('data-user')}@${mailLink.getAttribute('data-domain')}`;
-        mailLink.href = `mailto:${email}`;
+    document.querySelectorAll('[data-user][data-domain]').forEach(mailLink => {
+        const user = mailLink.getAttribute('data-user');
+        const domain = mailLink.getAttribute('data-domain');
+        if (!user || !domain) {
+            return;
+        }
+
+        const email = `${user}@${domain}`;
+        mailLink.setAttribute('href', `mailto:${email}`);
         mailLink.textContent = email;
-    }
+    });
 
     if ('MutationObserver' in window) {
         new MutationObserver(mutations => {
