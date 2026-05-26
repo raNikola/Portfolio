@@ -1,0 +1,155 @@
+@use '../base/colors' as *;
+
+main {
+  .skills {
+    padding: 3rem 0;
+
+    &__header {
+      margin: 3rem 0;
+
+      h2 {
+        margin: 0 0 14px !important;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: $color-text-primary;
+      }
+    }
+
+    &__eyebrow {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    &__description {
+      max-width: 760px;
+      margin: 22px auto 0;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: $color-text-muted;
+    }
+
+    &__card {
+      border-top: 5px solid $color-brand-green;
+
+      &.is-muted {
+        opacity: 0.34;
+        transform: scale(0.985);
+      }
+
+      &__title {
+        padding-bottom: 5px !important;
+      }
+
+      &__chips {
+        flex: 10;
+
+        .service-chip {
+          border: 1px solid $color-border-medium;
+          cursor: pointer;
+
+          &:hover {
+            border: 1px solid $color-brand-green;
+            color: $color-brand-green;
+          }
+        }
+      }
+
+      &__content {
+        border-top: 1px solid $color-border-light;
+      }
+    }
+
+    &__filters {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin: 0;
+        }
+      }
+
+      &__item {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-text-primary;
+        gap: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        background: transparent;
+        border: none;
+
+        &__bar {
+          display: block;
+          width: 100%;
+          min-width: 32px;
+          height: 3px;
+          background-color: transparent;
+          opacity: 1;
+          transform: scaleX(0);
+          transform-origin: left center;
+          transition: transform .25s ease;
+        }
+
+        &:hover &__bar {
+          transform: scaleX(1);
+          background-color: rgba($color-brand-green, .7);
+        }
+
+        &.is-active {
+          .skills__filters__item__bar {
+            transform: scaleX(1);
+            background-color: $color-brand-green;
+          }
+        }
+      }
+    }
+
+    &__brand-logo {
+      display: inline-block;
+      margin-right: 50px;
+      margin-bottom: 20px;
+
+      img {
+        max-height: 60px;
+        height: 50px;
+        width: auto;
+      }
+    }
+
+    .chip {
+      &:focus {
+        background-color: $color-surface-muted;
+        color: $color-text-muted;
+      }
+
+      &.active {
+        background-color: $color-brand-green !important;
+        color: $color-text-inverse;
+
+        &:hover {
+          background-color: $color-brand-green-hover;
+        }
+      }
+    }
+  }
+}
+
+
+.service-card.open .service-expand[hidden] {
+  display: none;
+}
+

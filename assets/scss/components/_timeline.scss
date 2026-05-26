@@ -1,0 +1,115 @@
+@use '../base/colors' as *;
+
+main {
+  .experience,
+  .education {
+    overflow: hidden;
+    position: relative;
+    padding: 3rem 0;
+
+    .timeline {
+      padding: 0;
+
+      &__bar {
+        width: 4px;
+        height: 3800px;
+        opacity: .3;
+        margin-left: -1px;
+        margin-top: 30px;
+        position: absolute;
+        left: 50%;
+        border-radius: 2px;
+      }
+
+      &__box {
+        position: relative;
+        margin-bottom: 1rem;
+
+        &-left {
+          padding-left: 0;
+
+          .timeline__card {
+            margin-right: 1.75rem;
+          }
+
+          .timeline__dot {
+            right: -.4rem;
+          }
+        }
+
+        &-right {
+          padding-right: 0;
+
+          .timeline__card {
+            margin-left: 1.75rem;
+          }
+
+          .timeline__dot {
+            left: -.25rem;
+          }
+        }
+      }
+
+      &__arrow {
+        width: 30px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        background-color: $color-surface-primary;
+        top: 4rem;
+        z-index: 2;
+
+        box-shadow: 0 2px 2px 0 $color-shadow-medium, 0 3px 1px -2px $color-border-default, 0 1px 5px 0 $color-shadow-strong;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          width: 43.5px;
+          height: 21.5px;
+          bottom: 12px;
+          background-color: $color-surface-primary;
+          z-index: 100;
+
+        }
+
+        &-left {
+          transform: rotate(-45deg);
+          right: 1.45rem;
+
+          &:after {
+            transform: rotate(-45deg);
+            right: 1.5px;
+          }
+        }
+
+        &-right {
+          transform: rotate(45deg);
+          left: 1.45rem;
+
+          &:after {
+            transform: rotate(45deg);
+            left: 1.5px;
+          }
+        }
+      }
+
+      &__dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: $color-brand-green;
+        border-radius: 50%;
+        top: 4.7rem;
+
+        z-index: 9;
+      }
+
+      &__card {
+        padding: 1.6rem;
+        margin: .5rem 0 1rem;
+      }
+    }
+  }
+}
+

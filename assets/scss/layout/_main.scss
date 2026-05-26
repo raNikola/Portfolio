@@ -1,0 +1,17 @@
+@use '../base/colors' as *;
+
+main {
+  .container {
+    max-width: 1200px;
+
+    section {
+      h2 {
+        margin-top: 5rem;
+        color: $color-text-primary;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+

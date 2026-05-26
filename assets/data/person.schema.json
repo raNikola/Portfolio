@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://cv.ranikola.dev/#nikola-randjelovic",
+  "name": "Nikola Randjelovic",
+  "givenName": "Nikola",
+  "familyName": "Randjelovic",
+  "alternateName": "Technical Product Leader",
+  "jobTitle": "Technical Product Leader",
+  "email": "mailto:hello@ranikola.dev",
+  "telephone": "+38162369258",
+  "url": "https://cv.ranikola.dev/",
+  "image": "https://cv.ranikola.dev/assets/images/me_400x400.webp",
+  "sameAs": [
+    "https://www.linkedin.com/in/ranikola",
+    "https://github.com/ranikola",
+    "https://ranikola.dev"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Niš",
+    "addressCountry": "RS"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Faculty of Electronic Engineering, University of Niš"
+  },
+  "knowsAbout": [
+    "Product Leadership",
+    "Technical Product Management",
+    "B2B SaaS Platforms",
+    "Product Ownership",
+    "MVP Definition",
+    "Roadmap Prioritization",
+    "API-Driven Systems",
+    "Technical Product Judgment",
+    "Execution Leadership",
+    "Business Judgment",
+    "Cross-Functional Leadership"
+  ],
+  "description": "Technical Product Leader based in Serbia, focused on B2B SaaS platforms, product ownership, technical product judgment, API-driven systems, execution leadership, and business-aligned product decisions."
+}

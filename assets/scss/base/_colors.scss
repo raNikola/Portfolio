@@ -1,0 +1,119 @@
+$color-brand-green: #007A00 !default;
+$color-brand-green-hover: var(--color-brand-green-hover) !default;
+$color-brand-green-soft: var(--color-brand-green-soft) !default;
+
+$color-neutral-0: #fff !default;
+$color-neutral-100: #efefef !default;
+$color-neutral-black: #000 !default;
+$color-neutral-900: #1f2937 !default;
+
+$color-text-primary: var(--color-text-primary) !default;
+$color-text-secondary: var(--color-text-secondary) !default;
+$color-text-muted: var(--color-text-muted) !default;
+$color-text-inverse: var(--color-text-inverse) !default;
+
+$color-surface-original: var(--color-surface-original) !default;
+$color-surface-primary: var(--color-surface-primary) !default;
+$color-surface-muted: var(--color-surface-muted) !default;
+$color-surface-dark: var(--color-surface-dark) !default;
+$color-surface-glass: var(--color-surface-glass) !default;
+$color-surface-glass-strong: var(--color-surface-glass-strong) !default;
+
+$color-border-light: var(--color-border-light) !default;
+$color-border-default: var(--color-border-default) !default;
+$color-border-medium: var(--color-border-medium) !default;
+$color-border-accent: var(--color-border-accent) !default;
+$color-border-accent-soft: var(--color-border-accent-soft) !default;
+$color-border-inverse-soft: var(--color-border-inverse-soft) !default;
+
+$color-shadow-soft: var(--color-shadow-soft) !default;
+$color-shadow-medium: var(--color-shadow-medium) !default;
+$color-shadow-strong: var(--color-shadow-strong) !default;
+
+:root,
+html[data-theme='light'] {
+  color-scheme: light;
+  --color-brand-green: #{$color-brand-green};
+  --color-brand-green-hover: #006600;
+  --color-brand-green-soft: rgba(0, 122, 0, .08);
+  --color-text-primary: #{$color-neutral-900};
+  --color-text-secondary: rgba(31, 41, 55, .82);
+  --color-text-muted: rgba(31, 41, 55, .72);
+  --color-text-inverse: #{$color-neutral-0};
+  --color-surface-original: #f5f5f5;
+  --color-surface-primary: #{$color-neutral-0};
+  --color-surface-muted: #{$color-neutral-100};
+  --color-surface-dark: rgba(0, 0, 0, .8);
+  --color-surface-glass: rgba(255, 255, 255, .72);
+  --color-surface-glass-strong: rgba(255, 255, 255, .9);
+  --color-border-light: rgba(31, 41, 55, .08);
+  --color-border-default: rgba(31, 41, 55, .12);
+  --color-border-medium: rgba(31, 41, 55, .18);
+  --color-border-accent: rgba(0, 122, 0, .22);
+  --color-border-accent-soft: rgba(0, 122, 0, .18);
+  --color-border-inverse-soft: rgba(255, 255, 255, .28);
+  --color-shadow-soft: rgba(0, 0, 0, .08);
+  --color-shadow-medium: rgba(0, 0, 0, .18);
+  --color-shadow-strong: rgba(0, 0, 0, .24);
+  --color-interest-overlay: linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, .72) 0%,
+                  rgba(255, 255, 255, .82) 35%,
+                  rgba(255, 255, 255, .94) 70%,
+                  rgba(255, 255, 255, 1) 100%
+  );
+  --color-chip-glass: rgba(255, 255, 255, .55);
+  --color-icon-glass: rgba(255, 255, 255, .2);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-brand-green: #00A000;
+  --color-brand-green-hover: #00B800;
+  --color-brand-green-soft: rgba(0, 160, 0, .14);
+
+  --color-text-primary: rgba(242, 242, 242, .96);
+  --color-text-secondary: rgba(190, 190, 190, .82);
+  --color-text-muted: rgba(160, 160, 160, .68);
+  --color-text-inverse: #{$color-neutral-0};
+
+  --color-surface-original: rgba(0, 0, 0, 0.1);
+  --color-surface-primary: #27292e;
+  --color-surface-muted: #31343a;
+  --color-surface-dark: rgba(20, 21, 24, .9);
+
+  --color-surface-glass: rgba(39, 41, 46, .78);
+  --color-surface-glass-strong: rgba(49, 52, 58, .94);
+
+  --color-border-light: rgba(255, 255, 255, .08);
+  --color-border-default: rgba(255, 255, 255, .12);
+  --color-border-medium: rgba(255, 255, 255, .18);
+
+  --color-border-accent: rgba(0, 160, 0, .36);
+  --color-border-accent-soft: rgba(0, 160, 0, .24);
+  --color-border-inverse-soft: rgba(255, 255, 255, .22);
+
+  --color-shadow-soft: rgba(0, 0, 0, .24);
+  --color-shadow-medium: rgba(0, 0, 0, .36);
+  --color-shadow-strong: rgba(0, 0, 0, .52);
+
+  --color-interest-overlay: linear-gradient(
+          180deg,
+          rgba(39, 41, 46, .72) 0%,
+          rgba(39, 41, 46, .84) 35%,
+          rgba(39, 41, 46, .94) 70%,
+          rgba(39, 41, 46, 1) 100%
+  );
+
+  --color-chip-glass: rgba(49, 52, 58, .62);
+  --color-icon-glass: rgba(255, 255, 255, .08);
+}
+
+.light-green {
+  background-color: var(--color-brand-green) !important;
+}
+
+.light-green-text {
+  color: var(--color-brand-green) !important;
+}

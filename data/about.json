@@ -1,0 +1,81 @@
+{
+  "name": "Nikola Randjelovic",
+  "role": "Technical Product Leader | B2B SaaS Platforms",
+  "summary": "I turn product ambiguity into structure, technical clarity, and decisions that move mission-critical B2B platforms forward.",
+  "image": {
+    "src": "assets/images/me_400x400.webp",
+    "mobileSrcset": "assets/images/me_280x280.webp 280w, assets/images/me_320x320.webp 320w",
+    "desktopSrcset": "assets/images/me_400x400.webp 400w",
+    "mobileSizes": "280px",
+    "desktopSizes": "400px",
+    "alt": "Nikola Randjelovic",
+    "width": 400,
+    "height": 400
+  },
+  "contact": [
+    {
+      "type": "location",
+      "label": "Based in Serbia · Remote Worldwide",
+      "icon": "map-pinned"
+    },
+    {
+      "type": "email",
+      "label": "hello.ranikola@gmail.com",
+      "icon": "mail",
+      "url": "mailto:hello.ranikola@gmail.com"
+    },
+    {
+      "type": "social",
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/ranikola"
+    },
+    {
+      "type": "social",
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/ranikola"
+    }
+  ],
+  "valueBar": [
+    {
+      "title": "Product Direction",
+      "description": "Turning ambiguity into clear product scope.",
+      "icon": "target"
+    },
+    {
+      "title": "Delivery Ownership",
+      "description": "Aligning teams, priorities, and outcomes.",
+      "icon": "workflow"
+    },
+    {
+      "title": "Technical Judgment",
+      "description": "Product decisions grounded in systems reality.",
+      "icon": "cpu"
+    }
+  ],
+  "intro": "I’m at my best leading products and technical organizations where ambiguity is high, alignment is difficult, and execution mistakes are expensive.",
+  "proofPoints": [
+    {
+      "title": "MVP Ownership",
+      "description": "10 beta companies — from scattered feature requests to a live, mission-critical TMS platform.",
+      "icon": "user-round"
+    },
+    {
+      "title": "Organizational Leadership",
+      "description": "Led a 40-person cross-functional execution organization across frontend, backend, mobile, QA, and design.",
+      "icon": "users-round"
+    },
+    {
+      "title": "Systems Thinking",
+      "description": "Built and shipped across API-driven platforms and mission-critical workflows with high operational stakes.",
+      "icon": "shield-check"
+    }
+  ],
+  "resumeUrl": "assets/files/CV_Nikola_Randjelovic.pdf",
+  "primaryCta": {
+    "label": "EXPLORE EXPERIENCE",
+    "href": "#experience",
+    "ariaLabel": "Explore Nikola Randjelovic experience"
+  }
+}

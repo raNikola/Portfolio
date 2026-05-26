@@ -1,0 +1,27 @@
+{
+  "short_name": "raNikola",
+  "name": "Nikola Randjelovic | Technical Product Leader",
+  "description": "Technical Product Leader portfolio focused on B2B SaaS platforms, technical product judgment, and execution leadership.",
+  "icons": [
+    {
+      "src": "assets/images/icon_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "assets/images/icon_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "assets/images/icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#007A00",
+  "display": "standalone",
+  "scope": "/"
+}

@@ -1,0 +1,396 @@
+{
+  "section": {
+    "eyebrow": "Work Experience",
+    "title": "Technical Product Leadership",
+    "intro": "From software engineering foundations to leading product direction, organizational execution, and complex B2B SaaS platform delivery."
+  },
+  "groups": [
+    {
+      "id": "technical-foundation",
+      "title": "Technical Foundation",
+      "period": "2014 - 2021",
+      "subtitle": "Senior Web Programmer / Web Developer / WordPress Developer",
+      "companies": [
+        "Better Collective",
+        "Shindiri Studio",
+        "Synetic"
+      ],
+      "tags": [
+        "PHP",
+        "Laravel",
+        "JavaScript",
+        "WordPress",
+        "API Integrations",
+        "Platform Engineering"
+      ],
+      "summary": "Built the engineering foundation that now informs product leadership and technical decision-making, progressing from implementation-focused development into senior technical ownership across backend systems, frontend engineering, APIs, and platform infrastructure.",
+      "cta": "View engineering progression",
+      "icon": "code-xml"
+    }
+  ],
+  "items": [
+    {
+      "id": "rute-product-manager",
+      "type": "featured",
+      "period": "Apr 2024 - Present",
+      "status": "Current",
+      "role": "Technical Product Lead",
+      "company": {
+        "name": "RUTE INC",
+        "url": "https://rute.co"
+      },
+      "location": "Remote / Serbia",
+      "summary": "Built product structure and execution discipline, defined product direction, and transformed a fragmented Transportation Management System into a production-live B2B platform validated by 10 beta carrier companies.",
+      "tags": [
+        "Technical Product Leadership",
+        "Organizational Leadership",
+        "MVP Ownership",
+        "Platform Strategy",
+        "B2B SaaS"
+      ],
+      "metrics": [
+        {
+          "value": "10",
+          "label": "Beta companies",
+          "icon": "building-2"
+        },
+        {
+          "value": "40",
+          "label": "Team Members",
+          "icon": "users"
+        },
+        {
+          "value": "60+",
+          "label": "Jira epics",
+          "icon": "layers-3"
+        },
+        {
+          "value": "1300+",
+          "label": "Product Tasks",
+          "icon": "check-square"
+        }
+      ],
+      "cta": "View product leadership",
+      "details": [
+        {
+          "title": "Organizational Leadership",
+          "items": [
+            "Led a 40-person cross-functional execution organization across frontend, backend, mobile, QA, and design.",
+            "Partnered directly with the CEO on product direction, execution priorities, and organizational decision-making.",
+            "Held full people management responsibility, including hiring, performance management, disciplinary actions, compensation decisions, and execution quality.",
+            "Built execution discipline through regular leadership alignment, delivery oversight, and team performance management."
+          ]
+        },
+        {
+          "title": "Product Strategy",
+          "items": [
+            "Inherited a fragmented multi-year product effort and redefined it into a cohesive MVP-ready B2B SaaS platform.",
+            "Owned MVP definition, Version 1 scope, roadmap direction, prioritization, release readiness, and launch decision-making.",
+            "Contributed to pricing, billing architecture, subscription logic, and monetization decisions."
+          ]
+        },
+        {
+          "title": "Technical Product Leadership",
+          "items": [
+            "Led technical product decisions across backend, web, mobile, APIs, integrations, and operational workflows.",
+            "Collaborated with engineering leadership on architecture discussions, technical feasibility, implementation trade-offs, and execution planning.",
+            "Evaluated implementation direction for mobile technical decisions, including geofence-related solutions."
+          ]
+        },
+        {
+          "title": "Execution & Delivery",
+          "items": [
+            "Led execution across engineering, QA, design, infrastructure, and business stakeholders.",
+            "Worked directly with beta customers through demos, validation sessions, interviews, and structured feedback loops.",
+            "Built prioritization frameworks, requirement standards, release processes, and delivery discipline."
+          ]
+        },
+        {
+          "title": "Platform & Integrations",
+          "items": [
+            "Owned product direction across dispatch, loads, payroll, billing, authentication, OCR workflows, and operational platform modules.",
+            "Directed external technical integrations including ELD/API/vendor evaluations and engineering coordination."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc-technical-project-manager",
+      "type": "featured",
+      "period": "Jul 2023 - Oct 2024",
+      "role": "Technical Project Manager",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "location": "Niš, Serbia / Remote collaboration",
+      "summary": "Led technical product delivery and roadmap execution across revenue-critical engineering teams supporting affiliate marketing infrastructure and internal monetization platforms.",
+      "tags": [
+        "Revenue-Critical Platforms",
+        "Technical Product Delivery",
+        "Roadmap Execution",
+        "Commercial Systems",
+        "Platform Leadership"
+      ],
+      "metrics": [
+        {
+          "value": "250+",
+          "label": "Affiliate websites",
+          "icon": "globe"
+        },
+        {
+          "value": "40%",
+          "label": "Revenue exposure",
+          "icon": "trending-up"
+        },
+        {
+          "value": "2",
+          "label": "Agile teams",
+          "icon": "users"
+        },
+        {
+          "value": "11",
+          "label": "Cross-functional team members",
+          "icon": "users-round"
+        }
+      ],
+      "cta": "View platform leadership",
+      "details": [
+        {
+          "title": "Technical Product Delivery",
+          "items": [
+            "Led technical product delivery across distributed engineering teams (11 cross-functional team members) responsible for revenue-critical affiliate marketing and ad-tech platforms.",
+            "Shared product decision-making and prioritization ownership with business stakeholders in commercially sensitive delivery environments.",
+            "Translated complex stakeholder requirements into structured execution plans that improved delivery clarity and decision-making."
+          ]
+        },
+        {
+          "title": "Product Platforms",
+          "items": [
+            "Managed delivery of a custom affiliate management platform used to create, configure, and track affiliate links, banners, and monetization assets across large-scale publishing operations.",
+            "Led development of a React-based internal ad-tech platform enabling business teams to configure campaigns, display logic, targeting rules, modal behavior, and click analytics."
+          ]
+        },
+        {
+          "title": "Stakeholder & Commercial Leadership",
+          "items": [
+            "Partnered with 5+ stakeholder leads across 3 commercial teams, translating business objectives into structured engineering execution plans and delivery priorities.",
+            "Worked across deadline-sensitive commercial environments where execution decisions directly impacted revenue-critical operations."
+          ]
+        },
+        {
+          "title": "Execution Leadership",
+          "items": [
+            "Coordinated cross-functional delivery across WordPress, React, QA, design, and engineering teams.",
+            "Led sprint planning, scope definition, feasibility assessment, release readiness, and roadmap execution across concurrent platform initiatives.",
+            "Translated complex business requirements into structured technical execution plans that improved clarity and accelerated decision-making."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc-scrum-master",
+      "type": "featured",
+      "period": "Jun 2021 - Jul 2023",
+      "role": "Scrum Master",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "location": "Niš, Serbia",
+      "summary": "Started in a traditional Scrum Master role during a large-scale organizational Agile transformation, evolving into broader product and delivery leadership responsibilities across revenue-critical affiliate monetization and ad-tech platforms.",
+      "tags": [
+        "Engineering Performance",
+        "Delivery Scaling",
+        "Cross-Team Alignment",
+        "Operational Discipline",
+        "Execution Frameworks"
+      ],
+      "metrics": [
+        {
+          "value": "3000+",
+          "label": "Sites supported",
+          "icon": "globe"
+        },
+        {
+          "value": "2",
+          "label": "Scrum teams",
+          "icon": "users"
+        },
+        {
+          "value": "50+",
+          "label": "Commercial organization",
+          "icon": "network"
+        },
+        {
+          "value": "25-30%",
+          "label": "Revenue exposure",
+          "icon": "trending-up"
+        }
+      ],
+      "cta": "View transformation leadership",
+      "details": [
+        {
+          "title": "Delivery Leadership",
+          "items": [
+            "Led Agile delivery across 2 Scrum teams (9 developers + 2 Product Owners) supporting revenue-critical affiliate monetization and ad-tech platforms.",
+            "Improved execution discipline, prioritization clarity, backlog quality, release readiness, and delivery effectiveness across multiple cross-functional teams."
+          ]
+        },
+        {
+          "title": "Platform Scale",
+          "items": [
+            "Supported development of a content operations platform used by a 50+ member internal commercial organization to manage partner offers, campaign data, and monetization workflows.",
+            "Enabled delivery of API-driven infrastructure serving monetization data to approximately 3000 WordPress websites across enterprise-scale publishing operations."
+          ]
+        },
+        {
+          "title": "Transformation & Modernization",
+          "items": [
+            "Led Agile execution during a large-scale organizational transformation while helping establish more predictable delivery practices across teams.",
+            "Led execution for an ad-tech modernization initiative supporting a 15-member AdTech organization, replacing a legacy JavaScript banner workflow with a scalable internal management platform."
+          ]
+        },
+        {
+          "title": "Commercial Impact",
+          "items": [
+            "Contributed to delivery of systems supporting business functions responsible for approximately 25–30% of company revenue.",
+            "Worked closely with product, engineering, and business stakeholders in commercially sensitive delivery environments."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc-senior-web-programmer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "May 2019 - May 2021",
+      "role": "Senior Web Programmer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Developed and maintained affiliate monetization infrastructure supporting approximately 3000 WordPress publishing properties across large-scale digital media operations.",
+      "stack": [
+        "PHP",
+        "WordPress",
+        "JavaScript",
+        "React",
+        "Sass"
+      ]
+    },
+    {
+      "id": "bc-senior-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Nov 2018 - Apr 2019",
+      "role": "Senior Web Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Delivered frontend and WordPress platform development across revenue-driven publishing operations, contributing to architecture consistency, implementation quality, and scalable feature delivery.",
+      "stack": [
+        "WordPress",
+        "JavaScript",
+        "PHP",
+        "CSS",
+        "Git"
+      ]
+    },
+    {
+      "id": "bc-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Jul 2018 - Oct 2018",
+      "role": "Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Built and maintained production web properties in a high-scale affiliate publishing environment, supporting frontend delivery, content systems, and performance-focused implementations.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "id": "bc-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Mar 2017 - Jun 2018",
+      "role": "Web Developer",
+      "company": {
+        "name": "Better Collective",
+        "url": "https://bettercollective.com"
+      },
+      "summary": "Developed and maintained production web experiences across WordPress-based publishing platforms, building practical expertise in scalable frontend delivery and content-driven product environments.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "WordPress"
+      ]
+    },
+    {
+      "id": "synetic-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Nov 2016 - Feb 2017",
+      "role": "Web Developer",
+      "company": {
+        "name": "Synetic",
+        "url": "https://synetic.rs"
+      },
+      "summary": "Delivered web development implementations across client-oriented projects, building early foundations in frontend engineering, backend integrations, and production delivery practices.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "id": "shindiri-web-developer",
+      "type": "grouped",
+      "groupId": "technical-foundation",
+      "period": "Sep 2014 - Oct 2016",
+      "role": "Web Developer",
+      "company": {
+        "name": "Shindiri Studio",
+        "url": "https://www.shindiristudio.com/"
+      },
+      "summary": "Started professional engineering work across WordPress development and frontend implementation, building the technical foundation that later evolved into platform engineering and product leadership.",
+      "stack": [
+        "WordPress",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "shindiri-support-team-lead",
+      "type": "archived",
+      "period": "Sep 2014 - Jan 2015",
+      "role": "Support Team Lead",
+      "company": {
+        "name": "Shindiri Studio",
+        "url": "https://www.shindiristudio.com/"
+      },
+      "summary": "Archived early support leadership role retained in JSON for future use."
+    },
+    {
+      "id": "ministry-team-leader",
+      "type": "archived",
+      "period": "May 2012 - Oct 2012",
+      "role": "Team Leader",
+      "company": {
+        "name": "Ministry of Youth and Sport Republic of Serbia",
+        "url": "https://www.mos.gov.rs/"
+      },
+      "summary": "Archived early leadership role retained in JSON for future use."
+    }
+  ]
+}

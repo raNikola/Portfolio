@@ -1,0 +1,180 @@
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .header {
+    height: 100%;
+
+    .about {
+      &__profile {
+        padding: 34px 28px 28px;
+      }
+
+      &__hero {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__media,
+      &__content {
+        width: 100% !important;
+        padding-right: .75rem !important;
+        padding-left: .75rem !important;
+      }
+
+      &__media img {
+        max-width: 300px;
+      }
+
+      &__profile-title {
+        font-size: clamp(2.4rem, 8vw, 4rem);
+      }
+
+      &__profile-position {
+        font-size: 1.35rem;
+        white-space: normal;
+      }
+
+      &__profile-summary {
+        max-width: none;
+        font-size: 1.05rem;
+      }
+
+      &__contact {
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__value-col {
+        &:not(:last-child)::after {
+          display: none;
+        }
+      }
+
+      &__value-item {
+        justify-content: center;
+      }
+
+    }
+
+    .intro {
+      &__proof-list {
+        width: 100%;
+      }
+
+      &__proof-item {
+        padding-right: 18px;
+        padding-left: 18px;
+
+        &:not(:last-child)::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  main {
+
+    .experience {
+      &__timeline {
+        padding-left: 164px;
+
+        &::before {
+          left: 136px;
+        }
+      }
+
+      &__timeline-date {
+        left: -164px;
+        width: 112px;
+        font-size: .82rem;
+      }
+
+      &__metrics {
+        .col {
+          width: 50%;
+        }
+      }
+
+      &__metric {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__metric-icon {
+        margin-bottom: 10px;
+      }
+
+      &__metric-copy {
+        align-items: center;
+        text-align: center;
+      }
+
+      &__foundation-layout {
+        gap: 16px;
+      }
+    }
+
+    .references {
+      &__carousel {
+        min-height: 300px !important;
+      }
+
+      &__carousel-container {
+        height: 300px;
+      }
+
+      &__track {
+        height: 100% !important;
+      }
+
+      &__carousel-item {
+        min-height: 230px !important;
+        padding-right: 0;
+      }
+
+      &__controls {
+        z-index: 2;
+      }
+
+      &__carousel {
+        .indicators {
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    .interests {
+      &__card {
+        min-height: 460px;
+      }
+
+      &__card__content {
+        padding: 26px 24px 20px;
+      }
+
+      &__meta {
+        padding: 16px 24px 20px;
+      }
+    }
+
+    .contact {
+      &__intro {
+        margin: 2rem 0 3rem;
+        padding-right: 0;
+        text-align: center;
+      }
+
+      &__title {
+        font-size: 3rem;
+        letter-spacing: .03em;
+      }
+
+      &__description {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

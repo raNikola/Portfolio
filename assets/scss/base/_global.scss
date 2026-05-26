@@ -1,0 +1,111 @@
+@use 'colors' as *;
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: $color-text-primary;
+  background-color: $color-surface-muted;
+
+  &.light {
+    background-color: $color-surface-muted;
+  }
+
+  &.dark {
+    background-color: $color-neutral-900;
+  }
+}
+
+.card,
+.card-panel,
+.sidenav,
+.modal,
+.dropdown-content {
+  color: $color-text-primary;
+  background-color: $color-surface-primary;
+}
+
+.card .card-action {
+  border-top-color: $color-border-light;
+  background-color: $color-surface-original;
+}
+
+.white {
+  background-color: $color-surface-primary !important;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.section-surface {
+  background-color: $color-surface-original;
+}
+
+.section-surface-muted {
+  background-color: $color-surface-muted !important;
+}
+
+.text-inverse {
+  color: $color-text-inverse !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 10px 14px;
+  color: $color-text-inverse;
+  background: $color-surface-dark;
+  transform: translateY(-140%);
+  transition: transform .2s ease;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+label,
+nav,
+footer,
+.btn,
+.btn-large,
+.btn-small,
+.card,
+.card-title,
+.chip,
+.modal,
+.dropdown-content,
+.sidenav,
+.tap-target,
+.timeline,
+.experience {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  user-select: none;
+}
+
+.chip {
+  background: transparent !important;
+  border-radius: 10px !important;
+  border: 1px solid $color-border-default;
+  color: $color-text-secondary;
+  box-shadow: none;
+}

@@ -1,0 +1,72 @@
+@use '../base/colors' as *;
+
+footer {
+  &.page-footer,
+  &.site-footer {
+    color: $color-text-primary;
+  }
+
+  .container {
+    max-width: 1200px;
+
+    .icon {
+      &__link {
+        width: 45px;
+        height: 45px;
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        font-size: 0;
+
+        transition: transition, background-color .25s linear 0s;
+
+        &:hover {
+          background-color: $color-border-default;
+          text-decoration: none;
+        }
+
+        i {
+          line-height: 45px;
+        }
+
+        .site-icon {
+          width: 24px;
+          height: 24px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .footer-copyright {
+    height: 100px;
+    color: $color-text-secondary;
+    background-color: transparent;
+  }
+
+  .site-footer {
+    &__copyright {
+      color: $color-text-secondary !important;
+      background-color: var(--color-surface-primary) !important;
+    }
+
+    &__link {
+      color: $color-text-primary !important;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+
+      &:hover,
+      &:focus-visible {
+        color: $color-brand-green;
+        text-decoration-thickness: 2px;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-brand-green;
+        outline-offset: 3px;
+      }
+    }
+  }
+}

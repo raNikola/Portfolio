@@ -1,0 +1,24 @@
+@use '../base/colors' as *;
+
+.tap-target {
+  background-color: $color-brand-green;
+  color: $color-surface-muted;
+
+  .tap-target-origin {
+    background-color: $color-brand-green;
+  }
+}
+
+html[data-theme='dark'] {
+  .tap-target {
+    color: $color-text-inverse;
+  }
+
+  .tap-target-wave {
+    &::before,
+    &::after {
+      background-color: $color-surface-muted !important;
+    }
+  }
+}
+

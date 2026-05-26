@@ -1,0 +1,122 @@
+{
+  "eyebrow": "Operating Principles",
+  "title": "How I Operate",
+  "description": "How I bring structure, technical clarity, and momentum to products that are hard to define, align, and scale.",
+  "filters": [
+    {
+      "key": "all",
+      "label": "All",
+      "active": true
+    },
+    {
+      "key": "ownership",
+      "label": "Ownership"
+    },
+    {
+      "key": "technical",
+      "label": "Technical"
+    },
+    {
+      "key": "execution",
+      "label": "Execution"
+    },
+    {
+      "key": "business",
+      "label": "Business"
+    }
+  ],
+  "cards": [
+    {
+      "category": "ownership",
+      "title": "Product Ownership",
+      "description": "Turning ambiguity into product direction, execution clarity, and validated product decisions with modern workflows.",
+      "items": [
+        {
+          "id": "product-definition",
+          "label": "MVP & Product Definition",
+          "content": "Defined MVP and Version 1 scope, turning fragmented feature sets into cohesive product workflows grounded in business goals and technical reality."
+        },
+        {
+          "id": "roadmap-prioritization",
+          "label": "Roadmap & Prioritization",
+          "active": true,
+          "content": "Built roadmaps across quarterly planning, release cycles, and long-term direction while making trade-offs across business priorities, technical realities, and delivery pressure."
+        },
+        {
+          "id": "customer-validation",
+          "label": "Customer Validation",
+          "content": "Worked directly with customers through demos, beta programs, interviews, and feature validation to sharpen product decisions and strengthen launch readiness."
+        }
+      ]
+    },
+    {
+      "category": "technical",
+      "title": "Technical Product",
+      "description": "Making technically credible product decisions across integrations, architecture, implementation trade-offs, and AI-assisted technical evaluation.",
+      "items": [
+        {
+          "id": "systems-thinking",
+          "label": "API & Systems Thinking",
+          "content": "Worked across APIs, backend logic, and system behavior to make product decisions grounded in how platforms actually work."
+        },
+        {
+          "id": "integrations-evaluation",
+          "label": "Integrations & Technical Evaluation",
+          "active": true,
+          "content": "Led vendor API analysis, feasibility assessment, integration direction, and accelerated technical research with engineering teams to shape implementation decisions."
+        },
+        {
+          "id": "architecture-collaboration",
+          "label": "Architecture Collaboration",
+          "content": "Worked alongside engineering leadership on architecture planning, technical trade-offs, and implementation decisions that shaped product outcomes."
+        }
+      ]
+    },
+    {
+      "category": "execution",
+      "title": "Execution Leadership",
+      "description": "Leading organizational execution across teams, dependencies, releases, and high-stakes operational delivery with modern execution workflows.",
+      "items": [
+        {
+          "id": "cross-functional-leadership",
+          "label": "Organizational Execution Leadership",
+          "active": true,
+          "content": "Led execution across a 40-person technical organization spanning frontend, backend, mobile, QA, and design while driving delivery discipline, organizational leadership, and cross-functional execution."
+        },
+        {
+          "id": "delivery-orchestration",
+          "label": "Delivery Orchestration",
+          "content": "Coordinated execution across multiple teams by managing dependencies, resolving blockers, and keeping delivery aligned through change and shifting priorities."
+        },
+        {
+          "id": "release-readiness",
+          "label": "Release & Launch Readiness",
+          "content": "Owned release scope, QA readiness, and go-live decisions from beta through production, including incident response and post-launch planning."
+        }
+      ]
+    },
+    {
+      "category": "business",
+      "title": "Business Judgment",
+      "description": "Connecting product decisions with business priorities, monetization logic, and commercial outcomes.",
+      "items": [
+        {
+          "id": "market-analysis",
+          "label": "Market & Competitive Analysis",
+          "content": "Analyzed competitive landscapes, customer needs, and market signals to inform product priorities and commercial positioning."
+        },
+        {
+          "id": "pricing-monetization",
+          "label": "Pricing & Monetization",
+          "active": true,
+          "content": "Contributed to pricing, subscription logic, and monetization decisions for operational SaaS platforms."
+        },
+        {
+          "id": "stakeholder-leadership",
+          "label": "Stakeholder Leadership",
+          "content": "Aligned executive stakeholders, business leadership, and engineering teams to drive product direction, prioritization, and execution decisions."
+        }
+      ]
+    }
+  ]
+}

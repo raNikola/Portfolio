@@ -1,0 +1,39 @@
+{
+  "eyebrow": "Leadership Validation",
+  "title": "Leadership References",
+  "intro": "Perspectives from executives and engineering leaders I’ve worked closely with across product leadership, organizational execution, and complex delivery environments.",
+  "items": [
+    {
+      "id": "reference-one",
+      "quote": "I’ve built businesses where mistakes cost real money, so I don’t trust people with important work easily. Nikola became someone I rely on because he brings ownership, clarity, and the ability to move difficult product problems forward without constant oversight. That kind of trust is earned.",
+      "name": "Ivan Stoiljkovic",
+      "role": "RUTE Inc | Chief Executive Officer",
+      "image": "assets/images/recomendations/ivan_stoiljkovic.jpg",
+      "alt": "Ivan Stoiljkovic"
+    },
+    {
+      "id": "reference-two",
+      "quote": "Balancing business priorities, stakeholder expectations, and technical realities in fast-moving commercial environments requires both structure and judgment. That combination consistently helped teams stay focused on what created the strongest business impact.",
+      "name": "Camille Boujassy",
+      "role": "Better Collective | Head of Group Partner & Business Operations",
+      "image": "assets/images/recomendations/camille_boujassy.jpg",
+      "alt": "Camille Boujassy"
+    },
+    {
+      "id": "reference-three",
+      "quote": "Strong organization, practical leadership, and clear prioritization made collaboration highly effective. The focus was always on outcomes, long-term product decisions, and creating an environment where teams could perform at a high level.",
+      "name": "Tarik Alikadic",
+      "role": "RUTE Inc | Frontend Team Lead",
+      "image": "assets/images/recomendations/tarik_alikadic.jpg",
+      "alt": "Tarik Alikadic"
+    },
+    {
+      "id": "reference-four",
+      "quote": "Strong product thinking, technical understanding, and a clear view of the bigger picture made collaboration highly effective. Product decisions were thoughtful, grounded in business context, and aligned with long-term platform goals.",
+      "name": "Alen Veljan",
+      "role": "RUTE Inc | Senior .NET Developer",
+      "image": "assets/images/recomendations/alen_veljan.jpg",
+      "alt": "Alen Veljan"
+    }
+  ]
+}

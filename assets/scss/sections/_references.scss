@@ -1,0 +1,209 @@
+@use '../base/colors' as *;
+
+main {
+  .references {
+    padding: 3rem 0;
+
+    &__header {
+      margin: 3rem 0;
+
+      h2 {
+        margin: 0 0 14px !important;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: $color-text-primary;
+      }
+
+      p {
+        max-width: 760px;
+        margin: 22px auto 0;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        color: $color-text-muted;
+      }
+    }
+
+    &__eyebrow {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    &__carousel {
+      position: relative !important;
+      min-height: 320px !important;
+
+      .indicators {
+        position: absolute !important;
+        top: auto !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: 40px !important;
+
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        width: auto;
+        margin: 0;
+        transform: translateX(-50%);
+
+        .indicator-item {
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $color-text-primary;
+          opacity: .45;
+
+          transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
+
+          &.active {
+            background-color: $color-brand-green;
+            opacity: 1;
+            transform: scale(1.4);
+          }
+        }
+      }
+    }
+
+    &__carousel-container {
+      position: relative;
+      height: 340px;
+      border-top: 5px solid $color-brand-green;
+      overflow: hidden;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    &__track {
+      position: relative !important;
+      width: calc(100% - 120px) !important;
+      height: 100% !important;
+      margin: 0 !important;
+    }
+
+    &__carousel-item {
+      min-height: 250px !important;
+      padding: 0 64px 0 24px;
+    }
+
+    &__card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 25px 0;
+      text-align: left;
+    }
+
+    &__quote {
+      position: relative;
+      padding-left: 48px;
+      font-size: 1.15rem !important;
+      line-height: 1.8;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: .2em;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        background-color: $color-brand-green;
+        mask: var(--site-icon) no-repeat center;
+        -webkit-mask: var(--site-icon) no-repeat center;
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        --site-icon: url('../icons/lucide/quote.svg');
+      }
+    }
+
+    .card-content {
+      padding-bottom: 20px;
+    }
+
+    &__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background-color: inherit !important;
+    }
+
+    &__avatar {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__name,
+    &__title {
+      display: block;
+    }
+
+    &__name {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      color: $color-text-muted;
+      font-size: .95rem;
+    }
+
+    &__controls {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      width: 60px;
+    }
+
+    &__control {
+      display: flex;
+      width: 58px;
+      height: 58px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid $color-border-medium;
+      cursor: pointer;
+      color: $color-brand-green;
+      align-items: center;
+      justify-content: center;
+      background: $color-surface-primary;
+
+      .site-icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        background-color: currentColor;
+        mask: var(--site-icon) no-repeat center;
+        -webkit-mask: var(--site-icon) no-repeat center;
+        mask-size: contain;
+        -webkit-mask-size: contain;
+      }
+
+      &--next {
+        margin-bottom: 15px;
+      }
+    }
+
+  }
+}
+
