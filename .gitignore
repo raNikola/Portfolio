@@ -13,3 +13,4 @@ yarn-debug.log*
 yarn-error.log*
 coverage/
 .sass-cache/
+/docs/materialize-migration-plan.md
