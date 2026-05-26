@@ -13,11 +13,10 @@
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="">
     <meta name="theme-color" content="#8dc63a"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="apple-touch-icon" href="/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen"/>
     <link type="text/css" rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,23 +26,23 @@
 
 <body class="light not-found-page">
 <header class="header not-found-header" id="about">
-    <div class="header__navbar navbar">
-        <nav class="navbar-sticky transparent no-border">
-            <div class="nav-wrapper">
-                <a href="#" data-target="mobile-nav" class="sidenav-trigger hide-on-med-and-up show-on-small">
+    <div class="header__navbar ui-nav-shell">
+        <nav class="ui-nav transparent no-border" aria-label="Primary navigation">
+            <div class="ui-nav__inner layout-container">
+                <a href="#" data-target="mobile-nav" class="ui-nav__trigger sidenav-trigger mobile-nav-trigger" aria-label="Open mobile navigation" aria-controls="mobile-nav" aria-expanded="false">
                     <span class="site-icon light-green-text not-found-menu-icon" aria-hidden="true"></span>
                 </a>
-                <ul class="right hide-on-small-only">
-                    <li><a class="" href="/#about">About<span class="nav-active-bar"></span></a></li>
-                    <li><a href="/#skills">Skills<span class="nav-active-bar"></span></a></li>
-                    <li><a href="/#experience">Experience<span class="nav-active-bar"></span></a></li>
-                    <li><a href="/#references">References<span class="nav-active-bar"></span></a></li>
-                    <li><a href="/#interests">Interests<span class="nav-active-bar"></span></a></li>
-                    <li><a href="/#contact_me">Contact<span class="nav-active-bar"></span></a></li>
+                <ul class="ui-nav__list ui-nav__list--desktop">
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#about">About<span class="nav-active-bar"></span></a></li>
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#skills">Skills<span class="nav-active-bar"></span></a></li>
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#experience">Experience<span class="nav-active-bar"></span></a></li>
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#references">References<span class="nav-active-bar"></span></a></li>
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#interests">Interests<span class="nav-active-bar"></span></a></li>
+                    <li class="ui-nav__item"><a class="ui-nav__link" href="/#contact_me">Contact<span class="nav-active-bar"></span></a></li>
                 </ul>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-nav">
+        <ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden>
             <li><a href="/#about">About</a></li>
             <li><a href="/#skills">Skills</a></li>
             <li><a href="/#experience">Experience</a></li>
@@ -103,23 +102,23 @@
             <span class="not-found__orbit not-found__orbit--two"></span>
         </div>
 
-        <div class="container not-found__container">
+        <div class="layout-container not-found__container">
             <div class="not-found__intro">
                 <p class="not-found__eyebrow">Sprint Retrospective</p>
                 <h1 id="incident-title">Incident #404</h1>
                 <p class="not-found__lead">The route you requested did not make it into this release.</p>
 
                 <div class="not-found__root-cause">
-                    <span class="chip"><strong>Root cause:</strong>&nbsp;Works on staging</span>
+                    <span class="ui-chip"><strong>Root cause:</strong>&nbsp;Works on staging</span>
                     <span class="not-found__helper">Reload the page for another possible root cause.</span>
                 </div>
             </div>
 
-            <div class="row not-found__cards">
-                <div class="col s12 m12 l4">
-                    <article class="card z-depth-1 not-found__card">
-                        <div class="card-content">
-                            <h2 class="card-title">
+            <div class="layout-row not-found__cards">
+                <div class="layout-col layout-col--s-12 layout-col--m-12 layout-col--l-4">
+                    <article class="ui-card not-found__card">
+                        <div class="ui-card__body">
+                            <h2 class="ui-card__title">
                                 <span class="error-404__card-icon error-404__card-icon--success">
                                     <span class="site-icon error-404__icon-check-circle" aria-hidden="true"></span>
                                 </span>
@@ -135,10 +134,10 @@
                     </article>
                 </div>
 
-                <div class="col s12 m12 l4">
-                    <article class="card z-depth-1 not-found__card">
-                        <div class="card-content">
-                            <h2 class="card-title">
+                <div class="layout-col layout-col--s-12 layout-col--m-12 layout-col--l-4">
+                    <article class="ui-card not-found__card">
+                        <div class="ui-card__body">
+                            <h2 class="ui-card__title">
                                 <span class="error-404__card-icon error-404__card-icon--danger">
                                     <span class="site-icon error-404__icon-circle-x" aria-hidden="true"></span>
                                 </span>
@@ -154,10 +153,10 @@
                     </article>
                 </div>
 
-                <div class="col s12 m12 l4">
-                    <article class="card z-depth-1 not-found__card not-found__card--actions">
-                        <div class="card-content">
-                            <h2 class="card-title">
+                <div class="layout-col layout-col--s-12 layout-col--m-12 layout-col--l-4">
+                    <article class="ui-card not-found__card not-found__card--actions">
+                        <div class="ui-card__body">
+                            <h2 class="ui-card__title">
                                 <span class="error-404__card-icon error-404__card-icon--action">
                                     <span class="site-icon error-404__icon-navigation" aria-hidden="true"></span>
                                 </span>
@@ -166,17 +165,17 @@
                             <p class="not-found__subtitle">Choose your next move.</p>
 
                             <div class="not-found__links">
-                                <a class="waves-effect btn-flat" href="/#experience"><span class="error-404__action-icon"><span class="site-icon error-404__icon-briefcase" aria-hidden="true"></span></span><span>Explore shipped work</span></a>
-                                <a class="waves-effect btn-flat" href="/#skills"><span class="error-404__action-icon"><span class="site-icon error-404__icon-code" aria-hidden="true"></span></span><span>Inspect technical foundation</span></a>
-                                <a class="waves-effect btn-flat" href="/#skills"><span class="error-404__action-icon"><span class="site-icon error-404__icon-wrench" aria-hidden="true"></span></span><span>Open skills matrix</span></a>
-                                <a class="waves-effect waves-light btn" href="/#contact_me"><span class="error-404__action-icon"><span class="site-icon error-404__icon-message" aria-hidden="true"></span></span><span>Start a conversation</span></a>
+                                <a class="ui-btn ui-btn--ghost" href="/#experience"><span class="error-404__action-icon"><span class="site-icon error-404__icon-briefcase" aria-hidden="true"></span></span><span>Explore shipped work</span></a>
+                                <a class="ui-btn ui-btn--ghost" href="/#skills"><span class="error-404__action-icon"><span class="site-icon error-404__icon-code" aria-hidden="true"></span></span><span>Inspect technical foundation</span></a>
+                                <a class="ui-btn ui-btn--ghost" href="/#skills"><span class="error-404__action-icon"><span class="site-icon error-404__icon-wrench" aria-hidden="true"></span></span><span>Open skills matrix</span></a>
+                                <a class="ui-btn" href="/#contact_me"><span class="error-404__action-icon"><span class="site-icon error-404__icon-message" aria-hidden="true"></span></span><span>Start a conversation</span></a>
                             </div>
                         </div>
                     </article>
                 </div>
             </div>
 
-            <div class="not-found__status z-depth-1" aria-label="Incident status">
+            <div class="not-found__status ui-panel" aria-label="Incident status">
                 <span><span class="error-404__status-icon error-404__status-icon--danger"><span class="site-icon error-404__icon-shield-alert" aria-hidden="true"></span></span><span><strong>Severity:</strong> Medium</span></span>
                 <span><span class="error-404__status-icon"><span class="site-icon error-404__icon-users" aria-hidden="true"></span></span><span><strong>Impact:</strong> One curious visitor</span></span>
                 <span><span class="error-404__status-icon"><span class="site-icon error-404__icon-user" aria-hidden="true"></span></span><span><strong>Owner:</strong> Nikola</span></span>
@@ -187,15 +186,14 @@
 </main>
 
 <footer class="page-footer site-footer section-surface-muted">
-    <div class="footer-copyright site-footer__copyright center-align">
-        <div class="container">
+    <div class="footer-copyright site-footer__copyright u-center">
+        <div class="layout-container">
             Product Manager &middot; <a href="mailto:hello@ranikola.dev" class="site-footer__link">hello@ranikola.dev</a>
             &nbsp;|&nbsp; &copy; 2021 &ndash; <span id="footer-year"></span> Nikola Randjelovic. All rights reserved.
         </div>
     </div>
 </footer>
 
-<script src="./assets/js/materialize.min.js" defer></script>
 <script src="./assets/js/particles.min.js" defer></script>
 <script src="./assets/js/public.js" defer></script>
 </body>

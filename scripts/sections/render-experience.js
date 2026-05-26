@@ -52,10 +52,10 @@ function renderMetrics(metrics) {
     }
 
     return `
-        <div class="row experience__metrics">
-        <div class="card-action">
+        <div class="layout-row experience__metrics">
+        <div class="ui-card__footer">
             ${metrics.map(metric => `
-                <div class="col s6 m6 l3">
+                <div class="layout-col layout-col--s-6 layout-col--m-6 layout-col--l-3">
                     <div class="experience__metric">
                         ${renderIcon(metric.icon, 'experience__metric-icon')}
 
@@ -129,17 +129,17 @@ function renderFeaturedCard(item) {
     const cta = item.cta || CTA_FALLBACK;
 
     return `
-        <div class="col s12 experience__timeline-item">
-            <div class="experience__timeline-date hide-on-small-only">${renderTimelineDate(item.period)}</div>
-            <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
+        <div class="layout-col layout-col--s-12 experience__timeline-item">
+            <div class="experience__timeline-date experience__desktop-only">${renderTimelineDate(item.period)}</div>
+            <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
 
             <div class="experience__timeline-content">
-                <div class="card experience__card experience__card--featured" data-experience-card>
-                    <div class="card-content experience__card-content">
+                <div class="ui-card experience__card experience__card--featured" data-experience-card>
+                    <div class="ui-card__body experience__card-content">
                         <div class="experience__card-header">
                             <div>
-                                <span class="experience__period hide-on-med-and-up">${escapeHtml(item.period)}</span>
-                                <span class="card-title experience__title">${escapeHtml(item.role)}</span>
+                                <span class="experience__period experience__mobile-only">${escapeHtml(item.period)}</span>
+                                <span class="ui-card__title experience__title">${escapeHtml(item.role)}</span>
                                 ${renderCompany(item.company, 'experience__company')}
                             </div>
 
@@ -167,9 +167,9 @@ function renderFeaturedCard(item) {
 
 function renderMiniCard(item) {
     return `
-        <div class="card experience__mini-card">
-            <div class="card-content">
-                <span class="card-title">${escapeHtml(item.role)}</span>
+        <div class="ui-card experience__mini-card">
+            <div class="ui-card__body">
+                <span class="ui-card__title">${escapeHtml(item.role)}</span>
                 ${renderCompany(item.company, 'experience__company')}
                 <div class="experience__mini-period">${escapeHtml(item.period)}</div>
                 <p>${escapeHtml(item.summary)}</p>
@@ -190,21 +190,21 @@ function renderGroupCard(group, groupedItems) {
         : '';
 
     return `
-        <div class="col s12 experience__timeline-item experience__timeline-item--foundation">
-            <div class="experience__timeline-date hide-on-small-only">${renderTimelineDate(group.period)}</div>
-            <span class="experience__timeline-dot hide-on-small-only" aria-hidden="true"></span>
+        <div class="layout-col layout-col--s-12 experience__timeline-item experience__timeline-item--foundation">
+            <div class="experience__timeline-date experience__desktop-only">${renderTimelineDate(group.period)}</div>
+            <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
 
             <div class="experience__timeline-content">
-                <div class="card experience__card experience__card--foundation" data-experience-card>
-                    <div class="card-content experience__card-content">
+                <div class="ui-card experience__card experience__card--foundation" data-experience-card>
+                    <div class="ui-card__body experience__card-content">
                         <div class="experience__foundation-layout">
                             ${renderIcon(group.icon, 'experience__foundation-icon')}
 
                             <div class="experience__foundation-content">
                                 <div class="experience__card-header">
                                     <div>
-                                        <span class="experience__period hide-on-med-and-up">${escapeHtml(group.period)}</span>
-                                        <span class="card-title experience__title">${escapeHtml(group.title)}</span>
+                                        <span class="experience__period experience__mobile-only">${escapeHtml(group.period)}</span>
+                                        <span class="ui-card__title experience__title">${escapeHtml(group.title)}</span>
                                         ${subtitle}
                                         ${companies}
                                     </div>
@@ -250,7 +250,7 @@ export function renderExperience($) {
     });
 
     const cardsHtml = `
-        <div class="experience__timeline">
+        <div class="layout-col layout-col--s-12 experience__timeline">
             ${[
         ...featuredItems.map(renderFeaturedCard),
         ...groupedCards

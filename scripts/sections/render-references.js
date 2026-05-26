@@ -8,15 +8,15 @@ export function renderReferences($) {
     $('#references-intro').text(references.intro);
 
     const itemsHtml = references.items.map((item) => `
-        <div class="carousel-item references__carousel-item" href="#${item.id}!">
+        <div class="references__carousel-item" data-reference-id="${item.id}">
             <div class="references__card">
-                <div class="card-content">
+                <div class="ui-card__body">
                     <p class="references__quote">
                         ${item.quote}
                     </p>
                 </div>
 
-                <div class="card-action references__author">
+                <div class="ui-card__footer references__author">
                     <div class="references__avatar light-green">
                         <img src="${item.image}" alt="${item.alt}" width="100" height="100" loading="lazy" decoding="async"/>
                     </div>

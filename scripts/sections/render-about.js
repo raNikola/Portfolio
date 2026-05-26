@@ -65,7 +65,7 @@ function renderContactItem(item) {
 
 function renderValueItem(item) {
     return `
-        <div class="col s12 l4 about__value-col">
+        <div class="layout-col layout-col--s-12 layout-col--l-4 about__value-col">
             <div class="about__value-item">
                 <span class="about__value-icon">
                     <span class="site-icon about__icon-${escapeHtml(item.icon)}" aria-hidden="true"></span>
@@ -81,7 +81,7 @@ function renderValueItem(item) {
 
 function renderProofItem(item) {
     return `
-        <li class="intro__proof-item col s12 l4">
+        <li class="intro__proof-item layout-col layout-col--s-12 layout-col--l-4">
             <span class="intro__proof-check">
                 <span
                     class="site-icon intro__proof-icon"

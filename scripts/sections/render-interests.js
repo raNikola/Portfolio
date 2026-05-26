@@ -8,11 +8,11 @@ export function renderInterests($) {
     $('#interests-description').text(interests.description);
 
     const cardsHtml = interests.items.map((item) => `
-        <div class="col s12 m6 l4">
-            <div class="card interests__card interests__card--${item.modifier}">
+        <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-4">
+            <div class="ui-card interests__card interests__card--${item.modifier}">
                 <div class="interests__card__overlay"></div>
 
-                <div class="card-content interests__card__content">
+                <div class="ui-card__body interests__card__content">
                     <span class="interests__icon" aria-hidden="true">
                         <span
                             class="site-icon"
@@ -20,14 +20,14 @@ export function renderInterests($) {
                         </span>
                     </span>
 
-                    <span class="card-title">${item.title}</span>
+                    <span class="ui-card__title">${item.title}</span>
                     <span class="interests__bar"></span>
 
                     <p>${item.description}</p>
                 </div>
 
-                <div class="card-action interests__meta">
-                    <div class="chip">${item.meta}</div>
+                <div class="ui-card__footer interests__meta">
+                    <div class="ui-chip">${item.meta}</div>
                 </div>
             </div>
         </div>

@@ -99,6 +99,14 @@ main {
       }
     }
 
+    &__desktop-only {
+      display: block;
+    }
+
+    &__mobile-only {
+      display: none;
+    }
+
     &__timeline-dot {
       position: absolute;
       top: 25px;
@@ -343,7 +351,7 @@ main {
       gap: 8px;
       margin: 0 0 14px;
 
-      .chip {
+      .ui-chip {
         margin: 0;
       }
     }
@@ -352,7 +360,7 @@ main {
       margin: 4px 0 0;
       flex-wrap: wrap;
 
-      > .card-action {
+      > .ui-card__footer {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -600,11 +608,11 @@ main {
       box-shadow: none;
       border: 1px solid $color-border-light;
 
-      .card-content {
+      .ui-card__body {
         padding: 22px;
       }
 
-      .card-title {
+      .ui-card__title {
         margin-bottom: 6px;
         color: $color-text-primary;
         font-size: 1.25rem;
@@ -629,6 +637,20 @@ main {
 
     &__mini-stack {
       margin-bottom: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  main {
+    .experience {
+      &__desktop-only {
+        display: none !important;
+      }
+
+      &__mobile-only {
+        display: inline-flex;
+      }
     }
   }
 }

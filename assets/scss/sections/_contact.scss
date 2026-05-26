@@ -49,10 +49,7 @@ main {
     }
 
     &__cards-row {
-      display: flex;
-      flex-wrap: wrap;
-
-      > .col {
+      > .layout-col {
         display: flex;
       }
     }
@@ -71,11 +68,11 @@ main {
         }
       }
 
-      .card-content {
+      .ui-card__body {
         padding: 25px;
       }
 
-      .card-title {
+      .ui-card__title {
         margin-bottom: 16px;
 
         font-size: 1.5rem;

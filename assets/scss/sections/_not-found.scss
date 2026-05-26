@@ -200,7 +200,7 @@
     align-items: center;
     gap: 12px;
 
-    .chip {
+    .ui-chip {
       height: auto;
       min-height: 36px;
       margin: 0;
@@ -222,11 +222,9 @@
   }
 
   &__cards {
-    display: flex;
-    flex-wrap: wrap;
     margin-bottom: 10px;
 
-    > .col {
+    > .layout-col {
       display: flex;
     }
   }
@@ -239,14 +237,14 @@
     background: $color-surface-glass-strong;
     overflow: hidden;
 
-    .card-content {
+    .ui-card__body {
       min-height: 330px;
       display: flex;
       flex-direction: column;
       padding: 28px 26px 24px;
     }
 
-    .card-title {
+    .ui-card__title {
       display: flex;
       align-items: center;
       gap: 14px;
@@ -299,8 +297,8 @@
     gap: 10px;
     margin-top: auto;
 
-    .btn,
-    .btn-flat {
+    .ui-btn,
+    .ui-btn--ghost {
       width: 100%;
       min-height: 42px;
       position: relative;
@@ -337,7 +335,7 @@
       }
     }
 
-    .btn {
+    .ui-btn {
       background: $color-brand-green;
 
       .error-404__action-icon {
@@ -351,7 +349,7 @@
       }
     }
 
-    .btn-flat {
+    .ui-btn--ghost {
       color: $color-text-primary;
       border: 1px solid $color-border-default;
 
@@ -754,7 +752,7 @@
 
 @media only screen and (max-width: 992px) {
   .not-found {
-    &__card .card-content {
+    &__card .ui-card__body {
       min-height: auto;
     }
   }
@@ -841,7 +839,7 @@
     &__card {
       margin-bottom: 18px;
 
-      .card-content {
+      .ui-card__body {
         padding: 24px 22px 22px;
       }
     }

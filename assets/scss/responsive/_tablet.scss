@@ -92,7 +92,7 @@
       }
 
       &__metrics {
-        .col {
+        .layout-col {
           width: 50%;
         }
       }
@@ -137,12 +137,6 @@
 
       &__controls {
         z-index: 2;
-      }
-
-      &__carousel {
-        .indicators {
-          transform: translateX(-50%);
-        }
       }
     }
 

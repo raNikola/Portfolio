@@ -177,10 +177,432 @@ function scheduleParticlesInitialization() {
     runWhenPageIsIdle(initializeParticles);
 }
 
+function initializeTooltips() {
+    document.querySelectorAll('.tooltipped').forEach(element => {
+        const tooltipText = element.getAttribute('data-tooltip');
+        if (tooltipText && !element.getAttribute('title')) {
+            element.setAttribute('title', tooltipText);
+        }
+    });
+}
+
+function initializeSidenavs() {
+    const sidenavs = Array.from(document.querySelectorAll('.sidenav[id]'));
+    if (!sidenavs.length) {
+        return;
+    }
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'sidenav-backdrop';
+    backdrop.hidden = true;
+    document.body.appendChild(backdrop);
+
+    let activeSidenav = null;
+    let activeTriggers = [];
+
+    const setTriggersExpanded = (triggers, expanded) => {
+        triggers.forEach(trigger => trigger.setAttribute('aria-expanded', String(expanded)));
+    };
+
+    const closeSidenav = () => {
+        if (!activeSidenav) {
+            return;
+        }
+
+        const isMobileNavigation = activeSidenav.id === 'mobile-nav';
+        activeSidenav.classList.remove('is-open');
+        activeSidenav.hidden = true;
+        activeSidenav.setAttribute('aria-hidden', 'true');
+        setTriggersExpanded(activeTriggers, false);
+        backdrop.hidden = true;
+        document.body.classList.remove('has-open-sidenav');
+
+        if (isMobileNavigation) {
+            isMobileNavigationOpen = false;
+            activeTriggers.forEach(trigger => trigger.classList.remove('is-hidden'));
+            lastScrollY = window.scrollY || 0;
+        }
+
+        activeSidenav = null;
+        activeTriggers = [];
+    };
+
+    const openSidenav = (sidenav, triggers) => {
+        const isMobileNavigation = sidenav.id === 'mobile-nav';
+        activeSidenav = sidenav;
+        activeTriggers = triggers;
+
+        sidenav.hidden = false;
+        sidenav.setAttribute('aria-hidden', 'false');
+        sidenav.classList.add('is-open');
+        setTriggersExpanded(triggers, true);
+        backdrop.hidden = false;
+        document.body.classList.add('has-open-sidenav');
+
+        if (isMobileNavigation) {
+            isMobileNavigationOpen = true;
+            triggers.forEach(trigger => trigger.classList.remove('is-hidden'));
+        }
+    };
+
+    sidenavs.forEach(sidenav => {
+        const triggers = Array.from(document.querySelectorAll(`[data-target="${sidenav.id}"]`));
+        const isMobileNavigation = sidenav.id === 'mobile-nav';
+
+        triggers.forEach(trigger => {
+            trigger.setAttribute('aria-controls', sidenav.id);
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.addEventListener('click', event => {
+                event.preventDefault();
+
+                if (activeSidenav === sidenav) {
+                    closeSidenav();
+                    return;
+                }
+
+                if (activeSidenav) {
+                    closeSidenav();
+                }
+
+                openSidenav(sidenav, triggers);
+            });
+        });
+
+        sidenav.hidden = true;
+        sidenav.setAttribute('aria-hidden', 'true');
+        sidenav.classList.remove('is-open');
+
+        if (isMobileNavigation) {
+            isMobileNavigationOpen = false;
+        }
+
+        sidenav.addEventListener('click', event => {
+            const closeTrigger = event.target.closest('.sidenav-close');
+            const hashLink = event.target.closest('a[href^="#"]');
+
+            if (closeTrigger || hashLink) {
+                closeSidenav();
+            }
+        });
+    });
+
+    backdrop.addEventListener('click', closeSidenav);
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeSidenav();
+        }
+    });
+}
+
+function initializeReferencesCarousel() {
+    const referencesCarousel = document.querySelector('.references__carousel');
+    const carouselContainer = document.querySelector('.references__carousel-container');
+    const carouselTrack = document.querySelector('.references__track');
+    const prevButton = document.querySelector('.references__control--prev');
+    const nextButton = document.querySelector('.references__control--next');
+
+    if (!referencesCarousel || !carouselContainer || !carouselTrack) {
+        return;
+    }
+
+    const carouselItems = Array.from(carouselTrack.querySelectorAll('.references__carousel-item'));
+    if (!carouselItems.length) {
+        return;
+    }
+
+    let activeIndex = 0;
+    let autoplayTimer = null;
+    let scrollFrameId = null;
+    const autoplayDelay = 15000;
+
+    const controlsWrapper = document.querySelector('.references__controls');
+    let dots = [];
+
+    if (carouselContainer) {
+        const dotsWrapper = document.createElement('div');
+        dotsWrapper.className = 'references__dots';
+        dotsWrapper.setAttribute('aria-label', 'Reference slide navigation');
+
+        dots = carouselItems.map((_, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'references__dot';
+            dot.setAttribute('aria-label', `Go to reference ${index + 1}`);
+            dot.addEventListener('click', () => {
+                goToSlide(index, true);
+                resetAutoplay();
+            });
+            dotsWrapper.appendChild(dot);
+            return dot;
+        });
+
+        carouselContainer.appendChild(dotsWrapper);
+    }
+
+    function updateActiveDot(index) {
+        dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === index);
+        });
+    }
+
+    function updateCarouselHeight() {
+        const activeCard = carouselItems[activeIndex]?.querySelector('.references__card');
+        if (!activeCard) {
+            return;
+        }
+
+        const extraSpace = window.matchMedia('(max-width: 480px)').matches
+            ? 100
+            : window.matchMedia('(max-width: 600px)').matches
+                ? 90
+                : 70;
+
+        const height = activeCard.offsetHeight + extraSpace;
+        [referencesCarousel, carouselContainer, carouselTrack].forEach(element => {
+            element.style.height = `${height}px`;
+            element.style.minHeight = `${height}px`;
+        });
+
+        carouselItems.forEach(item => {
+            item.style.minHeight = `${height}px`;
+        });
+    }
+
+    function getSlideWidth() {
+        return carouselTrack.clientWidth || carouselTrack.getBoundingClientRect().width || 1;
+    }
+
+    function syncActiveIndexFromScroll() {
+        const slideWidth = getSlideWidth();
+        const newIndex = Math.max(0, Math.min(carouselItems.length - 1, Math.round(carouselTrack.scrollLeft / slideWidth)));
+
+        if (newIndex !== activeIndex) {
+            activeIndex = newIndex;
+            updateActiveDot(activeIndex);
+            updateCarouselHeight();
+        }
+    }
+
+    function goToSlide(index, smooth = false) {
+        const clampedIndex = ((index % carouselItems.length) + carouselItems.length) % carouselItems.length;
+        activeIndex = clampedIndex;
+        updateActiveDot(activeIndex);
+
+        const left = getSlideWidth() * activeIndex;
+        carouselTrack.scrollTo({
+            left,
+            behavior: smooth ? 'smooth' : 'auto'
+        });
+
+        updateCarouselHeight();
+    }
+
+    function nextSlide() {
+        goToSlide(activeIndex + 1, true);
+    }
+
+    function prevSlide() {
+        goToSlide(activeIndex - 1, true);
+    }
+
+    function startAutoplay() {
+        autoplayTimer = window.setInterval(() => {
+            nextSlide();
+        }, autoplayDelay);
+    }
+
+    function resetAutoplay() {
+        if (autoplayTimer) {
+            window.clearInterval(autoplayTimer);
+        }
+        startAutoplay();
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+        });
+    }
+
+    carouselTrack.addEventListener('scroll', () => {
+        if (scrollFrameId !== null) {
+            return;
+        }
+
+        scrollFrameId = window.requestAnimationFrame(() => {
+            syncActiveIndexFromScroll();
+            scrollFrameId = null;
+        });
+    }, { passive: true });
+
+    carouselTrack.addEventListener('pointerdown', resetAutoplay, { passive: true });
+    carouselTrack.addEventListener('touchstart', resetAutoplay, { passive: true });
+    carouselTrack.addEventListener('keydown', resetAutoplay);
+
+    window.addEventListener('resize', () => {
+        goToSlide(activeIndex, false);
+    });
+
+    goToSlide(0, false);
+    startAutoplay();
+}
+
+function initializeFeatureCallout() {
+    const callout = document.querySelector('.tap-target');
+    if (!callout) {
+        return;
+    }
+
+    const calloutTargetId = callout.getAttribute('data-target');
+    const calloutTarget = calloutTargetId ? document.getElementById(calloutTargetId) : null;
+    if (!calloutTarget) {
+        return;
+    }
+
+    let openTimer;
+    let closeTimer;
+    let wrapper = document.querySelector('.tap-target-wrapper');
+    if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'tap-target-wrapper';
+        document.body.appendChild(wrapper);
+    }
+
+    if (!wrapper.contains(callout)) {
+        wrapper.appendChild(callout);
+    }
+
+    let wave = wrapper.querySelector('.tap-target-wave');
+    if (!wave) {
+        wave = document.createElement('div');
+        wave.className = 'tap-target-wave';
+        wrapper.appendChild(wave);
+    }
+
+    let origin = wave.querySelector('.tap-target-origin');
+    if (!origin) {
+        origin = calloutTarget.cloneNode(true);
+        origin.classList.add('tap-target-origin');
+        origin.removeAttribute('id');
+        origin.removeAttribute('style');
+        wave.appendChild(origin);
+    }
+
+    wrapper.classList.remove('open');
+    callout.setAttribute('aria-hidden', 'true');
+
+    const hasFixedParent = element => {
+        let current = element;
+        while (current && current !== document.body) {
+            if (window.getComputedStyle(current).position === 'fixed') {
+                return true;
+            }
+            current = current.parentElement;
+        }
+        return false;
+    };
+
+    const calculatePositioning = () => {
+        const isFixed = window.getComputedStyle(calloutTarget).position === 'fixed' || hasFixedParent(calloutTarget.parentElement);
+        const originRect = calloutTarget.getBoundingClientRect();
+        const originWidth = originRect.width;
+        const originHeight = originRect.height;
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const scrollLeft = window.scrollX || window.pageXOffset;
+        const originTop = isFixed ? originRect.top : originRect.top + scrollTop;
+        const originLeft = isFixed ? originRect.left : originRect.left + scrollLeft;
+
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const centerX = windowWidth / 2;
+        const centerY = windowHeight / 2;
+        const isLeft = originLeft <= centerX;
+        const isRight = originLeft > centerX;
+        const isTop = originTop <= centerY;
+        const isBottom = originTop > centerY;
+        const isCenterX = originLeft >= windowWidth * 0.25 && originLeft <= windowWidth * 0.75;
+
+        const tapTargetWidth = callout.offsetWidth;
+        const tapTargetHeight = callout.offsetHeight;
+        const tapTargetTop = originTop + originHeight / 2 - tapTargetHeight / 2;
+        const tapTargetLeft = originLeft + originWidth / 2 - tapTargetWidth / 2;
+
+        wrapper.style.top = isTop ? `${tapTargetTop}px` : '';
+        wrapper.style.right = isRight ? `${windowWidth - tapTargetLeft - tapTargetWidth}px` : '';
+        wrapper.style.bottom = isBottom ? `${windowHeight - tapTargetTop - tapTargetHeight}px` : '';
+        wrapper.style.left = isLeft ? `${tapTargetLeft}px` : '';
+        wrapper.style.position = isFixed ? 'fixed' : 'absolute';
+
+        const content = callout.querySelector('.tap-target-content');
+        if (content) {
+            const textWidth = isCenterX ? tapTargetWidth : tapTargetWidth / 2 + originWidth;
+            const textHeight = tapTargetHeight / 2;
+            const textTop = isTop ? tapTargetHeight / 2 : 0;
+            const textLeft = isLeft && !isCenterX ? tapTargetWidth / 2 - originWidth : 0;
+
+            content.style.width = `${textWidth}px`;
+            content.style.height = `${textHeight}px`;
+            content.style.top = `${textTop}px`;
+            content.style.right = '0px';
+            content.style.bottom = '0px';
+            content.style.left = `${textLeft}px`;
+            content.style.padding = `${originWidth}px`;
+            content.style.verticalAlign = isBottom ? 'bottom' : 'top';
+        }
+
+        const waveSize = originWidth * 2;
+        wave.style.top = `${tapTargetHeight / 2 - waveSize / 2}px`;
+        wave.style.left = `${tapTargetWidth / 2 - waveSize / 2}px`;
+        wave.style.width = `${waveSize}px`;
+        wave.style.height = `${waveSize}px`;
+    };
+
+    const openCallout = () => {
+        calculatePositioning();
+        callout.setAttribute('aria-hidden', 'false');
+        wrapper.classList.add('open');
+    };
+
+    const closeCallout = () => {
+        wrapper.classList.remove('open');
+        callout.setAttribute('aria-hidden', 'true');
+    };
+
+    const closeButton = callout.querySelector('[data-callout-close]');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            window.clearTimeout(openTimer);
+            window.clearTimeout(closeTimer);
+            closeCallout();
+        });
+    }
+
+    window.addEventListener('resize', calculatePositioning);
+    document.addEventListener('scroll', calculatePositioning, { passive: true });
+
+    openTimer = window.setTimeout(openCallout, 7000);
+    closeTimer = window.setTimeout(closeCallout, 15000);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     initializeThemeToggle();
     renderLucideIcons();
     scheduleParticlesInitialization();
+
+    const mailLink = document.getElementById('contact-mail');
+    if (mailLink) {
+        const email = `${mailLink.getAttribute('data-user')}@${mailLink.getAttribute('data-domain')}`;
+        mailLink.href = `mailto:${email}`;
+        mailLink.textContent = email;
+    }
 
     if ('MutationObserver' in window) {
         new MutationObserver(mutations => {
@@ -204,151 +626,12 @@ document.addEventListener('DOMContentLoaded', function () {
         footerYear.textContent = new Date().getFullYear();
     }
 
-    const toolTipped = document.querySelectorAll('.tooltipped');
-    if (window.M && toolTipped.length) {
-        M.Tooltip.init(toolTipped);
-    }
-
-    const nav = document.querySelectorAll('.sidenav');
-    if (window.M && nav.length) {
-        nav.forEach(sidenav => {
-            const triggers = Array.from(document.querySelectorAll(`[data-target="${sidenav.id}"]`));
-            const isMobileNavigation = sidenav.id === 'mobile-nav';
-
-            triggers.forEach(trigger => {
-                trigger.setAttribute('aria-controls', sidenav.id);
-                trigger.setAttribute('aria-expanded', 'false');
-            });
-
-            if (isMobileNavigation) {
-                sidenav.hidden = true;
-                sidenav.setAttribute('aria-hidden', 'true');
-            }
-
-            M.Sidenav.init(sidenav, {
-                edge: 'right',
-                draggable: true,
-                inDuration: 250,
-                outDuration: 200,
-                preventScrolling: true,
-                onOpenStart: () => {
-                    if (isMobileNavigation) {
-                        isMobileNavigationOpen = true;
-                        sidenav.hidden = false;
-                        sidenav.setAttribute('aria-hidden', 'false');
-                        triggers.forEach(trigger => trigger.classList.remove('is-hidden'));
-                    }
-
-                    triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'true'));
-                },
-                onCloseEnd: () => {
-                    triggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
-
-                    if (isMobileNavigation) {
-                        isMobileNavigationOpen = false;
-                        sidenav.hidden = true;
-                        sidenav.setAttribute('aria-hidden', 'true');
-                        triggers.forEach(trigger => trigger.classList.remove('is-hidden'));
-                        lastScrollY = window.scrollY || 0;
-                    }
-                }
-            });
-        });
-    }
+    initializeTooltips();
+    initializeSidenavs();
 
     runNonCriticalEnhancement(() => {
-        const referencesCarousel = document.querySelector('.references__carousel');
-        if (window.M && referencesCarousel) {
-            const instance = M.Carousel.init(referencesCarousel, {
-                fullWidth: true,
-                indicators: true,
-                duration: 250
-            });
-
-            const prevButton = document.querySelector('.references__control--prev');
-            const nextButton = document.querySelector('.references__control--next');
-            const carouselContainer = document.querySelector('.references__carousel-container');
-            const carouselTrack = document.querySelector('.references__track');
-            const carouselItems = [...referencesCarousel.querySelectorAll('.references__carousel-item')];
-            const referenceCard = carouselItems[2]?.querySelector('.references__card');
-
-            function updateCarouselHeight() {
-                if (!carouselContainer || !carouselTrack || !referenceCard) return;
-
-                const extraSpace = window.matchMedia('(max-width: 480px)').matches
-                    ? 100
-                    : window.matchMedia('(max-width: 600px)').matches
-                        ? 90
-                        : 70;
-
-                const height = referenceCard.offsetHeight + extraSpace;
-
-                [referencesCarousel, carouselContainer, carouselTrack].forEach(el => {
-                    el.style.height = `${height}px`;
-                    el.style.minHeight = `${height}px`;
-                });
-
-                carouselItems.forEach(item => {
-                    item.style.minHeight = `${height}px`;
-                });
-            }
-
-            const autoplayDelay = 15000;
-            let autoplayTimer;
-
-            function startAutoplay() {
-                autoplayTimer = setInterval(() => {
-                    instance.next();
-                    updateCarouselHeight();
-                }, autoplayDelay);
-            }
-
-            function resetAutoplay() {
-                clearInterval(autoplayTimer);
-                startAutoplay();
-            }
-
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    instance.prev();
-                    updateCarouselHeight();
-                    resetAutoplay();
-                });
-            }
-
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    instance.next();
-                    updateCarouselHeight();
-                    resetAutoplay();
-                });
-            }
-
-            referencesCarousel.addEventListener('click', event => {
-                if (event.target.closest('.indicator-item')) {
-                    setTimeout(updateCarouselHeight, 300);
-                    resetAutoplay();
-                }
-            });
-
-            updateCarouselHeight();
-            window.addEventListener('resize', updateCarouselHeight);
-
-            startAutoplay();
-        }
-
-        const tapTarget = document.querySelector('.tap-target');
-        if (window.M && tapTarget) {
-            const instance = M.TapTarget.init(tapTarget);
-
-            setTimeout(function () {
-              instance.open();
-            }, 7000);
-
-            setTimeout(function () {
-              instance.close();
-            }, 15000);
-        }
+        initializeReferencesCarousel();
+        initializeFeatureCallout();
     });
 
     document.querySelectorAll('.service-card').forEach(card => {
@@ -393,7 +676,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('#skills-filters [data-filter]')
                 .forEach(x => x.classList.toggle('is-active', x === chip));
 
-            document.querySelectorAll('#skills-cards .card')
+            document.querySelectorAll('#skills-cards .ui-card')
                 .forEach(card => card.classList.toggle(
                     'is-muted',
                     filter !== 'all' && !card.dataset.category.includes(filter)
@@ -509,8 +792,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function updateScrollAwareControls() {
     const topBtn = document.querySelector('.top-btn');
-    const mainMenu = document.querySelector('.header__navbar');
-    const stickyMenu = document.querySelector('.navbar-sticky');
+    const stickyMenu = document.querySelector('.ui-nav');
     const mobileNavTrigger = document.querySelector('.mobile-nav-trigger');
     const currentScrollY = Math.max(window.scrollY || 0, 0);
     const isMobileWidth = window.matchMedia('(max-width: 600px)').matches;
@@ -527,13 +809,11 @@ function updateScrollAwareControls() {
         }
     }
 
-    if (mainMenu && stickyMenu) {
+    if (stickyMenu) {
         if ((currentScrollY - 150) > 0 && window.innerWidth > 600) {
-            mainMenu.classList.add('navbar-fixed');
-            stickyMenu.style.position = 'fixed';
+            stickyMenu.classList.add('ui-nav--sticky');
         } else {
-            mainMenu.classList.remove('navbar-fixed');
-            stickyMenu.style.position = 'sticky';
+            stickyMenu.classList.remove('ui-nav--sticky');
         }
     }
 

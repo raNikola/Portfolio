@@ -39,7 +39,7 @@ export function renderChips(items, className) {
 
     return `
         <div class="${escapeHtml(className)}">
-            ${items.map(item => `<div class="chip">${escapeHtml(item)}</div>`).join('')}
+            ${items.map(item => `<div class="ui-chip">${escapeHtml(item)}</div>`).join('')}
         </div>
     `;
 }

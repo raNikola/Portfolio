@@ -1,13 +1,17 @@
 import { escapeHtml } from '../lib/html.js';
 
 function renderNavLink(item, options = {}) {
-    const closeClass = options.closeOnClick ? ' class="sidenav-close"' : '';
-    const activeClass = item.active ? ' class="active"' : '';
-    const linkClass = closeClass || activeClass;
+    const linkClasses = ['ui-nav__link'];
+    if (options.closeOnClick) {
+        linkClasses.push('sidenav-close');
+    }
+    if (item.active) {
+        linkClasses.push('is-active');
+    }
 
     return `
-        <li>
-            <a${linkClass} href="${escapeHtml(item.href)}">
+        <li class="ui-nav__item">
+            <a class="${linkClasses.join(' ')}" href="${escapeHtml(item.href)}">
                 ${escapeHtml(item.label)}
                 ${options.withBar ? '<span class="nav-active-bar"></span>' : ''}
             </a>
@@ -19,8 +23,8 @@ function renderThemeToggle(options = {}) {
     const closeClass = options.closeOnClick ? ' sidenav-close' : '';
 
     return `
-        <li class="theme-toggle-item">
-            <button class="theme-toggle${closeClass}" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+        <li class="ui-nav__item theme-toggle-item">
+            <button class="ui-nav__theme-toggle theme-toggle${closeClass}" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
                 <span class="site-icon theme-toggle__icon theme-toggle__icon--light" style="--site-icon: url('../icons/lucide/sun.svg')" aria-hidden="true"></span>
                 <span class="site-icon theme-toggle__icon theme-toggle__icon--dark" style="--site-icon: url('../icons/lucide/moon.svg')" aria-hidden="true"></span>
                 <span class="sr-only" data-theme-toggle-label>Switch to dark theme</span>

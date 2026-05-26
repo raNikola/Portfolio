@@ -29,7 +29,7 @@ export function renderSkills($) {
             return `
                 <button
                     type="button"
-                    class="chip service-chip${item.active ? ' active' : ''}"
+                    class="ui-chip service-chip${item.active ? ' active' : ''}"
                     aria-expanded="${item.active ? 'true' : 'false'}"
                     aria-controls="${panelId}"
                     data-target="${panelId}">
@@ -44,7 +44,7 @@ export function renderSkills($) {
             return `
                 <div
                     id="${panelId}"
-                    class="skills__card__content card-content section-surface service-expand"
+                    class="skills__card__content ui-card__body section-surface service-expand"
                     ${item.active ? '' : 'hidden'}>
                     <p>${item.content}</p>
                 </div>
@@ -52,14 +52,14 @@ export function renderSkills($) {
         }).join('');
 
         return `
-            <div class="col s12 m6 l6">
-                <div class="skills__card card service-card${card.items.some((item) => item.active) ? ' open' : ''}" data-category="${card.category}">
-                    <div class="skills__card__title card-content content-fill">
-                        <span class="card-title">${card.title}</span>
+            <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-6">
+                <div class="skills__card ui-card service-card${card.items.some((item) => item.active) ? ' open' : ''}" data-category="${card.category}">
+                    <div class="skills__card__title ui-card__body content-fill">
+                        <span class="ui-card__title">${card.title}</span>
                         <p>${card.description}</p>
                     </div>
 
-                    <div class="skills__card__chips card-content chips-wrap">
+                    <div class="skills__card__chips ui-card__body chips-wrap">
                         ${chipsHtml}
                     </div>
 

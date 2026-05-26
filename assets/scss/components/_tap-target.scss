@@ -1,24 +1,174 @@
 @use '../base/colors' as *;
 
-.tap-target {
-  background-color: $color-brand-green;
-  color: $color-surface-muted;
+.tap-target-wrapper {
+  --tap-target-bg: var(--color-surface-dark);
+  --tap-target-text: var(--color-text-inverse);
+  --tap-target-shadow-1: var(--color-shadow-soft);
+  --tap-target-shadow-2: var(--color-shadow-medium);
+  --tap-target-shadow-3: var(--color-shadow-strong);
+  --tap-target-wave-color: rgba(0, 160, 0, .32);
+  --tap-target-origin-bg: rgba(20, 21, 24, .82);
+  --tap-target-origin-color: var(--color-text-inverse);
 
-  .tap-target-origin {
-    background-color: $color-brand-green;
+  width: 800px;
+  height: 800px;
+  position: fixed;
+  z-index: 1000;
+  visibility: hidden;
+  transition: visibility 0s .3s;
+
+  &.open {
+    visibility: visible;
+    transition: visibility 0s;
   }
-}
+  &.open {
+    .tap-target {
+      transform: scale(1);
+      opacity: .95;
+      transition:
+        transform .3s cubic-bezier(.42, 0, .58, 1),
+        opacity .3s cubic-bezier(.42, 0, .58, 1);
+    }
 
-html[data-theme='dark'] {
-  .tap-target {
-    color: $color-text-inverse;
-  }
+    .tap-target-wave {
+      &::before {
+        transform: scale(1);
+      }
 
-  .tap-target-wave {
-    &::before,
-    &::after {
-      background-color: $color-surface-muted !important;
+      &::after {
+        visibility: visible;
+        animation: pulse-animation 1s cubic-bezier(.24, 0, .38, 1) infinite;
+        transition: opacity .3s, transform .3s, visibility 0s 1s;
+      }
     }
   }
 }
 
+html[data-theme='light'] .tap-target-wrapper,
+.theme-light .tap-target-wrapper,
+body.theme-light .tap-target-wrapper {
+  --tap-target-bg: var(--color-brand-green);
+  --tap-target-text: var(--color-text-primary);
+  --tap-target-shadow-1: rgba(0, 0, 0, .14);
+  --tap-target-shadow-2: rgba(0, 0, 0, .12);
+  --tap-target-shadow-3: rgba(0, 0, 0, .2);
+  --tap-target-wave-color: rgba(255, 255, 255, .88);
+  --tap-target-origin-bg: rgba(255, 255, 255, .92);
+  --tap-target-origin-color: var(--color-text-primary);
+}
+
+html[data-theme='dark'] .tap-target-wrapper,
+.theme-dark .tap-target-wrapper,
+body.theme-dark .tap-target-wrapper {
+  --tap-target-bg: var(--color-surface-dark);
+  --tap-target-text: var(--color-text-inverse);
+  --tap-target-shadow-1: rgba(0, 0, 0, .42);
+  --tap-target-shadow-2: rgba(0, 0, 0, .5);
+  --tap-target-shadow-3: rgba(0, 0, 0, .6);
+  --tap-target-wave-color: rgba(0, 160, 0, .28);
+  --tap-target-origin-bg: rgba(20, 21, 24, .82);
+  --tap-target-origin-color: var(--color-text-inverse);
+}
+
+.tap-target {
+  position: absolute;
+  font-size: 1rem;
+  border-radius: 50%;
+  background-color: var(--tap-target-bg);
+  box-shadow:
+    0 20px 20px 0 var(--tap-target-shadow-1),
+    0 10px 50px 0 var(--tap-target-shadow-2),
+    0 30px 10px -20px var(--tap-target-shadow-3);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    transform .3s cubic-bezier(.42, 0, .58, 1),
+    opacity .3s cubic-bezier(.42, 0, .58, 1);
+}
+
+.tap-target-content {
+  position: relative;
+  display: table-cell;
+  color: var(--tap-target-text);
+  max-width: 300px;
+}
+
+.tap-target-wave {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 10001;
+}
+
+.tap-target-wave::before,
+.tap-target-wave::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--tap-target-wave-color);
+}
+
+.tap-target-wave::before {
+  transform: scale(0);
+  transition: transform .3s;
+}
+
+.tap-target-wave::after {
+  visibility: hidden;
+  transition: opacity .3s, transform .3s, visibility 0s;
+  z-index: -1;
+}
+
+.tap-target-origin {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10002;
+  position: absolute !important;
+  background-color: var(--tap-target-origin-bg);
+  color: var(--tap-target-origin-color);
+}
+
+.tap-target-origin.ui-btn,
+.tap-target-origin.ui-btn--fab {
+  background-color: var(--tap-target-origin-bg);
+  color: var(--tap-target-origin-color);
+}
+
+.tap-target-origin .site-icon,
+.tap-target-origin svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.tap-target-origin:not(.ui-btn):not(.ui-btn--lg):not(.ui-btn--fab),
+.tap-target-origin:not(.ui-btn):not(.ui-btn--lg):not(.ui-btn--fab):hover {
+  background: none;
+}
+
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tap-target,
+  .tap-target-wrapper {
+    width: 600px;
+    height: 600px;
+  }
+}

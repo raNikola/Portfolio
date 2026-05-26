@@ -91,10 +91,6 @@
 
       &__carousel {
         min-height: 430px !important;
-
-        ul.indicators {
-          display: none !important;
-        }
       }
 
       &__carousel-container {
@@ -114,7 +110,7 @@
         padding: 16px 0;
       }
 
-      .card-content {
+      .ui-card__body {
         padding: 0 15px 10px;
       }
 
@@ -152,7 +148,18 @@
 
       &__controls {
         gap: 10px;
-        margin-bottom: 16px;
+        margin: 14px auto 0;
+      }
+
+      &__dots {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 auto 12px;
       }
 
       &__control {

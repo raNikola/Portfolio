@@ -25,6 +25,7 @@ loadLocalEnvironment();
 const html = fs.readFileSync(templatePath, 'utf8');
 const $ = cheerio.load(html, { decodeEntities: false });
 const siteConfig = JSON.parse(fs.readFileSync('./data/site.json', 'utf8'));
+const inlineManifestHref = getInlineManifestHref('./manifest.json');
 const buildEnvironment = getBuildEnvironment();
 const structuredDataJson = getStructuredDataJson(siteConfig);
 const umamiConfig = getUmamiConfig(buildEnvironment);
@@ -40,8 +41,10 @@ injectHeadMetadata($, siteConfig);
 injectStructuredData($, structuredDataJson);
 injectUmamiScript($, umamiConfig);
 injectContentSecurityPolicy($, buildEnvironment, umamiConfig);
+injectInlineManifest($, inlineManifestHref);
 
 const renderedHtml = $.html();
+const renderedNotFoundHtml = renderNotFoundHtml('./404.html', inlineManifestHref);
 
 function loadLocalEnvironment() {
     const envPath = './.env.local';
@@ -104,6 +107,22 @@ function getBuildEnvironment() {
 
 function normalizeSiteUrl(siteUrl) {
     return siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`;
+}
+
+function getInlineManifestHref(manifestPath) {
+    const manifestBuffer = fs.readFileSync(manifestPath);
+    return `data:application/manifest+json;base64,${manifestBuffer.toString('base64')}`;
+}
+
+function injectInlineManifest($, inlineHref) {
+    upsertHeadLink($, 'link[rel="manifest"]', { rel: 'manifest', href: inlineHref });
+}
+
+function renderNotFoundHtml(notFoundPath, inlineHref) {
+    const notFoundRawHtml = fs.readFileSync(notFoundPath, 'utf8');
+    const $notFound = cheerio.load(notFoundRawHtml, { decodeEntities: false });
+    injectInlineManifest($notFound, inlineHref);
+    return $notFound.html();
 }
 
 function renderNavigation($, navigationItems) {
@@ -520,9 +539,7 @@ function recreateDist() {
 
 function copyProductionAssets() {
     const assetPaths = new Set([
-        'assets/css/materialize.min.css',
         'assets/css/main.css',
-        'assets/js/materialize.min.js',
         'assets/js/particles.min.js',
         'assets/js/public.js',
         'assets/particles.json',
@@ -611,7 +628,7 @@ if (shouldDeleteDist) {
 
 fs.writeFileSync(outputPath, renderedHtml, 'utf8');
 copyProductionAssets();
-copyFile('./404.html', './dist/404.html');
+fs.writeFileSync('./dist/404.html', renderedNotFoundHtml, 'utf8');
 copyFile('./assets/images/404/spacecraft.png', './dist/assets/images/404/spacecraft.png');
 copyFile('./assets/images/404/deadstar_planet.png', './dist/assets/images/404/deadstar_planet.png');
 copyFile('./manifest.json', './dist/manifest.json');

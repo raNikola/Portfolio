@@ -23,9 +23,11 @@
            base-uri 'self';
            form-action 'self';
            upgrade-insecure-requests">
-    <script src="./assets/js/theme-bootstrap.js"></script>
+    <script src="./assets/js/theme-bootstrap.js" defer></script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta property="og:url" content="https://cv.ranikola.dev/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nikola Randjelovic | Technical Product Leader for B2B SaaS Platforms">
@@ -62,8 +64,6 @@
           media="(min-width: 768px)"
           type="image/webp"
           fetchpriority="high">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"/>
     <link type="text/css" rel="stylesheet" href="assets/css/main.css">
 
     <link rel="preload"
@@ -79,12 +79,12 @@
     <div class="header__bg white" id="particles-js">
         <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
     </div>
-    <div class="header__navbar navbar">
-        <nav class="navbar-sticky transparent no-border" aria-label="Primary navigation">
-            <div class="nav-wrapper">
+    <div class="header__navbar ui-nav-shell">
+        <nav class="ui-nav transparent no-border" aria-label="Primary navigation">
+            <div class="ui-nav__inner layout-container">
                 <a href="#mobile-nav"
                    data-target="mobile-nav"
-                   class="sidenav-trigger hide-on-med-and-up show-on-small mobile-nav-trigger"
+                   class="ui-nav__trigger sidenav-trigger mobile-nav-trigger"
                    aria-label="Open mobile navigation"
                    aria-controls="mobile-nav"
                    aria-expanded="false">
@@ -92,8 +92,8 @@
                           style="--site-icon: url('../icons/lucide/menu.svg')"
                           aria-hidden="true"></span>
                 </a>
-                <ul id="site-navigation-links" class="right hide-on-small-only">
-                    <li><a href="#" data-target="about-sidenav" class="sidenav-trigger sidenav-about"
+                <ul id="site-navigation-links" class="ui-nav__list ui-nav__list--desktop">
+                    <li class="ui-nav__item ui-nav__item--profile"><a href="#" data-target="about-sidenav" class="ui-nav__link ui-nav__link--icon sidenav-trigger sidenav-about"
                            aria-label="Open profile menu" aria-controls="about-sidenav" aria-expanded="false">
                         <span class="site-icon"
                               style="--site-icon: url('../icons/lucide/menu.svg')"
@@ -104,16 +104,16 @@
         </nav>
     </div>
     <ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden></ul>
-    <div class="container header__container">
+    <div class="layout-container header__container">
         <section class="section about" itemscope itemtype="https://schema.org/Person"
                  itemid="https://cv.ranikola.dev/#nikola-randjelovic">
             <meta itemprop="url" content="https://cv.ranikola.dev/">
             <meta id="about-email-meta" itemprop="email" content="">
-            <div class="col s12">
+            <div class="layout-col layout-col--s-12">
                 <div class="about__box">
                     <div class="about__profile">
-                        <div class="row about__hero">
-                            <div class="col s12 m5 about__media">
+                        <div class="layout-row about__hero">
+                            <div class="layout-col layout-col--s-12 layout-col--m-5 about__media">
                                 <picture id="about-picture">
                                     <source id="about-image-mobile-source" type="image/webp" media="(max-width: 767px)">
                                     <source id="about-image-desktop-source" type="image/webp"
@@ -129,7 +129,7 @@
                                          fetchpriority="high">
                                 </picture>
                             </div>
-                            <div class="col s12 m7 about__content">
+                            <div class="layout-col layout-col--s-12 layout-col--m-7 about__content">
                                 <div class="about__profile-info">
                                     <div class="about__profile-preword"><span
                                             class="light-green text-inverse">Hello</span></div>
@@ -144,20 +144,20 @@
                         </div>
                     </div>
                     <div class="about__value-bar light-green">
-                        <div id="about-value-items" class="row"></div>
+                        <div id="about-value-items" class="layout-row"></div>
                     </div>
                 </div>
             </div>
-            <div class="col s12 intro">
-                <div class="row">
-                    <div class="col s12 m12 justify-align intro__article">
+            <div class="layout-col layout-col--s-12 intro">
+                <div class="layout-row">
+                    <div class="layout-col layout-col--s-12 layout-col--m-12 justify-align intro__article">
                         <p id="about-intro"></p>
-                        <ul id="about-proof-list" class="intro__proof-list row"
+                        <ul id="about-proof-list" class="intro__proof-list layout-row"
                             aria-label="Product delivery proof points"></ul>
                     </div>
-                    <div class="col s12 m12 light center-align intro__download_cv">
+                    <div class="layout-col layout-col--s-12 layout-col--m-12 light u-center intro__download_cv">
                         <a id="about-primary-cta"
-                           class="btn waves-light btn-large waves-effect intro__download_btn"
+                           class="ui-btn ui-btn--lg intro__download_btn"
                            href="">
                             <span class="site-icon intro__download_icon" aria-hidden="true"></span>
                             <span id="about-primary-cta-label">EXPLORE EXPERIENCE</span>
@@ -194,53 +194,53 @@
     </div>
 </header>
 <main id="main-content" class="content" tabindex="-1">
-    <div class="container">
+    <div class="layout-container">
 
         <section id="skills" class="section skills" aria-labelledby="skills-title">
-            <div class="col s12 flow-text center-align skills__header">
+            <div class="layout-col layout-col--s-12 u-flow u-center skills__header">
                 <span id="skills-eyebrow" class="skills__eyebrow light-green-text"></span>
                 <h2 id="skills-title" class="skills__title"></h2>
                 <p id="skills-description" class="skills__description"></p>
             </div>
 
-            <div class="skills__filters row center-align" id="skills-filters" aria-label="Skills filters">
+            <div class="skills__filters layout-row u-center" id="skills-filters" aria-label="Skills filters">
                 <ul></ul>
             </div>
 
-            <div class="row equal-height" id="skills-cards"></div>
+            <div class="layout-row equal-height" id="skills-cards"></div>
         </section>
 
         <section id="experience" class="section experience" aria-labelledby="experience-title">
-            <div class="col s12 flow-text center-align experience__header">
+            <div class="layout-col layout-col--s-12 u-flow u-center experience__header">
                 <span class="experience__eyebrow light-green-text" id="experience-eyebrow"></span>
                 <h2 id="experience-title"></h2>
                 <p id="experience-intro"></p>
             </div>
 
-            <div class="row" id="experience-cards"></div>
+            <div class="layout-row" id="experience-cards"></div>
         </section>
 
         <section id="education" class="section education"></section>
 
         <section id="references" class="section references" aria-labelledby="references-title">
-            <div class="col s12 flow-text center-align references__header">
+            <div class="layout-col layout-col--s-12 u-flow u-center references__header">
                 <span id="references-eyebrow" class="references__eyebrow light-green-text"></span>
                 <h2 id="references-title"></h2>
                 <p id="references-intro"></p>
             </div>
 
-            <div class="row">
-                <div class="col s12 m12 l12 references__carousel">
-                    <div class="card references__carousel-container">
+            <div class="layout-row">
+                <div class="layout-col layout-col--s-12 layout-col--m-12 layout-col--l-12 references__carousel">
+                    <div class="ui-card references__carousel-container">
                         <div
-                                class="carousel carousel-slider references__track center"
+                                class="references__track u-center"
                                 id="references-track">
                         </div>
 
                         <div class="references__controls">
                             <button
                                     type="button"
-                                    class="waves-effect waves-light references__control references__control--next"
+                                    class="references__control references__control--next"
                                     aria-label="Next reference">
                         <span
                                 class="site-icon"
@@ -250,7 +250,7 @@
 
                             <button
                                     type="button"
-                                    class="waves-effect waves-light references__control references__control--prev"
+                                    class="references__control references__control--prev"
                                     aria-label="Previous reference">
                         <span
                                 class="site-icon"
@@ -264,20 +264,20 @@
         </section>
 
         <section id="interests" class="section interests" aria-labelledby="interests-title">
-            <div class="col s12 flow-text center-align interests__header">
+            <div class="layout-col layout-col--s-12 u-flow u-center interests__header">
                 <span id="interests-eyebrow" class="light-green-text"></span>
                 <h2 id="interests-title"></h2>
                 <p id="interests-description"></p>
             </div>
 
-            <div class="row" id="interests-cards"></div>
+            <div class="layout-row" id="interests-cards"></div>
         </section>
 
         <section id="contact_me" class="section contact" aria-labelledby="contact-title">
             <div class="contact__container">
-                <div class="row">
+                <div class="layout-row">
 
-                    <div class="col s12 l5 contact__intro">
+                    <div class="layout-col layout-col--s-12 layout-col--l-5 contact__intro">
                         <span class="contact__eyebrow">Let's connect</span>
 
                         <h2 id="contact-title" class="contact__title">
@@ -290,27 +290,27 @@
                         </p>
                     </div>
 
-                    <div class="col s12 l7">
-                        <div class="row contact__cards-row">
-                            <div class="col s12 m6">
-                                <div class="card border-top__green contact__card">
-                                    <div class="card-content">
+                    <div class="layout-col layout-col--s-12 layout-col--l-7">
+                        <div class="layout-row contact__cards-row">
+                            <div class="layout-col layout-col--s-12 layout-col--m-6">
+                                <div class="ui-card border-top__green contact__card">
+                                    <div class="ui-card__body">
                                         <span class="contact__card-icon">
                                             <span class="site-icon"
                                                   style="--site-icon: url('../icons/lucide/mail.svg')"
                                                   aria-hidden="true"></span>
                                             </span>
-                                        <span class="card-title">Email</span>
+                                        <span class="ui-card__title">Email</span>
                                         <p>
                                             Best for direct conversations, product opportunities, and professional
                                             collaboration.
                                         </p>
                                     </div>
 
-                                    <div class="card-action contact__card-action">
-                                        <a href="mailto:hello.ranikola@gmail.com" aria-label="Email Nikola Randjelovic"
-                                           data-analytics="email_click">
-                                            <span>hello.ranikola@gmail.com</span>
+                                    <div class="ui-card__footer contact__card-action">
+                                        <a href="#" id="contact-mail" data-user="hello.ranikola" data-domain="gmail.com" class="ui-link"
+                                           aria-label="Email Nikola Randjelovic" data-analytics="email_click">
+                                            <span>[Prikaži imejl]</span>
                                             <span class="contact__card-action--icon">
                                                 <span class="site-icon"
                                                       style="--site-icon: url('../icons/lucide/arrow-right.svg')"
@@ -321,19 +321,19 @@
                                 </div>
                             </div>
 
-                            <div class="col s12 m6">
-                                <div class="card border-top__green contact__card">
-                                    <div class="card-content">
+                            <div class="layout-col layout-col--s-12 layout-col--m-6">
+                                <div class="ui-card border-top__green contact__card">
+                                    <div class="ui-card__body">
                                         <span class="contact__card-icon">
                                             <span class="site-icon"
                                                   style="--site-icon: url('../images/linkedin.svg')"
                                                   aria-hidden="true"></span>
                                         </span>
-                                        <span class="card-title">LinkedIn</span>
+                                        <span class="ui-card__title">LinkedIn</span>
                                         <p>Professional background, experience, and career highlights in one place.</p>
                                     </div>
 
-                                    <div class="card-action contact__card-action">
+                                    <div class="ui-card__footer contact__card-action">
                                         <a href="https://www.linkedin.com/in/ranikola" target="_blank" rel="noopener"
                                            aria-label="Visit Nikola Randjelovic on LinkedIn"
                                            data-analytics="linkedin_click">
@@ -348,22 +348,22 @@
                                 </div>
                             </div>
 
-                            <div class="col s12 m6">
-                                <div class="card border-top__green contact__card">
-                                    <div class="card-content">
+                            <div class="layout-col layout-col--s-12 layout-col--m-6">
+                                <div class="ui-card border-top__green contact__card">
+                                    <div class="ui-card__body">
                                         <span class="contact__card-icon">
                                             <span class="site-icon"
                                                   style="--site-icon: url('../images/github.svg')"
                                                   aria-hidden="true"></span>
                                         </span>
-                                        <span class="card-title">GitHub</span>
+                                        <span class="ui-card__title">GitHub</span>
                                         <p>
                                             Technical projects, experiments, and hands-on work that reflect my
                                             engineering foundation.
                                         </p>
                                     </div>
 
-                                    <div class="card-action contact__card-action">
+                                    <div class="ui-card__footer contact__card-action">
                                         <a href="https://github.com/ranikola" target="_blank" rel="noopener"
                                            aria-label="Visit Nikola Randjelovic on GitHub"
                                            data-analytics="github_click">
@@ -378,19 +378,19 @@
                                 </div>
                             </div>
 
-                            <div class="col s12 m6">
-                                <div class="card border-top__green contact__card">
-                                    <div class="card-content">
+                            <div class="layout-col layout-col--s-12 layout-col--m-6">
+                                <div class="ui-card border-top__green contact__card">
+                                    <div class="ui-card__body">
                                         <span class="contact__card-icon">
                                             <span class="site-icon"
                                                   style="--site-icon: url('../images/instagram.svg')"
                                                   aria-hidden="true"></span>
                                         </span>
-                                        <span class="card-title">Instagram</span>
+                                        <span class="ui-card__title">Instagram</span>
                                         <p>Photography from travels, hikes, landscapes, and everyday moments.</p>
                                     </div>
 
-                                    <div class="card-action contact__card-action">
+                                    <div class="ui-card__footer contact__card-action">
                                         <a href="https://www.instagram.com/ranikola" target="_blank" rel="noopener"
                                            aria-label="Visit Nikola Randjelovic on Instagram"
                                            data-analytics="instagram_click">
@@ -406,8 +406,8 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col s12">
+                        <div class="layout-row">
+                            <div class="layout-col layout-col--s-12">
                                 <div class="contact__meta">
                                     <div class="contact__meta-item">
                                 <span class="site-icon"
@@ -431,7 +431,7 @@
                 </div>
 
 
-                <div class="card-panel contact__quote">
+                <div class="ui-panel contact__quote">
                     <p>Product doesn’t fail because of bad ideas.
                         <strong>It fails because the wrong decisions get made at the wrong time.</strong>
                     </p>
@@ -483,8 +483,8 @@
 
 </main>
 <footer class="page-footer site-footer section-surface-muted">
-    <div class="footer-copyright site-footer__copyright center-align">
-        <div class="container">
+    <div class="footer-copyright site-footer__copyright u-center">
+        <div class="layout-container">
             Technical Product Leader · <a href="mailto:hello.ranikola@gmail.com" class="site-footer__link"
                                           aria-label="Email Nikola Randjelovic" data-analytics="email_click">hello.ranikola@gmail.com</a>
             &nbsp;|&nbsp; © 2021 – <span id="footer-year"></span> Nikola Randjelovic. All rights reserved.
@@ -494,7 +494,7 @@
 
 <!-- Right-side action buttons -->
 <div class="action-rail" aria-label="Quick actions">
-    <a id="download-cv" class="cv-download-btn waves-effect waves-light btn btn-floating"
+    <a id="download-cv" class="cv-download-btn ui-btn ui-btn--fab"
        href="assets/files/CV_Nikola_Randjelovic.pdf"
        download
        target="_blank"
@@ -507,7 +507,7 @@
               aria-hidden="true"></span>
     </a>
 
-    <a style="display: none;" class="top-btn btn-floating waves-effect waves-light white"
+    <a style="display: none;" class="top-btn ui-btn ui-btn--fab white"
        href="#about"
        aria-label="Back to top"
        title="Back to top">
@@ -528,7 +528,6 @@
 </div>
 
 <!--JavaScript at end of body for optimized loading-->
-<script src="./assets/js/materialize.min.js" defer></script>
 <script src="./assets/js/public.js" defer></script>
 </body>
 </html>

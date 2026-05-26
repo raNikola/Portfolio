@@ -10,6 +10,22 @@
   }
 
   .header {
+    .ui-nav {
+      &__inner {
+        grid-template-columns: 1fr auto;
+        min-height: 64px;
+      }
+
+      &__list--desktop {
+        display: none;
+      }
+
+      &__trigger {
+        display: inline-flex;
+        justify-self: end;
+      }
+    }
+
     .mobile-nav-trigger {
       position: fixed;
       top: 16px;
@@ -265,7 +281,7 @@
       }
 
       &__metrics {
-        .col {
+        .layout-col {
           width: 50%;
         }
       }
@@ -342,10 +358,6 @@
       &__carousel {
         display: block;
         min-height: 430px !important;
-
-        .indicators {
-          display: none !important;
-        }
       }
 
       &__carousel-container {
@@ -378,7 +390,7 @@
         padding: 20px;
       }
 
-      .card-content {
+      .ui-card__body {
         padding: 0 10px 12px;
       }
 
@@ -432,8 +444,19 @@
         justify-content: center;
         gap: 12px;
         width: auto;
-        margin: 20px auto;
+        margin: 18px auto 0;
         transform: none;
+      }
+
+      &__dots {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 auto 14px;
       }
 
       &__control {
@@ -475,7 +498,7 @@
       &__card__content {
         padding: 24px 22px 18px;
 
-        .card-title {
+        .ui-card__title {
           font-size: 1.75rem;
         }
 
@@ -488,7 +511,7 @@
       &__meta {
         padding: 14px 22px 20px;
 
-        .chip {
+        .ui-chip {
           height: auto;
           line-height: 1.4;
           padding: 7px 12px;

@@ -36,28 +36,21 @@
   border: 0;
 }
 
-.row.equal-height {
-  display: flex;
-  flex-wrap: wrap;
+.layout-row.equal-height {
+  align-items: stretch;
 }
 
-.row.equal-height > .col {
+.layout-row.equal-height > .layout-col {
   display: flex;
 }
 
-.row.equal-height .card {
+.layout-row.equal-height .ui-card {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.row.equal-height .content-fill {
+.layout-row.equal-height .content-fill {
   flex: 1;
-}
-
-.waves-effect.waves-brown .waves-ripple {
-  /* The alpha value allows the text and background color
-  of the button to still show through. */
-  background-color: rgba(121, 85, 72, 0.65);
 }
 

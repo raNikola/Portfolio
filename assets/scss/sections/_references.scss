@@ -36,41 +36,6 @@ main {
     &__carousel {
       position: relative !important;
       min-height: 320px !important;
-
-      .indicators {
-        position: absolute !important;
-        top: auto !important;
-        left: 50% !important;
-        right: auto !important;
-        bottom: 40px !important;
-
-        display: flex !important;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        width: auto;
-        margin: 0;
-        transform: translateX(-50%);
-
-        .indicator-item {
-          display: block;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background-color: $color-text-primary;
-          opacity: .45;
-
-          transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
-
-          &.active {
-            background-color: $color-brand-green;
-            opacity: 1;
-            transform: scale(1.4);
-          }
-        }
-      }
     }
 
     &__carousel-container {
@@ -87,12 +52,25 @@ main {
 
     &__track {
       position: relative !important;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
       width: calc(100% - 120px) !important;
       height: 100% !important;
       margin: 0 !important;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &__carousel-item {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
       min-height: 250px !important;
       padding: 0 64px 0 24px;
     }
@@ -126,7 +104,7 @@ main {
       }
     }
 
-    .card-content {
+    .ui-card__body {
       padding-bottom: 20px;
     }
 
@@ -172,7 +150,10 @@ main {
       right: 25px;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: 12px;
       width: 60px;
+      z-index: 2;
     }
 
     &__control {
@@ -201,6 +182,37 @@ main {
 
       &--next {
         margin-bottom: 15px;
+      }
+    }
+
+    &__dots {
+      position: absolute;
+      left: 50%;
+      right: auto;
+      bottom: 36px;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    &__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background-color: $color-text-primary;
+      opacity: .45;
+      cursor: pointer;
+      transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
+
+      &.is-active {
+        background-color: $color-brand-green;
+        opacity: 1;
+        transform: scale(1.4);
       }
     }
 

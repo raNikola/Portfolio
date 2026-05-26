@@ -166,7 +166,7 @@
     &__value-bar {
       color: $color-text-inverse;
 
-      .row {
+      .layout-row {
         margin-bottom: 0;
       }
     }
@@ -283,7 +283,7 @@
       padding: 0;
       list-style: none;
 
-      &.row {
+      &.layout-row {
         margin-bottom: 0;
       }
     }
