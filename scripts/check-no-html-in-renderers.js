@@ -4,7 +4,8 @@ import path from 'path';
 const ROOT = process.cwd();
 const TARGET_DIRS = [
   path.join(ROOT, 'scripts', 'sections'),
-  path.join(ROOT, 'scripts', 'partials')
+  path.join(ROOT, 'scripts', 'partials'),
+  path.join(ROOT, 'scripts', 'lib')
 ];
 
 // Heuristic guardrail: disallow HTML template strings and direct HTML string injections
@@ -66,4 +67,3 @@ if (violations.length) {
   }
   process.exit(1);
 }
-
