@@ -1,0 +1,25 @@
+<div class="header__navbar ui-nav-shell">
+    <nav class="ui-nav no-border" aria-label="Primary navigation">
+        <div class="ui-nav__inner layout-container">
+            <a href="#mobile-nav"
+               data-target="mobile-nav"
+               class="ui-nav__trigger sidenav-trigger mobile-nav-trigger"
+               aria-label="Open mobile navigation"
+               aria-controls="mobile-nav"
+               aria-expanded="false">
+                <span class="site-icon light-green-text"
+                      style="--site-icon: url('../icons/lucide/menu.svg')"
+                      aria-hidden="true"></span>
+            </a>
+            <ul id="site-navigation-links" class="ui-nav__list ui-nav__list--desktop">
+                <li class="ui-nav__item ui-nav__item--profile"><a href="#" data-target="about-sidenav" class="ui-nav__link ui-nav__link--icon sidenav-trigger sidenav-about"
+                       aria-label="Open profile menu" aria-controls="about-sidenav" aria-expanded="false">
+                    <span class="site-icon"
+                          style="--site-icon: url('../icons/lucide/menu.svg')"
+                          aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden></ul>

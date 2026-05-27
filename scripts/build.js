@@ -30,6 +30,12 @@ const buildEnvironment = getBuildEnvironment();
 const structuredDataJson = getStructuredDataJson(siteConfig);
 const umamiConfig = getUmamiConfig(buildEnvironment);
 
+injectNavigationTemplate($, './templates/features/navigation.template.html');
+injectAboutTemplate($, './templates/features/about.template.html');
+injectFeatureTemplate($, '#skills', './templates/features/skills.template.html');
+injectFeatureTemplate($, '#experience', './templates/features/experience.template.html');
+injectFeatureTemplate($, '#references', './templates/features/references.template.html');
+injectFeatureTemplate($, '#interests', './templates/features/interests.template.html');
 renderAbout($);
 renderSkills($);
 renderExperience($);
@@ -45,6 +51,62 @@ injectInlineManifest($, inlineManifestHref);
 
 const renderedHtml = $.html();
 const renderedNotFoundHtml = renderNotFoundHtml('./404.html', inlineManifestHref);
+
+function injectAboutTemplate($, aboutTemplatePath) {
+    if (!fs.existsSync(aboutTemplatePath)) {
+        return;
+    }
+
+    const aboutTemplateHtml = fs.readFileSync(aboutTemplatePath, 'utf8');
+    const aboutTemplate = cheerio.load(aboutTemplateHtml, { decodeEntities: false }).root().html() || '';
+
+    if (!aboutTemplate.trim()) {
+        return;
+    }
+
+    $('.header__container').html(aboutTemplate);
+}
+
+function injectNavigationTemplate($, navigationTemplatePath) {
+    if (!fs.existsSync(navigationTemplatePath)) {
+        return;
+    }
+
+    const navigationTemplateHtml = fs.readFileSync(navigationTemplatePath, 'utf8');
+    const navigationTemplate = cheerio.load(navigationTemplateHtml, { decodeEntities: false }).root().html() || '';
+
+    if (!navigationTemplate.trim()) {
+        return;
+    }
+
+    const navigationPlaceholder = $('.header__navbar').first();
+    if (!navigationPlaceholder.length) {
+        return;
+    }
+
+    navigationPlaceholder.replaceWith(navigationTemplate);
+    $('header .sidenav#mobile-nav').slice(1).remove();
+}
+
+function injectFeatureTemplate($, selector, templatePath) {
+    if (!fs.existsSync(templatePath)) {
+        return;
+    }
+
+    const featureTemplateHtml = fs.readFileSync(templatePath, 'utf8');
+    const featureTemplate = cheerio.load(featureTemplateHtml, { decodeEntities: false }).root().html() || '';
+
+    if (!featureTemplate.trim()) {
+        return;
+    }
+
+    const target = $(selector).first();
+    if (!target.length) {
+        return;
+    }
+
+    target.replaceWith(featureTemplate);
+}
 
 function loadLocalEnvironment() {
     const envPath = './.env.local';

@@ -19,18 +19,11 @@ body {
   }
 }
 
-.card,
-.card-panel,
 .sidenav,
 .modal,
 .dropdown-content {
   color: $color-text-primary;
   background-color: $color-surface-primary;
-}
-
-.card .card-action {
-  border-top-color: $color-border-light;
-  background-color: $color-surface-original;
 }
 
 .white {
@@ -86,12 +79,10 @@ select,
 label,
 nav,
 footer,
-.btn,
-.btn-large,
-.btn-small,
-.card,
-.card-title,
-.chip,
+.ui-btn,
+.ui-card,
+.ui-card__title,
+.ui-chip,
 .modal,
 .dropdown-content,
 .sidenav,
@@ -102,7 +93,7 @@ footer,
   user-select: none;
 }
 
-.chip {
+.ui-chip {
   background: transparent !important;
   border-radius: 10px !important;
   border: 1px solid $color-border-default;
