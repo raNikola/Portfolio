@@ -16,12 +16,12 @@ import { cleanDist, recreateDist } from './build/dist.js';
 import { copyProductionAssets, copyStaticFile } from './build/assets.js';
 import { writeCrawlerFiles } from './build/crawler.js';
 
-import { renderAbout } from './sections/render-about.js';
-import { renderSkills } from './sections/render-skills.js';
-import { renderInterests } from './sections/render-interests.js';
-import { renderReferences } from './sections/render-references.js';
-import { renderExperience } from './sections/render-experience.js';
-import { bindNavigation } from './partials/render-navigation.js';
+import { bindAbout } from './sections/bind-about.js';
+import { bindSkills } from './sections/bind-skills.js';
+import { bindInterests } from './sections/bind-interests.js';
+import { bindReferences } from './sections/bind-references.js';
+import { bindExperience } from './sections/bind-experience.js';
+import { bindNavigation } from './partials/bind-navigation.js';
 
 const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
@@ -50,11 +50,11 @@ injectFeatureTemplate($, '#experience', './templates/features/experience.templat
 injectFeatureTemplate($, '#references', './templates/features/references.template.html');
 injectFeatureTemplate($, '#interests', './templates/features/interests.template.html');
 
-renderAbout($);
-renderSkills($);
-renderExperience($);
-renderInterests($);
-renderReferences($);
+bindAbout($);
+bindSkills($);
+bindExperience($);
+bindInterests($);
+bindReferences($);
 
 bindNavigation($, siteConfig.navigation || []);
 injectHeadMetadata($, siteConfig);
@@ -79,4 +79,3 @@ copyStaticFile('./assets/data/person.schema.json', './dist/person.jsonld');
 writeCrawlerFiles(distPath, siteConfig);
 
 console.log(`Build completed: dist/index.html (${cleanMode})`);
-

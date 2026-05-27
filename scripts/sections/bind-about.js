@@ -1,37 +1,5 @@
 import fs from 'fs';
-
-function setText(node, value) {
-    if (!node.length) {
-        return;
-    }
-
-    node.text(value == null ? '' : String(value));
-}
-
-function setAttr(node, name, value) {
-    if (!node.length) {
-        return;
-    }
-
-    if (value == null || value === '') {
-        node.removeAttr(name);
-        return;
-    }
-
-    node.attr(name, String(value));
-}
-
-function setHidden(node, hidden) {
-    if (!node.length) {
-        return;
-    }
-
-    if (hidden) {
-        node.attr('hidden', '');
-    } else {
-        node.removeAttr('hidden');
-    }
-}
+import { setAttr, setHidden, setText } from '../build/bind/dom.js';
 
 function getContactIconClass(icon) {
     const aliases = {
@@ -47,7 +15,7 @@ function getProofIconStyle(icon) {
     return token ? `--site-icon: url('../icons/lucide/${token}.svg')` : '--site-icon: none';
 }
 
-export function renderAbout($) {
+export function bindAbout($) {
     const about = JSON.parse(fs.readFileSync('./data/about.json', 'utf8'));
     const email = about.contact.find(item => item.type === 'email');
 

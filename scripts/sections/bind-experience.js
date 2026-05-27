@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { setHidden, setText } from '../build/bind/dom.js';
 
 const CTA_FALLBACK = 'View details';
 
@@ -20,25 +21,7 @@ function renderTimelineDateParts(period) {
     return { start: parts[0], end: `– ${parts.slice(1).join(' - ')}` };
 }
 
-function setHidden(node, hidden) {
-    if (!node.length) {
-        return;
-    }
-
-    if (hidden) {
-        node.attr('hidden', '');
-    } else {
-        node.removeAttr('hidden');
-    }
-}
-
-function setText(node, value) {
-    if (!node.length) {
-        return;
-    }
-
-    node.text(value == null ? '' : String(value));
-}
+// setHidden / setText imported from build/bind/dom.js
 
 function bindCompany(node, company, {
     linkSelector,
@@ -336,7 +319,7 @@ function bindFoundationItem(foundationProto, group, groupedItems) {
     return node;
 }
 
-export function renderExperience($) {
+export function bindExperience($) {
     const experience = JSON.parse(fs.readFileSync('./data/experience.json', 'utf8'));
 
     $('#experience-eyebrow').text(experience.section.eyebrow);
@@ -382,4 +365,3 @@ export function renderExperience($) {
     container.empty();
     container.append(timeline);
 }
-

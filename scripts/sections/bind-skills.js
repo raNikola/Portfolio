@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { setAttr, setText } from '../build/bind/dom.js';
 
-export function renderSkills($) {
+export function bindSkills($) {
     const skills = JSON.parse(fs.readFileSync('./data/skills.json', 'utf8'));
 
     $('#skills-eyebrow').text(skills.eyebrow);

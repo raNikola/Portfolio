@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import { setAttr, setText } from '../build/bind/dom.js';
 
-export function renderInterests($) {
+export function bindInterests($) {
     const interests = JSON.parse(fs.readFileSync('./data/interests.json', 'utf8'));
 
     $('#interests-eyebrow').text(interests.eyebrow);

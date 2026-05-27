@@ -1,23 +1,4 @@
-function setText(node, value) {
-    if (!node.length) {
-        return;
-    }
-
-    node.text(value == null ? '' : String(value));
-}
-
-function setAttr(node, name, value) {
-    if (!node.length) {
-        return;
-    }
-
-    if (value == null || value === '') {
-        node.removeAttr(name);
-        return;
-    }
-
-    node.attr(name, String(value));
-}
+import { setAttr, setText } from '../build/bind/dom.js';
 
 function bindDesktopNavigation($, items) {
     const list = $('#site-navigation-links').first();

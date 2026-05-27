@@ -32,3 +32,11 @@ export function setAttr(node, name, value) {
   node.attr(name, String(value));
 }
 
+export function setHidden(node, hidden) {
+  if (hidden) {
+    node.attr('hidden', '');
+    return;
+  }
+
+  node.removeAttr('hidden');
+}

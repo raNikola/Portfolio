@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export function renderReferences($) {
+export function bindReferences($) {
     const references = JSON.parse(fs.readFileSync('./data/references.json', 'utf8'));
 
     $('#references-eyebrow').text(references.eyebrow);
