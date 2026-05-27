@@ -7,28 +7,42 @@ export function renderReferences($) {
     $('#references-title').text(references.title);
     $('#references-intro').text(references.intro);
 
-    const itemsHtml = references.items.map((item) => `
-        <div class="references__carousel-item" data-reference-id="${item.id}">
-            <div class="references__card">
-                <div class="ui-card__body">
-                    <p class="references__quote">
-                        ${item.quote}
-                    </p>
-                </div>
+    bindReferenceItems($, references.items || []);
+}
 
-                <div class="ui-card__footer references__author">
-                    <div class="references__avatar light-green">
-                        <img src="${item.image}" alt="${item.alt}" width="100" height="100" loading="lazy" decoding="async"/>
-                    </div>
+function bindReferenceItems($, items) {
+    const track = $('#references-track').first();
+    if (!track.length) {
+        return;
+    }
 
-                    <div>
-                        <span class="references__name">${item.name}</span>
-                        <span class="references__title">${item.role}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    const prototype = track.find('[data-tpl="reference-item"]').first();
+    if (!prototype.length) {
+        return;
+    }
 
-    $('#references-track').html(itemsHtml);
+    const nodes = [];
+
+    for (const item of items) {
+        const node = prototype.clone();
+        node.removeAttr('data-tpl');
+
+        node.attr('data-reference-id', item?.id ? String(item.id) : '');
+        node.find('[data-role="reference-quote"]').first().text(item?.quote || '');
+        node.find('[data-role="reference-name"]').first().text(item?.name || '');
+        node.find('[data-role="reference-role"]').first().text(item?.role || '');
+
+        const img = node.find('[data-role="reference-avatar"]').first();
+        if (img.length) {
+            img.attr('src', item?.image || '');
+            img.attr('alt', item?.alt || '');
+        }
+
+        nodes.push(node);
+    }
+
+    track.empty();
+    for (const node of nodes) {
+        track.append(node);
+    }
 }

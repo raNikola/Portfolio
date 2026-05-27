@@ -1,120 +1,50 @@
 import fs from 'fs';
 
-import { escapeHtml, renderObfuscatedEmailLink } from '../lib/html.js';
+function setText(node, value) {
+    if (!node.length) {
+        return;
+    }
+
+    node.text(value == null ? '' : String(value));
+}
+
+function setAttr(node, name, value) {
+    if (!node.length) {
+        return;
+    }
+
+    if (value == null || value === '') {
+        node.removeAttr(name);
+        return;
+    }
+
+    node.attr(name, String(value));
+}
+
+function setHidden(node, hidden) {
+    if (!node.length) {
+        return;
+    }
+
+    if (hidden) {
+        node.attr('hidden', '');
+    } else {
+        node.removeAttr('hidden');
+    }
+}
 
 function getContactIconClass(icon) {
     const aliases = {
         'map-pinned': 'location'
     };
 
-    return `about__icon-${escapeHtml(aliases[icon] || icon)}`;
+    const token = String(aliases[icon] || icon || '').trim();
+    return token ? `about__icon-${token}` : '';
 }
 
 function getProofIconStyle(icon) {
-    return `--site-icon: url('../icons/lucide/${escapeHtml(icon)}.svg')`;
-}
-
-function renderContactItem(item) {
-    const icon = `
-        <span class="site-icon ${getContactIconClass(item.icon)}" aria-hidden="true"></span>
-    `;
-    const label = `<span>${escapeHtml(item.label)}</span>`;
-
-    if (item.type === 'location') {
-        const [country, detail] = String(item.label).split('/');
-        const locationLabel = detail
-            ? `<span><span itemprop="addressCountry">${escapeHtml(country.trim())}</span> / ${escapeHtml(detail.trim())}</span>`
-            : label;
-
-        return `
-            <span class="about__contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                ${icon}
-                ${locationLabel}
-            </span>
-        `;
-    }
-
-    if (!item.url) {
-        return `
-            <span class="about__contact-item">
-                ${icon}
-                ${label}
-            </span>
-        `;
-    }
-
-    const itemprop = item.type === 'email' ? 'email' : 'sameAs';
-    const externalAttributes = item.type === 'social' ? ' target="_blank" rel="noopener noreferrer"' : '';
-    const analyticsEvent = {
-        email: 'email_click',
-        github: 'github_click',
-        linkedin: 'linkedin_click'
-    }[String(item.icon).toLowerCase()];
-    const analyticsAttribute = analyticsEvent ? ` data-analytics="${analyticsEvent}"` : '';
-    const ariaLabel = item.type === 'email'
-        ? 'Email Nikola Randjelovic'
-        : `Visit Nikola Randjelovic on ${escapeHtml(item.label)}`;
-
-    if (item.type === 'email') {
-        const [user = '', domain = ''] = String(item.label).split('@');
-        const emailLink = renderObfuscatedEmailLink({
-            user,
-            domain,
-            className: 'about__contact-email',
-            ariaLabel,
-            analytics: analyticsEvent || '',
-            itemprop,
-            text: '[Show email]'
-        });
-
-        return `
-            <span class="about__contact-item" itemprop="${itemprop}">
-                ${icon}
-                ${emailLink}
-            </span>
-        `;
-    }
-
-    return `
-        <a class="about__contact-item" href="${escapeHtml(item.url)}" itemprop="${itemprop}"${externalAttributes} aria-label="${ariaLabel}"${analyticsAttribute}>
-            ${icon}
-            ${label}
-        </a>
-    `;
-}
-
-function renderValueItem(item) {
-    return `
-        <div class="layout-col layout-col--s-12 layout-col--l-4 about__value-col">
-            <div class="about__value-item">
-                <span class="about__value-icon">
-                    <span class="site-icon about__icon-${escapeHtml(item.icon)}" aria-hidden="true"></span>
-                </span>
-                <div>
-                    <strong>${escapeHtml(item.title)}</strong>
-                    <span>${escapeHtml(item.description)}</span>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function renderProofItem(item) {
-    return `
-        <li class="intro__proof-item layout-col layout-col--s-12 layout-col--l-4">
-            <span class="intro__proof-check">
-                <span
-                    class="site-icon intro__proof-icon"
-                    style="${getProofIconStyle(item.icon)}"
-                    aria-hidden="true">
-                </span>
-            </span>
-            <div class="intro__proof-copy">
-                <strong>${escapeHtml(item.title)}</strong>
-                <span>${escapeHtml(item.description)}</span>
-            </div>
-        </li>
-    `;
+    const token = String(icon || '').trim();
+    return token ? `--site-icon: url('../icons/lucide/${token}.svg')` : '--site-icon: none';
 }
 
 export function renderAbout($) {
@@ -141,10 +71,10 @@ export function renderAbout($) {
     $('#about-role').text(about.role);
     $('#about-summary').text(about.summary);
 
-    $('#about-contact').html(about.contact.map(renderContactItem).join(''));
-    $('#about-value-items').html(about.valueBar.map(renderValueItem).join(''));
+    bindAboutContact($, about.contact || []);
+    bindAboutValueBar($, about.valueBar || []);
     $('#about-intro').text(about.intro);
-    $('#about-proof-list').html(about.proofPoints.map(renderProofItem).join(''));
+    bindAboutProofPoints($, about.proofPoints || []);
     $('#about-primary-cta')
         .attr('href', about.primaryCta.href)
         .removeAttr('target')
@@ -154,4 +84,198 @@ export function renderAbout($) {
         .attr('aria-label', about.primaryCta.ariaLabel);
 
     $('#about-primary-cta-label').text(about.primaryCta.label);
+
+    // Remove build-only prototypes from final HTML output.
+    $('template[data-tpl-root="about"]').remove();
+}
+
+function getAboutTemplateRoot($) {
+    return $('template[data-tpl-root="about"]').first();
+}
+
+function cloneFromTemplate($, templateRoot, selector) {
+    if (!templateRoot.length) {
+        return null;
+    }
+
+    // Cheerio parses template element contents as children; query inside it.
+    const node = templateRoot.find(selector).first();
+    if (!node.length) {
+        return null;
+    }
+
+    return node.clone();
+}
+
+function bindAboutContact($, items) {
+    const container = $('#about-contact').first();
+    const templateRoot = getAboutTemplateRoot($);
+
+    if (!container.length || !templateRoot.length) {
+        return;
+    }
+
+    const nodes = [];
+
+    for (const item of items) {
+        const type = String(item?.type || '').toLowerCase();
+
+        if (type === 'location') {
+            const node = cloneFromTemplate($, templateRoot, '[data-tpl="about-contact-location"]');
+            if (!node) {
+                continue;
+            }
+
+            node.removeAttr('data-tpl');
+            const icon = node.find('[data-role="about-contact-icon"]').first();
+            icon.attr('class', `site-icon ${getContactIconClass(item.icon)}`.trim());
+
+            const labelNode = node.find('[data-role="about-contact-location-label"]').first();
+            const [country, detail] = String(item?.label || '').split('/');
+            if (detail) {
+                setText(node.find('[data-role="about-contact-location-country"]').first(), country.trim());
+                setText(node.find('[data-role="about-contact-location-detail"]').first(), detail.trim());
+                setHidden(node.find('[data-role="about-contact-location-separator"]').first(), false);
+                setHidden(node.find('[data-role="about-contact-location-country"]').first(), false);
+                setHidden(node.find('[data-role="about-contact-location-detail"]').first(), false);
+            } else {
+                setText(labelNode, item?.label);
+                setHidden(node.find('[data-role="about-contact-location-separator"]').first(), true);
+                setHidden(node.find('[data-role="about-contact-location-country"]').first(), true);
+                setHidden(node.find('[data-role="about-contact-location-detail"]').first(), true);
+            }
+
+            nodes.push(node);
+            continue;
+        }
+
+        if (type === 'email') {
+            const node = cloneFromTemplate($, templateRoot, '[data-tpl="about-contact-email"]');
+            if (!node) {
+                continue;
+            }
+
+            node.removeAttr('data-tpl');
+            const icon = node.find('[data-role="about-contact-icon"]').first();
+            icon.attr('class', `site-icon ${getContactIconClass(item.icon)}`.trim());
+
+            const link = node.find('[data-role="about-contact-email-link"]').first();
+            const ariaLabel = 'Email Nikola Randjelovic';
+            const analyticsEvent = 'email_click';
+            const [user = '', domain = ''] = String(item?.label || '').split('@');
+
+            setAttr(link, 'aria-label', ariaLabel);
+            setAttr(link, 'data-analytics', analyticsEvent);
+            setAttr(link, 'data-user', user);
+            setAttr(link, 'data-domain', domain);
+            setAttr(link, 'href', '#');
+            link.text('[Show email]');
+
+            nodes.push(node);
+            continue;
+        }
+
+        if (item?.url) {
+            const node = cloneFromTemplate($, templateRoot, '[data-tpl="about-contact-social"]');
+            if (!node) {
+                continue;
+            }
+
+            node.removeAttr('data-tpl');
+            const icon = node.find('[data-role="about-contact-icon"]').first();
+            icon.attr('class', `site-icon ${getContactIconClass(item.icon)}`.trim());
+
+            setAttr(node, 'href', item.url);
+            const analyticsEvent = {
+                github: 'github_click',
+                linkedin: 'linkedin_click'
+            }[String(item.icon || '').toLowerCase()];
+            setAttr(node, 'data-analytics', analyticsEvent || '');
+            setAttr(node, 'aria-label', `Visit Nikola Randjelovic on ${item.label}`);
+            setText(node.find('[data-role="about-contact-label"]').first(), item?.label);
+
+            nodes.push(node);
+            continue;
+        }
+
+        const node = cloneFromTemplate($, templateRoot, '[data-tpl="about-contact-text"]');
+        if (!node) {
+            continue;
+        }
+
+        node.removeAttr('data-tpl');
+        const icon = node.find('[data-role="about-contact-icon"]').first();
+        icon.attr('class', `site-icon ${getContactIconClass(item.icon)}`.trim());
+        setText(node.find('[data-role="about-contact-label"]').first(), item?.label);
+        nodes.push(node);
+    }
+
+    container.empty();
+    for (const node of nodes) {
+        container.append(node);
+    }
+}
+
+function bindAboutValueBar($, items) {
+    const container = $('#about-value-items').first();
+    const templateRoot = getAboutTemplateRoot($);
+
+    if (!container.length || !templateRoot.length) {
+        return;
+    }
+
+    const proto = templateRoot.find('[data-tpl="about-value-item"]').first();
+    if (!proto.length) {
+        return;
+    }
+
+    const cols = [];
+    for (const item of items) {
+        const col = proto.clone();
+        col.removeAttr('data-tpl');
+
+        const icon = col.find('[data-role="about-value-icon"]').first();
+        icon.attr('class', `site-icon about__icon-${String(item?.icon || '').trim()}`.trim());
+
+        setText(col.find('[data-role="about-value-title"]').first(), item?.title);
+        setText(col.find('[data-role="about-value-description"]').first(), item?.description);
+        cols.push(col);
+    }
+
+    container.empty();
+    for (const col of cols) {
+        container.append(col);
+    }
+}
+
+function bindAboutProofPoints($, items) {
+    const list = $('#about-proof-list').first();
+    const templateRoot = getAboutTemplateRoot($);
+
+    if (!list.length || !templateRoot.length) {
+        return;
+    }
+
+    const proto = templateRoot.find('[data-tpl="about-proof-item"]').first();
+    if (!proto.length) {
+        return;
+    }
+
+    const lis = [];
+    for (const item of items) {
+        const li = proto.clone();
+        li.removeAttr('data-tpl');
+
+        const icon = li.find('[data-role="about-proof-icon"]').first();
+        setAttr(icon, 'style', getProofIconStyle(item?.icon));
+
+        setText(li.find('[data-role="about-proof-title"]').first(), item?.title);
+        setText(li.find('[data-role="about-proof-description"]').first(), item?.description);
+        lis.push(li);
+    }
+
+    list.empty();
+    for (const li of lis) {
+        list.append(li);
+    }
 }

@@ -18,8 +18,34 @@
                           style="--site-icon: url('../icons/lucide/menu.svg')"
                           aria-hidden="true"></span>
                 </a></li>
+                <li class="ui-nav__item" data-tpl="nav-item">
+                    <a class="ui-nav__link" href="" data-role="nav-link">
+                        <span data-role="nav-label"></span>
+                        <span class="nav-active-bar" data-role="nav-bar"></span>
+                    </a>
+                </li>
+                <li class="ui-nav__item theme-toggle-item" data-tpl="nav-theme-toggle">
+                    <button class="ui-nav__theme-toggle theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+                        <span class="site-icon theme-toggle__icon theme-toggle__icon--light" style="--site-icon: url('../icons/lucide/sun.svg')" aria-hidden="true"></span>
+                        <span class="site-icon theme-toggle__icon theme-toggle__icon--dark" style="--site-icon: url('../icons/lucide/moon.svg')" aria-hidden="true"></span>
+                        <span class="sr-only" data-theme-toggle-label>Switch to dark theme</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
 </div>
-<ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden></ul>
+<ul class="sidenav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" hidden>
+    <li class="ui-nav__item" data-tpl="mobile-nav-item">
+        <a class="ui-nav__link sidenav-close" href="" data-role="mobile-nav-link">
+            <span data-role="mobile-nav-label"></span>
+        </a>
+    </li>
+    <li class="ui-nav__item theme-toggle-item" data-tpl="mobile-nav-theme-toggle">
+        <button class="ui-nav__theme-toggle theme-toggle sidenav-close" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <span class="site-icon theme-toggle__icon theme-toggle__icon--light" style="--site-icon: url('../icons/lucide/sun.svg')" aria-hidden="true"></span>
+            <span class="site-icon theme-toggle__icon theme-toggle__icon--dark" style="--site-icon: url('../icons/lucide/moon.svg')" aria-hidden="true"></span>
+            <span class="sr-only" data-theme-toggle-label>Switch to dark theme</span>
+        </button>
+    </li>
+</ul>

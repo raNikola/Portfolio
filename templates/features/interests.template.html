@@ -5,5 +5,26 @@
         <p id="interests-description"></p>
     </div>
 
-    <div class="layout-row" id="interests-cards"></div>
+    <div class="layout-row" id="interests-cards">
+        <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-4" data-tpl="interests-col">
+            <div class="ui-card interests__card" data-role="interests-card" data-modifier="">
+                <div class="interests__card__overlay"></div>
+
+                <div class="ui-card__body interests__card__content">
+                    <span class="interests__icon" aria-hidden="true">
+                        <span class="site-icon" style="--site-icon: url('')" data-role="interests-icon"></span>
+                    </span>
+
+                    <span class="ui-card__title" data-role="interests-title"></span>
+                    <span class="interests__bar"></span>
+
+                    <p data-role="interests-description"></p>
+                </div>
+
+                <div class="ui-card__footer interests__meta">
+                    <div class="ui-chip" data-role="interests-meta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

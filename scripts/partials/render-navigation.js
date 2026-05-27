@@ -1,42 +1,107 @@
-import { escapeHtml } from '../lib/html.js';
-
-function renderNavLink(item, options = {}) {
-    const linkClasses = ['ui-nav__link'];
-    if (options.closeOnClick) {
-        linkClasses.push('sidenav-close');
-    }
-    if (item.active) {
-        linkClasses.push('is-active');
+function setText(node, value) {
+    if (!node.length) {
+        return;
     }
 
-    return `
-        <li class="ui-nav__item">
-            <a class="${linkClasses.join(' ')}" href="${escapeHtml(item.href)}">
-                ${escapeHtml(item.label)}
-                ${options.withBar ? '<span class="nav-active-bar"></span>' : ''}
-            </a>
-        </li>
-    `;
+    node.text(value == null ? '' : String(value));
 }
 
-function renderThemeToggle(options = {}) {
-    const closeClass = options.closeOnClick ? ' sidenav-close' : '';
+function setAttr(node, name, value) {
+    if (!node.length) {
+        return;
+    }
 
-    return `
-        <li class="ui-nav__item theme-toggle-item">
-            <button class="ui-nav__theme-toggle theme-toggle${closeClass}" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
-                <span class="site-icon theme-toggle__icon theme-toggle__icon--light" style="--site-icon: url('../icons/lucide/sun.svg')" aria-hidden="true"></span>
-                <span class="site-icon theme-toggle__icon theme-toggle__icon--dark" style="--site-icon: url('../icons/lucide/moon.svg')" aria-hidden="true"></span>
-                <span class="sr-only" data-theme-toggle-label>Switch to dark theme</span>
-            </button>
-        </li>
-    `;
+    if (value == null || value === '') {
+        node.removeAttr(name);
+        return;
+    }
+
+    node.attr(name, String(value));
 }
 
-export function renderDesktopNavigation(items) {
-    return `${items.map(item => renderNavLink(item, { withBar: true })).join('')}${renderThemeToggle()}`;
+function bindDesktopNavigation($, items) {
+    const list = $('#site-navigation-links').first();
+    if (!list.length) {
+        return;
+    }
+
+    const profileItem = list.children('li.ui-nav__item--profile').first();
+    const itemProto = list.find('[data-tpl="nav-item"]').first();
+    const themeProto = list.find('[data-tpl="nav-theme-toggle"]').first();
+
+    if (!itemProto.length || !themeProto.length) {
+        return;
+    }
+
+    const nodes = [];
+
+    for (const item of items || []) {
+        const li = itemProto.clone();
+        li.removeAttr('data-tpl');
+
+        const link = li.find('[data-role="nav-link"]').first();
+        setAttr(link, 'href', item?.href);
+        link.toggleClass('is-active', Boolean(item?.active));
+        setText(li.find('[data-role="nav-label"]').first(), item?.label);
+
+        nodes.push(li);
+    }
+
+    const themeNode = themeProto.clone();
+    themeNode.removeAttr('data-tpl');
+    nodes.push(themeNode);
+
+    list.find('[data-tpl="nav-item"]').remove();
+    list.find('[data-tpl="nav-theme-toggle"]').remove();
+    list.children('li').not(profileItem).remove();
+
+    if (profileItem.length) {
+        profileItem.after(nodes);
+    } else {
+        for (const node of nodes) {
+            list.append(node);
+        }
+    }
 }
 
-export function renderMobileNavigation(items) {
-    return `${items.map(item => renderNavLink(item, { closeOnClick: true })).join('')}${renderThemeToggle({ closeOnClick: true })}`;
+function bindMobileNavigation($, items) {
+    const list = $('#mobile-nav').first();
+    if (!list.length) {
+        return;
+    }
+
+    const itemProto = list.find('[data-tpl="mobile-nav-item"]').first();
+    const themeProto = list.find('[data-tpl="mobile-nav-theme-toggle"]').first();
+
+    if (!itemProto.length || !themeProto.length) {
+        return;
+    }
+
+    const nodes = [];
+
+    for (const item of items || []) {
+        const li = itemProto.clone();
+        li.removeAttr('data-tpl');
+
+        const link = li.find('[data-role="mobile-nav-link"]').first();
+        setAttr(link, 'href', item?.href);
+        link.toggleClass('is-active', Boolean(item?.active));
+        setText(li.find('[data-role="mobile-nav-label"]').first(), item?.label);
+
+        nodes.push(li);
+    }
+
+    const themeNode = themeProto.clone();
+    themeNode.removeAttr('data-tpl');
+    nodes.push(themeNode);
+
+    list.empty();
+    for (const node of nodes) {
+        list.append(node);
+    }
+}
+
+export function bindNavigation($, items) {
+    bindDesktopNavigation($, items);
+    bindMobileNavigation($, items);
 }

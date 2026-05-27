@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { setAttr, setText } from '../build/bind/dom.js';
 
 export function renderSkills($) {
     const skills = JSON.parse(fs.readFileSync('./data/skills.json', 'utf8'));
@@ -7,67 +8,128 @@ export function renderSkills($) {
     $('#skills-title').text(skills.title);
     $('#skills-description').text(skills.description);
 
+    bindSkillFilters($, skills.filters || []);
+    bindSkillCards($, skills.cards || []);
+}
 
-    const filtersHtml = skills.filters.map((filter) => `
-        <li>
-            <button
-                type="button"
-                class="skills__filters__item${filter.active ? ' is-active' : ''}"
-                data-filter="${filter.key}">
-                ${filter.label}
-                <span class="skills__filters__item__bar"></span>
-            </button>
-        </li>
-    `).join('');
+function bindSkillFilters($, filters) {
+    const list = $('#skills-filters ul').first();
+    if (!list.length) {
+        return;
+    }
 
-    $('#skills-filters ul').html(filtersHtml);
+    const prototypeItem = list.find('[data-tpl="skills-filter"]').first();
+    if (!prototypeItem.length) {
+        return;
+    }
 
-    const cardsHtml = skills.cards.map((card) => {
-        const chipsHtml = card.items.map((item) => {
-            const panelId = `skills-panel-${item.id}`;
+    const items = [];
 
-            return `
-                <button
-                    type="button"
-                    class="ui-chip service-chip${item.active ? ' active' : ''}"
-                    aria-expanded="${item.active ? 'true' : 'false'}"
-                    aria-controls="${panelId}"
-                    data-target="${panelId}">
-                    ${item.label}
-                </button>
-            `;
-        }).join('');
+    for (const filter of filters) {
+        const li = prototypeItem.clone();
+        li.removeAttr('data-tpl');
 
-        const panelsHtml = card.items.map((item) => {
-            const panelId = `skills-panel-${item.id}`;
+        const button = li.find('button.skills__filters__item').first();
+        setAttr(button, 'data-filter', filter?.key);
+        button.toggleClass('is-active', Boolean(filter?.active));
 
-            return `
-                <div
-                    id="${panelId}"
-                    class="skills__card__content ui-card__body section-surface service-expand"
-                    ${item.active ? '' : 'hidden'}>
-                    <p>${item.content}</p>
-                </div>
-            `;
-        }).join('');
+        const label = li.find('[data-role="skills-filter-label"]').first();
+        setText(label, filter?.label);
 
-        return `
-            <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-6">
-                <div class="skills__card ui-card service-card${card.items.some((item) => item.active) ? ' open' : ''}" data-category="${card.category}">
-                    <div class="skills__card__title ui-card__body content-fill">
-                        <span class="ui-card__title">${card.title}</span>
-                        <p>${card.description}</p>
-                    </div>
+        items.push(li);
+    }
 
-                    <div class="skills__card__chips ui-card__body chips-wrap">
-                        ${chipsHtml}
-                    </div>
+    list.empty();
+    for (const item of items) {
+        list.append(item);
+    }
+}
 
-                    ${panelsHtml}
-                </div>
-            </div>
-        `;
-    }).join('');
+function bindSkillCards($, cards) {
+    const container = $('#skills-cards').first();
+    if (!container.length) {
+        return;
+    }
 
-    $('#skills-cards').html(cardsHtml);
+    const prototypeCol = container.find('[data-tpl="skills-col"]').first();
+    if (!prototypeCol.length) {
+        return;
+    }
+
+    const columns = [];
+
+    for (const card of cards) {
+        const col = prototypeCol.clone();
+        col.removeAttr('data-tpl');
+
+        const cardRoot = col.find('.skills__card').first();
+        setAttr(cardRoot, 'data-category', card?.category);
+
+        const hasActive = (card?.items || []).some(item => Boolean(item?.active));
+        cardRoot.toggleClass('open', hasActive);
+
+        setText(col.find('[data-role="skills-card-title"]').first(), card?.title);
+        setText(col.find('[data-role="skills-card-description"]').first(), card?.description);
+
+        bindSkillChipsAndPanels(col, card?.items || []);
+        columns.push(col);
+    }
+
+    container.empty();
+    for (const col of columns) {
+        container.append(col);
+    }
+}
+
+function bindSkillChipsAndPanels(colRoot, items) {
+    const chipsContainer = colRoot.find('[data-role="skills-card-chips"]').first();
+    const panelsContainer = colRoot.find('[data-role="skills-card-panels"]').first();
+
+    if (!chipsContainer.length || !panelsContainer.length) {
+        return;
+    }
+
+    const chipPrototype = chipsContainer.find('[data-tpl="skills-chip"]').first();
+    const panelPrototype = panelsContainer.find('[data-tpl="skills-panel"]').first();
+
+    if (!chipPrototype.length || !panelPrototype.length) {
+        return;
+    }
+
+    const chips = [];
+    const panels = [];
+
+    for (const item of items) {
+        const panelId = `skills-panel-${item?.id}`;
+
+        const chip = chipPrototype.clone();
+        chip.removeAttr('data-tpl');
+        chip.toggleClass('active', Boolean(item?.active));
+        setAttr(chip, 'aria-expanded', item?.active ? 'true' : 'false');
+        setAttr(chip, 'aria-controls', panelId);
+        setAttr(chip, 'data-target', panelId);
+        setText(chip.find('[data-role="skills-chip-label"]').first(), item?.label);
+        chips.push(chip);
+
+        const panel = panelPrototype.clone();
+        panel.removeAttr('data-tpl');
+        setAttr(panel, 'id', panelId);
+        if (item?.active) {
+            panel.removeAttr('hidden');
+        } else {
+            panel.attr('hidden', '');
+        }
+        setText(panel.find('[data-role="skills-panel-content"]').first(), item?.content);
+        panels.push(panel);
+    }
+
+    chipsContainer.empty();
+    for (const chip of chips) {
+        chipsContainer.append(chip);
+    }
+
+    panelsContainer.empty();
+    for (const panel of panels) {
+        panelsContainer.append(panel);
+    }
 }

@@ -7,7 +7,7 @@ import { renderSkills } from './sections/render-skills.js';
 import {renderInterests} from './sections/render-interests.js';
 import {renderReferences} from './sections/render-references.js';
 import {renderExperience} from './sections/render-experience.js';
-import {renderDesktopNavigation, renderMobileNavigation} from './partials/render-navigation.js';
+import { bindNavigation } from './partials/render-navigation.js';
 
 const templatePath = './index.template.html';
 const outputPath = './dist/index.html';
@@ -42,7 +42,7 @@ renderExperience($);
 renderInterests($)
 renderReferences($)
 
-renderNavigation($, siteConfig.navigation || []);
+bindNavigation($, siteConfig.navigation || []);
 injectHeadMetadata($, siteConfig);
 injectStructuredData($, structuredDataJson);
 injectUmamiScript($, umamiConfig);
@@ -187,13 +187,7 @@ function renderNotFoundHtml(notFoundPath, inlineHref) {
     return $notFound.html();
 }
 
-function renderNavigation($, navigationItems) {
-    const profileTrigger = $('#site-navigation-links .sidenav-about').closest('li');
-    const profileTriggerHtml = profileTrigger.length ? $.html(profileTrigger) : '';
-
-    $('#site-navigation-links').html(`${renderDesktopNavigation(navigationItems)}${profileTriggerHtml}`);
-    $('#mobile-nav').html(renderMobileNavigation(navigationItems));
-}
+// Navigation is bound via `bindNavigation` (template-only markup + build-time data binding).
 
 function removeExtraMatches($, selector) {
     const matches = $(selector);

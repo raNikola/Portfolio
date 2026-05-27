@@ -5,5 +5,158 @@
         <p id="experience-intro"></p>
     </div>
 
-    <div class="layout-row" id="experience-cards"></div>
+    <div class="layout-row" id="experience-cards">
+        <div class="layout-col layout-col--s-12 experience__timeline" data-tpl="experience-timeline">
+            <div class="layout-col layout-col--s-12 experience__timeline-item" data-tpl="experience-featured-item">
+                <div class="experience__timeline-date experience__desktop-only">
+                    <span data-role="experience-period-start"></span>
+                    <span data-role="experience-period-end"></span>
+                </div>
+                <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
+
+                <div class="experience__timeline-content">
+                    <div class="ui-card experience__card experience__card--featured" data-experience-card>
+                        <div class="ui-card__body experience__card-content">
+                            <div class="experience__card-header">
+                                <div>
+                                    <span class="experience__period experience__mobile-only" data-role="experience-period-full"></span>
+                                    <span class="ui-card__title experience__title" data-role="experience-role"></span>
+
+                                    <a href="" target="_blank" rel="noopener noreferrer" class="experience__company-link" data-role="experience-company-link">
+                                        <span data-role="experience-company-name"></span>
+                                        <i data-lucide="arrow-up-right"></i>
+                                    </a>
+                                    <span class="experience__company" data-role="experience-company-text"></span>
+                                </div>
+
+                                <div class="experience__card-meta">
+                                    <span class="experience__location" data-role="experience-location"></span>
+                                    <span class="experience__badge" data-role="experience-status"></span>
+                                </div>
+                            </div>
+
+                            <div class="experience__chips" data-role="experience-tags">
+                                <div class="ui-chip" data-tpl="experience-chip"></div>
+                            </div>
+
+                            <p class="experience__summary" data-role="experience-summary"></p>
+
+                            <div class="layout-row experience__metrics" data-role="experience-metrics">
+                                <div class="ui-card__footer">
+                                    <div class="layout-col layout-col--s-6 layout-col--m-6 layout-col--l-3" data-tpl="experience-metric-col">
+                                        <div class="experience__metric">
+                                            <span class="experience__metric-icon" aria-hidden="true">
+                                                <span class="site-icon" style="--site-icon: url('')" data-role="experience-metric-icon"></span>
+                                            </span>
+
+                                            <div class="experience__metric-copy">
+                                                <strong data-role="experience-metric-value"></strong>
+                                                <span class="experience__metric-label" data-role="experience-metric-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience__action">
+                            <button type="button" class="experience__toggle" data-target="" data-label-collapsed="" data-label-expanded="" aria-expanded="false" aria-controls="" data-role="experience-toggle">
+                                <span class="experience__toggle-line" aria-hidden="true"></span>
+                                <span class="experience__toggle-label" data-role="experience-toggle-label"></span>
+                                <span class="experience__toggle-icon" aria-hidden="true">
+                                    <span class="site-icon" style="--site-icon: url('../icons/lucide/chevron-down.svg')"></span>
+                                </span>
+                                <span class="experience__toggle-line" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <div class="experience__details" aria-hidden="true" data-role="experience-details">
+                            <div class="experience__details-inner">
+                                <div class="experience__detail-block" data-tpl="experience-detail-block">
+                                    <h5 data-role="experience-detail-title"></h5>
+                                    <p data-role="experience-detail-content"></p>
+                                    <ul data-role="experience-detail-list">
+                                        <li data-tpl="experience-detail-li"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-col layout-col--s-12 experience__timeline-item experience__timeline-item--foundation" data-tpl="experience-foundation-item">
+                <div class="experience__timeline-date experience__desktop-only">
+                    <span data-role="experience-foundation-period-start"></span>
+                    <span data-role="experience-foundation-period-end"></span>
+                </div>
+                <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
+
+                <div class="experience__timeline-content">
+                    <div class="ui-card experience__card experience__card--foundation" data-experience-card>
+                        <div class="ui-card__body experience__card-content">
+                            <div class="experience__foundation-layout">
+                                <span class="experience__foundation-icon" aria-hidden="true">
+                                    <span class="site-icon" style="--site-icon: url('')" data-role="experience-foundation-icon"></span>
+                                </span>
+
+                                <div class="experience__foundation-content">
+                                    <div class="experience__card-header">
+                                        <div>
+                                            <span class="experience__period experience__mobile-only" data-role="experience-foundation-period-full"></span>
+                                            <span class="ui-card__title experience__title" data-role="experience-foundation-title"></span>
+                                            <p class="experience__foundation-subtitle" data-role="experience-foundation-subtitle"></p>
+                                            <p class="experience__foundation-companies" data-role="experience-foundation-companies"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="experience__chips experience__foundation-tags" data-role="experience-foundation-tags">
+                                        <div class="ui-chip" data-tpl="experience-foundation-chip"></div>
+                                    </div>
+
+                                    <p class="experience__summary" data-role="experience-foundation-summary"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience__action experience__action--foundation">
+                            <button type="button" class="experience__toggle" data-target="" data-label-collapsed="" data-label-expanded="" aria-expanded="false" aria-controls="" data-role="experience-foundation-toggle">
+                                <span class="experience__toggle-line" aria-hidden="true"></span>
+                                <span class="experience__toggle-label" data-role="experience-foundation-toggle-label"></span>
+                                <span class="experience__toggle-icon" aria-hidden="true">
+                                    <span class="site-icon" style="--site-icon: url('../icons/lucide/chevron-down.svg')"></span>
+                                </span>
+                                <span class="experience__toggle-line" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <div class="experience__details" aria-hidden="true" data-role="experience-foundation-details">
+                            <div class="experience__details-inner">
+                                <div class="experience__mini-cards" data-role="experience-mini-cards">
+                                    <div class="ui-card experience__mini-card" data-tpl="experience-mini-card">
+                                        <div class="ui-card__body">
+                                            <span class="ui-card__title" data-role="experience-mini-role"></span>
+
+                                            <a href="" target="_blank" rel="noopener noreferrer" class="experience__company-link" data-role="experience-mini-company-link">
+                                                <span data-role="experience-mini-company-name"></span>
+                                                <i data-lucide="arrow-up-right"></i>
+                                            </a>
+                                            <span class="experience__company" data-role="experience-mini-company-text"></span>
+
+                                            <div class="experience__mini-period" data-role="experience-mini-period"></div>
+                                            <p data-role="experience-mini-summary"></p>
+
+                                            <div class="experience__mini-stack" data-role="experience-mini-stack">
+                                                <div class="ui-chip" data-tpl="experience-mini-chip"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

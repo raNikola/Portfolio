@@ -6,8 +6,48 @@
     </div>
 
     <div class="skills__filters layout-row u-center" id="skills-filters" aria-label="Skills filters">
-        <ul></ul>
+        <ul>
+            <li data-tpl="skills-filter">
+                <button
+                    type="button"
+                    class="skills__filters__item"
+                    data-filter="">
+                    <span class="skills__filters__item__label" data-role="skills-filter-label"></span>
+                    <span class="skills__filters__item__bar"></span>
+                </button>
+            </li>
+        </ul>
     </div>
 
-    <div class="layout-row equal-height" id="skills-cards"></div>
+    <div class="layout-row equal-height" id="skills-cards">
+        <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-6" data-tpl="skills-col">
+            <div class="skills__card ui-card service-card" data-category="">
+                <div class="skills__card__title ui-card__body content-fill">
+                    <span class="ui-card__title" data-role="skills-card-title"></span>
+                    <p data-role="skills-card-description"></p>
+                </div>
+
+                <div class="skills__card__chips ui-card__body chips-wrap" data-role="skills-card-chips">
+                    <button
+                        type="button"
+                        class="ui-chip service-chip"
+                        aria-expanded="false"
+                        aria-controls=""
+                        data-target=""
+                        data-tpl="skills-chip">
+                        <span data-role="skills-chip-label"></span>
+                    </button>
+                </div>
+
+                <div data-role="skills-card-panels">
+                    <div
+                        class="skills__card__content ui-card__body section-surface service-expand"
+                        hidden
+                        data-tpl="skills-panel">
+                        <p data-role="skills-panel-content"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

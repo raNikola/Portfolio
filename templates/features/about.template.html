@@ -59,3 +59,57 @@
         </div>
     </div>
 </section>
+
+<!-- Build-time prototypes (removed/duplicated by binder) -->
+<template data-tpl-root="about">
+    <span class="about__contact-item" data-tpl="about-contact-text">
+        <span class="site-icon" aria-hidden="true" data-role="about-contact-icon"></span>
+        <span data-role="about-contact-label"></span>
+    </span>
+
+    <span class="about__contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" data-tpl="about-contact-location">
+        <span class="site-icon" aria-hidden="true" data-role="about-contact-icon"></span>
+        <span data-role="about-contact-location-label">
+            <span itemprop="addressCountry" data-role="about-contact-location-country"></span>
+            <span data-role="about-contact-location-separator"> / </span>
+            <span data-role="about-contact-location-detail"></span>
+        </span>
+    </span>
+
+    <span class="about__contact-item" data-tpl="about-contact-email">
+        <span class="site-icon" aria-hidden="true" data-role="about-contact-icon"></span>
+        <a href="#" class="about__contact-email" data-role="about-contact-email-link" data-user="" data-domain="" aria-label="" data-analytics="" itemprop="email">[Show email]</a>
+    </span>
+
+    <a class="about__contact-item" href="" itemprop="sameAs" target="_blank" rel="noopener noreferrer" aria-label="" data-analytics="" data-tpl="about-contact-social">
+        <span class="site-icon" aria-hidden="true" data-role="about-contact-icon"></span>
+        <span data-role="about-contact-label"></span>
+    </a>
+
+    <div class="layout-col layout-col--s-12 layout-col--l-4 about__value-col" data-tpl="about-value-item">
+        <div class="about__value-item">
+            <span class="about__value-icon">
+                <span class="site-icon" aria-hidden="true" data-role="about-value-icon"></span>
+            </span>
+            <div>
+                <strong data-role="about-value-title"></strong>
+                <span data-role="about-value-description"></span>
+            </div>
+        </div>
+    </div>
+
+    <li class="intro__proof-item layout-col layout-col--s-12 layout-col--l-4" data-tpl="about-proof-item">
+        <span class="intro__proof-check">
+            <span
+                class="site-icon intro__proof-icon"
+                style="--site-icon: url('')"
+                aria-hidden="true"
+                data-role="about-proof-icon">
+            </span>
+        </span>
+        <div class="intro__proof-copy">
+            <strong data-role="about-proof-title"></strong>
+            <span data-role="about-proof-description"></span>
+        </div>
+    </li>
+</template>

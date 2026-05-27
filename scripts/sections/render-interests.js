@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+import { setAttr, setText } from '../build/bind/dom.js';
+
 export function renderInterests($) {
     const interests = JSON.parse(fs.readFileSync('./data/interests.json', 'utf8'));
 
@@ -7,31 +9,47 @@ export function renderInterests($) {
     $('#interests-title').text(interests.title);
     $('#interests-description').text(interests.description);
 
-    const cardsHtml = interests.items.map((item) => `
-        <div class="layout-col layout-col--s-12 layout-col--m-6 layout-col--l-4">
-            <div class="ui-card interests__card interests__card--${item.modifier}">
-                <div class="interests__card__overlay"></div>
+    bindInterestsCards($, interests.items || []);
+}
 
-                <div class="ui-card__body interests__card__content">
-                    <span class="interests__icon" aria-hidden="true">
-                        <span
-                            class="site-icon"
-                            style="--site-icon: url('${item.icon}')">
-                        </span>
-                    </span>
+function bindInterestsCards($, items) {
+    const container = $('#interests-cards').first();
+    if (!container.length) {
+        return;
+    }
 
-                    <span class="ui-card__title">${item.title}</span>
-                    <span class="interests__bar"></span>
+    const prototypeCol = container.find('[data-tpl="interests-col"]').first();
+    if (!prototypeCol.length) {
+        return;
+    }
 
-                    <p>${item.description}</p>
-                </div>
+    const columns = [];
 
-                <div class="ui-card__footer interests__meta">
-                    <div class="ui-chip">${item.meta}</div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    for (const item of items) {
+        const col = prototypeCol.clone();
+        col.removeAttr('data-tpl');
 
-    $('#interests-cards').html(cardsHtml);
+        const card = col.find('[data-role="interests-card"]').first();
+        if (card.length) {
+            const modifier = item?.modifier ? String(item.modifier) : '';
+            setAttr(card, 'data-modifier', modifier);
+
+            // Keep the modifier class contract used by existing SCSS.
+            if (modifier) {
+                card.addClass(`interests__card--${modifier}`);
+            }
+        }
+
+        setAttr(col.find('[data-role="interests-icon"]').first(), 'style', `--site-icon: url('${item?.icon || ''}')`);
+        setText(col.find('[data-role="interests-title"]').first(), item?.title);
+        setText(col.find('[data-role="interests-description"]').first(), item?.description);
+        setText(col.find('[data-role="interests-meta"]').first(), item?.meta);
+
+        columns.push(col);
+    }
+
+    container.empty();
+    for (const col of columns) {
+        container.append(col);
+    }
 }

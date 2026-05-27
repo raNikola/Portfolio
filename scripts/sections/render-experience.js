@@ -1,7 +1,5 @@
 import fs from 'fs';
 
-import { escapeHtml, renderAttrs, renderChips, renderIcon } from '../lib/html.js';
-
 const CTA_FALLBACK = 'View details';
 
 function getExpandedCtaLabel(label) {
@@ -9,228 +7,333 @@ function getExpandedCtaLabel(label) {
         return 'Hide details';
     }
 
-    return label.replace(/^View\b/i, 'Hide');
+    return String(label).replace(/^View\b/i, 'Hide');
 }
 
-function renderCompany(company, className) {
-    if (!company || !company.name) {
-        return '';
-    }
-
-    if (!company.url) {
-        return `<span class="${className}">${escapeHtml(company.name)}</span>`;
-    }
-
-    return `
-        <a
-            href="${escapeHtml(company.url)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="experience__company-link">
-            <span>${escapeHtml(company.name)}</span>
-            <i data-lucide="arrow-up-right"></i>
-        </a>
-    `;
-}
-
-function renderTimelineDate(period) {
+function renderTimelineDateParts(period) {
     const parts = String(period ?? '').split(/\s+[–-]\s+/);
 
     if (parts.length < 2) {
-        return `<span>${escapeHtml(period)}</span>`;
+        return { start: String(period ?? ''), end: '' };
     }
 
-    return `
-        <span>${escapeHtml(parts[0])}</span>
-        <span>– ${escapeHtml(parts.slice(1).join(' - '))}</span>
-    `;
+    return { start: parts[0], end: `– ${parts.slice(1).join(' - ')}` };
 }
 
-function renderMetrics(metrics) {
-    if (!metrics || !metrics.length) {
-        return '';
+function setHidden(node, hidden) {
+    if (!node.length) {
+        return;
     }
 
-    return `
-        <div class="layout-row experience__metrics">
-        <div class="ui-card__footer">
-            ${metrics.map(metric => `
-                <div class="layout-col layout-col--s-6 layout-col--m-6 layout-col--l-3">
-                    <div class="experience__metric">
-                        ${renderIcon(metric.icon, 'experience__metric-icon')}
-
-                        <div class="experience__metric-copy">
-                            <strong>${escapeHtml(metric.value)}</strong>
-                            <span class="experience__metric-label">${escapeHtml(metric.label)}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('')}
-            </div>
-        </div>
-    `;
+    if (hidden) {
+        node.attr('hidden', '');
+    } else {
+        node.removeAttr('hidden');
+    }
 }
 
-function renderDetailBlock(block) {
-    const list = block.items && block.items.length
-        ? `<ul>${block.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
-        : '';
-
-    const content = block.content
-        ? `<p>${escapeHtml(block.content)}</p>`
-        : '';
-
-    return `
-        <div class="experience__detail-block">
-            <h5>${escapeHtml(block.title)}</h5>
-            ${content}
-            ${list}
-        </div>
-    `;
-}
-
-function renderDetails(item) {
-    if (!item.details || !item.details.length) {
-        return '';
+function setText(node, value) {
+    if (!node.length) {
+        return;
     }
 
-    return `
-        <div id="${escapeHtml(item.id)}-details" class="experience__details" aria-hidden="true">
-            <div class="experience__details-inner">
-                ${item.details.map(renderDetailBlock).join('')}
-            </div>
-        </div>
-    `;
+    node.text(value == null ? '' : String(value));
 }
 
-function renderToggleButton(detailsId, cta) {
-    const expandedCta = getExpandedCtaLabel(cta);
+function bindCompany(node, company, {
+    linkSelector,
+    linkNameSelector,
+    textSelector
+}) {
+    const link = node.find(linkSelector).first();
+    const linkName = link.length ? link.find(linkNameSelector).first() : null;
+    const text = node.find(textSelector).first();
 
-    return `<button${renderAttrs({
-            type: 'button',
-            class: 'experience__toggle',
-            'data-target': detailsId,
-            'data-label-collapsed': cta,
-            'data-label-expanded': expandedCta,
-            'aria-expanded': 'false',
-            'aria-controls': detailsId
-        })}>
-                            <span class="experience__toggle-line" aria-hidden="true"></span>
-                            <span class="experience__toggle-label">${escapeHtml(cta)}</span>
-                            <span class="experience__toggle-icon" aria-hidden="true">
-                                <span class="site-icon" style="--site-icon: url('../icons/lucide/chevron-down.svg')"></span>
-                            </span>
-                            <span class="experience__toggle-line" aria-hidden="true"></span>
-                        </button>`;
+    const name = company?.name ? String(company.name) : '';
+    const url = company?.url ? String(company.url) : '';
+
+    if (url) {
+        if (link.length) {
+            link.attr('href', url);
+            if (linkName && linkName.length) {
+                setText(linkName, name);
+            }
+            setHidden(link, false);
+        }
+        if (text.length) {
+            setHidden(text, true);
+        }
+        return;
+    }
+
+    if (link.length) {
+        setHidden(link, true);
+    }
+    if (text.length) {
+        setText(text, name);
+        setHidden(text, !name);
+    }
 }
 
-function renderFeaturedCard(item) {
-    const detailsId = `${item.id}-details`;
-    const cta = item.cta || CTA_FALLBACK;
+function bindChips(container, chipPrototypeSelector, values) {
+    if (!container.length) {
+        return;
+    }
 
-    return `
-        <div class="layout-col layout-col--s-12 experience__timeline-item">
-            <div class="experience__timeline-date experience__desktop-only">${renderTimelineDate(item.period)}</div>
-            <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
+    const proto = container.find(chipPrototypeSelector).first();
+    if (!proto.length) {
+        container.empty();
+        return;
+    }
 
-            <div class="experience__timeline-content">
-                <div class="ui-card experience__card experience__card--featured" data-experience-card>
-                    <div class="ui-card__body experience__card-content">
-                        <div class="experience__card-header">
-                            <div>
-                                <span class="experience__period experience__mobile-only">${escapeHtml(item.period)}</span>
-                                <span class="ui-card__title experience__title">${escapeHtml(item.role)}</span>
-                                ${renderCompany(item.company, 'experience__company')}
-                            </div>
+    const chips = [];
+    for (const value of values || []) {
+        const chip = proto.clone();
+        chip.removeAttr('data-tpl');
+        setText(chip, value);
+        chips.push(chip);
+    }
 
-                            <div class="experience__card-meta">
-                                ${item.location ? `<span class="experience__location">${escapeHtml(item.location)}</span>` : ''}
-                                ${item.status ? `<span class="experience__badge">${escapeHtml(item.status)}</span>` : ''}
-                            </div>
-                        </div>
-
-                        ${renderChips(item.tags, 'experience__chips')}
-                        <p class="experience__summary">${escapeHtml(item.summary)}</p>
-                        ${renderMetrics(item.metrics)}
-                    </div>
-
-                    <div class="experience__action">
-                        ${renderToggleButton(detailsId, cta)}
-                    </div>
-
-                    ${renderDetails(item)}
-                </div>
-            </div>
-        </div>
-    `;
+    container.empty();
+    for (const chip of chips) {
+        container.append(chip);
+    }
 }
 
-function renderMiniCard(item) {
-    return `
-        <div class="ui-card experience__mini-card">
-            <div class="ui-card__body">
-                <span class="ui-card__title">${escapeHtml(item.role)}</span>
-                ${renderCompany(item.company, 'experience__company')}
-                <div class="experience__mini-period">${escapeHtml(item.period)}</div>
-                <p>${escapeHtml(item.summary)}</p>
-                ${renderChips(item.stack, 'experience__mini-stack')}
-            </div>
-        </div>
-    `;
+function bindMetrics(metricsRoot, metrics) {
+    if (!metricsRoot.length) {
+        return;
+    }
+
+    const protoCol = metricsRoot.find('[data-tpl="experience-metric-col"]').first();
+    const footer = metricsRoot.find('.ui-card__footer').first();
+
+    if (!protoCol.length || !footer.length) {
+        metricsRoot.empty();
+        return;
+    }
+
+    const cols = [];
+    for (const metric of metrics || []) {
+        const col = protoCol.clone();
+        col.removeAttr('data-tpl');
+
+        const icon = col.find('[data-role="experience-metric-icon"]').first();
+        const iconName = metric?.icon ? String(metric.icon) : '';
+        if (icon.length) {
+            icon.attr('style', `--site-icon: url('../icons/lucide/${iconName}.svg')`);
+        }
+
+        setText(col.find('[data-role="experience-metric-value"]').first(), metric?.value);
+        setText(col.find('[data-role="experience-metric-label"]').first(), metric?.label);
+        cols.push(col);
+    }
+
+    footer.empty();
+    for (const col of cols) {
+        footer.append(col);
+    }
 }
 
-function renderGroupCard(group, groupedItems) {
-    const detailsId = `${group.id}-details`;
-    const cta = group.cta || CTA_FALLBACK;
-    const companies = group.companies && group.companies.length
-        ? `<p class="experience__foundation-companies">${group.companies.map(escapeHtml).join(' &middot; ')}</p>`
-        : '';
-    const subtitle = group.subtitle
-        ? `<p class="experience__foundation-subtitle">${escapeHtml(group.subtitle)}</p>`
-        : '';
+function bindDetails(featuredNode, item) {
+    const details = featuredNode.find('[data-role="experience-details"]').first();
+    const toggle = featuredNode.find('[data-role="experience-toggle"]').first();
 
-    return `
-        <div class="layout-col layout-col--s-12 experience__timeline-item experience__timeline-item--foundation">
-            <div class="experience__timeline-date experience__desktop-only">${renderTimelineDate(group.period)}</div>
-            <span class="experience__timeline-dot experience__desktop-only" aria-hidden="true"></span>
+    if (!details.length || !toggle.length) {
+        return;
+    }
 
-            <div class="experience__timeline-content">
-                <div class="ui-card experience__card experience__card--foundation" data-experience-card>
-                    <div class="ui-card__body experience__card-content">
-                        <div class="experience__foundation-layout">
-                            ${renderIcon(group.icon, 'experience__foundation-icon')}
+    const detailsId = `${item?.id}-details`;
+    details.attr('id', detailsId);
 
-                            <div class="experience__foundation-content">
-                                <div class="experience__card-header">
-                                    <div>
-                                        <span class="experience__period experience__mobile-only">${escapeHtml(group.period)}</span>
-                                        <span class="ui-card__title experience__title">${escapeHtml(group.title)}</span>
-                                        ${subtitle}
-                                        ${companies}
-                                    </div>
-                                </div>
+    const cta = item?.cta || CTA_FALLBACK;
+    const expanded = getExpandedCtaLabel(cta);
 
-                                ${renderChips(group.tags, 'experience__chips experience__foundation-tags')}
-                                <p class="experience__summary">${escapeHtml(group.summary)}</p>
-                            </div>
-                        </div>
-                    </div>
+    toggle.attr('data-target', detailsId);
+    toggle.attr('data-label-collapsed', cta);
+    toggle.attr('data-label-expanded', expanded);
+    toggle.attr('aria-controls', detailsId);
+    setText(toggle.find('[data-role="experience-toggle-label"]').first(), cta);
 
-                    <div class="experience__action experience__action--foundation">
-                        ${renderToggleButton(detailsId, cta)}
-                    </div>
+    const blocks = item?.details || [];
+    const protoBlock = details.find('[data-tpl="experience-detail-block"]').first();
+    const inner = details.find('.experience__details-inner').first();
 
-                    <div id="${escapeHtml(detailsId)}" class="experience__details" aria-hidden="true">
-                        <div class="experience__details-inner">
-                            <div class="experience__mini-cards">
-                                ${groupedItems.map(renderMiniCard).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    if (!protoBlock.length || !inner.length) {
+        return;
+    }
+
+    const rendered = [];
+    for (const block of blocks) {
+        const b = protoBlock.clone();
+        b.removeAttr('data-tpl');
+
+        setText(b.find('[data-role="experience-detail-title"]').first(), block?.title);
+
+        const contentNode = b.find('[data-role="experience-detail-content"]').first();
+        const content = block?.content ? String(block.content) : '';
+        if (contentNode.length) {
+            setText(contentNode, content);
+            setHidden(contentNode, !content);
+        }
+
+        const list = b.find('[data-role="experience-detail-list"]').first();
+        const liProto = b.find('[data-tpl="experience-detail-li"]').first();
+        if (list.length && liProto.length) {
+            const items = block?.items || [];
+            if (!items.length) {
+                list.empty();
+                setHidden(list, true);
+            } else {
+                const lis = [];
+                for (const text of items) {
+                    const li = liProto.clone();
+                    li.removeAttr('data-tpl');
+                    setText(li, text);
+                    lis.push(li);
+                }
+                list.empty();
+                for (const li of lis) {
+                    list.append(li);
+                }
+                setHidden(list, false);
+            }
+        }
+
+        rendered.push(b);
+    }
+
+    inner.empty();
+    for (const b of rendered) {
+        inner.append(b);
+    }
+}
+
+function bindFeaturedItem(featuredProto, item) {
+    const node = featuredProto.clone();
+    node.removeAttr('data-tpl');
+
+    const date = renderTimelineDateParts(item?.period);
+    setText(node.find('[data-role="experience-period-start"]').first(), date.start);
+    const endNode = node.find('[data-role="experience-period-end"]').first();
+    setText(endNode, date.end);
+    setHidden(endNode, !date.end);
+
+    setText(node.find('[data-role="experience-period-full"]').first(), item?.period);
+    setText(node.find('[data-role="experience-role"]').first(), item?.role);
+
+    bindCompany(node, item?.company, {
+        linkSelector: '[data-role="experience-company-link"]',
+        linkNameSelector: '[data-role="experience-company-name"]',
+        textSelector: '[data-role="experience-company-text"]'
+    });
+
+    const location = node.find('[data-role="experience-location"]').first();
+    setText(location, item?.location);
+    setHidden(location, !item?.location);
+
+    const status = node.find('[data-role="experience-status"]').first();
+    setText(status, item?.status);
+    setHidden(status, !item?.status);
+
+    setText(node.find('[data-role="experience-summary"]').first(), item?.summary);
+
+    bindChips(node.find('[data-role="experience-tags"]').first(), '[data-tpl="experience-chip"]', item?.tags || []);
+    bindMetrics(node.find('[data-role="experience-metrics"]').first(), item?.metrics || []);
+    bindDetails(node, item);
+
+    return node;
+}
+
+function bindMiniCards(container, groupedItems) {
+    if (!container.length) {
+        return;
+    }
+
+    const proto = container.find('[data-tpl="experience-mini-card"]').first();
+    if (!proto.length) {
+        container.empty();
+        return;
+    }
+
+    const rendered = [];
+    for (const item of groupedItems || []) {
+        const node = proto.clone();
+        node.removeAttr('data-tpl');
+
+        setText(node.find('[data-role="experience-mini-role"]').first(), item?.role);
+
+        bindCompany(node, item?.company, {
+            linkSelector: '[data-role="experience-mini-company-link"]',
+            linkNameSelector: '[data-role="experience-mini-company-name"]',
+            textSelector: '[data-role="experience-mini-company-text"]'
+        });
+
+        setText(node.find('[data-role="experience-mini-period"]').first(), item?.period);
+        setText(node.find('[data-role="experience-mini-summary"]').first(), item?.summary);
+
+        bindChips(node.find('[data-role="experience-mini-stack"]').first(), '[data-tpl="experience-mini-chip"]', item?.stack || []);
+
+        rendered.push(node);
+    }
+
+    container.empty();
+    for (const node of rendered) {
+        container.append(node);
+    }
+}
+
+function bindFoundationItem(foundationProto, group, groupedItems) {
+    const node = foundationProto.clone();
+    node.removeAttr('data-tpl');
+
+    const date = renderTimelineDateParts(group?.period);
+    setText(node.find('[data-role="experience-foundation-period-start"]').first(), date.start);
+    const endNode = node.find('[data-role="experience-foundation-period-end"]').first();
+    setText(endNode, date.end);
+    setHidden(endNode, !date.end);
+
+    setText(node.find('[data-role="experience-foundation-period-full"]').first(), group?.period);
+    setText(node.find('[data-role="experience-foundation-title"]').first(), group?.title);
+
+    const icon = node.find('[data-role="experience-foundation-icon"]').first();
+    const iconName = group?.icon ? String(group.icon) : '';
+    if (icon.length) {
+        icon.attr('style', `--site-icon: url('../icons/lucide/${iconName}.svg')`);
+    }
+
+    const subtitle = node.find('[data-role="experience-foundation-subtitle"]').first();
+    setText(subtitle, group?.subtitle);
+    setHidden(subtitle, !group?.subtitle);
+
+    const companies = node.find('[data-role="experience-foundation-companies"]').first();
+    const companiesText = (group?.companies || []).filter(Boolean).join(' · ');
+    setText(companies, companiesText);
+    setHidden(companies, !companiesText);
+
+    setText(node.find('[data-role="experience-foundation-summary"]').first(), group?.summary);
+    bindChips(node.find('[data-role="experience-foundation-tags"]').first(), '[data-tpl="experience-foundation-chip"]', group?.tags || []);
+
+    const details = node.find('[data-role="experience-foundation-details"]').first();
+    const toggle = node.find('[data-role="experience-foundation-toggle"]').first();
+    const detailsId = `${group?.id}-details`;
+
+    if (details.length) {
+        details.attr('id', detailsId);
+    }
+
+    if (toggle.length) {
+        const cta = group?.cta || CTA_FALLBACK;
+        const expanded = getExpandedCtaLabel(cta);
+        toggle.attr('data-target', detailsId);
+        toggle.attr('data-label-collapsed', cta);
+        toggle.attr('data-label-expanded', expanded);
+        toggle.attr('aria-controls', detailsId);
+        setText(toggle.find('[data-role="experience-foundation-toggle-label"]').first(), cta);
+    }
+
+    bindMiniCards(node.find('[data-role="experience-mini-cards"]').first(), groupedItems || []);
+    return node;
 }
 
 export function renderExperience($) {
@@ -240,23 +343,43 @@ export function renderExperience($) {
     $('#experience-title').text(experience.section.title);
     $('#experience-intro').text(experience.section.intro);
 
-    const featuredItems = experience.items.filter(item => item.type === 'featured');
-    const groupedCards = experience.groups.map((group) => {
-        const groupedItems = experience.items.filter(item =>
-            item.type === 'grouped' && item.groupId === group.id
-        );
+    const container = $('#experience-cards').first();
+    if (!container.length) {
+        return;
+    }
 
-        return renderGroupCard(group, groupedItems);
-    });
+    const timelineProto = container.find('[data-tpl="experience-timeline"]').first();
+    if (!timelineProto.length) {
+        return;
+    }
 
-    const cardsHtml = `
-        <div class="layout-col layout-col--s-12 experience__timeline">
-            ${[
-        ...featuredItems.map(renderFeaturedCard),
-        ...groupedCards
-            ].join('')}
-        </div>
-    `;
+    const featuredProto = timelineProto.find('[data-tpl="experience-featured-item"]').first();
+    const foundationProto = timelineProto.find('[data-tpl="experience-foundation-item"]').first();
 
-    $('#experience-cards').html(cardsHtml);
+    const timeline = timelineProto.clone();
+    timeline.removeAttr('data-tpl');
+
+    // Remove prototypes inside the cloned timeline.
+    timeline.find('[data-tpl="experience-featured-item"]').remove();
+    timeline.find('[data-tpl="experience-foundation-item"]').remove();
+
+    const featuredItems = (experience.items || []).filter(item => item?.type === 'featured');
+    for (const item of featuredItems) {
+        if (!featuredProto.length) {
+            continue;
+        }
+        timeline.append(bindFeaturedItem(featuredProto, item));
+    }
+
+    for (const group of experience.groups || []) {
+        if (!foundationProto.length) {
+            continue;
+        }
+        const groupedItems = (experience.items || []).filter(item => item?.type === 'grouped' && item?.groupId === group?.id);
+        timeline.append(bindFoundationItem(foundationProto, group, groupedItems));
+    }
+
+    container.empty();
+    container.append(timeline);
 }
+
